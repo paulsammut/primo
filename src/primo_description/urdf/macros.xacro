@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
+    
   <!-- parameters -->
   <xacro:property name="seecamSize" value="0.05"/>
   <xacro:property name="seecamMass" value="0.1"/>
+  <xacro:property name="stereocamSize" value="0.05"/>
+  <xacro:property name="stereocamMass" value="0.1"/>
 
   <!-- Meshes -->
   <xacro:macro name="m_mesh_chassis">
     <mesh filename="package://primo_description/meshes/R3_Primo.STL"/>
   </xacro:macro>
-
   <xacro:macro name="m_mesh_wheel">
     <mesh filename="package://primo_description/meshes/R2_wheel.STL"/>
   </xacro:macro>
@@ -35,7 +36,7 @@
       </inertial>
     </link>
   </xacro:macro>
-  
+
   <!-- Wheel link -->
   <xacro:macro name="m_wheel" params="lr reflect">
     <link name="${lr}_wheel">
@@ -64,6 +65,7 @@
       <origin rpy="0 0 0" xyz="0 ${reflect*0.3175} 0.1510"/>
       <axis xyz="0 1 0" rpy="0 0 0"/>
     </joint>
+
     <!-- Gazebo wheel reference -->
     <gazebo reference="${lr}_wheel">
       <mu1 value="200.0"/>
@@ -84,7 +86,7 @@
   </xacro:macro>
 
   <!-- Tail Wheel -->
-  <xacro:macro name="m_tailwheel">
+  <xacro:macro name="m_sim_tail">
     <link name="tail_wheel">
       <visual>
         <geometry>
@@ -188,24 +190,25 @@
 
   <!-- stereo0 cam macro -->
   <xacro:macro name="m_stereo0">
-      <link name="stereo0_link"> <!-- this name is required for the point cloud -->
+    <link name="stereo0_link">
+      <!-- this name is required for the point cloud -->
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+          <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
         </geometry>
       </collision>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+          <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
         </geometry>
         <material name="red"/>
       </visual>
       <inertial>
-        <mass value="${seecamMass}"/>
+        <mass value="${stereocamMass}"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <box_inertia m="${seecamMass}" x="${seecamSize}" y="${seecamSize}" z="${seecamSize}"/>
+        <box_inertia m="${stereocamMass}" x="${stereocamSize}" y="${stereocamSize}" z="${stereocamSize}"/>
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
       </inertial>
     </link>
@@ -216,5 +219,5 @@
       <child link="stereo0_link"/>
     </joint>
   </xacro:macro>
-</robot>
 
+</robot>
