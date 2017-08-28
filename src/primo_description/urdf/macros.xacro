@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- parameters -->
+  <xacro:property name="seecamSize" value="0.05"/>
+  <xacro:property name="seecamMass" value="0.1"/>
+
+  <!-- Meshes -->
+  <xacro:macro name="m_mesh_chassis">
+    <mesh filename="package://primo_description/meshes/R3_Primo.STL"/>
+  </xacro:macro>
+
+  <xacro:macro name="m_mesh_wheel">
+    <mesh filename="package://primo_description/meshes/R2_wheel.STL"/>
+  </xacro:macro>
+
+  <!-- Main link -->
+  <xacro:macro name="m_chassis">
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <xacro:m_mesh_chassis/>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <origin xyz="0 0 .4"/>
+        <geometry>
+          <box size=".94 .66 .5"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="15.0"/>
+        <origin xyz="0.0 0 0.001" rpy=" 0 0 0"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+      </inertial>
+    </link>
+  </xacro:macro>
+  
+  <!-- Wheel link -->
+  <xacro:macro name="m_wheel" params="lr reflect">
+    <link name="${lr}_wheel">
+      <visual>
+        <geometry>
+          <xacro:m_mesh_wheel/>
+        </geometry>
+      </visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <collision name="collision">
+        <!-- <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/> -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.1145" length="0.064"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+        <mass value="5"/>
+        <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1"/>
+      </inertial>
+    </link>
+    <joint name="chassis_${lr}_leg" type="continuous">
+      <parent link="base_link"/>
+      <child link="${lr}_wheel"/>
+      <origin rpy="0 0 0" xyz="0 ${reflect*0.3175} 0.1510"/>
+      <axis xyz="0 1 0" rpy="0 0 0"/>
+    </joint>
+    <!-- Gazebo wheel reference -->
+    <gazebo reference="${lr}_wheel">
+      <mu1 value="200.0"/>
+      <mu2 value="100.0"/>
+      <kp value="10000000.0"/>
+      <kd value="1.0"/>
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <transmission name="${lr}_wheel">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${lr}_wheel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="chassis_${lr}_leg">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+  </xacro:macro>
+
+  <!-- Tail Wheel -->
+  <xacro:macro name="m_tailwheel">
+    <link name="tail_wheel">
+      <visual>
+        <geometry>
+          <cylinder radius="${0.159/2}" length="0.064"/>
+        </geometry>
+      </visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="${0.159/2}" length="0.064"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+        <mass value="1"/>
+        <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1"/>
+      </inertial>
+    </link>
+    <joint name="wheel_to_block" type="continuous">
+      <parent link="tail_wheel_block"/>
+      <child link="tail_wheel"/>
+      <origin rpy="1.5707 0 0" xyz="-.05 0 -${0.159/2}"/>
+      <axis rpy="0 0 0" xyz="0 0 1"/>
+    </joint>
+    <!--transmission name="tail_wheel_spin_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="tail_wheel_spin_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheel_to_block">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+    </transmission-->
+    <link name="tail_wheel_block">
+      <visual>
+        <geometry>
+          <box size=".1 .1 .1"/>
+        </geometry>
+      </visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+        <geometry>
+          <box size=".1 .1 .1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+        <mass value="1"/>
+        <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1"/>
+      </inertial>
+    </link>
+    <joint name="wheel_block" type="continuous">
+      <parent link="base_link"/>
+      <child link="tail_wheel_block"/>
+      <origin rpy="0 0 0" xyz="-0.430 0 0.180"/>
+      <axis xyz="0 0 1" rpy="0 0 0"/>
+    </joint>
+    <!--transmission name="tail_wheel_swivel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="tail_wheel_swivel_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="wheel_block">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+    </transmission-->
+  </xacro:macro>
+
+  <!-- seecam1 macro -->
+  <xacro:macro name="m_seecam1">
+    <link name="link_seecam1">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+        </geometry>
+        <material name="green"/>
+      </visual>
+      <inertial>
+        <mass value="${seecamMass}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <box_inertia m="${seecamMass}" x="${seecamSize}" y="${seecamSize}" z="${seecamSize}"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+      </inertial>
+    </link>
+    <joint name="seecam1_joint" type="fixed">
+      <axis xyz="0 1 0"/>
+      <origin xyz="-.113 -.139 1.212" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="link_seecam1"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- stereo0 cam macro -->
+  <xacro:macro name="m_stereo0">
+      <link name="stereo0_link"> <!-- this name is required for the point cloud -->
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+      <inertial>
+        <mass value="${seecamMass}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <box_inertia m="${seecamMass}" x="${seecamSize}" y="${seecamSize}" z="${seecamSize}"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+      </inertial>
+    </link>
+    <joint name="stereo0_joint" type="fixed">
+      <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
+      <origin xyz=".085 .210 1.765" rpy="-2.48 0 -1.570796"/>
+      <parent link="base_link"/>
+      <child link="stereo0_link"/>
+    </joint>
+  </xacro:macro>
+</robot>
+
