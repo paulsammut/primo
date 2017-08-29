@@ -76,23 +76,12 @@
 
     <!-- Gazebo wheel reference -->
     <gazebo reference="${lr}_wheel">
-      <!-- <mu1 value="200.0"/> -->
-      <!-- <mu2 value="100.0"/> -->
-      <!-- <kp value="10000000.0"/> -->
-      <!-- <kd value="1.0"/> -->
+      <mu1 value="200.0"/>
+      <mu2 value="100.0"/>
+      <kp value="10000000.0"/>
+      <kd value="1.0"/>
       <material>Gazebo/Black</material>
     </gazebo>
-    <!--
-    <transmission name="${lr}_wheel">
-      <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${lr}_wheel_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="${lr}_wheel_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-    </transmission>
-    -->
 
   </xacro:macro>
 
@@ -129,18 +118,6 @@
       <axis rpy="0 0 0" xyz="0 0 1"/>
     </joint>
 
-    <!--
-    <transmission name="tail_wheel_spin_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="tail_wheel_spin_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="wheel_to_block">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      </joint>
-    </transmission>
-    -->
-
     <link name="tail_wheel_block">
       <visual>
         <geometry>
@@ -170,18 +147,6 @@
       <origin rpy="0 0 0" xyz="-0.730 0 0.180"/>
       <axis xyz="0 0 1" rpy="0 0 0"/>
     </joint>
-
-    <!--
-    <transmission name="tail_wheel_swivel_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="tail_wheel_swivel_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="wheel_block">
-          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      </joint>
-    </transmission>
-    -->
 
   </xacro:macro>
 
