@@ -3,9 +3,6 @@
     <param name="robot_description" 
         command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo.xacro'"/>
 
-    <arg name="gui" default="false"/>
-    <param name="use_gui" value="$(arg gui)"/>
-
     <!-- Combine joint values -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
 	    <!-- Added this on 8/22/17 cause the static transforms stopped showing up -->
