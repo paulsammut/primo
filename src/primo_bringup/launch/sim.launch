@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
+    <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
+    <include file="$(find primo_gazebo)/launch/primo_gazebo.launch"/>
+
 </launch>
