@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- These are plots that I used to tune the PID controller -->
+    <node name="v_target_plot" pkg="rqt_plot" type="rqt_plot"
+        args="/rwheel_vel /rwheel_vtarget" />
+
+    <node name="vl_target_plot" pkg="rqt_plot" type="rqt_plot"
+        args="/lwheel_vel /lwheel_vtarget" />
+
+    <node name="throttle_plot" pkg="rqt_plot" type="rqt_plot"
+        args="/sabertooth/left /sabertooth/right" />
+
+    <node name="encoder_plot" pkg="rqt_plot" type="rqt_plot"
+        args="/encoder_left/data /encoder_right/data" />
+
+    <node name="steering" pkg="rqt_robot_steering" type="rqt_robot_steering"/>
+</launch>
+

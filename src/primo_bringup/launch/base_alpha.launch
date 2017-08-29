@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
+    <include file="$(find primo_base)/launch/ard_enc.launch"/>
+    <include file="$(find primo_base)/launch/joy_twist.launch"/>
+    <include file="$(find primo_base)/launch/diff_drive.launch"/>
+    <include file="$(find primo_base)/launch/vel_smooth.launch"/>
+    <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
+    <!-- <include file="$(find primo_base_tara)/launch/see3cam_stereo.launch"/> -->
+</launch>
