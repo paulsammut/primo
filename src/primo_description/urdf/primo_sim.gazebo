@@ -4,45 +4,82 @@
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <robotNamespace>/</robotNamespace>
-        <legacyMode>false</legacyMode>
+      <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
       <updateRate>30</updateRate>
       <leftJoint>left_wheel_joint</leftJoint>
       <rightJoint>right_wheel_joint</rightJoint>
       <wheelSeparation>0.632</wheelSeparation>
       <wheelDiameter>0.2</wheelDiameter>
-      <torque>10</torque>
+      <wheelTorque>20</wheelTorque>
+      <wheelAcceleration>1</wheelAcceleration>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
+      <odometrySource>1</odometrySource>
       <robotBaseFrame>base_link</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF>
+      <publishWheelJointState>true</publishWheelJointState>
     </plugin>
   </gazebo>
 
-  <gazebo reference="link_seecam1">
-    <material>Gazebo/Green</material>
-    <sensor type="camera" name="seecam1">
+  <!-- Gazebo wheel reference -->
+  <gazebo reference="tail_wheel">
+    <mu1 value="200.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="stereo0_link">
+    <sensor type="multicamera" name="stereo_camera">
       <update_rate>30.0</update_rate>
-      <camera name="head">
+      <camera name="left">
+        <pose>0 0 0 1.57079632679 -1.5707963267 0</pose>
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>800</width>
-          <height>600</height>
+          <height>800</height>
           <format>R8G8B8</format>
         </image>
         <clip>
           <near>0.02</near>
           <far>300</far>
         </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
       </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <camera name="right">
+        <pose>0 -0.06 0 1.57079632679 -1.5707963267 0</pose>
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <cameraName>primo/camera1</cameraName>
+        <cameraName>stereo0/camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>link_seecam1</frameName>
-        <hackBaseline>0.07</hackBaseline>
+        <frameName>stereo0_link</frameName>
+        <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
+        <hackBaseline>0.06</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
         <distortionK3>0.0</distortionK3>

@@ -4,16 +4,15 @@
     <param name="robot_description" 
         command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
 
-    <!-- <include file="$(find primo_description)/launch/primo_urdf_common.xml"/> -->
-
     <node name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher"> 
         <param name="use_gui" value="false"/> 
     </node>
 
     <!-- convert joint states to TF transforms for rviz, etc -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="false" output="screen">
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
+        <param name="use_tf_static" value="false"/> 
     </node>
 
 </launch>

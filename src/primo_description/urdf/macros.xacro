@@ -103,12 +103,12 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-        <mass value="1"/>
+        <mass value="1.0"/>
         <inertia 
-            ixx=".1" ixy="0.0" ixz="0.0" 
-            iyy=".1" iyz="0.0" 
-            izz=".1"/>
-      </inertial>
+            ixx=".02" ixy="0.0" ixz="0.0" 
+            iyy=".02" iyz="0.0" 
+            izz=".04"/>
+        </inertial>
     </link>
 
     <joint name="wheel_to_block" type="continuous">
@@ -133,7 +133,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="1"/>
+        <mass value="0.5"/>
         <inertia 
             ixx=".1" ixy="0.0" ixz="0.0" 
             iyy=".1" iyz="0.0" 
@@ -144,7 +144,7 @@
     <joint name="wheel_block" type="continuous">
       <parent link="base_link"/>
       <child link="tail_wheel_block"/>
-      <origin rpy="0 0 0" xyz="-0.730 0 0.180"/>
+      <origin rpy="0 0 0" xyz="-0.730 0 0.150"/>
       <axis xyz="0 0 1" rpy="0 0 0"/>
     </joint>
 
