@@ -1,4 +1,5 @@
-<?xml version="1.0"?> <launch>
+<?xml version="1.0"?> 
+<launch>
     <!--
         The reason we have this file as an xml, and not launch file, is so that it
         does not clutter the launch file space of this package. This file is only
@@ -14,6 +15,8 @@
         <param name="use_tf_static" value="false"/> </node>
 
     <node name="joint_state_publisher" pkg="joint_state_publisher"
-        type="joint_state_publisher"> <param name="use_gui" value="true"/> </node>
+        type="joint_state_publisher"> 
+        <param name="use_gui" value="true"/> 
+    </node>
 
 </launch>

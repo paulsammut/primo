@@ -2,7 +2,7 @@
 <launch>
 
     <param name="robot_description" 
-        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo.xacro'"/>
+        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_real.xacro'"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_common.xml"/>
 

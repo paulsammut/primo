@@ -39,6 +39,7 @@
 
   <!-- Wheel link -->
   <xacro:macro name="m_wheel" params="lr reflect">
+
     <link name="${lr}_wheel">
       <visual>
         <geometry>
@@ -50,7 +51,7 @@
         <!-- <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/> -->
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <cylinder radius="0.1145" length="0.064"/>
+          <cylinder radius="0.151" length="0.1"/>
         </geometry>
       </collision>
       <inertial>
@@ -59,7 +60,8 @@
         <inertia ixx=".1" ixy="0.0" ixz="0.0" iyy=".1" iyz="0.0" izz=".1"/>
       </inertial>
     </link>
-    <joint name="chassis_${lr}_leg" type="continuous">
+
+    <joint name="${lr}_wheel_joint" type="continuous">
       <parent link="base_link"/>
       <child link="${lr}_wheel"/>
       <origin rpy="0 0 0" xyz="0 ${reflect*0.3175} 0.1510"/>
@@ -79,10 +81,11 @@
       <actuator name="${lr}_wheel_motor">
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-      <joint name="chassis_${lr}_leg">
+      <joint name="${lr}_wheel_joint">
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
     </transmission>
+
   </xacro:macro>
 
   <!-- Tail Wheel -->
