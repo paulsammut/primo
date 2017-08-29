@@ -2,7 +2,7 @@
 <launch>
 
     <!-- Combine joint values -->
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
 	    <!-- Added this on 8/22/17 cause the static transforms stopped showing up -->
    	    <param name="use_tf_static" value="false"/>
     </node>
