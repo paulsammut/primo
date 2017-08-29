@@ -10,7 +10,6 @@
   <xacro:m_wheel lr="left" reflect="1"/>
   <xacro:m_wheel lr="right" reflect="-1"/>
 
-  <!-- We got rid of the tail wheel  -->
   <xacro:m_sim_tail/>
 
   <!-- Sensor suite -->

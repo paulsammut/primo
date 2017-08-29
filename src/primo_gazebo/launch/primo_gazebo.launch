@@ -8,20 +8,35 @@
     <arg name="debug" default="false"/>
     
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-      <arg name="world_name" value="$(find primo_gazebo)/worlds/bat_cave.world"/>
-      <arg name="paused" value="$(arg paused)"/>
-      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-      <arg name="gui" value="$(arg gui)"/>
-      <arg name="headless" value="$(arg headless)"/>
-      <arg name="debug" value="$(arg debug)"/>
+        <arg name="world_name" value="$(find primo_gazebo)/worlds/bat_cave.world"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug" value="$(arg debug)"/>
     </include>
     
-    
-    
-    <!-- <param name="robot_description"  -->
-        <!-- command="$(find xacro)/xacro &#45;&#45;inorder '$(find primo_description)/urdf/primo_sim.xacro'"/> -->
+    <param name="/robot_description" command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
 
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
      args="-urdf -param robot_description -model primo" />
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find primo_gazebo)/config/primo_control.yaml" command="load"/>
+
+    <!-- load the controllers  -->
+    <node name="controller_spawner"
+      pkg="controller_manager"
+      type="spawner" respawn="false"
+      output="screen" ns="/"
+      args="joint_state_controller
+        diff_drive_controller"
+    />
+    
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="false" output="screen">
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
+    </node>
+
 
 </launch>
