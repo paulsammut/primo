@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="robot_description" 
+        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
+
+    <include file="$(find primo_description)/launch/primo_urdf_common.xml"/>
+
+</launch>

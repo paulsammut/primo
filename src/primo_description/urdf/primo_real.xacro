@@ -8,7 +8,7 @@
   <xacro:include filename="$(find primo_description)/urdf/primo.gazebo" />
 
   <!-- Bot description -->
-  <xacro:m_chassis/>
+  <xacro:m_chassis type="real"/>
   <xacro:m_wheel lr="left" reflect="1"/>
   <xacro:m_wheel lr="right" reflect="-1"/>
 

@@ -8,19 +8,19 @@
   <xacro:property name="stereocamMass" value="0.1"/>
 
   <!-- Meshes -->
-  <xacro:macro name="m_mesh_chassis">
-    <mesh filename="package://primo_description/meshes/R3_Primo.STL"/>
+  <xacro:macro name="m_mesh_chassis" params="type">
+      <mesh filename="package://primo_description/meshes/r1_primo_${type}.stl"/>
   </xacro:macro>
   <xacro:macro name="m_mesh_wheel">
-    <mesh filename="package://primo_description/meshes/R2_wheel.STL"/>
+    <mesh filename="package://primo_description/meshes/r1_wheel.stl"/>
   </xacro:macro>
 
   <!-- Main link -->
-  <xacro:macro name="m_chassis">
+  <xacro:macro name="m_chassis" params="type">
     <link name="base_link">
       <visual>
         <geometry>
-          <xacro:m_mesh_chassis/>
+            <xacro:m_mesh_chassis type="${type}"/>
         </geometry>
       </visual>
       <collision name="collision">
@@ -112,7 +112,8 @@
       <origin rpy="1.5707 0 0" xyz="-.05 0 -${0.159/2}"/>
       <axis rpy="0 0 0" xyz="0 0 1"/>
     </joint>
-    <!--transmission name="tail_wheel_spin_trans">
+
+    <transmission name="tail_wheel_spin_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="tail_wheel_spin_motor">
         <mechanicalReduction>1</mechanicalReduction>
@@ -120,7 +121,8 @@
       <joint name="wheel_to_block">
         <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
-    </transmission-->
+    </transmission>
+
     <link name="tail_wheel_block">
       <visual>
         <geometry>
@@ -143,10 +145,11 @@
     <joint name="wheel_block" type="continuous">
       <parent link="base_link"/>
       <child link="tail_wheel_block"/>
-      <origin rpy="0 0 0" xyz="-0.430 0 0.180"/>
+      <origin rpy="0 0 0" xyz="-0.730 0 0.180"/>
       <axis xyz="0 0 1" rpy="0 0 0"/>
     </joint>
-    <!--transmission name="tail_wheel_swivel_trans">
+
+    <transmission name="tail_wheel_swivel_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="tail_wheel_swivel_motor">
         <mechanicalReduction>1</mechanicalReduction>
@@ -154,7 +157,8 @@
       <joint name="wheel_block">
           <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
-    </transmission-->
+    </transmission>
+
   </xacro:macro>
 
   <!-- seecam1 macro -->
