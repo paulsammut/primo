@@ -2,7 +2,7 @@
 <launch>
     <!-- serial node -->
     <node pkg="rosserial_python" type="serial_node.py" name="ard_enc_serial">
-        <param name="port" value="/dev/ttyUSB0"/>
+        <param name="port" value="/dev/power_sensor"/>
         <param name="baud" value="115200"/>
     </node>
 </launch>
