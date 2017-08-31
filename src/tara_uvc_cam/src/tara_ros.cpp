@@ -52,6 +52,7 @@ namespace uvc_camera {
 			pnode.getParam("width", width);
 			pnode.getParam("height", height);
 			pnode.getParam("frame_id", frame);
+			pnode.getParam("frame_id", frameLeft);
 
 			// changing start
 			pnode.getParam ("exposureValue", exposure_value);
