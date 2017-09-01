@@ -77,4 +77,5 @@
   	<!-- Visualisation RVIZ -->
   	<node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find primo_rtabmap)/rviz/rtabmap.rviz"/>
 
+
 </launch>
