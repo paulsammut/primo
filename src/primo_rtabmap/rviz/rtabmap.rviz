@@ -6,9 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /MapGraph1
-        - /RTAB Map 1
-        - /stereo11/Status1
+        - /RobotModel1
+        - /RobotModel1/Links1
+        - /RobotModel1/Links1/base_link1
       Splitter Ratio: 0.5
     Tree Height: 544
   - Class: rviz/Selection
@@ -248,7 +248,7 @@ Visualization Manager:
         base_link:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
         left_wheel:
           Alpha: 1
@@ -486,7 +486,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rtabmap_ros/OrbitOriented
-      Distance: 8.91549397
+      Distance: 6.70675039
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
