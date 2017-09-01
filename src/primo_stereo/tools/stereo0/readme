@@ -1,0 +1,15 @@
+Here I spent an hour making a script that will quickly unpack calibration data from
+packed tar file that the calibrator makes to the right folder
+
+primo_stereo
+| config
+| | stereo0
+| | | archive
+| | | | calfile.tar.gz
+| | | | sav_cal.sh
+| | stereo1
+| | | archive
+| | | | calfile.tar.gz
+| | | | sav_cal.sh
+
+Unfortunately the way I made it requires two copies of it
