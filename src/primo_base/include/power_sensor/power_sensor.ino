@@ -27,11 +27,10 @@ void loop()
     {
         // This is from the conversion of the power sensor
         // 50V/90A = 63.69mV / Volt 36.60mV / Amp
-        // msg_batt.voltage = (1024.0/((float)analogRead(PIN_VOLTAGE)))*5.0;//0.06369;
         msg_batt.voltage = (((float)analogRead(PIN_VOLTAGE))/1024.0*5.0)/0.06369;
         msg_batt.current = (((float)analogRead(PIN_CURRENT))/1024.0*5.0)/0.03660;
 
-        // This are my own calibration offsets
+        // This is my own calibration offsets
         msg_batt.voltage += -0.48;
 
         msg_batt.header.stamp = nh.now();
