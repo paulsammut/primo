@@ -11,9 +11,9 @@
     <param name="vel_threshold" value="0.001"/>
 
     <!-- Some arguments that are common to multiple node -->
-    <arg name="Kp" default="2000"/>
-    <arg name="Ki" default="5000"/>
-    <arg name="Kd" default="0.800"/>
+    <arg name="Kp" default="1500"/>
+    <arg name="Ki" default="4000"/>
+    <arg name="Kd" default="0.500"/>
     <arg name="out_min" default="-2047"/>
     <arg name="out_max" default="2048"/>
     <arg name="rate" default="30"/>
