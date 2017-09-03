@@ -17,16 +17,46 @@
 
 
     <group ns="/stereo0">
-        <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc"/>
-        <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
+        <arg name="manager" value="nodelet_manager"/>
+        <arg name="respawn" value="true"/>
 
+        <arg     if="$(arg respawn)" name="bond" value="" />
+        <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
+
+        <!-- Monochrome rectified image -->
+        <node pkg="nodelet" type="nodelet" name="rectify_mono"
+              args="load image_proc/rectify $(arg manager) $(arg bond)"
+          respawn="$(arg respawn)" />
+        
+        <arg name="left" default="left" />
+        <arg name="right" default="right" />
+        <!-- TODO Arguments for sync policy, etc? -->
+        
+        <!-- Basic processing for left camera -->
+        <include file="$(find image_proc)/launch/image_proc.launch"
+             ns="$(arg left)">
+          <arg name="manager" value="$(arg manager)" />
+          <arg name="respawn" value="$(arg respawn)" />
+        </include>
+        
+        <!-- Basic processing for right camera -->
+        <include file="$(find image_proc)/launch/image_proc.launch"
+             ns="$(arg right)">
+          <arg name="manager" value="$(arg manager)" />
+          <arg name="respawn" value="$(arg respawn)" />
+        </include>
+        
+        <!-- Disparity image -->
         <node pkg="nodelet" type="nodelet" name="disparity"
-            args="load stereo_image_proc/disparity nodelet_manager"/>
+              args="load stereo_image_proc/disparity $(arg manager) $(arg bond)"
+          respawn="$(arg respawn)" />
+        
+        <!-- PointCloud2 -->
+        <node pkg="nodelet" type="nodelet" name="point_cloud2"
+                args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
+        	respawn="$(arg respawn)" />
 
-        <node pkg="nodelet" type="nodelet" name="point_cloud"
-            args="load stereo_image_proc/point_cloud2 nodelet_manager"/>
     </group>
-
   <!-- <node name="record_topics_for_verification" pkg="rosbag" type="record" args="/stereo/left/camera_info /stereo/right/camera_info /stereo/right/image_rect /stereo/left/image_rect" output="screen"/> -->
 
 </launch>
