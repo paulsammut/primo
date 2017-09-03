@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 # This is my first ever python program that does something!! 
-# This project is meant to run inside the stereo0 or stereo1 directory
-import fileinput
+# Have the calibration file inside stereo0 or stereo1. Run this command and pass in
+# the location of that calibration file. Thats it.
 
+import fileinput
 import shutil
 import sys
 import os,os.path
@@ -49,8 +50,6 @@ call(['tar','-xvz', '-C', calDir, '-f', calPath, "left.yaml","right.yaml"])
 leftPath = os.path.join(calDir,"left.yaml")
 rightPath = os.path.join(calDir,"right.yaml")
 
-print(leftPath)
-
 # rename the left.yaml link from narrow_stereo/left to "camera"+_link
 with fileinput.FileInput(leftPath, inplace=True ) as file:
     for line in file:
@@ -66,3 +65,5 @@ with fileinput.FileInput(rightPath, inplace=True ) as file:
 # Now lets move the files!
 shutil.move(leftPath, os.path.join(calParentDir, "left.yaml"))
 shutil.move(rightPath, os.path.join(calParentDir, "right.yaml"))
+
+print("All done. " + camera + " is set up AF!")
