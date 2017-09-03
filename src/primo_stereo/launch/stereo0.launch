@@ -20,13 +20,14 @@
         <arg name="respawn" value="false"/>
         <arg name="left" value="left" />
         <arg name="right" value="right" />
-        
+
+        <!-- Create a nodelet manager  -->
         <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
 
         <arg     if="$(arg respawn)" name="bond" value="" />
         <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
 		
-        <!-- Throttle the data -->
+        <!-- Throttle the data coming from ucv_cam-->
         <node pkg="nodelet" type="nodelet" name="stereo_throttle" args="load rtabmap_ros/stereo_throttle $(arg manager)">
 			<remap from="left/image"       to="left/image_raw"/>
 		    <remap from="right/image"      to="right/image_raw"/>
