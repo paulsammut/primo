@@ -17,7 +17,7 @@
 
     <group ns="/stereo0">
         <arg name="manager" value="/stereo0/nodelet_manager"/>
-        <arg name="respawn" value="true"/>
+        <arg name="respawn" value="false"/>
         <arg name="left" value="left" />
         <arg name="right" value="right" />
         
@@ -25,8 +25,24 @@
 
         <arg     if="$(arg respawn)" name="bond" value="" />
         <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
+		
+        <!-- Throttle the data -->
+        <node pkg="nodelet" type="nodelet" name="stereo_throttle" args="load rtabmap_ros/stereo_throttle $(arg manager)">
+			<remap from="left/image"       to="left/image_raw"/>
+		    <remap from="right/image"      to="right/image_raw"/>
+		    <remap from="left/camera_info" to="left/camera_info"/>
+		    <remap from="right/camera_info" to="right/camera_info"/>
+		    
+		    <param name="queue_size" type="int" value="10"/>
+		    <param name="rate" type="double" value="5"/>
+		</node>
 
-        
+        <!-- Make sure everyone uses the throttled data -->
+        <remap from="left/image_raw"    to="left/image_raw_throttle"/>
+        <remap from="left/camera_info"  to="left/camera_info_throttle"/>
+        <remap from="right/image_raw"   to="right/image_raw_throttle"/>
+        <remap from="right/camera_info" to="right/camera_info_throttle"/> 
+
         <!-- Basic processing for left camera -->
         <!-- Debayered images -->
         <group ns="left">
@@ -70,19 +86,32 @@
                 <remap from="image_rect" to="image_rect_color" />
             </node>  
         </group>
+
+        <!-- Stereo Throttle -->
+        <node pkg="nodelet" type="nodelet" name="stereo0_throttle"
+            args="load rtabmap_ros/stereo_throttle $(arg manager)" output="screen">
+            <param name="rate" type="double" value="5"/>
+        </node>
         
         <!-- Disparity image -->
         <node pkg="nodelet" type="nodelet" name="disparity"
             args="load stereo_image_proc/disparity $(arg manager) $(arg bond)"
             respawn="$(arg respawn)" >
 
-            <param name="disparty_rage" value="128"/>
+            <param name="disparity_range" value="128"/>
+            <remap from="left/image_rect" to="left/image_rect_throttle"/>
+            <remap from="left/image_rect_color" to="left/image_rect_color_throttle"/>
+            <remap from="left/camera_info" to="left/camera_info_throttle"/>
+            <remap from="right/image_rect" to="right/image_rect_throttle"/>
+            <remap from="right/camera_info" to="right/camera_info_throttle"/>
         </node>
         
         <!-- PointCloud2 -->
         <node pkg="nodelet" type="nodelet" name="point_cloud2"
             args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
-            respawn="$(arg respawn)" />
+            respawn="$(arg respawn)" >
+            <remap from="left/image_rect_color" to="left/image_rect_color_throttle"/>
+        </node>
 
     </group>
 </launch>
