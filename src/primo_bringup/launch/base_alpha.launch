@@ -8,10 +8,10 @@
     <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
     <include file="$(find primo_base)/launch/power_sensor.launch"/>
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch"/>
-    <include file="$(find primo_stereo)/launch/stereo1.launch"/>
+    <!-- <include file="$(find primo_stereo)/launch/stereo0.launch"/> -->
+    <!-- <include file="$(find primo_stereo)/launch/stereo1.launch"/> -->
 
-    <include file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
-    <include file="$(find primo_rtabmap)/launch/ground_segmenter.launch"/>
+    <!-- <include file="$(find primo_rtabmap)/launch/rtab_slam.launch"/> -->
+    <!-- <include file="$(find primo_rtabmap)/launch/ground_segmenter.launch"/> -->
 
 </launch>
