@@ -20,6 +20,9 @@
         <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc"/>
         <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
 
+        <node pkg="nodelet" type="nodelet" name="disparity"
+            args="load stereo_image_proc/disparity nodelet_manager"/>
+
         <node pkg="nodelet" type="nodelet" name="point_cloud"
             args="load stereo_image_proc/point_cloud2 nodelet_manager"/>
     </group>
