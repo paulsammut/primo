@@ -37,8 +37,6 @@
 		    <param name="rate" type="double" value="5"/>
 		</node>
 
-        <remap from="right/camera_info" to="right/camera_info_throttle"/> 
-
         <!-- Basic processing for left camera -->
         <!-- Debayered images -->
         <group ns="left">
@@ -91,20 +89,13 @@
         <node pkg="nodelet" type="nodelet" name="disparity"
             args="load stereo_image_proc/disparity $(arg manager) $(arg bond)"
             respawn="$(arg respawn)" >
-
             <param name="disparity_range" value="128"/>
-            <remap from="left/image_rect" to="left/image_rect_throttle"/>
-            <remap from="left/image_rect_color" to="left/image_rect_color_throttle"/>
-            <remap from="left/camera_info" to="left/camera_info_throttle"/>
-            <remap from="right/image_rect" to="right/image_rect_throttle"/>
-            <remap from="right/camera_info" to="right/camera_info_throttle"/>
         </node>
         
         <!-- PointCloud2 -->
         <node pkg="nodelet" type="nodelet" name="point_cloud2"
             args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
             respawn="$(arg respawn)" >
-            <remap from="left/image_rect_color" to="left/image_rect_color_throttle"/>
         </node>
 
     </group>
