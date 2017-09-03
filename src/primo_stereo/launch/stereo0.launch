@@ -37,10 +37,6 @@
 		    <param name="rate" type="double" value="5"/>
 		</node>
 
-        <!-- Make sure everyone uses the throttled data -->
-        <remap from="left/image_raw"    to="left/image_raw_throttle"/>
-        <remap from="left/camera_info"  to="left/camera_info_throttle"/>
-        <remap from="right/image_raw"   to="right/image_raw_throttle"/>
         <remap from="right/camera_info" to="right/camera_info_throttle"/> 
 
         <!-- Basic processing for left camera -->
@@ -49,20 +45,12 @@
             <node pkg="nodelet" type="nodelet" name="debayer"
                 args="load image_proc/debayer $(arg manager) $(arg bond)"
                 respawn="$(arg respawn)" >
-                <remap from="left/image_raw"    to="left/image_raw_throttle"/>
-                <remap from="left/camera_info"  to="left/camera_info_throttle"/>
-                <remap from="right/image_raw"   to="right/image_raw_throttle"/>
-                <remap from="right/camera_info" to="right/camera_info_throttle"/> 
             </node>
 
             <!-- Monochrome rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_mono"
                   args="load image_proc/rectify $(arg manager) $(arg bond)"
               respawn="$(arg respawn)" >
-                <remap from="left/image_raw"    to="left/image_raw_throttle"/>
-                <remap from="left/camera_info"  to="left/camera_info_throttle"/>
-                <remap from="right/image_raw"   to="right/image_raw_throttle"/>
-                <remap from="right/camera_info" to="right/camera_info_throttle"/> 
             </node>
 
             <!-- Color rectified image -->
@@ -72,10 +60,6 @@
 
                 <remap from="image_mono" to="image_color" />
                 <remap from="image_rect" to="image_rect_color" />
-                <remap from="left/image_raw"    to="left/image_raw_throttle"/>
-                <remap from="left/camera_info"  to="left/camera_info_throttle"/>
-                <remap from="right/image_raw"   to="right/image_raw_throttle"/>
-                <remap from="right/camera_info" to="right/camera_info_throttle"/> 
             </node>
 
         </group>
@@ -98,14 +82,10 @@
                 respawn="$(arg respawn)">
 
                 <remap from="image_mono" to="image_color" />
+                <remap from="image_rect" to="image_rect_color" />
             </node>  
         </group>
 
-        <!-- Stereo Throttle -->
-        <node pkg="nodelet" type="nodelet" name="stereo0_throttle"
-            args="load rtabmap_ros/stereo_throttle $(arg manager)" output="screen">
-            <param name="rate" type="double" value="5"/>
-        </node>
         
         <!-- Disparity image -->
         <node pkg="nodelet" type="nodelet" name="disparity"
