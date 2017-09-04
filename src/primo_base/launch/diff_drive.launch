@@ -25,7 +25,7 @@
     <arg name="base_width" default="0.635"/>
 
     <!-- The transform publisher -->
-    <node pkg="differential_drive" type="diff_tf.py" name="diff_tf">
+    <node if="$(arg wheel_odom)" pkg="differential_drive" type="diff_tf.py" name="diff_tf">
         <remap from="lwheel" to="encoder_left"/>
         <remap from="rwheel" to="encoder_right"/>
         <param name="rate" value="30"/>
@@ -68,7 +68,7 @@
     </node>
 
     <!-- twist_to_motors -->
-    <node if="$(arg wheel_odom)" pkg="differential_drive" type="twist_to_motors.py" name="twist_to_motors">
+    <node pkg="differential_drive" type="twist_to_motors.py" name="twist_to_motors">
         <param name="base_width" value="$(arg base_width)"/>
         <param name="rate" value="30" />
         <param name="timeout_ticks" value="2"/>
