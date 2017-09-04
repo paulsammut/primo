@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <launch>
 
+    <!-- Some general stuff -->
     <arg name="rtab_cloud" value="false"/>
 
-    <!-- ground segmenter -->
+    <!-- Ground segmenter which runs inside the stereo0 image processing nodelet -->
     <group ns="/stereo0" >
 
         <!-- Use the stereo0 nodelet manager -->
@@ -12,7 +13,8 @@
 		<!-- Create point cloud for the planner using rtab's shit point cloud
              generater. We don't use it -->
         <node if="$(arg rtab_cloud)"
-            pkg="nodelet" type="nodelet" name="disparity2cloud" args="load rtabmap_ros/point_cloud_xyz $(arg manager)">
+            pkg="nodelet" type="nodelet" name="disparity2cloud" 
+            args="load rtabmap_ros/point_cloud_xyz $(arg manager)">
 
 			<remap from="disparity/image"       to="disparity"/>
 			<remap from="disparity/camera_info" to="right/camera_info_throttle"/>
@@ -37,5 +39,6 @@
            <param name="Grid/MinClusterSize"    type="int"      value="20"/>
            <param name="Grid/MaxObstacleHeight" type="double"   value="0.0"/>
         </node>
+
     </group>
 </launch>
