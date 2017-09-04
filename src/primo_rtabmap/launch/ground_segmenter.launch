@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- Some general stuff -->
+    <!-- If I want to use the rtab cloud generator, which sucks,
+         I have to set this, along with change the cloud subscription to cloudXYZ-->
     <arg name="rtab_cloud" value="false"/>
 
     <!-- Ground segmenter which runs inside the stereo0 image processing nodelet -->
