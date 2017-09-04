@@ -13,15 +13,15 @@
       <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" 
           args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 		 <param name="subscribe_stereo" type="bool" value="true"/>
-		 <param name="subscribe_odom_info" type="bool" value="true"/>
+		 <param name="subscribe_odom_info" type="bool" value="false"/>
 		 <param name="queue_size" type="int" value="10"/>
 		 <param name="frame_id" type="string" value="base_link"/>
 		 <remap from="left/image_rect" to="/stereo1/left/image_rect_color"/>
 		 <remap from="right/image_rect" to="/stereo1/right/image_rect"/>
 		 <remap from="left/camera_info" to="/stereo1/left/camera_info"/>
 		 <remap from="right/camera_info" to="/stereo1/right/camera_info"/>
-		 <remap from="odom_info" to="/stereo1/odom_info"/>
-		 <remap from="odom" to="/stereo1/odom"/>
+		 <remap from="odom_info" to="/odom_info"/>
+		 <remap from="odom" to="/odom"/>
 	  </node>
 
   	<!-- Visualisation RVIZ -->

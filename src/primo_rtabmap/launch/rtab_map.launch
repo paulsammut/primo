@@ -11,7 +11,7 @@
 
 
 		<remap from="left/image_rect" to="/stereo1/left/image_rect_color"/>
-		<remap from="right/image_rect" to="/stereo0/right/image_rect"/>
+		<remap from="right/image_rect" to="/stereo1/right/image_rect"/>
 		<remap from="left/camera_info" to="/stereo1/left/camera_info"/>
 		<remap from="right/camera_info" to="/stereo1/right/camera_info"/>
 
