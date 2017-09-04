@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <!-- Map server -->
-      <arg name="map_file" default="$(find primo_nav)/maps/map.yaml"/>
+    <arg name="map_file" default="$(find primo_nav)/maps/map0/map.yaml"/>
         <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
       <!-- Place map frame at odometry frame -->
