@@ -5,20 +5,20 @@
         <arg name="manager" value="/stereo0/nodelet_manager"/>
 
 		<!-- Create point cloud for the planner -->
-        <node pkg="nodelet" type="nodelet" name="disparity2cloud" args="load rtabmap_ros/point_cloud_xyz $(arg manager)">
-			<remap from="disparity/image"       to="disparity"/>
-			<remap from="disparity/camera_info" to="right/camera_info_throttle"/>
-			<remap from="cloud"                 to="cloudXYZ"/>
-			
-			<param name="voxel_size" type="double" value="0.05"/>
-			<param name="decimation" type="int" value="4"/>
-			<param name="max_depth" type="double" value="4"/>
-        </node>
+        <!-- <node pkg="nodelet" type="nodelet" name="disparity2cloud" args="load rtabmap_ros/point_cloud_xyz $(arg manager)"> -->
+		<!-- 	<remap from="disparity/image"       to="disparity"/> -->
+		<!-- 	<remap from="disparity/camera_info" to="right/camera_info_throttle"/> -->
+		<!-- 	<remap from="cloud"                 to="cloudXYZ"/> -->
+		<!-- 	 -->
+		<!-- 	<param name="voxel_size" type="double" value="0.05"/> -->
+		<!-- 	<param name="decimation" type="int" value="4"/> -->
+		<!-- 	<param name="max_depth" type="double" value="4"/> -->
+        <!-- </node> -->
 
         <!-- Create point cloud for the local planner -->
         <node pkg="nodelet" type="nodelet" name="obstacles_detection" 
             args="load rtabmap_ros/obstacles_detection $(arg manager)" output="screen">
-           <remap from="cloud" to="/stereo0/cloudXYZ"/>
+           <remap from="cloud" to="/stereo0/points2"/>
            <remap from="obstacles" to="/planner_cloud"/>
         
            <param name="frame_id" type="string" value="base_link"/>
