@@ -17,6 +17,15 @@
 
 		<param name="queue_size" type="int" value="30"/>
 
+        <!-- all points below 20 cm are ground -->
+        <param name="Grid/MaxGroundHeight" type="string" value="0.5"/>       
+
+        <!-- all points above 20 cm and below 2 m are obstacles -->
+        <!-- <param name="Grid/MaxObstacleHeight" type="string" value="3"/>        -->
+
+        <!-- Use simple passthrough to filter the ground instead of normals segmentation -->
+        <!-- <param name="Grid/NormalsSegmentation" type="string" value="false"/>  -->
+
 	    <!-- RTAB-Map's parameters -->
 	    <param name="Rtabmap/TimeThr" type="string" value="700"/>
 	    <param name="Rtabmap/DetectionRate" type="string" value="1"/>

@@ -16,9 +16,9 @@ footprint: [
     [ 0.175, 0.375],
 ]
 
-footprint_padding: 0.1
+footprint_padding: 0.01
 # robot_radius: 0.5
-inflation_radius: 0.05
+inflation_radius: 0.01
 
 NavfnROS:
         allow_unknown: true
