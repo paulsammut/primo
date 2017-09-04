@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <remap from="map" to="/rtabmap/grid_map"/>
+    <remap from="map" to="/grid_map"/>
     <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
