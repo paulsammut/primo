@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" value="false"/>
+    <arg name="rtabmapviz" default="false"/>
+
+    <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
+    <include file="$(find primo_rtabmap)/launch/rtab_map.launch"/>
+    <!-- <include file="$(find primo_rtabmap)/launch/rtab_slam.launch"/> -->
+
+</launch>
