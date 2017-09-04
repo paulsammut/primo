@@ -7,7 +7,7 @@
 		<param name="stereo_approx_sync" type="bool" value="true"/>
 
         <remap from="odom" to="/odom"/>
-        <param name="frame_id" type="string" value="stereo1_corrected_link"/>
+        <param name="frame_id" type="string" value="base_link"/>
 
 
 		<remap from="left/image_rect" to="/stereo1/left/image_rect_color"/>
