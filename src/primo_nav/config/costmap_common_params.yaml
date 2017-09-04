@@ -22,7 +22,7 @@ transform_tolerance: 1
 
 
 NavfnROS:
-        allow_unknown: false
+        allow_unknown: true
 
 recovery_behaviors: [
     {name: conservative_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
