@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <launch>
-  <remap from="map" to="/rtabmap/grid_map"/>
-  <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-      <remap from="/cmd_vel" to="/raw_cmd_vel"/>
-    <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
-    <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
-    <rosparam file="$(find primo_nav)/config/local_costmap_params.yaml" command="load"/>
-    <rosparam file="$(find primo_nav)/config/global_costmap_params.yaml" command="load"/>
-    <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
-  </node>
+
+    <remap from="map" to="/rtabmap/grid_map"/>
+    <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+        <remap from="/cmd_vel" to="/raw_cmd_vel"/>
+
+        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="global_costmap"/>
+        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="local_costmap"/>
+        <rosparam file="$(find primo_nav)/config/local_costmap_params.yaml"      command="load"/>
+        <rosparam file="$(find primo_nav)/config/global_costmap_params.yaml"     command="load"/>
+        <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
+    </node>
+
 </launch>
