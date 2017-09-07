@@ -1,12 +1,12 @@
 DWAPlannerROS:
    max_vel_x: 0.2
    min_vel_x: -0.2
-   max_vel_theta: 0.2
-   min_in_place_vel_theta: 0.2
+   max_rot_vel: 0.2
+   min_rot_vel: 0.1
 
-   acc_lim_x: 0.5
-   acc_lim_y: 0.5
-   acc_lim_theta: 0.5
+   acc_lim_x: 0.1
+   acc_lim_y: 0.1
+   acc_lim_th: 0.1
 
    holonomic_robot: false
    
