@@ -14,5 +14,6 @@
 
   <!-- Sensor suite -->
   <xacro:m_stereo0/>
+  <xacro:m_stereo1/>
 
 </robot>
