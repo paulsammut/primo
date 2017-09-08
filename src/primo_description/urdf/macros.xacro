@@ -228,8 +228,8 @@
 
     <joint name="stereo0_corrected_joint" type="fixed">
       <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
-      <parent link="base_link"/>
-      <child link="stereo0_link"/>
+      <parent link="stereo0_link"/>
+      <child link="stereo0_corrected_link"/>
     </joint>
 
 
