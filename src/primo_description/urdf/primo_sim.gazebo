@@ -48,11 +48,11 @@
     <material>Gazebo/Black</material>
   </gazebo>
 
-  <gazebo reference="stereo0_link">
+  <gazebo reference="stereo0_corrected_link">
     <sensor type="multicamera" name="stereo_camera">
       <update_rate>30.0</update_rate>
       <camera name="left">
-        <pose>0 0 0 1.57079632679 -1.5707963267 0</pose>
+        <!-- <pose>0 0 0 1.57079632679 &#45;1.5707963267 0</pose> -->
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>800</width>
@@ -70,7 +70,8 @@
         </noise>
       </camera>
       <camera name="right">
-        <pose>0 -0.06 0 1.57079632679 -1.5707963267 0</pose>
+        <!-- <pose>0 &#45;0.06 0 1.57079632679 &#45;1.5707963267 0</pose> -->
+        <pose>0 -0.06 0 0 0 0</pose>
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>800</width>
