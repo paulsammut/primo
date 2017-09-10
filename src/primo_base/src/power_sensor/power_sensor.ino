@@ -48,8 +48,6 @@ void loop()
         msg_batt.voltage = readVoltage();
         msg_batt.current = readCurrent();
 
-        // This is my own calibration offsets
-        msg_batt.voltage += -0.48;
 
         msg_batt.header.stamp = nh.now();
 
@@ -66,6 +64,9 @@ float readVoltage(void)
     // This is from the conversion of the power sensor
     // Volt 36.60mV / Amp
     float retVolts = (((float)analogRead(PIN_VOLTAGE))/1024.0*5.0)/0.06369;
+    // This is my own calibration offsets
+    /* retVolts += -0.48; */
+    retVolts += -1.48;
     return(retVolts);
 }
 
