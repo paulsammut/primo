@@ -2,10 +2,9 @@
 <launch>
 
     <arg name="stereo_real" default="true"/>
-
     <rosparam file="$(find primo_stereo)/config/stereo.yaml" command="load"/>
 
-    <node if="false" ns="stereo0" pkg="uvc_camera" type="tara_node" name="uvc_camera" output="screen" required="true">
+    <node if="$(arg stereo_real)" ns="stereo0" pkg="uvc_camera" type="tara_node" name="uvc_camera" output="screen" required="true">
         <param name="width" type="int" value="640"/>
         <param name="height" type="int" value="480"/>
         <param name="fps" type="int" value="30"/>

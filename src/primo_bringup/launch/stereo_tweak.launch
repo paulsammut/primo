@@ -12,17 +12,14 @@
         <arg name="stereo_real" value="false"/>
     </include>
 
+    <include file="$(find primo_stereo)/launch/stereo1.launch">
+        <arg name="stereo_real" value="false"/>
+    </include>
+
     <node pkg="image_view" type="disparity_view" name="disparity_view">
-        <arg name="image" value="/stereo0/disparity"/>
+        <param name="image" value="/stereo0/disparity"/>
     </node>
 
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" />
-
-
-
-    <!-- <include file="$(find primo_stereo)/launch/stereo1.launch"/> -->
-
-    <!-- <include file="$(find primo_rtabmap)/launch/rtab_master.launch"/> -->
-    <!-- <include file="$(find primo_rtabmap)/launch/ground_segmenter.launch"/> -->
 
 </launch>
