@@ -63,5 +63,17 @@ UimuClass::~UimuClass(void)
 void UimuClass::readPort(void)
 {
     std::string tempData = uimuSerPort.read(5);
-    ROS_INFO("Read: %lu", tempData.length());
+
+    std::vector<uint8_t> tempDataV(tempData.begin(), tempData.end());
+
+    readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end()); 
+
+    ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
+
+    std::vector<uint8_t>::iterator it;
+
+    for(it=readBuffer.begin() ; it < readBuffer.end(); it++)
+    {
+            std::cout << std::hex << static_cast<int>(*it) << std::endl;
+    }
 }
