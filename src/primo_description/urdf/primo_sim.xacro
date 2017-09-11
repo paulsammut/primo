@@ -3,7 +3,7 @@
 
   <!-- File includes -->
   <xacro:include filename="$(find primo_description)/urdf/macros.xacro"/>
-  <xacro:include filename="$(find primo_description)/urdf/primo_sim.gazebo" />
+  <xacro:include filename="$(find primo_gazebo)/urdf/sim_main.xacro"/>
 
   <!-- Bot description -->
   <xacro:m_chassis type="sim"/>
