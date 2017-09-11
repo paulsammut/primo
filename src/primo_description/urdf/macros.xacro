@@ -59,7 +59,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-        <mass value="5"/>
+        <mass value="2"/>
         <inertia 
             ixx=".1" ixy="0.0" ixz="0.0" 
             iyy=".1" iyz="0.0" 
@@ -103,7 +103,7 @@
       </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-        <mass value="1.0"/>
+        <mass value="0.5"/>
         <inertia 
             ixx=".02" ixy="0.0" ixz="0.0" 
             iyy=".02" iyz="0.0" 
@@ -267,6 +267,23 @@
       <origin xyz="-.04 .150 1.765" rpy="-2.0 0 -1.570796"/>
       <parent link="base_link"/>
       <child link="stereo1_link"/>
+    </joint>
+
+    <link name="stereo1_corrected_link">
+      <inertial>
+        <mass value="0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia 
+            ixx="1e-6" ixy="0" ixz="0" 
+            iyy="1e-6" iyz="0" 
+            izz="1e-6"/>
+      </inertial>
+    </link>
+
+    <joint name="stereo1_corrected_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
+      <parent link="stereo1_link"/>
+      <child link="stereo1_corrected_link"/>
     </joint>
 
   </xacro:macro>
