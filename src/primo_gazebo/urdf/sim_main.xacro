@@ -7,6 +7,4 @@
 
     <xacro:include filename="$(find primo_gazebo)/urdf/sim_stereo.xacro"/>
 
-
-
 </robot>

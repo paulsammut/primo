@@ -16,4 +16,8 @@
         <arg name="stereo_real" value="false"/>
     </include>
 
+    <!-- These let us control the sim robot with the joystick -->
+    <include file="$(find primo_base)/launch/joy_twist.launch"/>
+    <include file="$(find primo_base)/launch/vel_smooth.launch"/>
+
 </launch>
