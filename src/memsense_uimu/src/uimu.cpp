@@ -68,7 +68,13 @@ UimuClass::UimuClass(void)
     imu_msg.header.frame_id = frame_id_;
 
     // build covariance matrices
-   
+    
+    // Set the first element of the orientation to -1 which means no data
+    // because we are not producing orientation
+    
+    imu_msg.orientation_covariance[0] = -1;
+    
+
     double ang_vel_var = angular_velocity_stdev_ * angular_velocity_stdev_;
     double lin_acc_var = linear_acceleration_stdev_ * linear_acceleration_stdev_;
     for (int i = 0; i < 3; ++i)
