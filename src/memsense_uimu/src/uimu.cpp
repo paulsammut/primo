@@ -23,8 +23,10 @@ int UimuClass::connect(void)
         // Look for the sabertooth module.
         if(strstr(device.description.c_str(), "Silicon") != NULL)
         {
-            ROS_INFO( "Found: (%s, %s, %s)\n", device.port.c_str(), device.description.c_str(),
-                      device.hardware_id.c_str() );
+            ROS_INFO( "Found: (%s, %s, %s)\n", 
+                    device.port.c_str(), device.description.c_str(),
+
+            device.hardware_id.c_str() );
 
             uimuSerPort.setPort(device.port.c_str());
             uimuSerPort.setBaudrate(UIMU_BAUD);
@@ -87,8 +89,6 @@ void UimuClass::readPort(void)
         // We have found the 4 sync bytes
         if(ffCounter == 4)
         {
-            // foundSync = true;
-            // startIndex = i-3;
             if(*it == 0x24)
             {
                 foundSync = true;
@@ -113,17 +113,6 @@ void UimuClass::readPort(void)
             // check to see if we have enough bytes to complete a packet
             if(readBuffer.size() >= (36 + startIndex))
             {
-
-                // std::stringstream tempPacket;
-                // int j = startIndex;
-                // for(j=startIndex ; j < (startIndex+36) ; j++
-                // {
-                //     tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(readBuffer[j]); 
-                //     ROS_INFO("%d", j);
-                // }
-                // ROS_INFO("Last element: %x, %d, %d", static_cast<int>(readBuffer[j-1]), startIndex, j);
-                // ROS_INFO("%s",tempPacket.str().c_str());
-
                 rawPacket.assign(readBuffer[startIndex], readBuffer[startIndex+36]);
                 foundSync = false;
                 validPacket = true;
@@ -147,13 +136,6 @@ void UimuClass::readPort(void)
 
 void UimuClass::decodePacket(void)
 {
-    // std::stringstream tempPacket;
-    // for(int j=0; j < rawPacket.size(); j++)
-    // {
-    //     tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(rawPacket[j]); 
-    // }
-    // ROS_INFO("%s",tempPacket.str().c_str());
-
     short int temp_val;
 
     // Gyro X
@@ -189,17 +171,17 @@ void UimuClass::decodePacket(void)
     // Mag X
     temp_val = static_cast<short int>(rawPacket[25])<<8;
     temp_val += rawPacket[26];
-    uimuTempPacket.mag_X = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+    uimuTempPacket.mag_X = (static_cast<float>(temp_val)) * (3.8/2*1.5/32768);
 
     // Mag Y
     temp_val = static_cast<short int>(rawPacket[27])<<8;
     temp_val += rawPacket[28];
-    uimuTempPacket.mag_Y = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+    uimuTempPacket.mag_Y = (static_cast<float>(temp_val)) * (3.8/2*1.5/32768);
 
     // Mag Z
     temp_val = static_cast<short int>(rawPacket[29])<<8;
     temp_val += rawPacket[30];
-    uimuTempPacket.mag_Z = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+    uimuTempPacket.mag_Z = (static_cast<float>(temp_val)) * (3.8/2*1.5/32768);
 
     ROS_INFO("%f, %f, %f, %f, %f, %f, %f, %f, %f",
             uimuTempPacket.gyro_X,
@@ -217,7 +199,4 @@ void UimuClass::decodePacket(void)
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
 {
     rawPacket = p_vect;
-
 }
-
-
