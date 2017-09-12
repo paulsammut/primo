@@ -1,6 +1,7 @@
 #pragma once
 
 #include "serial/serial.h"
+#include "uimu_packet.h"
 #include <iostream>
 #include <vector>
 
@@ -19,6 +20,8 @@
 class UimuClass
 {
     public:
+
+        UimuPacket uimuTempPacket;
 
         /**
          * @brief Opens the port and connects to the sabertooth. Automatically looks
@@ -42,6 +45,7 @@ class UimuClass
         void readPort(void);
 
         void setRawPacket(std::vector<uint8_t> &p_vect);
+
 
     private:
         /**

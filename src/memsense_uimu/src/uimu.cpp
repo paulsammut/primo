@@ -159,7 +159,11 @@ void UimuClass::decodePacket(void)
     short int temp_gyro_Z;
 
     temp_gyro_X = static_cast<short int>(rawPacket[13])<<8;
+    temp_gyro_X += rawPacket[15];
 
+    uimuTempPacket.gyro_X = temp_gyro_X * (600/2*1.5/32768);
+
+    ROS_INFO("%f",gyro_X);
 }
 
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
