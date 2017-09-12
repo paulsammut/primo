@@ -33,7 +33,7 @@ int UimuClass::connect(void)
 
             // This gave me loads of trouble. You have to set a sensible timeout or
             // else the port won't work.
-            serial::Timeout timeout = serial::Timeout::simpleTimeout(10);
+            serial::Timeout timeout = serial::Timeout::simpleTimeout(50);
             uimuSerPort.setTimeout(timeout);
 
             // Open the serial port
@@ -56,6 +56,7 @@ int UimuClass::connect(void)
 UimuClass::UimuClass(void)
 {
     validPacket = false;
+    numBytes = 1;
 
     frame_id_ = "imu";
     angular_velocity_stdev_ = 0.02 * (M_PI / 180.0); // 0.02 deg/s resolution, as per manual
@@ -118,7 +119,7 @@ UimuClass::~UimuClass(void)
 
 void UimuClass::readPort(void)
 {
-    std::string tempData = uimuSerPort.read(5);
+    std::string tempData = uimuSerPort.read(numBytes);
 
     std::vector<uint8_t> tempDataV(tempData.begin(), tempData.end());
 
@@ -136,7 +137,7 @@ void UimuClass::readPort(void)
 
     validPacket = false;
     
-    // ROS_INFO("Sweep");
+    // ROS_INFO("Sweep with buffer length: %lu", readBuffer.size());
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
         // We have found the 4 sync bytes
@@ -174,6 +175,10 @@ void UimuClass::readPort(void)
                 std::vector<uint8_t>::const_iterator last = readBuffer.begin()+startIndex+36;
                 std::vector<uint8_t> tempV(first,last);
                 setRawPacket(tempV);
+                // set the read bytes to 36 now
+                if(numBytes == 1)
+                    readBuffer.clear();
+                numBytes = 36;
                 break;
             }
         }

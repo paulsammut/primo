@@ -75,6 +75,8 @@ class UimuClass
 
         bool validPacket;
 
+        int numBytes;
+
         /**
          * @brief Decodes the packet
          */
