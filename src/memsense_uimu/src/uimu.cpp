@@ -56,6 +56,60 @@ int UimuClass::connect(void)
 UimuClass::UimuClass(void)
 {
     validPacket = false;
+
+    frame_id_ = "imu";
+    angular_velocity_stdev_ = 0.02 * (M_PI / 180.0); // 0.02 deg/s resolution, as per manual
+    linear_acceleration_stdev_ = 300.0 * 1e-6 * G; // 300 ug as per manual
+    magnetic_field_stdev_ = 0.095 * (M_PI / 180.0); // 0.095°/s as per manual
+
+
+
+
+    imu_msg.header.frame_id = frame_id_;
+
+    // build covariance matrices
+   
+    double ang_vel_var = angular_velocity_stdev_ * angular_velocity_stdev_;
+    double lin_acc_var = linear_acceleration_stdev_ * linear_acceleration_stdev_;
+    for (int i = 0; i < 3; ++i)
+    for (int j = 0; j < 3; ++j)
+    {
+      int idx = j*3 +i;
+  
+      if (i == j)
+      {
+        imu_msg.angular_velocity_covariance[idx]    = ang_vel_var;
+        imu_msg.linear_acceleration_covariance[idx] = lin_acc_var;
+      }
+      else
+      {
+        imu_msg.angular_velocity_covariance[idx]    = 0.0;
+        imu_msg.linear_acceleration_covariance[idx] = 0.0;
+      }
+    }
+  
+    // ---- magnetic field message
+  
+    mag_msg.header.frame_id = frame_id_;
+  
+    // build covariance matrix
+  
+    double mag_field_var = magnetic_field_stdev_ * magnetic_field_stdev_;
+  
+    for (int i = 0; i < 3; ++i)
+    for (int j = 0; j < 3; ++j)
+    {
+      int idx = j * 3 + i;
+  
+      if (i == j)
+      {
+        mag_msg.magnetic_field_covariance[idx] = mag_field_var;
+      }
+      else
+      {
+        mag_msg.magnetic_field_covariance[idx] = 0.0;
+      }
+    }
 }
 
 UimuClass::~UimuClass(void)
@@ -199,4 +253,18 @@ void UimuClass::decodePacket(void)
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
 {
     rawPacket = p_vect;
+}
+
+void UimuClass::processPacket(void)
+{
+
+  // set linear acceleration
+  imu_msg.linear_acceleration.x = - uimuTempPacket.acc_X * G;
+  imu_msg.linear_acceleration.y = - uimuTempPacket.acc_Y * G;
+  imu_msg.linear_acceleration.z = - uimuTempPacket.acc_Z * G;
+
+  // set angular velocities
+  imu_msg.angular_velocity.x = uimuTempPacket.gyro_X  * (M_PI / 180.0);
+  imu_msg.angular_velocity.y = uimuTempPacket.gyro_Y  * (M_PI / 180.0);
+  imu_msg.angular_velocity.z = uimuTempPacket.gyro_Z  * (M_PI / 180.0);
 }

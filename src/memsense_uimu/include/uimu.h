@@ -32,7 +32,7 @@ class UimuClass
         std::string frame_id_;
         double angular_velocity_stdev_;
         double linear_acceleration_stdev_;
-        double magnetic_field_stdev_ = M_PI;
+        double magnetic_field_stdev_;
 
         /**
          * @brief Opens the port and connects to the sabertooth. Automatically looks
@@ -58,6 +58,7 @@ class UimuClass
         void setRawPacket(std::vector<uint8_t> &p_vect);
 
 
+
     private:
         /**
          * @brief This is the serial object that handles connection with the
@@ -77,4 +78,5 @@ class UimuClass
          */
         void decodePacket(void);
 
+        void processPacket(void);
 };
