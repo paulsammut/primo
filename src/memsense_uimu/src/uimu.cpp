@@ -74,21 +74,22 @@ void UimuClass::readPort(void)
 
     std::vector<uint8_t>::iterator it;
 
-    bool ffCounter = 0;
+    int ffCounter = 0;
 
     int i = 0;
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
-        // std::cout << std::hex << static_cast<int>(*it) << std::endl;
-        if(*it == 0xFF)
+        ROS_INFO("%x", static_cast<int>(*it));
+        if(*it == 0xff)
         {
             ffCounter += 1;
-            ROS_INFO("Found Sync! %d", ffCounter);
-            if(*(it+1)== 0xFF)
-                std::cout << "Next one is ";
-        } 
+            ROS_INFO("Found %d", ffCounter);
+        }
         else
+        {
+            ROS_INFO("Reset");
             ffCounter = 0;
+        }
         
         // We have found the 4 sync bytes
         if(ffCounter == 4)
@@ -104,6 +105,7 @@ void UimuClass::readPort(void)
             // Get rid of any data before this
             readBuffer.erase(readBuffer.begin(), readBuffer.begin()+i);
         } 
+        ROS_INFO("Ended");
 
     }
 }
