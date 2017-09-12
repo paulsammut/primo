@@ -153,6 +153,13 @@ void UimuClass::decodePacket(void)
         tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(rawPacket[j]); 
     }
     ROS_INFO("%s",tempPacket.str().c_str());
+
+    short int temp_gyro_X;
+    short int temp_gyro_Y;
+    short int temp_gyro_Z;
+
+    temp_gyro_X = static_cast<short int>(rawPacket[13])<<8;
+
 }
 
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
