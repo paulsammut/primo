@@ -49,8 +49,15 @@ class UimuClass
         serial::Serial uimuSerPort;
         
         std::vector<uint8_t> readBuffer;
+        std::vector<uint8_t> rawPacket;
 
         bool validPacket;
-        bool foundSync;
+
+
+
+        /**
+         * @brief Decodes the packet
+         */
+        void decodePacket(void);
 
 };

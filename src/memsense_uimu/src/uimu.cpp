@@ -54,7 +54,6 @@ int UimuClass::connect(void)
 UimuClass::UimuClass(void)
 {
     validPacket = false;
-    foundSync = false;
 }
 
 UimuClass::~UimuClass(void)
@@ -83,7 +82,6 @@ void UimuClass::readPort(void)
     // ROS_INFO("Sweep");
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
-
         // We have found the 4 sync bytes
         if(ffCounter == 4)
         {
@@ -108,25 +106,33 @@ void UimuClass::readPort(void)
             ffCounter = 0;
         }
         
-
         if(foundSync)
         {
             // check to see if we have enough bytes to complete a packet
             if(readBuffer.size() >= (36 + startIndex))
             {
-                std::stringstream tempPacket;
-                int j = startIndex;
-                for(j=startIndex ; j < (startIndex+36) ; j++)
-                {
-                    tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(readBuffer[j]); 
-                    // ROS_INFO("%d", j);
-                }
+
+                // std::stringstream tempPacket;
+                // int j = startIndex;
+                // for(j=startIndex ; j < (startIndex+36) ; j++
+                // {
+                //     tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(readBuffer[j]); 
+                //     ROS_INFO("%d", j);
+                // }
                 // ROS_INFO("Last element: %x, %d, %d", static_cast<int>(readBuffer[j-1]), startIndex, j);
-                ROS_INFO("%s",tempPacket.str().c_str());
+                // ROS_INFO("%s",tempPacket.str().c_str());
+
+                rawPacket.assign(readBuffer[startIndex], readBuffer[startIndex+36]);
                 foundSync = false;
+                validPacket = true;
                 readBuffer.erase(readBuffer.begin(), readBuffer.begin()+36);
                 break;
             }
         }
+    }
+
+    if(validPacket)
+    {
+        decodePacket();
     }
 }
