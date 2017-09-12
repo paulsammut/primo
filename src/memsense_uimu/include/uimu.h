@@ -41,6 +41,8 @@ class UimuClass
 
         void readPort(void);
 
+        void setRawPacket(std::vector<uint8_t> &p_vect);
+
     private:
         /**
          * @brief This is the serial object that handles connection with the

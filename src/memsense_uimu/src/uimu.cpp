@@ -78,6 +78,8 @@ void UimuClass::readPort(void)
     bool foundSync = false;
 
     int i = 0;
+
+    validPacket = false;
     
     // ROS_INFO("Sweep");
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
@@ -126,6 +128,10 @@ void UimuClass::readPort(void)
                 foundSync = false;
                 validPacket = true;
                 readBuffer.erase(readBuffer.begin(), readBuffer.begin()+36);
+                std::vector<uint8_t>::const_iterator first = readBuffer.begin()+startIndex;
+                std::vector<uint8_t>::const_iterator last = readBuffer.begin()+startIndex+36;
+                std::vector<uint8_t> tempV(first,last);
+                setRawPacket(tempV);
                 break;
             }
         }
@@ -133,6 +139,7 @@ void UimuClass::readPort(void)
 
     if(validPacket)
     {
+        validPacket = false;
         decodePacket();
     }
 }
@@ -140,4 +147,15 @@ void UimuClass::readPort(void)
 
 void UimuClass::decodePacket(void)
 {
+    std::stringstream tempPacket;
+    for(int j=0; j < rawPacket.size(); j++)
+    {
+        tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(rawPacket[j]); 
+    }
+    ROS_INFO("%s",tempPacket.str().c_str());
+}
+
+void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
+{
+    rawPacket = p_vect;
 }
