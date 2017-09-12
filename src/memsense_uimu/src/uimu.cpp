@@ -62,8 +62,7 @@ UimuClass::UimuClass(void)
     linear_acceleration_stdev_ = 300.0 * 1e-6 * G; // 300 ug as per manual
     magnetic_field_stdev_ = 0.095 * (M_PI / 180.0); // 0.095°/s as per manual
 
-
-
+    // ---- imu message
 
     imu_msg.header.frame_id = frame_id_;
 
@@ -184,6 +183,7 @@ void UimuClass::readPort(void)
     {
         validPacket = false;
         decodePacket();
+        processPacket();
     }
 }
 
@@ -237,17 +237,18 @@ void UimuClass::decodePacket(void)
     temp_val += rawPacket[30];
     uimuTempPacket.mag_Z = (static_cast<float>(temp_val)) * (3.8/2*1.5/32768);
 
-    ROS_INFO("%f, %f, %f, %f, %f, %f, %f, %f, %f",
-            uimuTempPacket.gyro_X,
-            uimuTempPacket.gyro_Y,
-            uimuTempPacket.gyro_Z,
-            uimuTempPacket.acc_X,
-            uimuTempPacket.acc_Y,
-            uimuTempPacket.acc_Z,
-            uimuTempPacket.mag_X,
-            uimuTempPacket.mag_Y,
-            uimuTempPacket.mag_Z
-            );
+    // Print out the packet
+    // ROS_INFO("%f, %f, %f, %f, %f, %f, %f, %f, %f",
+    //         uimuTempPacket.gyro_X,
+    //         uimuTempPacket.gyro_Y,
+    //         uimuTempPacket.gyro_Z,
+    //         uimuTempPacket.acc_X,
+    //         uimuTempPacket.acc_Y,
+    //         uimuTempPacket.acc_Z,
+    //         uimuTempPacket.mag_X,
+    //         uimuTempPacket.mag_Y,
+    //         uimuTempPacket.mag_Z
+    //         );
 }
 
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
@@ -257,14 +258,28 @@ void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
 
 void UimuClass::processPacket(void)
 {
+    // set the times
+    ros::Time time_now = ros::Time::now();
+    imu_msg.header.stamp = time_now;
+    mag_msg.header.stamp = time_now;
+  
+    
+    // set linear acceleration
+    imu_msg.linear_acceleration.x = - uimuTempPacket.acc_X * G;
+    imu_msg.linear_acceleration.y = - uimuTempPacket.acc_Y * G;
+    imu_msg.linear_acceleration.z = - uimuTempPacket.acc_Z * G;
+  
+    // set angular velocities
+    imu_msg.angular_velocity.x = uimuTempPacket.gyro_X  * (M_PI / 180.0);
+    imu_msg.angular_velocity.y = uimuTempPacket.gyro_Y  * (M_PI / 180.0);
+    imu_msg.angular_velocity.z = uimuTempPacket.gyro_Z  * (M_PI / 180.0);
+  
+    // mag message
+    // device reports data in Gauss, multiply by 1e-4 to convert to Tesla
+    mag_msg.magnetic_field.x = uimuTempPacket.mag_X * 1e-4;
+    mag_msg.magnetic_field.y = uimuTempPacket.mag_Y * 1e-4;
+    mag_msg.magnetic_field.z = uimuTempPacket.mag_Z * 1e-4;
 
-  // set linear acceleration
-  imu_msg.linear_acceleration.x = - uimuTempPacket.acc_X * G;
-  imu_msg.linear_acceleration.y = - uimuTempPacket.acc_Y * G;
-  imu_msg.linear_acceleration.z = - uimuTempPacket.acc_Z * G;
-
-  // set angular velocities
-  imu_msg.angular_velocity.x = uimuTempPacket.gyro_X  * (M_PI / 180.0);
-  imu_msg.angular_velocity.y = uimuTempPacket.gyro_Y  * (M_PI / 180.0);
-  imu_msg.angular_velocity.z = uimuTempPacket.gyro_Z  * (M_PI / 180.0);
+    imu_publisher.publish(imu_msg);
+    mag_publisher.publish(mag_msg);
 }

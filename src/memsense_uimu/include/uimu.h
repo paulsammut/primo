@@ -6,6 +6,7 @@
 #include <vector>
 #include "sensor_msgs/Imu.h"
 #include <sensor_msgs/MagneticField.h>
+#include <ros/ros.h>
 
 #define UIMU_BAUD 57600
 
@@ -26,13 +27,13 @@ class UimuClass
     public:
 
 
-        UimuPacket uimuTempPacket;
-        sensor_msgs::Imu imu_msg;
-        sensor_msgs::MagneticField mag_msg;
         std::string frame_id_;
         double angular_velocity_stdev_;
         double linear_acceleration_stdev_;
         double magnetic_field_stdev_;
+
+        ros::Publisher  imu_publisher;
+        ros::Publisher  mag_publisher;
 
         /**
          * @brief Opens the port and connects to the sabertooth. Automatically looks
@@ -55,7 +56,6 @@ class UimuClass
 
         void readPort(void);
 
-        void setRawPacket(std::vector<uint8_t> &p_vect);
 
 
 
@@ -65,13 +65,15 @@ class UimuClass
          * sabertooth module
          */
         serial::Serial uimuSerPort;
+
+        UimuPacket uimuTempPacket;
+        sensor_msgs::Imu imu_msg;
+        sensor_msgs::MagneticField mag_msg;
         
         std::vector<uint8_t> readBuffer;
         std::vector<uint8_t> rawPacket;
 
         bool validPacket;
-
-
 
         /**
          * @brief Decodes the packet
@@ -79,4 +81,6 @@ class UimuClass
         void decodePacket(void);
 
         void processPacket(void);
+
+        void setRawPacket(std::vector<uint8_t> &p_vect);
 };

@@ -1,6 +1,8 @@
 #include "ros/ros.h"
 #include "std_msgs/Int16.h"
 #include "uimu.h"
+#include "sensor_msgs/Imu.h"
+#include <sensor_msgs/MagneticField.h>
 
 /**
  * This is the main function of the uimu_simple node that communicates to the a
@@ -24,9 +26,12 @@ UimuClass uimu;
 
 int main(int argc, char **argv)
 {
-    ros::init(argc,argv, "uimu_simple");
+    ros::init(argc,argv, "uimu");
     
     ros::NodeHandle n;
+
+    uimu.imu_publisher = n.advertise<sensor_msgs::Imu>("imu",1000);
+    uimu.mag_publisher = n.advertise<sensor_msgs::MagneticField>("mag",1000);
 
     uimu.connect();
 
