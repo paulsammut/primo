@@ -59,9 +59,9 @@ UimuClass::UimuClass(void)
     numBytes = 1;
 
     frame_id_ = "imu";
-    angular_velocity_stdev_ = 0.02 * (M_PI / 180.0); // 0.02 deg/s resolution, as per manual
-    linear_acceleration_stdev_ = 300.0 * 1e-6 * G; // 300 ug as per manual
-    magnetic_field_stdev_ = 0.095 * (M_PI / 180.0); // 0.095°/s as per manual
+    angular_velocity_stdev_ = 0.5 * (M_PI / 180.0); // 0.5 deg/s noise
+    linear_acceleration_stdev_ = 5.0 * 1e-3 * G; // 5 mg
+    magnetic_field_stdev_ = 5.6 * 1e-3 * 1e-4; // 5.6 milli gauss converted to teslas
 
     // ---- imu message
 
