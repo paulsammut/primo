@@ -136,3 +136,8 @@ void UimuClass::readPort(void)
         decodePacket();
     }
 }
+
+
+void UimuClass::decodePacket(void)
+{
+}
