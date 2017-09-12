@@ -75,11 +75,28 @@ void UimuClass::readPort(void)
     std::vector<uint8_t>::iterator it;
 
     int ffCounter = 0;
+    int startIndex = 0;
+    bool foundSync = false;
 
     int i = 0;
+    
+    // ROS_INFO("Sweep");
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
-        // ROS_INFO("%x", static_cast<int>(*it));
+
+        // We have found the 4 sync bytes
+        if(ffCounter == 4)
+        {
+            // foundSync = true;
+            // startIndex = i-3;
+            if(*it == 0x24)
+            {
+                foundSync = true;
+                startIndex = i - 4;
+            }
+        } 
+
+        // ROS_INFO("%x, %d, %d", static_cast<int>(*it), i, startIndex);
         if(*it == 0xff)
         {
             ffCounter += 1;
@@ -91,39 +108,24 @@ void UimuClass::readPort(void)
             ffCounter = 0;
         }
         
-        // We have found the 4 sync bytes
-        if(ffCounter >= 4)
-        {
-            // ROS_INFO("Found Sync!");
-            foundSync = true;
-            // Get rid of any data before this
-            
-            std::stringstream tempPacket;
-            for(int k = 0; k < readBuffer.size(); ++k)
-                tempPacket << std::hex << static_cast<int>(readBuffer[k]);
-            ROS_INFO("Before trim: %s",tempPacket.str().c_str());
-                
-            readBuffer.erase(readBuffer.begin(), readBuffer.begin()+i-3);
-            
-            for(int k = 0; k < readBuffer.size(); ++k)
-                tempPacket << std::hex << static_cast<int>(readBuffer[k]);
-            ROS_INFO("After trim: %s",tempPacket.str().c_str());
-
-        } 
 
         if(foundSync)
         {
             // check to see if we have enough bytes to complete a packet
-            if(readBuffer.size() >= 36)
+            if(readBuffer.size() >= (36 + startIndex))
             {
                 std::stringstream tempPacket;
-                for(int j = 0; j<36 ; ++j)
+                int j = startIndex;
+                for(j=startIndex ; j < (startIndex+36) ; j++)
                 {
-                    tempPacket << std::hex << static_cast<int>(readBuffer[j]);
+                    tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(readBuffer[j]); 
+                    // ROS_INFO("%d", j);
                 }
+                // ROS_INFO("Last element: %x, %d, %d", static_cast<int>(readBuffer[j-1]), startIndex, j);
                 ROS_INFO("%s",tempPacket.str().c_str());
                 foundSync = false;
-                readBuffer.erase(readBuffer.begin(), readBuffer.begin()+35);
+                readBuffer.erase(readBuffer.begin(), readBuffer.begin()+36);
+                break;
             }
         }
     }
