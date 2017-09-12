@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find primo_base)/launch/joy_twist.launch"/>
+
+    <include file="$(find primo_base)/launch/vel_smooth.launch"/>
+    <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
+    <include file="$(find primo_base)/launch/power_sensor.launch"/>
+
+    <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
+    <include file="$(find primo_gazebo)/launch/primo_gazebo.launch"/>
+
+    <node pkg="memsense_uimu" type="uimu" name="uimu"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find primo_bringup)/config/imu_test.rviz"/>
+
+
+</launch>

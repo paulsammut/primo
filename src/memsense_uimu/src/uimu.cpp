@@ -58,7 +58,7 @@ UimuClass::UimuClass(void)
     validPacket = false;
     numBytes = 1;
 
-    frame_id_ = "imu";
+    frame_id_ = "imu_link";
     angular_velocity_stdev_ = 0.5 * (M_PI / 180.0); // 0.5 deg/s noise
     linear_acceleration_stdev_ = 5.0 * 1e-3 * G; // 5 mg
     magnetic_field_stdev_ = 5.6 * 1e-3 * 1e-4; // 5.6 milli gauss converted to teslas
