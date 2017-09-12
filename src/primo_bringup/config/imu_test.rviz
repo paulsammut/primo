@@ -72,44 +72,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        stereo0_corrected_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        stereo0_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        stereo1_corrected_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        stereo1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tail_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tail_wheel_block:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -131,13 +93,13 @@ Visualization Manager:
       Enabled: true
       History Length: 1
       Name: Imu
-      Topic: /imu/data
+      Topic: /imu
       Unreliable: false
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: imu_link
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -158,7 +120,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.68084466
+      Distance: 5.84690332
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -172,10 +134,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.395398498
+      Pitch: 0.605398715
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 0.100408986
+      Yaw: 0.270410776
     Saved: ~
 Window Geometry:
   Displays:
