@@ -17,5 +17,5 @@ class UimuPacket
         float mag_X;
         float mag_Y;
         float mag_Z;
-}
+};
        

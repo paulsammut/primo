@@ -147,26 +147,77 @@ void UimuClass::readPort(void)
 
 void UimuClass::decodePacket(void)
 {
-    std::stringstream tempPacket;
-    for(int j=0; j < rawPacket.size(); j++)
-    {
-        tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(rawPacket[j]); 
-    }
-    ROS_INFO("%s",tempPacket.str().c_str());
+    // std::stringstream tempPacket;
+    // for(int j=0; j < rawPacket.size(); j++)
+    // {
+    //     tempPacket << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(rawPacket[j]); 
+    // }
+    // ROS_INFO("%s",tempPacket.str().c_str());
 
-    short int temp_gyro_X;
-    short int temp_gyro_Y;
-    short int temp_gyro_Z;
+    short int temp_val;
 
-    temp_gyro_X = static_cast<short int>(rawPacket[13])<<8;
-    temp_gyro_X += rawPacket[15];
+    // Gyro X
+    temp_val = static_cast<short int>(rawPacket[13])<<8;
+    temp_val += rawPacket[14];
+    uimuTempPacket.gyro_X = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
+    
+    // Gyro Y
+    temp_val = static_cast<short int>(rawPacket[15])<<8;
+    temp_val += rawPacket[16];
+    uimuTempPacket.gyro_Y = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
+    
+    // Gyro Z
+    temp_val = static_cast<short int>(rawPacket[17])<<8;
+    temp_val += rawPacket[18];
+    uimuTempPacket.gyro_Z = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
 
-    uimuTempPacket.gyro_X = temp_gyro_X * (600/2*1.5/32768);
+    // Acc X
+    temp_val = static_cast<short int>(rawPacket[19])<<8;
+    temp_val += rawPacket[20];
+    uimuTempPacket.acc_X = (static_cast<float>(temp_val)) * (10/2*1.5/32768);
 
-    ROS_INFO("%f",gyro_X);
+    // Acc Y
+    temp_val = static_cast<short int>(rawPacket[21])<<8;
+    temp_val += rawPacket[22];
+    uimuTempPacket.acc_Y = (static_cast<float>(temp_val)) * (10/2*1.5/32768);
+
+    // Acc Z
+    temp_val = static_cast<short int>(rawPacket[23])<<8;
+    temp_val += rawPacket[24];
+    uimuTempPacket.acc_Z = (static_cast<float>(temp_val)) * (10/2*1.5/32768);
+    
+    // Mag X
+    temp_val = static_cast<short int>(rawPacket[25])<<8;
+    temp_val += rawPacket[26];
+    uimuTempPacket.mag_X = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+
+    // Mag Y
+    temp_val = static_cast<short int>(rawPacket[27])<<8;
+    temp_val += rawPacket[28];
+    uimuTempPacket.mag_Y = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+
+    // Mag Z
+    temp_val = static_cast<short int>(rawPacket[29])<<8;
+    temp_val += rawPacket[30];
+    uimuTempPacket.mag_Z = (static_cast<float>(temp_val)) * (2.8/2*1.5/32768);
+
+    ROS_INFO("%f, %f, %f, %f, %f, %f, %f, %f, %f",
+            uimuTempPacket.gyro_X,
+            uimuTempPacket.gyro_Y,
+            uimuTempPacket.gyro_Z,
+            uimuTempPacket.acc_X,
+            uimuTempPacket.acc_Y,
+            uimuTempPacket.acc_Z,
+            uimuTempPacket.mag_X,
+            uimuTempPacket.mag_Y,
+            uimuTempPacket.mag_Z
+            );
 }
 
 void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)
 {
     rawPacket = p_vect;
+
 }
+
+
