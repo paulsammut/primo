@@ -53,6 +53,8 @@ int UimuClass::connect(void)
 
 UimuClass::UimuClass(void)
 {
+    validPacket = false;
+    foundSync = false;
 }
 
 UimuClass::~UimuClass(void)
@@ -68,12 +70,40 @@ void UimuClass::readPort(void)
 
     readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end()); 
 
-    ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
+    // ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
 
     std::vector<uint8_t>::iterator it;
 
-    for(it=readBuffer.begin() ; it < readBuffer.end(); it++)
+    bool ffCounter = 0;
+
+    int i = 0;
+    for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
-            std::cout << std::hex << static_cast<int>(*it) << std::endl;
+        // std::cout << std::hex << static_cast<int>(*it) << std::endl;
+        if(*it == 0xFF)
+        {
+            ffCounter += 1;
+            ROS_INFO("Found Sync! %d", ffCounter);
+            if(*(it+1)== 0xFF)
+                std::cout << "Next one is ";
+        } 
+        else
+            ffCounter = 0;
+        
+        // We have found the 4 sync bytes
+        if(ffCounter == 4)
+        {
+            ROS_INFO("Found Sync!");
+            foundSync = true;
+            for(std::vector<uint8_t>::const_iterator iter1 = readBuffer.begin(); iter1 != readBuffer.end(); iter1++)
+            {
+                std::cout << std::hex << static_cast<int>(*iter1);
+            }
+            std::cout << std::endl;
+        
+            // Get rid of any data before this
+            readBuffer.erase(readBuffer.begin(), readBuffer.begin()+i);
+        } 
+
     }
 }

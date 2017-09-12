@@ -50,4 +50,7 @@ class UimuClass
         
         std::vector<uint8_t> readBuffer;
 
+        bool validPacket;
+        bool foundSync;
+
 };
