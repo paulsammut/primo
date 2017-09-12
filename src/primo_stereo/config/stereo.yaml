@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 stereo_real: true
+=======
+stereo_real: false
+
+stereo0:
+    disparity:
+        texture_threshold: 2500
+        speckle_size: 1000
+
+stereo1:
+    disparity:
+        texture_threshold: 2000
+        speckle_size: 1000
+
+# /stereo0/disparity/P1
+# /stereo0/disparity/P2
+# /stereo0/disparity/correlation_window_size
+# /stereo0/disparity/disp12MaxDiff
+# /stereo0/disparity/disparity_range
+# /stereo0/disparity/fullDP
+# /stereo0/disparity/min_disparity
+# /stereo0/disparity/prefilter_cap
+# /stereo0/disparity/prefilter_size
+# /stereo0/disparity/speckle_range
+# /stereo0/disparity/speckle_size
+# /stereo0/disparity/stereo_algorithm
+# /stereo0/disparity/texture_threshold
+# /stereo0/disparity/uniqueness_ratio
+>>>>>>> 97f8ff6326a2a8a0dabbc08f06d1a0eb0fa19b58

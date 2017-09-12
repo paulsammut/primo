@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <include file="$(find primo_description)/launch/imu_test.launch"/>
+
+    <node pkg="memsense_uimu" type="uimu" name="uimu"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find primo_bringup)/config/imu_test.rviz"/>
+
+    <node if="true" pkg="imu_complementary_filter" type="complementary_filter_node" name="imu_filter"> 
+        <remap from="imu/data_raw" to="imu"/>
+        <remap from="imu/mag" to="mag"/>
+
+        <param name="use_mag"       value="false"/>
+        <param name="publish_tf"    value="true"/>
+        <param name="fixed_frame"   value="odom"/>
+        <param name="reverse_tf"    value="true"/>
+    </node>
+
+    <node if="false" pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madwick">
+        <remap from="imu/data_raw" to="imu"/>
+        <remap from="imu/mag" to="mag"/>
+
+        <param name="use_mag"       value="true"/>
+        <param name="publish_tf"    value="true"/>
+        <param name="fixed_frame"   value="odom"/>
+    </node>
+</launch>

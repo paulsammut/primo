@@ -5,13 +5,8 @@
   <xacro:include filename="$(find primo_description)/urdf/macros.xacro"/>
 
   <!-- Bot description -->
-  <xacro:m_chassis type="real"/>
-  <xacro:m_wheel lr="left" reflect="1"/>
-  <xacro:m_wheel lr="right" reflect="-1"/>
+  <xacro:m_chassis type="sim"/>
 
-  <!-- Sensor suite -->
-  <xacro:m_stereo0/>
-  <xacro:m_stereo1/>
   <xacro:m_imu/>
 
 </robot>
