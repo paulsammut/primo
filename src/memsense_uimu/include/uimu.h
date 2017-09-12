@@ -4,8 +4,12 @@
 #include "uimu_packet.h"
 #include <iostream>
 #include <vector>
+#include "sensor_msgs/Imu.h"
+#include <sensor_msgs/MagneticField.h>
 
 #define UIMU_BAUD 57600
+
+const float G = 9.81;
 
 /**
  * \class UIMU Class
@@ -21,7 +25,14 @@ class UimuClass
 {
     public:
 
+
         UimuPacket uimuTempPacket;
+        sensor_msgs::Imu imu_msg;
+        sensor_msgs::MagneticField mag_msg;
+        std::string frame_id_;
+        double angular_velocity_stdev_;
+        double linear_acceleration_stdev_;
+        double magnetic_field_stdev_ = M_PI;
 
         /**
          * @brief Opens the port and connects to the sabertooth. Automatically looks
