@@ -12,7 +12,7 @@
             <wheelDiameter>         0.2                 </wheelDiameter>
             <wheelTorque>           200                 </wheelTorque>
             <wheelAcceleration>     1                   </wheelAcceleration>
-            <commandTopic>          raw_cmd_vel         </commandTopic>
+            <commandTopic>          cmd_vel         </commandTopic>
             <odometryTopic>         odom                </odometryTopic>
             <odometryFrame>         odom                </odometryFrame>
             <odometrySource>        1                   </odometrySource>
