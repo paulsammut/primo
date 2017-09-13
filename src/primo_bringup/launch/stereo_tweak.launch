@@ -22,4 +22,6 @@
 
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" />
 
+    <include file="$(find primo_rtabmap)/launch/rtab_master.launch"/>
+
 </launch>
