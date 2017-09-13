@@ -22,7 +22,7 @@ inflation_radius: 0.3
 
 obstacle_layer:
 
-    observation_sources: point_cloud_sensor0, point_cloud_sensor1
+    observation_sources: point_cloud_sensor0 point_cloud_sensor1
 
     point_cloud_sensor0: {
         sensor_frame: base_link, 
