@@ -65,8 +65,8 @@ float readVoltage(void)
     // Volt 36.60mV / Amp
     float retVolts = (((float)analogRead(PIN_VOLTAGE))/1024.0*5.0)/0.06369;
     // This is my own calibration offsets
-    /* retVolts += -0.48; */
-    retVolts += -1.48;
+    retVolts += -0.48;
+    /* retVolts += -1.48; */
     return(retVolts);
 }
 
