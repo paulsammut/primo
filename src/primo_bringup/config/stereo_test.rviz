@@ -27,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Stereo0
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -59,54 +59,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        stereo0_corrected_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        stereo0_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        stereo1_corrected_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        stereo1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tail_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tail_wheel_block:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -411,5 +363,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1278
-  X: 1276
-  Y: 596
+  X: 1275
+  Y: 572

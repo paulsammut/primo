@@ -5,12 +5,10 @@
 
     <xacro:include filename="$(find primo_gazebo)/urdf/sim_wheels.xacro"/>
 
-    <!-- <xacro:include filename="$(find primo_gazebo)/urdf/sim_stereo.xacro"/> -->
+    <xacro:include filename="$(find primo_gazebo)/urdf/sim_stereo.xacro"/>
 
-    <!-- <xacro:m_sim_stereo num="0"/> -->
-    <!-- <xacro:m_sim_stereo num="1"/> -->
-
-    FUCKING WORK?:w
+    <xacro:m_sim_stereo num="0"/>
+    <xacro:m_sim_stereo num="1"/>
 
 
 </robot>
