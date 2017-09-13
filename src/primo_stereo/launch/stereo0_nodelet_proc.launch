@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <!-- 
+        I wrote this when I was trying to make use of the rtab processing nodelets.
+        I wanted the rtab nodelets to run in the same nodelet manager so I manually
+        set up stereo_image_proc to get access of its nodelet manager. I probably
+        didn't have to do this. 
+    -->
+
+    <group ns="/stereo0">
+        <arg name="manager" value="/stereo0/nodelet_manager"/>
+        <arg name="respawn" value="false"/>
+        <arg name="left" value="left" />
+        <arg name="right" value="right" />
+
+        <!-- Create a nodelet manager  -->
+        <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
+
+        <arg     if="$(arg respawn)" name="bond" value="" />
+        <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
+		
+        <!-- Throttle the data coming from ucv_cam-->
+        <node pkg="nodelet" type="nodelet" name="stereo_throttle" 
+              args="load rtabmap_ros/stereo_throttle $(arg manager)">
+
+			<remap from="left/image"        to="left/image_raw"/>
+		    <remap from="right/image"       to="right/image_raw"/>
+		    <remap from="left/camera_info"  to="left/camera_info"/>
+		    <remap from="right/camera_info" to="right/camera_info"/>
+		    
+		    <param name="queue_size"    type="int"      value="10"/>
+		    <param name="rate"          type="double"   value="20"/>
+
+		</node>
+
+        <group>
+            <remap from="left/image_raw" to="left/image_raw_throttle"/>
+            <remap from="left/camera_info" to="left/camera_info_throttle"/>
+            <remap from="right/image_raw" to="right/image_raw_throttle"/>
+            <remap from="right/camera_info" to="right/camera_info_throttle"/>
+
+            <!-- Basic processing for left camera -->
+            <!-- Debayered images -->
+            <group ns="left">
+                <node pkg="nodelet" type="nodelet" name="debayer"
+                    args="load image_proc/debayer $(arg manager) $(arg bond)"
+                    respawn="$(arg respawn)" >
+                </node>
+
+                <!-- Monochrome rectified image -->
+                <node pkg="nodelet" type="nodelet" name="rectify_mono"
+                      args="load image_proc/rectify $(arg manager) $(arg bond)"
+                      respawn="$(arg respawn)" >
+                </node>
+
+                <!-- Color rectified image -->
+                <node pkg="nodelet" type="nodelet" name="rectify_color"
+                      args="load image_proc/rectify $(arg manager) $(arg bond)"
+                      respawn="$(arg respawn)">
+
+                    <remap from="image_mono" to="image_color" />
+                    <remap from="image_rect" to="image_rect_color" />
+                </node>
+
+            </group>
+
+            <!-- Basic processing for right camera -->
+            <!-- Debayered images -->
+            <group ns="right">
+                <node pkg="nodelet" type="nodelet" name="debayer"
+                      args="load image_proc/debayer $(arg manager) $(arg bond)"
+                      respawn="$(arg respawn)" />
+
+                <!-- Monochrome rectified image -->
+                <node pkg="nodelet" type="nodelet" name="rectify_mono"
+                      args="load image_proc/rectify $(arg manager) $(arg bond)"
+                      respawn="$(arg respawn)" />
+
+                <!-- Color rectified image -->
+                <node pkg="nodelet" type="nodelet" name="rectify_color"
+                      args="load image_proc/rectify $(arg manager) $(arg bond)"
+                      respawn="$(arg respawn)">
+
+                    <remap from="image_mono" to="image_color" />
+                    <remap from="image_rect" to="image_rect_color" />
+                </node>  
+            </group>
+
+            
+            <!-- Disparity image -->
+            <node pkg="nodelet" type="nodelet" name="disparity"
+                args="load stereo_image_proc/disparity $(arg manager) $(arg bond)"
+                respawn="$(arg respawn)" >
+                <param name="disparity_range" value="128"/>
+            </node>
+            
+            <!-- PointCloud2 -->
+            <node pkg="nodelet" type="nodelet" name="point_cloud2"
+                args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
+                respawn="$(arg respawn)" >
+            </node>
+
+        </group>
+    </group>
+</launch>
