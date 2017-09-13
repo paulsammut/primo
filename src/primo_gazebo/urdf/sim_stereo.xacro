@@ -4,7 +4,7 @@
     <xacro:macro name="m_sim_stereo" params="num">
 
         <gazebo reference="stereo${num}_corrected_link">
-            <sensor type="multicamera" name="stereo_camera">
+            <sensor type="multicamera" name="stereo${num}_camera">
                 <update_rate>30.0</update_rate>
                 <camera name="left">
                   <horizontal_fov>0.872665</horizontal_fov>

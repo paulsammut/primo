@@ -64,6 +64,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_wheel:
           Alpha: 1
           Show Axes: false
@@ -153,8 +158,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.0752024651
-        Min Value: 0.0327459574
+        Max Value: 0.0735440254
+        Min Value: 0.0350265503
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -383,10 +388,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.499797583
+      Pitch: 0.389797688
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 4.81034088
+      Yaw: 5.80034828
     Saved: ~
 Window Geometry:
   Displays:
@@ -406,5 +411,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1278
-  X: 1277
-  Y: 620
+  X: 1276
+  Y: 596
