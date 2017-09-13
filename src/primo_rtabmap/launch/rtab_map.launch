@@ -9,7 +9,6 @@
         <remap from="odom" to="/odom"/>
         <param name="frame_id" type="string" value="base_link"/>
 
-
 		<remap from="left/image_rect" to="/stereo1/left/image_rect_color"/>
 		<remap from="right/image_rect" to="/stereo1/right/image_rect"/>
 		<remap from="left/camera_info" to="/stereo1/left/camera_info"/>
@@ -27,24 +26,28 @@
         <!-- <param name="Grid/NormalsSegmentation" type="string" value="false"/>  -->
 
 	    <!-- RTAB-Map's parameters -->
-	    <param name="Rtabmap/TimeThr" type="string" value="700"/>
-	    <param name="Rtabmap/DetectionRate" type="string" value="1"/>
-	    <param name="Kp/WordsPerImage" type="string" value="200"/>
-	    <param name="Kp/RoiRatios" type="string" value="0.03 0.03 0.04 0.04"/>
-	    <param name="Kp/DetectorStrategy" type="string" value="0"/>
+	    <param name="Rtabmap/TimeThr"               type="string"   value="700"/>
+	    <param name="Rtabmap/DetectionRate"         type="string"   value="1"/>
+	    <param name="Kp/WordsPerImage"              type="string"   value="200"/>
+	    <param name="Kp/RoiRatios"                  type="string"   value="0.03 0.03 0.04 0.04"/>
+	    <param name="Kp/DetectorStrategy"           type="string"   value="0"/>
 	    <!-- use SURF -->
-	    <param name="Kp/NNStrategy" type="string" value="1"/>
+	    <param name="Kp/NNStrategy"                 type="string"   value="1"/>
 	    <!-- kdTree -->
-	    <param name="SURF/HessianThreshold" type="string" value="1000"/>
-	    <param name="LccBow/MinInliers" type="string" value="10"/>
-	    <param name="LccBow/EstimationType" type="string" value="1"/>
+	    <param name="SURF/HessianThreshold"         type="string"   value="1000"/>
+	    <param name="LccBow/MinInliers"             type="string"   value="10"/>
+	    <param name="LccBow/EstimationType"         type="string"   value="1"/>
 	    <!-- 3D->2D (PnP) -->
-	    <param name="LccReextract/Activated" type="string" value="true"/>
-	    <param name="LccReextract/MaxWords" type="string" value="500"/>
-        <param name="RGBD/OptimizeFromGraphEnd" type="string" value="true"/>
-	    <param name="cloud_floor_culling_height" value="0.18"/>
+	    <param name="LccReextract/Activated"        type="string"   value="true"/>
+	    <param name="LccReextract/MaxWords"         type="string"   value="500"/>
+        <param name="RGBD/OptimizeFromGraphEnd"     type="string"   value="true"/>
+	    <param name="cloud_floor_culling_height"    value="0.18"/>
 
-		<param name="Vis/MinInliers" type="string" value="10"/>
-		<param name="Vis/InlierDistance" type="string" value="0.1"/>
+		<param name="Vis/MinInliers"                type="string"   value="10"/>
+		<param name="Vis/InlierDistance"            type="string"   value="0.1"/>
+
+        <!-- Adding a despeckler -->
+        <param name="StereoBM/SpeckleWindowSize"    type="int"      value="1000"/>
+
 	  </node>
 </launch>
