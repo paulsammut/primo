@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rviz" default="true"/>
+    <arg name="rviz" default="false"/>
     <arg name="rtabmapviz" default="true"/>
 
   	<!-- Create a rotated camera link that has the correct rtab reference frame -->
