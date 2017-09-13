@@ -198,7 +198,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: RGB8
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -215,7 +215,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
