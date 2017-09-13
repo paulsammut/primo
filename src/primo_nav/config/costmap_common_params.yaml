@@ -34,7 +34,7 @@ obstacle_layer:
         max_obstacle_height: 2.0
     }
 
-    point_cloud_sensor0: {
+    point_cloud_sensor1: {
         sensor_frame: base_link, 
         data_type: PointCloud2, 
         topic: /stereo1/points2, 
