@@ -6,7 +6,7 @@ stereo0:
         speckle_size: 1000
 
 stereo1:
-    disparity:
+    stereo_image_proc:
         texture_threshold: 2000
         speckle_size: 1000
 
