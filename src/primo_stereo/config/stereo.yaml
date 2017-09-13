@@ -1,5 +1,3 @@
-stereo_real: false
-
 stereo0:
     disparity:
         texture_threshold: 2500
