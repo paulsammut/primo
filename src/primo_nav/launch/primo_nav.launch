@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-    <remap from="map" to="/proj_map"/>
-    <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
+    <remap from="map" to="/grid_map"/>
+    <remap from="move_base_simple/goal" to="/planner_goal"/>
 
     <!-- <include file="$(find primo_nav)/launch/map_transform.launch"/> -->
 
@@ -17,7 +17,7 @@
         <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
 
         <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-        <param name="controller_frequency" value="10.0" />
+        <param name="controller_frequency" value="7.0" />
 
     </node>
 
