@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rviz"        value="false"/>
-    <arg name="rtabmapviz"  value="false"/>
+    <arg name="rviz"        default="false"/>
+    <arg name="rtabmapviz"  default="false"/>
+    <arg name="slam"        default="false"/>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
+    <include file="$(find primo_rtabmap)/launch/rtab_init.launch">
+        <arg name="rviz"        value="false"/>
+        <arg name="rtabmapviz"  value="false"/>
+    </include>
+
     <include file="$(find primo_rtabmap)/launch/rtab_map.launch"/>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
+    <include if="$(arg slam)" file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
 
 </launch>
