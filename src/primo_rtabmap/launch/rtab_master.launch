@@ -6,8 +6,8 @@
     <arg name="slam"        default="false"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch">
-        <arg name="rviz"        value="false"/>
-        <arg name="rtabmapviz"  value="false"/>
+        <arg name="rviz"        value="$(arg rviz)"/>
+        <arg name="rtabmapviz"  value="$(arg rtabmapviz)"/>
     </include>
 
     <include file="$(find primo_rtabmap)/launch/rtab_map.launch"/>

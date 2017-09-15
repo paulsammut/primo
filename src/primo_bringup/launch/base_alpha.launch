@@ -16,9 +16,12 @@
     <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch"/>
+    <include file="$(find primo_stereo)/launch/stereo0.launch">
+        <arg name="stereo_real" value="true"/>
+    </include>
+    
     <include file="$(find primo_stereo)/launch/stereo1.launch">
-        <arg name="sim"        value="false"/>
+        <arg name="stereo_real" value="true"/>
     </include>
 
     <group if="$(arg rtab)">
