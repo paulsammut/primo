@@ -16,8 +16,10 @@
         <rosparam file="$(find primo_nav)/config/global_costmap_params.yaml"     command="load"/>
         <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
 
-        <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-        <param name="controller_frequency" value="5.0" />
+        <param name="base_local_planner"        value="teb_local_planner/TebLocalPlannerROS" />
+        <param name="controller_frequency"      value="5.0" />
+        <param name="recovery_behavior_enabled" value="false" />
+        <param name="clearing_rotation_allowed" value="false" />
 
     </node>
 
