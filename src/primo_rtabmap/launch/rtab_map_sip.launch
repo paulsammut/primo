@@ -10,7 +10,7 @@
     <arg name="frame_id"                value="base_link"/>
     <arg name="compressed"              value="false"/>
 
-    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="">
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
 		<param name="subscribe_stereo"      type="bool"     value="false"/>
 		<param name="subscribe_depth"       type="bool"     value="true"/>
 		<param name="stereo_approx_sync"    type="bool"     value="true"/>

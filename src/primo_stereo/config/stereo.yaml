@@ -5,7 +5,7 @@ stereo0:
 
 stereo1:
     stereo_image_proc:
-        texture_threshold: 2000
+        texture_threshold: 1000
         speckle_size: 1000
 
 # /stereo0/disparity/P1
