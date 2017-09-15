@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
-
     <include file="$(find primo_description)/launch/imu_test.launch"/>
 
     <node pkg="memsense_uimu" type="uimu" name="uimu"/>
