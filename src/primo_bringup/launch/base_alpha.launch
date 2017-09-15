@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
+    <arg name="rtab"    value="false"/>
+    <arg name="nav"     value="false"/>
+
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
@@ -14,9 +17,22 @@
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
 
     <include file="$(find primo_stereo)/launch/stereo0.launch"/>
-    <include file="$(find primo_stereo)/launch/stereo1.launch"/>
+    <include file="$(find primo_stereo)/launch/stereo1.launch">
+        <arg name="sim"        value="false"/>
+    </include>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_master.launch"/>
+    <group if="$(arg rtab)">
+        <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
+            <arg name="slam"        value="false"/>
+            <arg name="rtabmapviz"  value="true"/>
+        </include>
+    </group>
+
+    
+    <group if="$(arg nav)">
+        <include file="$(find primo_nav)/launch/primo_nav.launch"/>
+    </group>
+
     <!-- <include file="$(find primo_rtabmap)/launch/ground_segmenter.launch"/> -->
 
 </launch>

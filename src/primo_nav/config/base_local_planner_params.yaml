@@ -17,9 +17,9 @@ TebLocalPlannerROS:
     
  # Robot
          
- max_vel_x: 0.6
+ max_vel_x: 0.3
  max_vel_x_backwards: 0.2
- max_vel_theta: 1.0
+ max_vel_theta: 0.8
  acc_lim_x: 0.5
  # If this is low, we overshoot on a rotate
  acc_lim_theta: 2.5
