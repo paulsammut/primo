@@ -72,6 +72,7 @@
         <param name="base_width" value="$(arg base_width)"/>
         <param name="rate" value="30" />
         <param name="timeout_ticks" value="2"/>
+        <remap from="/twist"  to="/cmd_vel"/>
     </node>
 
     <!-- The joystick -->

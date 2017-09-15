@@ -4,11 +4,11 @@
     <remap from="map" to="/grid_map"/>
     <remap from="move_base_simple/goal" to="/planner_goal"/>
 
-    <include file="$(find primo_nav)/launch/map_transform.launch"/>
+    <!-- <include file="$(find primo_nav)/launch/map_transform.launch"/> -->
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
-        <remap from="/cmd_vel" to="/twist"/>
+        <!-- <remap from="/cmd_vel" to="/twist"/> -->
 
         <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="global_costmap"/>
         <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="local_costmap"/>
