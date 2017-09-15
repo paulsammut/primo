@@ -1,18 +1,23 @@
 <?xml version="1.0"?>
 <launch>
 
-	  <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
-		<param name="subscribe_stereo"      type="bool"     value="true"/>
-		<param name="subscribe_depth"       type="bool"     value="false"/>
+    <node ns="stereo1/" pkg="nodelet" type="nodelet" name="disparity2depth" 
+        args="standalone rtabmap_ros/disparity_to_depth"/>
+
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+		<param name="subscribe_stereo"      type="bool"     value="false"/>
+		<param name="subscribe_depth"       type="bool"     value="true"/>
 		<param name="stereo_approx_sync"    type="bool"     value="true"/>
 
         <remap from="odom" to="/odom"/>
         <param name="frame_id"              type="string"   value="base_link"/>
 
-		<remap from="left/image_rect"   to="/stereo1/left/image_rect_color"/>
-		<remap from="right/image_rect"  to="/stereo1/right/image_rect"/>
-		<remap from="left/camera_info"  to="/stereo1/left/camera_info"/>
-		<remap from="right/camera_info" to="/stereo1/right/camera_info"/>
+		<arg name="rgb_topic"               value="/stereo1/left/image_rect_color"/>
+        <arg name="depth_registered_topic"  value="/stereo1/depth"/>
+        <arg name="camera_info_topic"       value="/stereo1/left/camera_info"/>
+        <arg name="frame_id"                value="base_link"/>
+        <arg name="compressed"              value="false"/>
+
 
 		<param name="queue_size"            type="int"      value="30"/>
 
