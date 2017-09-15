@@ -4,7 +4,7 @@
     <remap from="map" to="/grid_map"/>
     <remap from="move_base_simple/goal" to="/planner_goal"/>
 
-    <!-- <include file="$(find primo_nav)/launch/map_transform.launch"/> -->
+    <include file="$(find primo_nav)/launch/map_transform.launch"/>
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 

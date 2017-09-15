@@ -13,7 +13,7 @@ TebLocalPlannerROS:
  max_global_plan_lookahead_dist: 2.0
  feasibility_check_no_poses: 5
  # not sure what this does
- global_plan_viapoint_sep: 0.1
+ global_plan_viapoint_sep: -0.1
     
  # Robot
          
