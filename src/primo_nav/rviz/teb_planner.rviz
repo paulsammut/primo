@@ -6,8 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Stereo11
-        - /Local Cost Map1
+        - /Base1
       Splitter Ratio: 0.5
     Tree Height: 379
   - Class: rviz/Selection
@@ -158,7 +157,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: RGB8
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -175,7 +174,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
@@ -342,10 +341,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.014796894
+      Pitch: 0.414796859
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 1.59543002
+      Yaw: 1.45543015
     Saved: ~
 Window Geometry:
   Displays:
