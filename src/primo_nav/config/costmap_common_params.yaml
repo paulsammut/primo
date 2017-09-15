@@ -18,7 +18,10 @@ footprint: [
 ]
 
 # footprint_padding: 0.01
-inflation_radius: 0.2
+
+inflation_layer:
+  cost_scaling_factor: 5
+  inflation_radius: 0.8
 
 # obstacle_layer:
 
