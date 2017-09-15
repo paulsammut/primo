@@ -27,6 +27,11 @@
 	    <remap from="odom_info"           to="/odom_info"/>
 	    <remap from="odom"                to="/odom"/>
 
+
+	    <remap from="odom"              to="/odom"/>
+        <remap from="rgbd_image"         to="/stereo1/left/image_rect"/>
+        <remap from="depth/image"       to="/stereo1/depth"/>
+        <remap from="rgb/camera_info"   to="/stereo1/left/camera_info"/>
     </node>
 
   	<!-- Visualisation RVIZ -->
