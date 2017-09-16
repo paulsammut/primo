@@ -17,12 +17,12 @@ TebLocalPlannerROS:
     
  # Robot
          
- max_vel_x: 0.25
+ max_vel_x: 0.5
  max_vel_x_backwards: 0.2
  max_vel_theta: 1.0
- acc_lim_x: 0.5
+ acc_lim_x: 0.1
  # If this is low, we overshoot on a rotate
- acc_lim_theta: 2.5
+ acc_lim_theta: 0.5
  min_turning_radius: 0.0
  footprint_model: 
     type: "polygon"
@@ -50,7 +50,7 @@ TebLocalPlannerROS:
     
  # Obstacles
     
- min_obstacle_dist: 0.3
+ min_obstacle_dist: 0.03
  include_costmap_obstacles: True
  costmap_obstacles_behind_robot_dist: 1.0
  obstacle_poses_affected: 30

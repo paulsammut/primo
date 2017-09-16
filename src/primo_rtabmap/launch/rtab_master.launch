@@ -2,7 +2,7 @@
 <launch>
 
     <arg name="rviz"        default="false"/>
-    <arg name="rtabmapviz"  default="false"/>
+    <arg name="rtabmapviz"  default="true"/>
     <arg name="slam"        default="false"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch">
