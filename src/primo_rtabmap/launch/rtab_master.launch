@@ -1,24 +1,23 @@
 <?xml version="1.0"?>
 <launch>
-   
 
     <arg name="rviz"        default="false"/>
-    <arg name="rtabmapviz"  default="true"/>
+    <arg name="rtabmapviz"  default="false"/>
     <arg name="slam"        default="false"/>
     <arg name="rgbd"        default="false"/>
-    <arg name="stereo"      default="true"/>
+    <arg name="stereo"      default="false"/>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_init.launch">
-        <arg name="rviz"        value="$(arg rviz)"/>
+    <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
-        <!-- This will load up the appropriate rtab visualizer if we want a visualizer -->
-        <group if="$(arg rtabmapviz)">
-            <arg if="$(arg rgbd)"   name="rtab_viz_stereo"  value="$(arg rtabmapviz)"/>
-            <arg if="$(arg stereo)" name="rtab_viz_rgbd"    value="$(arg rtabmapviz)"/>
-            <node name="testS" pkg="rqt_graph" type="rqt_graph" />
-        </group>
+    <!-- Visualization in rtabmap_viz -->
+    <group if="$(arg rtabmapviz)">
+        <include file="$(find primo_rtabmap)/launch/rtab_viz.launch">
+            <arg name="rviz"        value="$(arg rviz)"/>
+            <arg name="rtab_viz_stereo"  value="$(arg stereo)"/>
+            <arg name="rtab_viz_rgbd"    value="$(arg rgbd)"/>
+        </include>
+    </group>
 
-    </include>
 
     <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch"/>
     <include if="$(arg rgbd)"   file="$(find primo_rtabmap)/launch/rtab_map_rgbd.launch"/>
