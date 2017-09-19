@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
    
+
     <arg name="rviz"        default="false"/>
     <arg name="rtabmapviz"  default="true"/>
     <arg name="slam"        default="false"/>
@@ -11,9 +12,10 @@
         <arg name="rviz"        value="$(arg rviz)"/>
 
         <!-- This will load up the appropriate rtab visualizer if we want a visualizer -->
-        <group if="$(arg rtabmapvis)">
+        <group if="$(arg rtabmapviz)">
             <arg if="$(arg rgbd)"   name="rtab_viz_stereo"  value="$(arg rtabmapviz)"/>
             <arg if="$(arg stereo)" name="rtab_viz_rgbd"    value="$(arg rtabmapviz)"/>
+            <node name="testS" pkg="rqt_graph" type="rqt_graph" />
         </group>
 
     </include>

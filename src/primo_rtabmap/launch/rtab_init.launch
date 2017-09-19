@@ -11,7 +11,7 @@
       args="0 0 0 -1.5707963267948966 0 -1.5707963267948966 stereo1_link stereo1_corrected_link 100"/>
       
     <!-- Visualisation RTAB-Map RGBD -->
-    <node if="$(arg rtab_viz_rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" 
+    <node if="$(arg rtab_viz_rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_rgbd" 
       args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
 	    <param name="subscribe_rgbd"        type="bool"     value="true"/>
@@ -36,7 +36,7 @@
     </node>
     
     <!-- Visualisation RTAB-Map with a Stereo feed-->
-    <node if="$(arg rtab_viz_stereo)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" 
+    <node if="$(arg rtab_viz_stereo)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_stereo" 
       args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
 	    <param name="subscribe_stereo"      type="bool"     value="true"/>
