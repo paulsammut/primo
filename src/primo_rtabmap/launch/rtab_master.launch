@@ -10,7 +10,7 @@
         <arg name="rtabmapviz"  value="$(arg rtabmapviz)"/>
     </include>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_map_sip.launch"/>
+    <include file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch"/>
 
     <include if="$(arg slam)" file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
 
