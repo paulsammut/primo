@@ -19,6 +19,8 @@
         <param name="recovery_behavior_enabled" value="false" />
         <param name="clearing_rotation_allowed" value="false" />
 
+        <remap from="/cmd_vel"      to="/raw_cmd_vel"/>
+
     </node>
 
     <node pkg="rviz" type="rviz" name="rviz" 

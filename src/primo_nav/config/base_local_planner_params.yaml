@@ -6,7 +6,7 @@ TebLocalPlannerROS:
  # Trajectory
   
  teb_autosize: True
- dt_ref: 0.3
+ dt_ref: 0.4
  dt_hysteresis: 0.1
  global_plan_overwrite_orientation: True
  # This is so we stick to the global plan and don't make s's 
@@ -57,7 +57,7 @@ TebLocalPlannerROS:
  costmap_converter_plugin: ""
  costmap_converter_spin_thread: True
  costmap_converter_rate: 5
- inflation_distance: 0.3
+ inflation_distance: 0.05
 
  # Optimization
     
@@ -65,13 +65,13 @@ TebLocalPlannerROS:
  no_outer_iterations: 4
  optimization_activate: True
  optimization_verbose: False
- penalty_epsilon: 0.1
+ penalty_epsilon: 0.04
  weight_max_vel_x: 2
  weight_max_vel_theta: 1
  weight_acc_lim_x: 1
  weight_acc_lim_theta: 1
  weight_kinematics_nh: 1000
- weight_kinematics_forward_drive: 400
+ weight_kinematics_forward_drive: 50
  weight_kinematics_turning_radius: 1
  weight_optimaltime: 1
  weight_obstacle: 50

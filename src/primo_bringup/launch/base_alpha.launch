@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rtab"    value="false"/>
+    <arg name="rtab"    value="true"/>
     <arg name="nav"     value="false"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
@@ -27,7 +27,7 @@
     <group if="$(arg rtab)">
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
             <arg name="slam"        value="false"/>
-            <arg name="rtabmapviz"  value="true" />
+            <arg name="rtabmapviz"  value="false" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />
         </include>
