@@ -32,39 +32,47 @@
         <!-- <param name="Grid/NormalsSegmentation" type="string" value="false"/>  -->
 
 	    <!-- RTAB-Map's parameters -->
-	    <param name="Rtabmap/TimeThr"               type="string"   value="700"/>
-	    <param name="Rtabmap/DetectionRate"         type="string"   value="1"/>
-	    <param name="Kp/WordsPerImage"              type="string"   value="200"/>
-	    <param name="Kp/RoiRatios"                  type="string"   value="0.03 0.03 0.04 0.04"/>
-	    <param name="Kp/DetectorStrategy"           type="string"   value="0"/>
+	    <param name="Rtabmap/TimeThr"                   type="string"   value="700"/>
+	    <param name="Rtabmap/DetectionRate"             type="string"   value="1"/>
+	    <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
+	    <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
+	    <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
 	    <!-- use SURF -->
-	    <param name="Kp/NNStrategy"                 type="string"   value="1"/>
+	    <param name="Kp/NNStrategy"                     type="string"   value="1"/>
 	    <!-- kdTree -->
-	    <param name="SURF/HessianThreshold"         type="string"   value="1000"/>
-	    <param name="LccBow/MinInliers"             type="string"   value="10"/>
-	    <param name="LccBow/EstimationType"         type="string"   value="1"/>
+	    <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 	    <!-- 3D->2D (PnP) -->
-	    <param name="LccReextract/Activated"        type="string"   value="true"/>
-	    <param name="LccReextract/MaxWords"         type="string"   value="500"/>
-        <param name="RGBD/OptimizeFromGraphEnd"     type="string"   value="true"/>
-	    <param name="cloud_floor_culling_height"    value="0.18"/>
+        <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="true"/>
+        <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
+	    <param name="Grid/MaxGroundHeight"              type="float"    value="0.18"/>
 
-		<param name="Vis/MinInliers"                type="string"   value="10"/>
-		<param name="Vis/InlierDistance"            type="string"   value="0.1"/>
+		<param name="Vis/MinInliers"                    type="string"   value="10"/>
+		<param name="Vis/InlierDistance"                type="string"   value="0.1"/>
+        <param name="Viz/EstimationType"                type="int"      value="1"/>
+        <param name="Vis/MaxFeatures"                   type="int"      value="1000"/>
 
         <!-- http://bit.ly/2wdXVtj -->
-		<param name="Vis/EstimationType"            type="int"      value="1"/>
 
         <!-- Adding a despeckler -->
-        <param name="StereoBM/BlockSize"            type="int"      value="15"  /> 
-        <param name="StereoBM/MinDisparity"         type="int"      value="0"   />
-        <param name="StereoBM/NumDisparities"       type="int"      value="128"  />
-        <param name="StereoBM/PreFilterSize"        type="int"      value="9"   />
-        <param name="StereoBM/PreFilterCap"         type="int"      value="31"  />
-        <param name="StereoBM/UniquenessRatio"      type="int"      value="15"  />
-        <param name="StereoBM/TextureThreshold"     type="int"      value="2500"  />
-        <param name="StereoBM/SpeckleWindowSize"    type="int"      value="1000" />
-        <param name="StereoBM/SpeckleRange"         type="int"      value="4"   />
+        <param name="Stereo/WinWidth"                   type="int"      value="15"   />
+        <param name="Stereo/WinHeight"                  type="int"      value="3"    />
+        <param name="Stereo/Iterations"                 type="int"      value="30"   />
+        <param name="Stereo/MaxLevel"                   type="int"      value="3"    />
+        <param name="Stereo/MinDisparity"               type="int"      value="1"    />
+        <param name="Stereo/MaxDisparity"               type="int"      value="128"   />
+        <param name="Stereo/OpticalFlow"                type="bool"     value="False" />
+        <param name="Stereo/SSD"                        type="bool"     value="true" />
+        <param name="Stereo/Eps"                        type="double"   value="0.01" />
+
+        <param name="StereoBM/BlockSize"                type="int"      value="15"  /> 
+        <param name="StereoBM/MinDisparity"             type="int"      value="0"   />
+        <param name="StereoBM/NumDisparities"           type="int"      value="128"  />
+        <param name="StereoBM/PreFilterSize"            type="int"      value="9"   />
+        <param name="StereoBM/PreFilterCap"             type="int"      value="31"  />
+        <param name="StereoBM/UniquenessRatio"          type="int"      value="15"  />
+        <param name="StereoBM/TextureThreshold"         type="int"      value="2500"  />
+        <param name="StereoBM/SpeckleWindowSize"        type="int"      value="1000" />
+        <param name="StereoBM/SpeckleRange"             type="int"      value="4"   />
 
     </node>
 
