@@ -10,10 +10,10 @@ TebLocalPlannerROS:
  dt_hysteresis: 0.1
  global_plan_overwrite_orientation: True
  # This is so we stick to the global plan and don't make s's 
- max_global_plan_lookahead_dist: 2.0
+ max_global_plan_lookahead_dist: 3.0
  feasibility_check_no_poses: 5
  # not sure what this does
- global_plan_viapoint_sep: 0.2
+ global_plan_viapoint_sep: 0.5
     
  # Robot
          
@@ -39,7 +39,6 @@ TebLocalPlannerROS:
         [ -0.227, -0.341],
         [ -0.227, -0.375],
         [ 0.175, -0.375],
-        [ 0.175, 0.375],
     ]
 
  # GoalTolerance
@@ -57,7 +56,7 @@ TebLocalPlannerROS:
  costmap_converter_plugin: ""
  costmap_converter_spin_thread: True
  costmap_converter_rate: 5
- inflation_distance: 0.05
+ inflation_distance: 1.0
 
  # Optimization
     
