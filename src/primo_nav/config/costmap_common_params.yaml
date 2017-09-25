@@ -19,7 +19,7 @@ footprint: [
 footprint_padding: -0.01
 
 inflation_layer:
-  cost_scaling_factor: 1
+  cost_scaling_factor: 1.0
   inflation_radius: 5.0
 
 obstacle_layer:
