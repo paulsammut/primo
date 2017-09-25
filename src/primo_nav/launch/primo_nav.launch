@@ -16,8 +16,8 @@
 
         <param name="base_local_planner"        value="teb_local_planner/TebLocalPlannerROS" />
         <param name="controller_frequency"      value="5.0" />
-        <param name="recovery_behavior_enabled" value="false" />
-        <param name="clearing_rotation_allowed" value="false" />
+        <param name="recovery_behavior_enabled" value="true" />
+        <param name="clearing_rotation_allowed" value="true" />
 
         <remap from="/cmd_vel"      to="/raw_cmd_vel"/>
 
