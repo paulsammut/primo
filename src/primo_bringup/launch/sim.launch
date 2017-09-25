@@ -20,12 +20,12 @@
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-        <arg name="slam"        value="false"/>
-        <arg name="rtabmapviz"  value="true" />
-        <arg name="stereo"      value="true" />
-        <arg name="rgbd"        value="false" />
-    </include>
+    <!-- <include file="$(find primo_rtabmap)/launch/rtab_master.launch"> -->
+    <!--     <arg name="slam"        value="false"/> -->
+    <!--     <arg name="rtabmapviz"  value="true" /> -->
+    <!--     <arg name="stereo"      value="true" /> -->
+    <!--     <arg name="rgbd"        value="false" /> -->
+    <!-- </include> -->
 
 
 </launch>
