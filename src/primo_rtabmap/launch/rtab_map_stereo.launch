@@ -23,6 +23,7 @@
 
 		<param name="queue_size"            type="int"      value="30"/>
 
+
         <!-- all points below 20 cm are ground -->
         <param name="Grid/MaxGroundHeight"  type="string"   value="0.5"/>       
 
@@ -43,9 +44,10 @@
 	    <!-- kdTree -->
 	    <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 	    <!-- 3D->2D (PnP) -->
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="0.1"  />
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="true"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
-	    <param name="Grid/MaxGroundHeight"              type="double"    value="0.18"/>
+	    <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
 
 		<param name="Vis/MinInliers"                    type="string"   value="10"/>
 		<param name="Vis/InlierDistance"                type="string"   value="0.1"/>
