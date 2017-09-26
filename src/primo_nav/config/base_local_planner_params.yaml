@@ -49,14 +49,14 @@ TebLocalPlannerROS:
     
  # Obstacles
     
- min_obstacle_dist: 0.007
+ min_obstacle_dist: 0.05
+ inflation_dist: 1
  include_costmap_obstacles: True
  costmap_obstacles_behind_robot_dist: 0.5
  obstacle_poses_affected: 30
  costmap_converter_plugin: ""
  costmap_converter_spin_thread: True
  costmap_converter_rate: 5
- inflation_distance: 1.0
 
  # Optimization
     
@@ -77,7 +77,7 @@ TebLocalPlannerROS:
  weight_dynamic_obstacle: 10 # not in use yet
 #  alternative_time_cost: False # not in use yet
  selection_alternative_time_cost: False
- weight_viapoint: 200
+ weight_viapoint: 60
 
 
  # Homotopy Class Planner
