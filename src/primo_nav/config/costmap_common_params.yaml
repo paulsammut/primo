@@ -1,5 +1,5 @@
-obstacle_range: 20.0
-raytrace_range: 20.0
+obstacle_range: 30.0
+raytrace_range: 30.0
 
 footprint: [
     [ 0.175, 0.375],
@@ -20,7 +20,7 @@ footprint_padding: 0.1
 
 inflation_layer:
     cost_scaling_factor: 1.0
-    inflation_radius: 5.0
+    inflation_radius: 3.0
 
 obstacle_layer:
 

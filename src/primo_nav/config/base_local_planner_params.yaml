@@ -10,17 +10,17 @@ TebLocalPlannerROS:
     dt_hysteresis: 0.1
     global_plan_overwrite_orientation: True
     # This is so we stick to the global plan and don't make s's 
-    max_global_plan_lookahead_dist: 3.0
+    max_global_plan_lookahead_dist: 5.0
     feasibility_check_no_poses: 5
     # not sure what this does
-    global_plan_viapoint_sep: 0.5
+    global_plan_viapoint_sep: 1
        
     # Robot
             
     max_vel_x: 0.5
     max_vel_x_backwards: 0.2
     max_vel_theta: 1.0
-    acc_lim_x: 0.1
+    acc_lim_x: 0.5
     # If this is low, we overshoot on a rotate
     acc_lim_theta: 0.5
     min_turning_radius: 0.0
@@ -50,7 +50,7 @@ TebLocalPlannerROS:
     # Obstacles
        
     min_obstacle_dist: 0.10
-    inflation_dist: 1
+    inflation_dist: 2
     include_costmap_obstacles: True
     costmap_obstacles_behind_robot_dist: 0.5
     obstacle_poses_affected: 30
@@ -77,7 +77,7 @@ TebLocalPlannerROS:
     weight_dynamic_obstacle: 10 # not in use yet
    #  alternative_time_cost: False # not in use yet
     selection_alternative_time_cost: False
-    weight_viapoint: 60
+    weight_viapoint: 55
    
    
     # Homotopy Class Planner
