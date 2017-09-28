@@ -16,7 +16,7 @@ footprint: [
     [ 0.175, -0.375],
 ]
 
-footprint_padding: 0.01
+footprint_padding: -0.05
 
 inflation_layer:
     cost_scaling_factor: 1.0
