@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rtab"    value="true"/>
+    <arg name="rtab"    value="false"/>
     <arg name="nav"     value="false"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
