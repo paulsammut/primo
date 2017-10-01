@@ -10,7 +10,7 @@ TebLocalPlannerROS:
     dt_hysteresis: 0.1
     global_plan_overwrite_orientation: True
     # This is so we stick to the global plan and don't make s's 
-    max_global_plan_lookahead_dist: 2.0
+    max_global_plan_lookahead_dist: 3.0
     feasibility_check_no_poses: 5
     # not sure what this does
     global_plan_viapoint_sep: .3
@@ -70,7 +70,7 @@ TebLocalPlannerROS:
     weight_acc_lim_x: 1
     weight_acc_lim_theta: 1
     weight_kinematics_nh: 1000
-    weight_kinematics_forward_drive: 400
+    weight_kinematics_forward_drive: 500
     weight_kinematics_turning_radius: 1
     weight_optimaltime: 1
     weight_obstacle: 50
