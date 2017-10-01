@@ -7,7 +7,8 @@
          to use rtab's stereo sytem which is more finicky than stereo_image_proc. 
     -->
     
-    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" 
+        args="--delete_db_on_start">
 
         <remap from="odom" to="/odom"/>
 		<remap from="left/image_rect"   to="/stereo1/left/image_rect_color"/>
