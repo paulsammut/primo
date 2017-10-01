@@ -2,12 +2,14 @@
 <launch>
 
     <arg name="rviz"        default="false"/>
-    <arg name="rtabmapviz"  default="false"/>
-    <arg name="slam"        default="false"/>
+    <arg name="rtabmapviz"  default="true"/>
+    <arg name="slam"        default="true"/>
     <arg name="rgbd"        default="false"/>
     <arg name="stereo"      default="true"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
+
+    <include if="$(arg slam)"   file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
 
     <!-- Visualization in rtabmap_viz -->
     <group if="$(arg rtabmapviz)">
@@ -22,6 +24,5 @@
     <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch"/>
     <include if="$(arg rgbd)"   file="$(find primo_rtabmap)/launch/rtab_map_rgbd.launch"/>
 
-    <include if="$(arg slam)"   file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
 
 </launch>

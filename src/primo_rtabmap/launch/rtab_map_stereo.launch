@@ -7,11 +7,11 @@
          to use rtab's stereo sytem which is more finicky than stereo_image_proc. 
     -->
     
-    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" 
+    <node name="rtabmap_mapper" pkg="rtabmap_ros" type="rtabmap" output="screen" 
         args="--delete_db_on_start">
 
         <remap from="odom" to="/odom"/>
-		<remap from="left/image_rect"   to="/stereo1/left/image_rect_color"/>
+		<remap from="left/image_rect"   to="/stereo1/left/image_rect"/>
 		<remap from="right/image_rect"  to="/stereo1/right/image_rect"/>
 		<remap from="left/camera_info"  to="/stereo1/left/camera_info"/>
 		<remap from="right/camera_info" to="/stereo1/right/camera_info"/>
@@ -46,7 +46,7 @@
 	    <!-- kdTree -->
 	    <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 	    <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="0.1"  />
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="0.8"  />
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="true"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
 	    <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>

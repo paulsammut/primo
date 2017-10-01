@@ -5,4 +5,4 @@ global_costmap:
     static_map: true
     height: 10
     width: 10
-    resolution: 0.2
+    resolution: 0.1
