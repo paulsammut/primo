@@ -1,6 +1,6 @@
 stereo0:
     disparity:
-        texture_threshold: 2500
+        texture_threshold: 1500
         speckle_size: 1000
         disparity_range: 128
 
