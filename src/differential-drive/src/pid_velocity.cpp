@@ -236,7 +236,7 @@ public:
             cur_vel = (wheel_latest - wheel_prev) / dt;
             appendVel(cur_vel);
             calcRollingVel();
-            //ROS_INFO("wheel updated vel=%f", vel);
+            // ROS_INFO("wheel updated vel=%f", vel);
             wheel_prev = wheel_latest;
             then = ros::Time::now();
         }
