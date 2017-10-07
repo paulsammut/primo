@@ -60,6 +60,7 @@ from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from tf.broadcaster import TransformBroadcaster
 from std_msgs.msg import Int16
+from std_msgs.msg import Int32
 
 #############################################################################
 class DiffTf:
@@ -81,7 +82,7 @@ class DiffTf:
         self.odom_frame_id = rospy.get_param('~odom_frame_id', 'odom') # the name of the odometry reference frame
         
         self.encoder_min = rospy.get_param('encoder_min', -32768)
-        self.encoder_max = rospy.get_param('encoder_max', 32768)
+        self.encoder_max = rospy.get_param('encoder_max', 32767)
         self.encoder_low_wrap = rospy.get_param('wheel_low_wrap', (self.encoder_max - self.encoder_min) * 0.3 + self.encoder_min )
         self.encoder_high_wrap = rospy.get_param('wheel_high_wrap', (self.encoder_max - self.encoder_min) * 0.7 + self.encoder_min )
  
@@ -105,8 +106,8 @@ class DiffTf:
         self.then = rospy.Time.now()
         
         # subscriptions
-        rospy.Subscriber("lwheel", Int16, self.lwheelCallback, queue_size=1)
-        rospy.Subscriber("rwheel", Int16, self.rwheelCallback, queue_size=1)
+        rospy.Subscriber("lwheel", Int32, self.lwheelCallback, queue_size=1)
+        rospy.Subscriber("rwheel", Int32, self.rwheelCallback, queue_size=1)
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
         self.odomBroadcaster = TransformBroadcaster()
         
