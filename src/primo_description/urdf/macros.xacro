@@ -17,7 +17,25 @@
 
   <!-- Main link -->
   <xacro:macro name="m_chassis" params="type">
-    <link name="base_link">
+      <link name="base_link">
+          <inertial>
+            <mass value=".001"/>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <inertia 
+                ixx="1" ixy="0" ixz="1" 
+                iyy="1" iyz="0" 
+                izz="1"/>
+          </inertial>
+      </link>
+
+    <joint name="base_joint" type="fixed">
+        <axis xyz="0 0 0"/>
+        <origin xyz="0.285 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="chassis_link"/>
+    </joint>
+          
+    <link name="chassis_link">
       <visual>
         <geometry>
             <xacro:m_mesh_chassis type="${type}"/>
@@ -68,7 +86,7 @@
     </link>
 
     <joint name="${lr}_wheel_joint" type="continuous">
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="${lr}_wheel"/>
       <origin rpy="0 0 0" xyz="0 ${reflect*0.3175} 0.1510"/>
       <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -142,7 +160,7 @@
     </link>
 
     <joint name="wheel_block" type="continuous">
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="tail_wheel_block"/>
       <origin rpy="0 0 0" xyz="-0.730 0 0.150"/>
       <axis xyz="0 0 1" rpy="0 0 0"/>
@@ -176,7 +194,7 @@
     <joint name="seecam1_joint" type="fixed">
       <axis xyz="0 1 0"/>
       <origin xyz="-.113 -.139 1.212" rpy="0 0 0"/>
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="link_seecam1"/>
     </joint>
   </xacro:macro>
@@ -211,7 +229,7 @@
     <joint name="stereo0_joint" type="fixed">
       <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
       <origin xyz=".06 .01 1.75" rpy="-2.75 0.1 -1.570796"/>
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="stereo0_link"/>
     </joint>
 
@@ -265,7 +283,7 @@
     <joint name="stereo1_joint" type="fixed">
       <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
       <origin xyz="-.04 .210 1.765" rpy="-2.0 0 -1.570796"/>
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="stereo1_link"/>
     </joint>
 
@@ -315,7 +333,7 @@
 
     <joint name="imu_joint" type="fixed">
       <origin xyz="-0.04 0 0.3"  rpy="0 0 0"/>
-      <parent link="base_link"/>
+      <parent link="chassis_link"/>
       <child link="imu_link"/>
     </joint>
   </xacro:macro>
