@@ -53,6 +53,7 @@ diff_controller.py - controller for a differential drive
 
 import rospy
 import roslib
+import tf
 from math import sin, cos, pi
 
 from geometry_msgs.msg import Quaternion
@@ -80,6 +81,7 @@ class DiffTf:
         
         self.base_frame_id = rospy.get_param('~base_frame_id','base_link') # the name of the base frame of the robot
         self.odom_frame_id = rospy.get_param('~odom_frame_id', 'odom') # the name of the odometry reference frame
+        self.wheel_frame_id = rospy.get_param('~wheel_frame_id', 'base_link') # the name of wheel frame
         
         self.encoder_min = rospy.get_param('encoder_min', -32768)
         self.encoder_max = rospy.get_param('encoder_max', 32767)
@@ -88,6 +90,8 @@ class DiffTf:
  
         self.t_delta = rospy.Duration(1.0/self.rate)
         self.t_next = rospy.Time.now() + self.t_delta
+
+        self.listener = tf.TransformListener()
         
         # internal data
         self.enc_left = None        # wheel encoder readings
