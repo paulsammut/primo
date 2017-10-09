@@ -185,10 +185,11 @@ class DiffTf:
             try:
                 trans = self.tfBuffer.lookup_transform(self.wheel_frame_id,
                         self.base_frame_id,rospy.Time())
-                rospy.loginfo("Hi!")
+                rospy.loginfo("umm %f " trans.transform.translation.x)
+                rospy.loginfo("umm")
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
-                rospy.logerr(trans)
+                rospy.logerr("diff_tf transform exception")
 
             # Then we do the transformation from the:
             # wheel_frame_if
