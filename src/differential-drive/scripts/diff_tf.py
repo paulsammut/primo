@@ -183,8 +183,8 @@ class DiffTf:
             # First we look up the transform from the base link 
 
             try:
-                trans = self.tfBuffer.lookup_transform(wheel_frame_id,
-                        base_frame_id,rospy.Time())
+                trans = self.tfBuffer.lookup_transform(self.wheel_frame_id,
+                        self.base_frame_id,rospy.Time())
                 rospy.loginfo("Hi!")
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
