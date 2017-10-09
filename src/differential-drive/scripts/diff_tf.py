@@ -185,8 +185,7 @@ class DiffTf:
             try:
                 trans = self.tfBuffer.lookup_transform(self.wheel_frame_id,
                         self.base_frame_id,rospy.Time())
-                rospy.loginfo("umm %f " trans.transform.translation.x)
-                rospy.loginfo("umm")
+                rospy.loginfo("umm %f ", trans.transform.translation.x)
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
                 rospy.logerr("diff_tf transform exception")
