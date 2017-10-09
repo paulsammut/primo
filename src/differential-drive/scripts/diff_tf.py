@@ -188,7 +188,7 @@ class DiffTf:
                 rospy.loginfo("Hi!")
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
-                continue
+                rospy.logerr("diff_tf: tf2 except")
 
             # Then we do the transformation from the:
             # wheel_frame_if
