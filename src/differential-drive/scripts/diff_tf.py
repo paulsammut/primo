@@ -177,11 +177,13 @@ class DiffTf:
             quaternion.z = sin( self.th / 2 )
             quaternion.w = cos( self.th / 2 )
 
-            pose_wheel_frame = geometry_msgs.msg.Pose()
-            pose_wheel_frame.position.x = self.x
-            pose_wheel_frame.position.y = self.y
-            pose_wheel_frame.position.z = self.z
-            pose_wheel_frame.orientation = quaternion
+            pose_wheel_frame = geometry_msgs.msg.PoseStamped()
+            pose_wheel_frame.header.stamp = rospy.Time.now()
+            pose_wheel_frame.header.frame_id = self.wheel_frame_id
+            pose_wheel_frame.pose.position.x = self.x
+            pose_wheel_frame.pose.position.y = self.y
+            pose_wheel_frame.pose.position.z = 0
+            pose_wheel_frame.pose.orientation = quaternion
 
             # At this point we have our position in the chassis frame
             # and we need to convert it to the base_link frame
@@ -189,14 +191,14 @@ class DiffTf:
             # First we look up the transform from the base link 
 
             try:
-                trans = self.tfBuffer.lookup_transform(self.wheel_frame_id,
-                        self.base_frame_id,rospy.Time())
+                trans = self.tfBuffer.lookup_transform(self.base_frame_id, 
+                        self.wheel_frame_id, rospy.Time())
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
                 rospy.logerr("diff_tf transform exception")
 
             # Then we do the transformation from the:
-            pose_base_frame = tf2_geometry_msgs.do_trasnform_pose(pose_wheel_frame,
+            pose_base_frame = tf2_geometry_msgs.do_transform_pose(pose_wheel_frame,
                     trans)
 
             self.odomBroadcaster.sendTransform(
