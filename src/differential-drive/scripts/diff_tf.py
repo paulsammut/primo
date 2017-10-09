@@ -54,6 +54,12 @@ diff_controller.py - controller for a differential drive
 import rospy
 import roslib
 import tf
+
+import tf2_ros
+import tf2_geometry_msgs
+
+import geometry_msgs.msg
+
 from math import sin, cos, pi
 
 from geometry_msgs.msg import Quaternion
@@ -91,7 +97,9 @@ class DiffTf:
         self.t_delta = rospy.Duration(1.0/self.rate)
         self.t_next = rospy.Time.now() + self.t_delta
 
-        self.listener = tf.TransformListener()
+        # Add a tf listener so we can transforms to the base link
+        self.tfBuffer = tf2_ros.Buffer()
+        self.listener = tf2_ros.TransformListener(self.tfBuffer)
         
         # internal data
         self.enc_left = None        # wheel encoder readings
@@ -168,6 +176,24 @@ class DiffTf:
             quaternion.y = 0.0
             quaternion.z = sin( self.th / 2 )
             quaternion.w = cos( self.th / 2 )
+
+            # At this point we have our position in the chassis frame
+            # and we need to convert it to the base_link frame
+
+            # First we look up the transform from the base link 
+
+            try:
+                trans = self.tfBuffer.lookup_transform(wheel_frame_id,
+                        base_frame_id,rospy.Time())
+                rospy.loginfo("Hi!")
+            except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
+                    tf2_ros.ExtrapolationException):
+                continue
+
+            # Then we do the transformation from the:
+            # wheel_frame_if
+            # base_frame_id
+
             self.odomBroadcaster.sendTransform(
                 (self.x, self.y, 0),
                 (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
