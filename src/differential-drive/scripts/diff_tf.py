@@ -198,24 +198,48 @@ class DiffTf:
                 rospy.logerr("diff_tf transform exception")
 
             # Then we do the transformation from the:
-            pose_base_frame = tf2_geometry_msgs.do_transform_pose(pose_wheel_frame,
+            pose_base_frame = tf2_geometry_msgs.tf2_geometry_msgs.do_transform_pose(pose_wheel_frame,
                     trans)
 
+            # Do the 
+            twist_wheel_rot = geometry_msgs.msg.Vector3(0, 0, self.th) 
+            twist_wheel_vel = geometry_msgs.msg.Vector3(self.dx, 0, 0)
+
+            twist_base_rot = trans.transform.
+
+
+            # Now we publish the transform
             self.odomBroadcaster.sendTransform(
-                (self.x, self.y, 0),
-                (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
+                (pose_base_frame.pose.position.x, 
+                    pose_base_frame.pose.position.y,
+                    pose_base_frame.pose.position.z),
+                (pose_base_frame.pose.orientation.x,
+                    pose_base_frame.pose.orientation.y,
+                    pose_base_frame.pose.orientation.z,
+                    pose_base_frame.pose.orientation.w),
                 rospy.Time.now(),
                 self.base_frame_id,
                 self.odom_frame_id
                 )
             
+            # odom = Odometry()
+            # odom.header.stamp = now
+            # odom.header.frame_id = self.odom_frame_id
+            # odom.pose.pose.position.x = self.x
+            # odom.pose.pose.position.y = self.y
+            # odom.pose.pose.position.z = 0
+            # odom.pose.pose.orientation = quaternion
+            # odom.child_frame_id = self.base_frame_id
+            # odom.twist.twist.linear.x = self.dx
+            # odom.twist.twist.linear.y = 0
+            # odom.twist.twist.angular.z = self.dr
+            # self.odomPub.publish(odom)
+
+            # And now the Odometery
             odom = Odometry()
             odom.header.stamp = now
             odom.header.frame_id = self.odom_frame_id
-            odom.pose.pose.position.x = self.x
-            odom.pose.pose.position.y = self.y
-            odom.pose.pose.position.z = 0
-            odom.pose.pose.orientation = quaternion
+            odom.pose.pose = pose_base_frame.pose
             odom.child_frame_id = self.base_frame_id
             odom.twist.twist.linear.x = self.dx
             odom.twist.twist.linear.y = 0
