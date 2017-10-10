@@ -10,6 +10,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf
+  tf2
+  tf2_ros
+  roscpp
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,15 +109,16 @@ include_directories(
 
 ## Declare a cpp executable
 # add_executable(differential_drive_node src/differential_drive_node.cpp)
+add_executable(primo_diff_tf src/primo_diff_tf.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(differential_drive_node differential_drive_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(differential_drive_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(primo_diff_tf
+   ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
