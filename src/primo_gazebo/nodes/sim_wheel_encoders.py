@@ -11,6 +11,45 @@ import tf
 import geometry_msgs.msg
 from std_msgs.msg import Float32
 
+class EncoderSim:
+    previous_raw_angle = 0
+    ticks_per_rad = 0
+    encoder_value = 0
+
+    def __init__(self, ticks_meter, wheel_radius):
+        """ Initialization function that sets the ticks per radian value
+        """
+        self.ticks_per_rad = ticks_meter * wheel_radius
+
+    def update(self, cur_raw_angle, raw_roll):
+        
+        delta_rads = cur_raw_angle - previous_raw_angle 
+
+        previous_raw_angle = cur_raw_angle
+
+        # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
+
+        # Figure out the direction of the wheel
+        if raw_roll < 0.01 and raw_roll > -0.01:
+            if delta_rads > 0:
+                direction = 1
+            else:
+                direction = -1
+        else:
+            if delta_rads > 0:
+                direction = -1
+            else:
+                direction = 1
+
+        delta_rads = abs(delta_rads)*direction
+
+        # Set the encoder value
+        encoder += delta_rads * ticks_per_rad
+
+        # Properly wrap the encoder to simulate a 16 bit encoder
+        if encoder
+
+
 if __name__ == '__main__':
     rospy.init_node('sim_wheel_encoder')
 
@@ -34,6 +73,11 @@ if __name__ == '__main__':
     # Direction of wheel. 1 = forward, -1 = backward
     dir_lw = 1
     dir_rw = 1
+
+    # Running totals
+    left_angle = 0;
+    right_angle = 0;
+
 
     while not rospy.is_shutdown():
 
@@ -86,9 +130,13 @@ if __name__ == '__main__':
             else:
                 dir_lw = 1
 
+        dl = abs(dl)*dir_lw
+        left_angle += dl
+
+
         prev_lwa = lwa
 
-        rospy.loginfo("DIrection is: %d" %dir_lw )
+        rospy.loginfo("Left total angle: %f" %left_angle)
         # Ok so now I have the angle of the left and right wheel, problem is that I
         # have to make it a continuous angle.
 
