@@ -12,13 +12,25 @@
             <wheelDiameter>         0.2                 </wheelDiameter>
             <wheelTorque>           200                 </wheelTorque>
             <wheelAcceleration>     1                   </wheelAcceleration>
-            <commandTopic>          cmd_vel         </commandTopic>
-            <odometryTopic>         odom                </odometryTopic>
-            <odometryFrame>         odom                </odometryFrame>
+            <commandTopic>          cmd_vel             </commandTopic>
+            <odometryTopic>         odom_gazebo         </odometryTopic>
+            <odometryFrame>         odom_gazebo         </odometryFrame>
             <odometrySource>        1                   </odometrySource>
             <robotBaseFrame>        base_link           </robotBaseFrame>
             <publishWheelTF>        true                </publishWheelTF>
             <publishWheelJointState>true                </publishWheelJointState>
+        </plugin>
+    </gazebo>
+
+
+    <!-- 
+         This is so we can have a better sim and test my new odom diff drive 
+        publisher. The joint states are properly sent over from gazebo 
+    -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/MYROBOT</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
     </gazebo>
 
