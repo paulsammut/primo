@@ -9,9 +9,13 @@ import math
 import tf2_ros
 import tf
 import geometry_msgs.msg
+from std_msgs.msg import Float32
 
 if __name__ == '__main__':
     rospy.init_node('sim_wheel_encoder')
+
+    pub_lwa = rospy.Publisher('left_wheel_a', Float32, queue_size=10)
+    pub_lwa_r = rospy.Publisher('left_wheel_a_roll', Float32, queue_size=10)
 
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
@@ -58,12 +62,33 @@ if __name__ == '__main__':
 
         # left wheel angle
         lwa = euler_left_wheel[1]
+        lwa_roll = euler_left_wheel[0]
 
         # right wheel angle
         rwa = euler_right_wheel[1]
-        
-        rospy.loginfo("LEFT: %f \t RIGHT: %f" %(lwa, rwa)) 
 
+        pub_lwa.publish(lwa)
+        pub_lwa_r.publish(lwa_roll)
+
+        dl = lwa - prev_lwa 
+
+        # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
+
+        # Figure out the direction of the wheel
+        if lwa_roll < 0.01 and lwa_roll > -0.01:
+            if dl > 0:
+                dir_lw = 1
+            else:
+                dir_lw = -1
+        else:
+            if dl > 0:
+                dir_lw = -1
+            else:
+                dir_lw = 1
+
+        prev_lwa = lwa
+
+        rospy.loginfo("DIrection is: %d" %dir_lw )
         # Ok so now I have the angle of the left and right wheel, problem is that I
         # have to make it a continuous angle.
 
