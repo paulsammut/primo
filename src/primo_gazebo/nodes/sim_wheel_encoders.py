@@ -14,7 +14,7 @@ from std_msgs.msg import Float32
 class EncoderSim:
     previous_raw_angle = 0
     ticks_per_rad = 0
-    encoder_value = 0
+    encoder = 0
 
     def __init__(self, ticks_meter, wheel_radius):
         """ Initialization function that sets the ticks per radian value
@@ -23,9 +23,9 @@ class EncoderSim:
 
     def update(self, cur_raw_angle, raw_roll):
         
-        delta_rads = cur_raw_angle - previous_raw_angle 
+        delta_rads = cur_raw_angle - self.previous_raw_angle 
 
-        previous_raw_angle = cur_raw_angle
+        self.previous_raw_angle = cur_raw_angle
 
         # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
 
@@ -44,42 +44,30 @@ class EncoderSim:
         delta_rads = abs(delta_rads)*direction
 
         # Set the encoder value
-        encoder += delta_rads * ticks_per_rad
+        self.encoder += delta_rads * self.ticks_per_rad
 
         # Properly wrap the encoder to simulate a 16 bit encoder
-        if encoder > 32767:
-            encoder = -32768
-        if encoder < -32768:
-            encoder = 32767
+        if self.encoder > 32767:
+            self.encoder = -32768
+        if self.encoder < -32768:
+            self.encoder = 32767
+
+        return self.encoder
 
 
 if __name__ == '__main__':
     rospy.init_node('sim_wheel_encoder')
-
-    pub_lwa = rospy.Publisher('left_wheel_a', Float32, queue_size=10)
-    pub_lwa_r = rospy.Publisher('left_wheel_a_roll', Float32, queue_size=10)
 
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
 
     # Calculate the wheel conversion
     ticks_meter = rospy.get_param('ticks_meter', 69000)
+    wheel_radius = rospy.get_param('wheel_radius', 0.151)
+
+    left_enc_sim = EncoderSim(ticks_meter,wheel_radius) 
 
     rate = rospy.Rate(30.0)
-
-    # Previous left wheel angle
-    prev_lwa = 0
-
-    # Previous right wheel angle
-    prev_rwa = 0
-
-    # Direction of wheel. 1 = forward, -1 = backward
-    dir_lw = 1
-    dir_rw = 1
-
-    # Running totals
-    left_angle = 0;
-    right_angle = 0;
 
 
     while not rospy.is_shutdown():
@@ -107,39 +95,18 @@ if __name__ == '__main__':
                 trans_right_wheel.transform.rotation.z, 
                 trans_right_wheel.transform.rotation.w]) 
 
-        # left wheel angle
-        lwa = euler_left_wheel[1]
-        lwa_roll = euler_left_wheel[0]
+
+        # Update the left encoder with the raw wheel angle and roll
+        left_encoder = left_enc_sim.update(euler_left_wheel[1], euler_left_wheel[0])
+
+        rospy.loginfo("Left encoder: %f" %left_encoder)
 
         # right wheel angle
         rwa = euler_right_wheel[1]
 
-        pub_lwa.publish(lwa)
-        pub_lwa_r.publish(lwa_roll)
-
-        dl = lwa - prev_lwa 
 
         # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
 
-        # Figure out the direction of the wheel
-        if lwa_roll < 0.01 and lwa_roll > -0.01:
-            if dl > 0:
-                dir_lw = 1
-            else:
-                dir_lw = -1
-        else:
-            if dl > 0:
-                dir_lw = -1
-            else:
-                dir_lw = 1
-
-        dl = abs(dl)*dir_lw
-        left_angle += dl
-
-
-        prev_lwa = lwa
-
-        rospy.loginfo("Left total angle: %f" %left_angle)
         # Ok so now I have the angle of the left and right wheel, problem is that I
         # have to make it a continuous angle.
 
