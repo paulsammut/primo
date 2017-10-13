@@ -6,27 +6,34 @@
         <!-- args="&#45;d $(find primo_bringup)/config/stereo_test.rviz"/> -->
 
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
-    <include file="$(find primo_gazebo)/launch/primo_gazebo.launch"/>
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch">
-        <arg name="stereo_real" value="false"/>
-    </include>
-
-    <include file="$(find primo_stereo)/launch/stereo1.launch">
-        <arg name="stereo_real" value="false"/>
+    <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
+        <arg name="rviz" value="false"/>
     </include>
 
     <!-- These let us control the sim robot with the joystick -->
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-        <arg name="slam"        value="false"/>
-        <arg name="rtabmapviz"  value="true" />
-        <arg name="stereo"      value="true" />
-        <arg name="rgbd"        value="false" />
-    </include>
+    <group if="false">
+        <include file="$(find primo_stereo)/launch/stereo0.launch">
+            <arg name="stereo_real" value="false"/>
+        </include>
 
-    <include file="$(find primo_nav)/launch/primo_nav.launch"/>
+        <include file="$(find primo_stereo)/launch/stereo1.launch">
+            <arg name="stereo_real" value="false"/>
+        </include>
+
+        <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
+            <arg name="slam"        value="false"/>
+            <arg name="rtabmapviz"  value="true" />
+            <arg name="stereo"      value="true" />
+            <arg name="rgbd"        value="false" />
+        </include>
+
+        <include file="$(find primo_nav)/launch/primo_nav.launch"/>
+
+    </group>
+
 
 </launch>
