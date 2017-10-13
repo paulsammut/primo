@@ -70,23 +70,25 @@ if __name__ == '__main__':
         pub_lwa.publish(lwa)
         pub_lwa_r.publish(lwa_roll)
 
-        dl = lwa - prev_rwa 
+        dl = lwa - prev_lwa 
+
+        # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
 
         # Figure out the direction of the wheel
         if lwa_roll < 0.01 and lwa_roll > -0.01:
-            rospy.loginfo("stable")
             if dl > 0:
                 dir_lw = 1
             else:
                 dir_lw = -1
         else:
-            rospy.loginfo("Floppy")
             if dl > 0:
                 dir_lw = -1
             else:
                 dir_lw = 1
 
-        # rospy.loginfo("DIrection is: %d" %dir_lw )
+        prev_lwa = lwa
+
+        rospy.loginfo("DIrection is: %d" %dir_lw )
         # Ok so now I have the angle of the left and right wheel, problem is that I
         # have to make it a continuous angle.
 
