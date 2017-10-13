@@ -47,7 +47,10 @@ class EncoderSim:
         encoder += delta_rads * ticks_per_rad
 
         # Properly wrap the encoder to simulate a 16 bit encoder
-        if encoder
+        if encoder > 32767:
+            encoder = -32768
+        if encoder < -32768:
+            encoder = 32767
 
 
 if __name__ == '__main__':
