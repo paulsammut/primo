@@ -22,16 +22,4 @@
         </plugin>
     </gazebo>
 
-
-    <!-- 
-         This is so we can have a better sim and test my new odom diff drive 
-        publisher. The joint states are properly sent over from gazebo 
-    -->
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/MYROBOT</robotNamespace>
-            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        </plugin>
-    </gazebo>
-
 </robot>

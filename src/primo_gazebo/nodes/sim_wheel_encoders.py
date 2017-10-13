@@ -21,6 +21,16 @@ if __name__ == '__main__':
 
     rate = rospy.Rate(30.0)
 
+    # Previous left wheel angle
+    prev_lwa = 0
+
+    # Previous right wheel angle
+    prev_rwa = 0
+
+    # Direction of wheel. 1 = forward, -1 = backward
+    dir_lw = 1
+    dir_rw = 1
+
     while not rospy.is_shutdown():
 
         # Get the transform for the wheels
@@ -45,7 +55,16 @@ if __name__ == '__main__':
                 trans_right_wheel.transform.rotation.y, 
                 trans_right_wheel.transform.rotation.z, 
                 trans_right_wheel.transform.rotation.w]) 
+
+        # left wheel angle
+        lwa = euler_left_wheel[1]
+
+        # right wheel angle
+        rwa = euler_right_wheel[1]
         
-        rospy.loginfo("LEFT: %f \t RIGHT: %f" %(euler_left_wheel[1],
-            euler_right_wheel[1]))
+        rospy.loginfo("LEFT: %f \t RIGHT: %f" %(lwa, rwa)) 
+
+        # Ok so now I have the angle of the left and right wheel, problem is that I
+        # have to make it a continuous angle.
+
         rate.sleep()
