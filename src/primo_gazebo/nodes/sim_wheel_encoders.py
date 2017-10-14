@@ -52,6 +52,8 @@ class EncoderSim:
         if self.encoder < -32768:
             self.encoder = 32767
 
+        self.encoder = int(self.encoder)
+
         return self.encoder
 
 
@@ -66,6 +68,7 @@ if __name__ == '__main__':
     wheel_radius = rospy.get_param('wheel_radius', 0.151)
 
     left_enc_sim = EncoderSim(ticks_meter,wheel_radius) 
+    right_enc_sim = EncoderSim(ticks_meter,wheel_radius)
 
     rate = rospy.Rate(30.0)
 
@@ -83,6 +86,7 @@ if __name__ == '__main__':
             rate.sleep()
             continue
 
+        # Get the euler angles of the left and right wheels
         euler_left_wheel = tf.transformations.euler_from_quaternion(
                 [trans_left_wheel.transform.rotation.x, 
                 trans_left_wheel.transform.rotation.y, 
@@ -98,16 +102,12 @@ if __name__ == '__main__':
 
         # Update the left encoder with the raw wheel angle and roll
         left_encoder = left_enc_sim.update(euler_left_wheel[1], euler_left_wheel[0])
+        right_encoder = right_enc_sim.update(euler_right_wheel[1], euler_right_wheel[0])
 
-        rospy.loginfo("Left encoder: %f" %left_encoder)
+        rospy.loginfo("Encoder Left: %d \t Right: %d" %(left_encoder, right_encoder))
 
-        # right wheel angle
-        rwa = euler_right_wheel[1]
 
 
         # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
-
-        # Ok so now I have the angle of the left and right wheel, problem is that I
-        # have to make it a continuous angle.
 
         rate.sleep()
