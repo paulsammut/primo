@@ -196,6 +196,7 @@ class DiffTf:
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
                 rospy.logerr("diff_tf transform exception")
+                return
 
             # Then we do the transformation from the:
             pose_base_frame = tf2_geometry_msgs.tf2_geometry_msgs.do_transform_pose(pose_wheel_frame,

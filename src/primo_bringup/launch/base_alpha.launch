@@ -5,7 +5,7 @@
     <arg name="nav"         value="false"/>
     <arg name="wheel_odom"  value="true"/>
     <arg name="stereo"      value="false"/>
-    <arg name="joy"         value="false"/>
+    <arg name="joy"         value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
@@ -13,7 +13,7 @@
     <include if="$(arg joy)" file="$(find primo_base)/launch/joy_twist.launch"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
-        <arg name="wheel_odom" value="true"/>
+        <arg name="wheel_odom" value="$(arg odom)"/>
     </include>
 
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
