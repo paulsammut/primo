@@ -15,6 +15,12 @@
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
+    <include file="$(find primo_base)/launch/diff_drive.launch">
+        <arg name="wheel_odom"  value="true"/>
+        <arg name="PID"         value="false"/>
+        <arg name="twist"       value="false"/>
+    </include>
+
     <group if="false">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
@@ -34,6 +40,5 @@
         <include file="$(find primo_nav)/launch/primo_nav.launch"/>
 
     </group>
-
 
 </launch>

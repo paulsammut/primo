@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <!-- The following are parameters that setup packages of the differential_drive
+    <!-- 
+         The following are parameters that setup packages of the differential_drive
          controller. See http://wiki.ros.org/differential_drive for details.
     -->
     
-    <arg name="wheel_odom" default="false"/>
+    <arg name="wheel_odom"  default="false"/>
+    <arg name="PID"         default="true"/>
+    <arg name="twist"       default="true"/>
 
     <!-- Defining global parameters -->
     <param name="ticks_meter" value="69000"/>
@@ -33,66 +36,47 @@
         <param name="odom_frame_id" value="/odom"/>
     </node>
 
-    <!-- PID This is the cpp version -->
-    <node pkg="differential_drive" type="pid_velocity" name="right_wheel_pid" output="screen">
-        <remap from="wheel" to="encoder_right"/>
-      	<remap from="motor_cmd" to="rmotor_cmd_float32"/>
-        <remap from="motor_cmd_int16" to="sabertooth/right"/>
-		<remap from="wheel_vtarget" to="rwheel_vtarget"/>
-      	<remap from="wheel_vel" to="rwheel_vel"/>
-		<param name="Kp" value="$(arg Kp)"/>
-        <param name="Ki" value="$(arg Ki)"/>
-        <param name="Kd" value="$(arg Kd)"/>
-        <param name="out_min" value="$(arg out_min)"/>   <!-- Sabertooth 2x32 plain text serial -->
-        <param name="out_max" value="$(arg out_max)"/>    <!-- Sabertooth 2x32 plain text serial -->
-        <param name="rate" value="$(arg rate)"/>
-        <param name="rolling_pts" value="$(arg rolling_pts)"/>
-        <param name="timeout_ticks" value="$(arg timeout_ticks)"/>
-    </node>
+    <group if="$(arg PID)">
+        <!-- PID This is the cpp version -->
+        <node pkg="differential_drive" type="pid_velocity" name="right_wheel_pid" output="screen">
+            <remap from="wheel" to="encoder_right"/>
+            <remap from="motor_cmd" to="rmotor_cmd_float32"/>
+            <remap from="motor_cmd_int16" to="sabertooth/right"/>
+            <remap from="wheel_vtarget" to="rwheel_vtarget"/>
+            <remap from="wheel_vel" to="rwheel_vel"/>
+            <param name="Kp" value="$(arg Kp)"/>
+            <param name="Ki" value="$(arg Ki)"/>
+            <param name="Kd" value="$(arg Kd)"/>
+            <param name="out_min" value="$(arg out_min)"/>   <!-- Sabertooth 2x32 plain text serial -->
+            <param name="out_max" value="$(arg out_max)"/>    <!-- Sabertooth 2x32 plain text serial -->
+            <param name="rate" value="$(arg rate)"/>
+            <param name="rolling_pts" value="$(arg rolling_pts)"/>
+            <param name="timeout_ticks" value="$(arg timeout_ticks)"/>
+        </node>
 
-    <node pkg="differential_drive" type="pid_velocity" name="left_wheel_pid">
-        <remap from="wheel" to="encoder_left"/>
-        <remap from="motor_cmd" to="lmotor_cmd_float32"/>
-        <remap from="motor_cmd_int16" to="sabertooth/left"/>
-        <remap from="wheel_vtarget" to="lwheel_vtarget"/>
-        <remap from="wheel_vel" to="lwheel_vel"/>  
-        <param name="Kp" value="$(arg Kp)"/>
-        <param name="Ki" value="$(arg Ki)"/>
-        <param name="Kd" value="$(arg Kd)"/>
-        <param name="out_min" value="$(arg out_min)"/>   <!-- Sabertooth 2x32 plain text serial -->
-        <param name="out_max" value="$(arg out_max)"/>    <!-- Sabertooth 2x32 plain text serial -->
-        <param name="rate" value="$(arg rate)"/>
-        <param name="rolling_pts" value="$(arg rolling_pts)"/>
-        <param name="timeout_ticks" value="$(arg timeout_ticks)"/>
-    </node>
+        <node pkg="differential_drive" type="pid_velocity" name="left_wheel_pid">
+            <remap from="wheel" to="encoder_left"/>
+            <remap from="motor_cmd" to="lmotor_cmd_float32"/>
+            <remap from="motor_cmd_int16" to="sabertooth/left"/>
+            <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+            <remap from="wheel_vel" to="lwheel_vel"/>  
+            <param name="Kp" value="$(arg Kp)"/>
+            <param name="Ki" value="$(arg Ki)"/>
+            <param name="Kd" value="$(arg Kd)"/>
+            <param name="out_min" value="$(arg out_min)"/>   <!-- Sabertooth 2x32 plain text serial -->
+            <param name="out_max" value="$(arg out_max)"/>    <!-- Sabertooth 2x32 plain text serial -->
+            <param name="rate" value="$(arg rate)"/>
+            <param name="rolling_pts" value="$(arg rolling_pts)"/>
+            <param name="timeout_ticks" value="$(arg timeout_ticks)"/>
+        </node>
+    </group>
 
     <!-- twist_to_motors -->
-    <node pkg="differential_drive" type="twist_to_motors.py" name="twist_to_motors">
+    <node if="$(arg twist)" pkg="differential_drive" type="twist_to_motors.py" name="twist_to_motors">
         <param name="base_width" value="$(arg base_width)"/>
         <param name="rate" value="30" />
         <param name="timeout_ticks" value="2"/>
         <remap from="/twist"  to="/cmd_vel"/>
     </node>
-
-    <!-- The joystick -->
-    <!-- <node pkg="differential_drive" type="virtual_joystick.py" name="virtual_joystick"> -->
-    <!--     <param name="publish_rate" value="20"/> -->
-    <!--     <param name="x_min" value="&#45;1.50"/> -->
-    <!--     <param name="x_max" value="1.50"/> -->
-    <!--     <param name="r_min" value="&#45;10.0"/> -->
-    <!--     <param name="r_max" value="10.0"/> -->
-    <!-- </node>   -->
-
-  <!--FAKE RIGHT WHEEL -->
-    <!-- <node pkg ="differential_drive" type="wheel_loopback.py" name="rwheel_fake" > -->
-        <!-- <remap from="motor" to="rmotor_cmd"/> -->
-		<!-- <remap from="wheel" to="rwheel"/> -->
-    <!-- </node> -->
-
-  <!--FAKE LEFT WHEEL -->
-    <!-- <node pkg ="differential_drive" type="wheel_loopback.py" name="lwheel_fake" > -->
-		<!-- <remap from="motor" to="lmotor_cmd"/> -->
-		<!-- <remap from="wheel" to="lwheel"/> -->
-    <!-- </node> -->
 
 </launch>

@@ -205,9 +205,6 @@ class DiffTf:
             twist_wheel_rot = geometry_msgs.msg.Vector3(0, 0, self.th) 
             twist_wheel_vel = geometry_msgs.msg.Vector3(self.dx, 0, 0)
 
-            twist_base_rot = trans.transform.
-
-
             # Now we publish the transform
             self.odomBroadcaster.sendTransform(
                 (pose_base_frame.pose.position.x, 
