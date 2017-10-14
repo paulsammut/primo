@@ -10,6 +10,7 @@ import tf2_ros
 import tf
 import geometry_msgs.msg
 from std_msgs.msg import Float32
+from std_msgs.msg import Int32
 
 class EncoderSim:
     previous_raw_angle = 0
@@ -60,6 +61,9 @@ class EncoderSim:
 if __name__ == '__main__':
     rospy.init_node('sim_wheel_encoder')
 
+    pub_left = rospy.Publisher('encoder_left', Int32, queue_size=10)
+    pub_right = rospy.Publisher('encoder_right', Int32, queue_size=10)
+
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
 
@@ -106,8 +110,8 @@ if __name__ == '__main__':
 
         rospy.loginfo("Encoder Left: %d \t Right: %d" %(left_encoder, right_encoder))
 
-
-
-        # rospy.loginfo("Delta is: %f \t Prev is: %f \t Current is : %f "%(dl,prev_lwa, lwa))
+        # Publisher the left and right encoder values
+        pub_left.publish(left_encoder)
+        pub_right.publish(right_encoder)
 
         rate.sleep()
