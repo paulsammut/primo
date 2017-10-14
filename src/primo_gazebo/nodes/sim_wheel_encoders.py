@@ -108,7 +108,7 @@ if __name__ == '__main__':
         left_encoder = left_enc_sim.update(euler_left_wheel[1], euler_left_wheel[0])
         right_encoder = right_enc_sim.update(euler_right_wheel[1], euler_right_wheel[0])
 
-        rospy.loginfo("Encoder Left: %d \t Right: %d" %(left_encoder, right_encoder))
+        # rospy.loginfo("Encoder Left: %d \t Right: %d" %(left_encoder, right_encoder))
 
         # Publisher the left and right encoder values
         pub_left.publish(left_encoder)
