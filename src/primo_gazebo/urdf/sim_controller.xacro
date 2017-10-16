@@ -18,7 +18,7 @@
             <odometrySource>        1                   </odometrySource>
             <robotBaseFrame>        base_link           </robotBaseFrame>
             <publishWheelTF>        false                </publishWheelTF>
-            <publishWheelJointState>true                </publishWheelJointState>
+            <publishWheelJointState>false                </publishWheelJointState>
         </plugin>
     </gazebo>
 
