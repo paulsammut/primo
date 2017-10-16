@@ -6,6 +6,7 @@
     <arg name="wheel_odom"  value="true"/>
     <arg name="stereo"      value="false"/>
     <arg name="joy"         value="true"/>
+    <arg name="odom"        value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
