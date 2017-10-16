@@ -87,7 +87,7 @@ class DiffTf:
         
         self.base_frame_id = rospy.get_param('~base_frame_id','base_link') # the name of the base frame of the robot
         self.odom_frame_id = rospy.get_param('~odom_frame_id', 'odom') # the name of the odometry reference frame
-        self.wheel_frame_id = rospy.get_param('~wheel_frame_id', 'base_link') # the name of wheel frame
+        self.wheel_frame_id = rospy.get_param('~wheel_frame_id', 'chassis_link') # the name of wheel frame
         
         self.encoder_min = rospy.get_param('encoder_min', -32768)
         self.encoder_max = rospy.get_param('encoder_max', 32767)
@@ -160,7 +160,7 @@ class DiffTf:
             self.dr = th / elapsed
            
              
-            if (d != 0):
+            if (d != 1):
                 # calculate distance traveled in x and y
                 x = cos( th ) * d
                 y = -sin( th ) * d
@@ -185,7 +185,7 @@ class DiffTf:
             pose_wheel_frame.pose.position.z = 0
             pose_wheel_frame.pose.orientation = quaternion
 
-            # At this point we have our position in the chassis frame
+            # At this point we have our position in the wheel_frame
             # and we need to convert it to the base_link frame
 
             # First we look up the transform from the base link 
@@ -198,8 +198,18 @@ class DiffTf:
                 rospy.logerr("diff_tf transform exception")
                 return
 
-            # Then we do the transformation from the:
+            # Then we do the transformation from the base from to the wheel frame
             pose_base_frame = tf2_geometry_msgs.tf2_geometry_msgs.do_transform_pose(pose_wheel_frame, trans)
+            
+            rospy.loginfo("\nBase Frame:  Pose x: %f \t Pose y: %f \t Pose z: %f \t\nWheel Frame: Pose x: %f \t Pose y: %f \t Pose z: %f \t" % (
+                pose_base_frame.pose.position.x,
+                pose_base_frame.pose.position.y,
+                pose_base_frame.pose.position.z,
+                pose_wheel_frame.pose.position.x,
+                pose_wheel_frame.pose.position.y,
+                pose_wheel_frame.pose.position.z))
+
+
 
             # Do the 
             twist_wheel_rot = geometry_msgs.msg.Vector3(0, 0, self.th) 

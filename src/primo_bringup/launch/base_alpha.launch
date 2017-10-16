@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rtab"        value="false"/>
-    <arg name="nav"         value="false"/>
+    <arg name="rtab"        value="true"/>
+    <arg name="nav"         value="true"/>
     <arg name="wheel_odom"  value="true"/>
     <arg name="stereo"      value="false"/>
     <arg name="joy"         value="true"/>
