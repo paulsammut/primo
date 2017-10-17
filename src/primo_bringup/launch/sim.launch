@@ -16,7 +16,7 @@
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <group if="false">
+    <group if="true">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
         </include>
