@@ -232,9 +232,9 @@ class DiffTf:
             odom.pose.pose.position.z = 0
             odom.pose.pose.orientation = quaternion
             odom.child_frame_id = self.base_frame_id
-            odom.twist.twist.linear.x = self.dx
+            odom.twist.twist.linear.x = 0
             odom.twist.twist.linear.y = 0
-            odom.twist.twist.angular.z = self.dr
+            odom.twist.twist.angular.z = 0
             self.odomPub.publish(odom)
 
 
