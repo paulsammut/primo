@@ -130,8 +130,8 @@ class DiffTf:
    
         while True:
             try:
-                self.trans = self.tfBuffer.lookup_transform(self.base_frame_id, 
-                        self.wheel_frame_id, rospy.Time())
+                self.trans = self.tfBuffer.lookup_transform(self.wheel_frame_id, 
+                        self.base_frame_id, rospy.Time())
                 break
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
@@ -144,6 +144,8 @@ class DiffTf:
                     self.trans.transform.translation.y,
                     self.trans.transform.translation.z)
                     );
+
+        self.x_trans = self.trans.transform.translation.x
    
         while not rospy.is_shutdown():
             self.update()
@@ -201,53 +203,34 @@ class DiffTf:
             quaternion.z = sin( self.th / 2 )
             quaternion.w = cos( self.th / 2 )
 
-            # Build the pose in the wheel frame
-            pose_wheel_frame = geometry_msgs.msg.PoseStamped()
-            pose_wheel_frame.header.stamp = rospy.Time.now()
-            pose_wheel_frame.header.frame_id = self.wheel_frame_id
-            pose_wheel_frame.pose.position.x = self.x
-            pose_wheel_frame.pose.position.y = self.y
-            pose_wheel_frame.pose.position.z = 0
-            pose_wheel_frame.pose.orientation = quaternion
 
-            # At this point we have our position in the wheel_frame
-            # and we need to convert it to the base_link frame
 
-            # Then we do the transformation from the base from to the wheel frame
-            pose_base_frame = tf2_geometry_msgs.tf2_geometry_msgs.do_transform_pose(pose_wheel_frame,
-                    self.trans)
+            # Convert the frame!
 
-            # Do the 
-            twist_wheel_rot = geometry_msgs.msg.Vector3(0, 0, self.th) 
-            twist_wheel_vel = geometry_msgs.msg.Vector3(self.dx, 0, 0)
+            self.x2 = self.x+sin(th)*self.x_trans
+            self.y2 = self.y+cos(th)*self.x_trans
 
-            rospy.loginfo("\nBase Frame:  Pose x: %f \t Pose y: %f \t Pose z: %f \t\nWheel Frame: Pose x: %f \t Pose y: %f \t Pose z: %f \t" % (
-                pose_base_frame.pose.position.x,
-                pose_base_frame.pose.position.y,
-                pose_base_frame.pose.position.z,
-                pose_wheel_frame.pose.position.x,
-                pose_wheel_frame.pose.position.y,
-                pose_wheel_frame.pose.position.z))
+            rospy.loginfo(" x: %f \t y: %f \tth: %f" % (self.x, self.y, self.th))
+            rospy.loginfo("x2: %f \ty2: %f \tth: %f" % (self.x2, self.y2, self.th))
 
-            # Now we publish the transform
+
+            # Publish it
+
             self.odomBroadcaster.sendTransform(
-                (pose_base_frame.pose.position.x, 
-                    pose_base_frame.pose.position.y,
-                    pose_base_frame.pose.position.z),
-                (pose_base_frame.pose.orientation.x,
-                    pose_base_frame.pose.orientation.y,
-                    pose_base_frame.pose.orientation.z,
-                    pose_base_frame.pose.orientation.w),
+                (self.x2, self.y2, 0),
+                (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
                 rospy.Time.now(),
                 self.base_frame_id,
                 self.odom_frame_id
                 )
             
-            # And now the Odometery
             odom = Odometry()
             odom.header.stamp = now
             odom.header.frame_id = self.odom_frame_id
-            odom.pose.pose = pose_base_frame.pose
+            odom.pose.pose.position.x = self.x2
+            odom.pose.pose.position.y = self.y2
+            odom.pose.pose.position.z = 0
+            odom.pose.pose.orientation = quaternion
             odom.child_frame_id = self.base_frame_id
             odom.twist.twist.linear.x = self.dx
             odom.twist.twist.linear.y = 0
