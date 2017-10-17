@@ -174,6 +174,12 @@ class DiffTf:
             # this approximation works (in radians) for small angles
             th = ( d_right - d_left ) / self.base_width
             # calculate velocities
+
+            # Guard against elapsed being 0
+            if elapsed == 0:
+                elapsed = 0.000000001
+
+            # Velocities
             self.dx = d / elapsed
             self.dr = th / elapsed
            
@@ -228,6 +234,7 @@ class DiffTf:
                 self.odom_frame_id
                 )
             
+
             # And now the Odometery
             odom = Odometry()
             odom.header.stamp = now
