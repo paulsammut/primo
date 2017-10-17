@@ -201,6 +201,7 @@ class DiffTf:
             quaternion.z = sin( self.th / 2 )
             quaternion.w = cos( self.th / 2 )
 
+            # Build the pose in the wheel frame
             pose_wheel_frame = geometry_msgs.msg.PoseStamped()
             pose_wheel_frame.header.stamp = rospy.Time.now()
             pose_wheel_frame.header.frame_id = self.wheel_frame_id
@@ -220,6 +221,14 @@ class DiffTf:
             twist_wheel_rot = geometry_msgs.msg.Vector3(0, 0, self.th) 
             twist_wheel_vel = geometry_msgs.msg.Vector3(self.dx, 0, 0)
 
+            rospy.loginfo("\nBase Frame:  Pose x: %f \t Pose y: %f \t Pose z: %f \t\nWheel Frame: Pose x: %f \t Pose y: %f \t Pose z: %f \t" % (
+                pose_base_frame.pose.position.x,
+                pose_base_frame.pose.position.y,
+                pose_base_frame.pose.position.z,
+                pose_wheel_frame.pose.position.x,
+                pose_wheel_frame.pose.position.y,
+                pose_wheel_frame.pose.position.z))
+
             # Now we publish the transform
             self.odomBroadcaster.sendTransform(
                 (pose_base_frame.pose.position.x, 
@@ -234,7 +243,6 @@ class DiffTf:
                 self.odom_frame_id
                 )
             
-
             # And now the Odometery
             odom = Odometry()
             odom.header.stamp = now
@@ -245,8 +253,6 @@ class DiffTf:
             odom.twist.twist.linear.y = 0
             odom.twist.twist.angular.z = self.dr
             self.odomPub.publish(odom)
-            
-            
 
 
     #############################################################################
