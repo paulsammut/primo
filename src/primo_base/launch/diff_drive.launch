@@ -5,7 +5,7 @@
          controller. See http://wiki.ros.org/differential_drive for details.
     -->
     
-    <arg name="wheel_odom"  default="false"/>
+    <arg name="wheel_odom"  default="true"/>
     <arg name="PID"         default="true"/>
     <arg name="twist"       default="true"/>
 

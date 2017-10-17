@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <launch>
-    <param name="use_sim_time" value="true"/>
 
-    <!-- <node pkg="rviz" type="rviz" name="rviz"  -->
-        <!-- args="&#45;d $(find primo_bringup)/config/stereo_test.rviz"/> -->
+    <!-- This launch file was used to simulate the wheel encoders to test the updated
+         diff_tf 
+    -->
+
+    <param name="use_sim_time" value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
@@ -11,10 +13,18 @@
         <arg name="rviz" value="true"/>
     </include>
 
+    <!-- Fake wheel data -->
+    <node pkg="primo_gazebo" type="sim_wheel_encoders.py" name="encoder_sim"/>
 
     <!-- These let us control the sim robot with the joystick -->
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
+
+    <include if="false" file="$(find primo_base)/launch/diff_drive.launch">
+        <arg name="wheel_odom"  value="false"/>
+        <arg name="PID"         value="false"/>
+        <arg name="twist"       value="false"/>
+    </include>
 
     <group if="false">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
