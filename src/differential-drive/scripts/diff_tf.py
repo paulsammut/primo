@@ -139,6 +139,7 @@ class DiffTf:
                 break
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
+                rospy.logwarn("diff_tf transform exception")
 
         rospy.loginfo("""Received the Transform 
                          ========================= 
