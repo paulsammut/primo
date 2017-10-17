@@ -15,6 +15,7 @@
         <arg name="gui"             value="$(arg gui)"/>
         <arg name="headless"        value="$(arg headless)"/>
         <arg name="debug"           value="$(arg debug)"/>
+        <remap from="tf" to="gazebo_tf"/>
     </include>
     
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
