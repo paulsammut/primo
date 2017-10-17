@@ -116,6 +116,10 @@ class DiffTf:
         self.dx = 0                 # speeds in x/rotation
         self.dr = 0
         self.then = rospy.Time.now()
+
+        # The offset frame
+        self.x2 = 0
+        self.y2 = 0
         
         # subscriptions
         rospy.Subscriber("lwheel", Int32, self.lwheelCallback, queue_size=1)
@@ -135,7 +139,6 @@ class DiffTf:
                 break
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
-                rospy.logerr("diff_tf transform exception")
 
         rospy.loginfo("""Received the Transform 
                          ========================= 
@@ -184,6 +187,11 @@ class DiffTf:
             # Velocities
             self.dx = d / elapsed
             self.dr = th / elapsed
+            # This if velocity in the y direction of the base link that is 
+            # present if there is an offset from the wheel center to the base_link
+            # center. It is the y velocity induced on the body through angular
+            # velocity
+            self.dy = sin(self.dr)*self.x_trans
            
              
             if (d != 1):
@@ -207,11 +215,15 @@ class DiffTf:
 
             # Convert the frame!
 
-            self.x2 = self.x+sin(th)*self.x_trans
-            self.y2 = self.y+cos(th)*self.x_trans
+            dx = cos(self.th)*self.x_trans
+            self.x2 = self.x + dx
 
-            rospy.loginfo(" x: %f \t y: %f \tth: %f" % (self.x, self.y, self.th))
-            rospy.loginfo("x2: %f \ty2: %f \tth: %f" % (self.x2, self.y2, self.th))
+            dy = sin(self.th)*self.x_trans
+            self.y2 = self.y + dy
+
+            # rospy.loginfo("dx %f dy %f" % (dx, dy))
+            # rospy.loginfo(" x: %f \t y: %f \tth: %f" % (self.x, self.y, self.th))
+            # rospy.loginfo("x2: %f \ty2: %f \tth: %f" % (self.x2, self.y2, self.th))
 
 
             # Publish it
@@ -232,9 +244,9 @@ class DiffTf:
             odom.pose.pose.position.z = 0
             odom.pose.pose.orientation = quaternion
             odom.child_frame_id = self.base_frame_id
-            odom.twist.twist.linear.x = 0
-            odom.twist.twist.linear.y = 0
-            odom.twist.twist.angular.z = 0
+            odom.twist.twist.linear.x = self.dx
+            odom.twist.twist.linear.y = self.dy
+            odom.twist.twist.angular.z = self.dr
             self.odomPub.publish(odom)
 
 
