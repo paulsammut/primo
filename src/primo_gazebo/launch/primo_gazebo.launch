@@ -49,7 +49,7 @@
       args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)" >
 
         <!-- If we don't want gazebo to publish the transform, remap it -->
-        <remap if="$(arg publish_tf)" from="tf" to="gazebo_tf"/> 
+        <remap unless="$(arg publish_tf)" from="tf" to="gazebo_tf"/> 
 
     </node>
        

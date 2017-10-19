@@ -2,9 +2,6 @@
 <launch>
     <param name="use_sim_time" value="true"/>
 
-    <!-- <node pkg="rviz" type="rviz" name="rviz"  -->
-        <!-- args="&#45;d $(find primo_bringup)/config/stereo_test.rviz"/> -->
-
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
@@ -26,7 +23,7 @@
         </include>
 
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="slam"        value="false"/>
+            <arg name="slam"        value="true"/>
             <arg name="rtabmapviz"  value="true" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />

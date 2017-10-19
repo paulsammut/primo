@@ -35,7 +35,7 @@
 
     <group if="$(arg rtab)">
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="slam"        value="false"/>
+            <arg name="slam"        value="true"/>
             <arg name="rtabmapviz"  value="false" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />
