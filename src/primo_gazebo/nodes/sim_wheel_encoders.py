@@ -74,7 +74,7 @@ if __name__ == '__main__':
     left_enc_sim = EncoderSim(ticks_meter,wheel_radius) 
     right_enc_sim = EncoderSim(ticks_meter,wheel_radius)
 
-    rate = rospy.Rate(30.0)
+    rate = rospy.Rate(100.0)
 
 
     while not rospy.is_shutdown():

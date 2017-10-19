@@ -22,7 +22,7 @@
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
     <include if="true" file="$(find primo_base)/launch/diff_drive.launch">
-        <arg name="wheel_odom"  value="false"/>
+        <arg name="wheel_odom"  value="true"/>
         <arg name="PID"         value="false"/>
         <arg name="twist"       value="false"/>
     </include>
