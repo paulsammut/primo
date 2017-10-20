@@ -233,7 +233,7 @@ class DiffTf:
 
 
             # Publish the transform  
-            if publish_tf:
+            if self.publish_tf:
                 self.odomBroadcaster.sendTransform(
                     (self.x2, self.y2, 0),
                     (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
