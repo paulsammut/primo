@@ -1,33 +1,34 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- This launch file was used to simulate the wheel encoders to test the updated
+    <!-- 
+         This launch file was used to simulate the wheel encoders to test the updated
          diff_tf 
     -->
-
-    <param name="use_sim_time" value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
-        <arg name="rviz" value="true"/>
-        <arg name="publish_tf" value="false"/>
+        <arg name="rviz"        value="true"/>
+        <arg name="publish_tf"  value="false"/>
     </include>
 
-    <!-- Fake wheel data -->
+    <!-- Generate encoder data -->
     <node pkg="primo_gazebo" type="sim_wheel_encoders.py" name="encoder_sim"/>
 
     <!-- These let us control the sim robot with the joystick -->
     <include file="$(find primo_base)/launch/joy_twist.launch"/>
+
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
     <include if="true" file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="wheel_odom"  value="true"/>
+        <arg name="publish_tf"  value="true"/>
         <arg name="PID"         value="false"/>
         <arg name="twist"       value="false"/>
     </include>
 
-    <group if="false">
+    <group if="true">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
         </include>
@@ -37,7 +38,7 @@
         </include>
 
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="slam"        value="false"/>
+            <arg name="slam"        value="true"/>
             <arg name="rtabmapviz"  value="true" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />

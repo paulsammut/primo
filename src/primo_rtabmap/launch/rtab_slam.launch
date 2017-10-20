@@ -4,17 +4,18 @@
     <arg name="cam" value="stereo1"/>
 
 <!-- Odometry -->
-    <node pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" output="screen">
-        <remap from="left/image_rect"       to="/$(arg cam)/left/image_rect"                        />
-        <remap from="right/image_rect"      to="/$(arg cam)/right/image_rect"                       />
-        <remap from="left/camera_info"      to="/$(arg cam)/left/camera_info"                       />
-        <remap from="right/camera_info"     to="/$(arg cam)/right/camera_info"                      />
-        <remap from="odom"                  to="/stereo_odometry"/>
+    <node ns="$(arg cam)" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" output="screen">
+        <remap from="left/image_rect"       to="left/image_rect"                        />
+        <remap from="right/image_rect"      to="right/image_rect"                       />
+        <remap from="left/camera_info"      to="left/camera_info"                       />
+        <remap from="right/camera_info"     to="right/camera_info"                      />
+        <remap from="odom"                  to="odom"/>
 
         <param name="frame_id"              type="string"   value="base_link"           />
         <param name="odom_frame_id"         type="string"   value="odom"        />
         <param name="approx_sync"           type="bool"     value="true"               />
         <param name="queue_size"            type="int"      value="5"                   />
+        <param name="publish_tf"            type="bool"     value="false"               />
 
         <param name="Odom/InlierDistance"   type="string"   value="0.1"                 />
         <param name="Odom/MinInliers"       type="string"   value="10"                  />
