@@ -54,6 +54,7 @@ diff_controller.py - controller for a differential drive
 import rospy
 import roslib
 import tf
+import time
 
 import tf2_ros
 import tf2_geometry_msgs
@@ -93,6 +94,8 @@ class DiffTf:
         self.encoder_max = rospy.get_param('encoder_max', 32767)
         self.encoder_low_wrap = rospy.get_param('wheel_low_wrap', (self.encoder_max - self.encoder_min) * 0.3 + self.encoder_min )
         self.encoder_high_wrap = rospy.get_param('wheel_high_wrap', (self.encoder_max - self.encoder_min) * 0.7 + self.encoder_min )
+
+        self.publish_tf = rospy.get_param('publish_tf', True)
  
         self.t_delta = rospy.Duration(1.0/self.rate)
         self.t_next = rospy.Time.now() + self.t_delta
@@ -140,6 +143,8 @@ class DiffTf:
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, 
                     tf2_ros.ExtrapolationException):
                 rospy.logwarn("diff_tf transform exception")
+                time.sleep(1)
+
 
         rospy.loginfo("""Received the Transform 
                          ========================= 
@@ -227,15 +232,17 @@ class DiffTf:
             # rospy.loginfo("x2: %f \ty2: %f \tth: %f" % (self.x2, self.y2, self.th))
 
 
-            # Publish it
+            # Publish the transform  
+            if publish_tf:
+                self.odomBroadcaster.sendTransform(
+                    (self.x2, self.y2, 0),
+                    (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
+                    rospy.Time.now(),
+                    self.base_frame_id,
+                    self.odom_frame_id
+                    )
 
-            self.odomBroadcaster.sendTransform(
-                (self.x2, self.y2, 0),
-                (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
-                rospy.Time.now(),
-                self.base_frame_id,
-                self.odom_frame_id
-                )
+            # Send over the odom
             
             odom = Odometry()
             odom.header.stamp = now
