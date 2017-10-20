@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Camera2
+        - /Imu1
       Splitter Ratio: 0.6734007
     Tree Height: 682
   - Class: rviz/Selection
@@ -117,8 +117,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.0402327776
-        Min Value: -0.0053756237
+        Max Value: 0.0364384651
+        Min Value: -0.00822722912
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -126,7 +126,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -143,12 +143,12 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 1.29926312
-        Min Value: 0.0138369799
+        Max Value: 1.00880516
+        Min Value: 0.0100516081
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -156,7 +156,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -173,7 +173,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
@@ -348,6 +348,7 @@ Visualization Manager:
       Unreliable: false
       Value: false
       Visibility:
+        "": true
         Base: true
         Camera: true
         Global Cost Map: true
@@ -377,6 +378,7 @@ Visualization Manager:
       Unreliable: false
       Value: false
       Visibility:
+        "": true
         Base: true
         Camera: true
         Global Cost Map: true
@@ -395,6 +397,15 @@ Visualization Manager:
         TEB Local Plan: true
         Value: true
       Zoom Factor: 1
+    - Alpha: 1
+      Class: rviz_plugin_tutorials/Imu
+      Color: 204; 51; 204
+      Enabled: true
+      History Length: 1
+      Name: Imu
+      Topic: ""
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -434,10 +445,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.47479582
+      Pitch: 0.264796883
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 0.408547044
+      Yaw: 0.623546958
     Saved: ~
 Window Geometry:
   Camera:
@@ -459,5 +470,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1615
-  X: 64
+  X: 63
   Y: 31
