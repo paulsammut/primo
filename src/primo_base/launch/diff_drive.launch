@@ -6,6 +6,7 @@
     -->
     
     <arg name="wheel_odom"  default="true"/>
+    <arg name="publish_tf"  default="true"/>
     <arg name="PID"         default="true"/>
     <arg name="twist"       default="true"/>
 
@@ -74,6 +75,7 @@
 
     <!-- twist_to_motors -->
     <node if="$(arg twist)" pkg="differential_drive" type="twist_to_motors.py" name="twist_to_motors">
+        <param name="publish_tf" value="$(arg publish_tf)"/>
         <param name="base_width" value="$(arg base_width)"/>
         <param name="rate" value="30" />
         <param name="timeout_ticks" value="2"/>
