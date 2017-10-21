@@ -23,8 +23,8 @@
             <publishWheelJointState>true                        </publishWheelJointState>
         </plugin>
 
-           <plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
-            <updateRate>100.0</updateRate>
+        <plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so"> 
+            <updateRate>30.0</updateRate>
             <bodyName>base_link</bodyName>
             <frameId>imu_link</frameId>
             <topicName>imu_data</topicName>

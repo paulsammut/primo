@@ -130,6 +130,22 @@ class DiffTf:
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
         self.odomBroadcaster = TransformBroadcaster()
 
+	self.ODOM_POSE_COVARIANCE = [1e-3, 0, 0, 0, 0, 0, 
+				0, 1e-3, 0, 0, 0, 0,
+				0, 0, 1e6, 0, 0, 0,
+				0, 0, 0, 1e6, 0, 0,
+				0, 0, 0, 0, 1e6, 0,
+				0, 0, 0, 0, 0, 1e3]
+  
+  
+	self.ODOM_TWIST_COVARIANCE = [1e-3, 0, 0, 0, 0, 0, 
+				 0, 1e-3, 0, 0, 0, 0,
+				 0, 0, 1e6, 0, 0, 0,
+				 0, 0, 0, 1e6, 0, 0,
+				 0, 0, 0, 0, 1e6, 0,
+				 0, 0, 0, 0, 0, 1e3]
+        
+
     #############################################################################
     def spin(self):
     #############################################################################
@@ -255,6 +271,11 @@ class DiffTf:
             odom.twist.twist.linear.x = self.dx
             odom.twist.twist.linear.y = self.dy
             odom.twist.twist.angular.z = self.dr
+            
+            # Build the covariance matrix
+	    odom.pose.covariance =self.ODOM_POSE_COVARIANCE                
+            odom.twist.covariance =self.ODOM_TWIST_COVARIANCE
+
             self.odomPub.publish(odom)
 
 

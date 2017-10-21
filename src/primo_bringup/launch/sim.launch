@@ -28,7 +28,7 @@
         <arg name="twist"       value="false"/>
     </include>
 
-    <group if="true">
+    <group if="false">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
         </include>
