@@ -9,6 +9,7 @@
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
+        <arg name="world"       value="bat_cave.world"/> 
         <arg name="rviz"        value="true"/>
         <arg name="publish_tf"  value="false"/>
     </include>
@@ -23,12 +24,13 @@
 
     <include if="true" file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="wheel_odom"  value="true"/>
-        <arg name="publish_tf"  value="true"/>
+        <arg name="publish_tf"  value="false"/>
         <arg name="PID"         value="false"/>
         <arg name="twist"       value="false"/>
+        <arg name="odom_topic"  value="/wheel/odom"/>
     </include>
 
-    <group if="false">
+    <group if="true">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
         </include>
