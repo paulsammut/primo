@@ -22,7 +22,7 @@
 
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <include if="true" file="$(find primo_base)/launch/diff_drive.launch">
+    <include if="false" file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="wheel_odom"  value="true"/>
         <arg name="publish_tf"  value="false"/>
         <arg name="PID"         value="false"/>
@@ -30,6 +30,7 @@
         <arg name="odom_topic"  value="/wheel/odom"/>
     </include>
 
+    <!-- Stereo Cam stuff -->
     <group if="true">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="false"/>
@@ -49,5 +50,11 @@
         <include file="$(find primo_nav)/launch/primo_nav.launch"/>
 
     </group>
+
+    <!-- Robot localization -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+        <rosparam command="load" file="$(find primo_base)/config/robot_localization.yaml" />
+
+    </node>
 
 </launch>
