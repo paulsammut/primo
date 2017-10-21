@@ -4,6 +4,7 @@
     <arg name="rviz" default="false"/>
     <arg name="rtab_viz_stereo" default="false"/>
     <arg name="rtab_viz_rgbd"   default="false"/>
+    <arg name="odom_topic"      default="odom"/>
       
     <!-- Visualisation RTAB-Map RGBD -->
     <node if="$(arg rtab_viz_rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_rgbd" 
@@ -24,7 +25,7 @@
 	    <remap from="odom"                  to="/odom"/>
 
 
-	    <remap from="odom"                  to="/odom"/>
+	    <remap from="odom"                  to="$(arg odom_topic)"/>
         <remap from="rgbd_image"            to="/stereo1/left/image_rect"/>
         <remap from="depth/image"           to="/stereo1/depth"/>
         <remap from="rgb/camera_info"       to="/stereo1/left/camera_info"/>
@@ -45,7 +46,8 @@
 	    <remap from="left/camera_info"      to="/stereo1/left/camera_info"/>
 	    <remap from="right/camera_info"     to="/stereo1/right/camera_info"/>
 	    <remap from="odom_info"             to="/odom_info"/>
-	    <remap from="odom"                  to="/odom"/>
+
+	    <remap from="odom"                  to="$(arg odom_topic)"/>
 
     </node>
 

@@ -6,6 +6,7 @@
     <arg name="slam"        default="false"/>
     <arg name="rgbd"        default="false"/>
     <arg name="stereo"      default="true"/>
+    <arg name="odom_topic"  default="odom"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
@@ -17,11 +18,15 @@
             <arg name="rviz"                value="$(arg rviz)"/>
             <arg name="rtab_viz_stereo"     value="$(arg stereo)"/>
             <arg name="rtab_viz_rgbd"       value="$(arg rgbd)"/>
+            <arg name="odom_topic"          value="$(arg odom_topic)"/>
         </include>
     </group>
 
 
-    <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch"/>
+    <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch">
+        <arg name="odom_topic"  value="$(arg odom_topic)"/>
+    </include>
+
     <include if="$(arg rgbd)"   file="$(find primo_rtabmap)/launch/rtab_map_rgbd.launch"/>
 
 

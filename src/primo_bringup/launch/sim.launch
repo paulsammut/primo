@@ -22,7 +22,7 @@
 
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <include if="false" file="$(find primo_base)/launch/diff_drive.launch">
+    <include if="true" file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="wheel_odom"  value="true"/>
         <arg name="publish_tf"  value="false"/>
         <arg name="PID"         value="false"/>
@@ -45,6 +45,8 @@
             <arg name="rtabmapviz"  value="true" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />
+            <arg name="odom_topic"  value="odometry/filtered"/>
+            
         </include>
 
         <include file="$(find primo_nav)/launch/primo_nav.launch"/>
