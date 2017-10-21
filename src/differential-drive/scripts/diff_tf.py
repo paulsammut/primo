@@ -95,7 +95,8 @@ class DiffTf:
         self.encoder_low_wrap = rospy.get_param('wheel_low_wrap', (self.encoder_max - self.encoder_min) * 0.3 + self.encoder_min )
         self.encoder_high_wrap = rospy.get_param('wheel_high_wrap', (self.encoder_max - self.encoder_min) * 0.7 + self.encoder_min )
 
-        self.publish_tf = rospy.get_param('publish_tf', True)
+        self.publish_tf = rospy.get_param('~publish_tf', True)
+        rospy.loginfo("Parameter: publish_tf set to: {}".format(self.publish_tf))
  
         self.t_delta = rospy.Duration(1.0/self.rate)
         self.t_next = rospy.Time.now() + self.t_delta
