@@ -28,6 +28,7 @@ class SabertoothSimple
          * @return Returns 1 if successful, 0 if fail.
          */
         int setM(int motorNum, int powerVal);
+
         /**
          * @brief Gets the current power setting for either motor 1 or motor 2
          *
@@ -55,6 +56,9 @@ class SabertoothSimple
          * @return 1 if success, 0 if failed
          */
         int connect(void);
+
+        bool estop;
+
     private:
         /**
          * @brief This is the serial object that handles connection with the

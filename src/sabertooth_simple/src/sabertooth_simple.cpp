@@ -22,6 +22,10 @@ int SabertoothSimple::setM(int motorNum, int powerVal)
         else
             return 0;
 
+        // Estop test
+        if(estop)
+           powerVal = 0;
+
         std::ostringstream cmdNum;
         cmdNum << powerVal;
         cmdString += cmdNum.str();
@@ -35,6 +39,7 @@ int SabertoothSimple::setM(int motorNum, int powerVal)
 
 int SabertoothSimple::getM(int motorNum, int &powerVal)
 {
+    // Not yet implemented
     powerVal = 69;
     return 1;
 }
@@ -87,6 +92,7 @@ int SabertoothSimple::connect(void)
 
 SabertoothSimple::SabertoothSimple(void)
 {
+    estop = false;
 }
 
 SabertoothSimple::~SabertoothSimple(void)
