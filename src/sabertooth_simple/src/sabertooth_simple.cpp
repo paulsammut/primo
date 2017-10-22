@@ -36,6 +36,18 @@ int SabertoothSimple::setM(int motorNum, int powerVal)
         return 0;
 }
 
+bool SabertoothSimple::estopHandler(sabertooth_simple::SabertoothEstop::Request &req,
+                          sabertooth_simple::SabertoothEstop::Response &res)
+{
+    ROS_INFO("request: estop - %s", req.estop ? "true" : "false");
+    estop = req.estop;
+    this->setM(1,0);
+    this->setM(2,0);
+    
+    res.response = estop;
+    ROS_INFO("response: estop - %s", res.response ? "true" : "false");
+}
+
 
 int SabertoothSimple::getM(int motorNum, int &powerVal)
 {
@@ -82,8 +94,8 @@ int SabertoothSimple::connect(void)
                 return 0;
             }
 
-            std::string daters = "M1:0\r\nM2:0\r\n";
-            size_t writtenBees = stoothSerPort.write(daters);
+            std::string zeroStr = "M1:0\r\nM2:0\r\n";
+            size_t writtenBees = stoothSerPort.write(zeroStr);
             // ROS_INFO("Wrote %lu bytes", writtenBees);
         }
     }
