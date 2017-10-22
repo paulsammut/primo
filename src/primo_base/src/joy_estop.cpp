@@ -4,6 +4,7 @@
 
 ros::ServiceClient client;
 sabertooth_simple::SabertoothEstop srv;
+bool curState = false;
 
 
 void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
@@ -17,12 +18,17 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
             ROS_INFO("ESTOP succesfully TURNED ON"); 
         else
             ROS_INFO("ESTOP TURN ON FAILED"); 
+        curState = true;
     }
-    else if(msg->buttons[2])
+    // Emergency Stop clear button
+    else if(msg->buttons[7] && curState)
     {
         srv.request.estop = false;
         if(client.call(srv))
+        {
             ROS_INFO("ESTOP succesfully cleared"); 
+            curState = false;
+        }
         else
             ROS_INFO("ESTOP CLEAR FAILED"); 
     }
