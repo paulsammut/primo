@@ -2,7 +2,6 @@
 
 #include "serial/serial.h"
 #include <iostream>
-#include "sabertooth_simple/SabertoothEstop.h"
 
 #define STOOTH_BAUD 9600
 
@@ -60,8 +59,7 @@ class SabertoothSimple
 
         bool estop;
 
-        bool estopHandler(sabertooth_simple::SabertoothEstop::Request &req,
-                          sabertooth_simple::SabertoothEstop::Response &res);
+        bool estopHandler(bool _estop);
 
     private:
         /**

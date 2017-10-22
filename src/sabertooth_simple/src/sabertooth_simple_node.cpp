@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/Int16.h"
 #include "sabertooth_simple.h"
+#include "sabertooth_simple/SabertoothEstop.h"
 
 /**
  * This is the main function of the sabertooth_simple node that communicates to the a
@@ -34,6 +35,19 @@ void rightMotorCb(const std_msgs::Int16::ConstPtr& msg)
     sabertooth.setM(2, msg->data);
 }
 
+bool estopHandler(sabertooth_simple::SabertoothEstop::Request &req,
+                          sabertooth_simple::SabertoothEstop::Response &res)
+{
+    ROS_INFO("request: estop - %s", req.estop ? "true" : "false");
+    
+    sabertooth.estopHandler(req.estop);
+    
+    res.response = req.estop;
+    ROS_INFO("response: estop - %s", res.response ? "true" : "false");
+
+    return true;
+}
+
 int main(int argc, char **argv)
 {
     ros::init(argc,argv, "sabertooth_simple");
@@ -42,6 +56,8 @@ int main(int argc, char **argv)
 
     ros::Subscriber subLeft = n.subscribe("sabertooth/left",1000, leftMotorCb);
     ros::Subscriber subRight = n.subscribe("sabertooth/right",1000, rightMotorCb);
+
+    ros::ServiceServer estopService = n.advertiseService("motor_estop", estopHandler);
 
     sabertooth.connect();
 

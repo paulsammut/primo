@@ -36,16 +36,17 @@ int SabertoothSimple::setM(int motorNum, int powerVal)
         return 0;
 }
 
-bool SabertoothSimple::estopHandler(sabertooth_simple::SabertoothEstop::Request &req,
-                          sabertooth_simple::SabertoothEstop::Response &res)
+bool SabertoothSimple::estopHandler(bool _estop)
 {
-    ROS_INFO("request: estop - %s", req.estop ? "true" : "false");
-    estop = req.estop;
-    this->setM(1,0);
-    this->setM(2,0);
-    
-    res.response = estop;
-    ROS_INFO("response: estop - %s", res.response ? "true" : "false");
+    estop = _estop;
+
+    if(estop)
+    {
+        this->setM(1,0);
+        this->setM(2,0);
+    }
+
+    return true;
 }
 
 
