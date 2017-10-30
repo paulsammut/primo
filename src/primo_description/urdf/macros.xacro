@@ -9,7 +9,8 @@
 
   <!-- Meshes -->
   <xacro:macro name="m_mesh_chassis" params="type">
-      <mesh filename="package://primo_description/meshes/r1_primo_${type}.stl"/>
+      <!-- <mesh filename="package://primo_description/meshes/r1_primo_${type}.stl"/> -->
+      <mesh filename="package://primo_description/meshes/primo.dae"/>
   </xacro:macro>
   <xacro:macro name="m_mesh_wheel">
     <mesh filename="package://primo_description/meshes/r1_wheel.stl"/>
