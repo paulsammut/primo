@@ -19,9 +19,10 @@ int UimuClass::connect(void)
     while(iter != devices_found.end())
     {
         serial::PortInfo device = *iter++;
-        ROS_INFO( "Listing device: (%s, %s, %s)\n", 
-                device.port.c_str(), device.description.c_str(),
-                device.hardware_id.c_str() );
+        
+        // ROS_INFO( "Listing device: (%s, %s, %s)\n", 
+        //         device.port.c_str(), device.description.c_str(),
+        //         device.hardware_id.c_str() );
 
         // Look for the module.
         if(strstr(device.description.c_str(), "A505V2WC") != NULL)
