@@ -11,20 +11,27 @@ using std::cout;
 
 int UimuClass::connect(void)
 {
-    // These are used to iterate through the serial port and look for the Sabertooth
-    // module. Taken from serial examples.
+    // These are used to iterate through the serial port and look for the uimu
+    // Taken from serial examples.
     vector<serial::PortInfo> devices_found = serial::list_ports();
     vector<serial::PortInfo>::iterator iter = devices_found.begin();
 
     while(iter != devices_found.end())
     {
         serial::PortInfo device = *iter++;
+<<<<<<< HEAD
         ROS_INFO( "Found: (%s, %s, %s)\n", 
                 device.port.c_str(), device.description.c_str(), 
                 device.hardware_id.c_str() );
+=======
+        
+        // ROS_INFO( "Listing device: (%s, %s, %s)\n", 
+        //         device.port.c_str(), device.description.c_str(),
+        //         device.hardware_id.c_str() );
+>>>>>>> b4ecc8ef82ad9f495a41061b3624d7d0fa6ccb57
 
-        // Look for the sabertooth module.
-        if(strstr(device.description.c_str(), "Silicon") != NULL)
+        // Look for the module.
+        if(strstr(device.description.c_str(), "A505V2WC") != NULL)
         {
             ROS_INFO( "Found: (%s, %s, %s)\n", 
                     device.port.c_str(), device.description.c_str(), 
@@ -133,7 +140,7 @@ void UimuClass::readPort(void)
 
     readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end()); 
 
-    // ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
+    ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
 
     std::vector<uint8_t>::iterator it;
 
