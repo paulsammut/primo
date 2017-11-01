@@ -21,7 +21,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         srv.request.estop = true;
         if(client.call(srv))
         {
-            sc->say("Eeee STOP ACTIVATED. I aint goooin noowheereess");
+            sc->say("Eeee STOP ACTIVATED. I aint goin NOWHERE");
             ROS_INFO("ESTOP succesfully TURNED ON"); 
         }
         else
@@ -37,7 +37,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         srv.request.estop = false;
         if(client.call(srv))
         {
-            sc->say("PRIMO TORQUED AND READY TO FAKK");
+            sc->say("PRIMO TORQUED AND READY TO FUCK SHIT UP");
             ROS_INFO("ESTOP succesfully cleared"); 
             curState = false;
         }
