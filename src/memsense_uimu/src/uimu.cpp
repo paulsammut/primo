@@ -19,17 +19,17 @@ int UimuClass::connect(void)
     while(iter != devices_found.end())
     {
         serial::PortInfo device = *iter++;
-        
-        // ROS_INFO( "Listing device: (%s, %s, %s)\n", 
+
+        // ROS_INFO( "Listing device: (%s, %s, %s)\n",
         //         device.port.c_str(), device.description.c_str(),
         //         device.hardware_id.c_str() );
 
         // Look for the module.
         if(strstr(device.description.c_str(), "A505V2WC") != NULL)
         {
-            ROS_INFO( "Found: (%s, %s, %s)\n", 
-                    device.port.c_str(), device.description.c_str(), 
-                    device.hardware_id.c_str() );
+            ROS_INFO( "Found: (%s, %s, %s)\n",
+                      device.port.c_str(), device.description.c_str(),
+                      device.hardware_id.c_str() );
 
             uimuSerPort.setPort(device.port.c_str());
             uimuSerPort.setBaudrate(UIMU_BAUD);
@@ -71,54 +71,62 @@ UimuClass::UimuClass(void)
     imu_msg.header.frame_id = frame_id_;
 
     // build covariance matrices
-    
+
     // Set the first element of the orientation to -1 which means no data
     // because we are not producing orientation
-    
-    imu_msg.orientation_covariance[0] = -1;
-    
 
+    imu_msg.orientation_covariance[0] = -1;
+
+
+    // Variances for the angular vels and linear accels with are stddev squared
+    // (stats 101 bro)
     double ang_vel_var = angular_velocity_stdev_ * angular_velocity_stdev_;
     double lin_acc_var = linear_acceleration_stdev_ * linear_acceleration_stdev_;
+    // The orientation variance, using a number I pulled out of my ass
+    double orientation_var = 1e-3;
+
     for (int i = 0; i < 3; ++i)
-    for (int j = 0; j < 3; ++j)
-    {
-      int idx = j*3 +i;
-  
-      if (i == j)
-      {
-        imu_msg.angular_velocity_covariance[idx]    = ang_vel_var;
-        imu_msg.linear_acceleration_covariance[idx] = lin_acc_var;
-      }
-      else
-      {
-        imu_msg.angular_velocity_covariance[idx]    = 0.0;
-        imu_msg.linear_acceleration_covariance[idx] = 0.0;
-      }
-    }
-  
+        for (int j = 0; j < 3; ++j)
+        {
+            int idx = j*3 +i;
+
+            if (i == j)
+            {
+                imu_msg.angular_velocity_covariance[idx]    = ang_vel_var;
+                imu_msg.linear_acceleration_covariance[idx] = lin_acc_var;
+                imu_msg.orientation_covariance[idx] = orientation_var;
+
+            }
+            else
+            {
+                imu_msg.angular_velocity_covariance[idx]    = 0.0;
+                imu_msg.linear_acceleration_covariance[idx] = 0.0;
+                imu_msg.orientation_covariance[idx] = 0.0;
+            }
+        }
+
     // ---- magnetic field message
-  
+
     mag_msg.header.frame_id = frame_id_;
-  
+
     // build covariance matrix
-  
+
     double mag_field_var = magnetic_field_stdev_ * magnetic_field_stdev_;
-  
+
     for (int i = 0; i < 3; ++i)
-    for (int j = 0; j < 3; ++j)
-    {
-      int idx = j * 3 + i;
-  
-      if (i == j)
-      {
-        mag_msg.magnetic_field_covariance[idx] = mag_field_var;
-      }
-      else
-      {
-        mag_msg.magnetic_field_covariance[idx] = 0.0;
-      }
-    }
+        for (int j = 0; j < 3; ++j)
+        {
+            int idx = j * 3 + i;
+
+            if (i == j)
+            {
+                mag_msg.magnetic_field_covariance[idx] = mag_field_var;
+            }
+            else
+            {
+                mag_msg.magnetic_field_covariance[idx] = 0.0;
+            }
+        }
 }
 
 UimuClass::~UimuClass(void)
@@ -132,7 +140,7 @@ void UimuClass::readPort(void)
 
     std::vector<uint8_t> tempDataV(tempData.begin(), tempData.end());
 
-    readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end()); 
+    readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end());
 
     ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
 
@@ -145,7 +153,7 @@ void UimuClass::readPort(void)
     int i = 0;
 
     validPacket = false;
-    
+
     // ROS_INFO("Sweep with buffer length: %lu", readBuffer.size());
     for(it=readBuffer.begin() ; it < readBuffer.end(); it++, i++)
     {
@@ -157,7 +165,7 @@ void UimuClass::readPort(void)
                 foundSync = true;
                 startIndex = i - 4;
             }
-        } 
+        }
 
         // ROS_INFO("%x, %d, %d", static_cast<int>(*it), i, startIndex);
         if(*it == 0xff)
@@ -170,7 +178,7 @@ void UimuClass::readPort(void)
             // ROS_INFO("Reset");
             ffCounter = 0;
         }
-        
+
         if(foundSync)
         {
             // check to see if we have enough bytes to complete a packet
@@ -210,12 +218,12 @@ void UimuClass::decodePacket(void)
     temp_val = static_cast<short int>(rawPacket[13])<<8;
     temp_val += rawPacket[14];
     uimuTempPacket.gyro_X = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
-    
+
     // Gyro Y
     temp_val = static_cast<short int>(rawPacket[15])<<8;
     temp_val += rawPacket[16];
     uimuTempPacket.gyro_Y = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
-    
+
     // Gyro Z
     temp_val = static_cast<short int>(rawPacket[17])<<8;
     temp_val += rawPacket[18];
@@ -235,7 +243,7 @@ void UimuClass::decodePacket(void)
     temp_val = static_cast<short int>(rawPacket[23])<<8;
     temp_val += rawPacket[24];
     uimuTempPacket.acc_Z = (static_cast<float>(temp_val)) * (10/2*1.5/32768);
-    
+
     // Mag X
     temp_val = static_cast<short int>(rawPacket[25])<<8;
     temp_val += rawPacket[26];
@@ -276,18 +284,18 @@ void UimuClass::processPacket(void)
     ros::Time time_now = ros::Time::now();
     imu_msg.header.stamp = time_now;
     mag_msg.header.stamp = time_now;
-  
-    
+
+
     // set linear acceleration
     imu_msg.linear_acceleration.x = - uimuTempPacket.acc_X * G;
     imu_msg.linear_acceleration.y = - uimuTempPacket.acc_Y * G;
     imu_msg.linear_acceleration.z = - uimuTempPacket.acc_Z * G;
-  
+
     // set angular velocities
     imu_msg.angular_velocity.x = uimuTempPacket.gyro_X  * (M_PI / 180.0);
     imu_msg.angular_velocity.y = uimuTempPacket.gyro_Y  * (M_PI / 180.0);
     imu_msg.angular_velocity.z = uimuTempPacket.gyro_Z  * (M_PI / 180.0);
-  
+
     // mag message
     // device reports data in Gauss, multiply by 1e-4 to convert to Tesla
     mag_msg.magnetic_field.x = uimuTempPacket.mag_X * 1e-4;
