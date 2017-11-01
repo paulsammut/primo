@@ -9,6 +9,7 @@
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
+        <arg name="world"       value="empty.world"/> 
         <arg name="world"       value="bat_cave.world"/> 
         <arg name="rviz"        value="true"/>
         <arg name="publish_tf"  value="false"/>
