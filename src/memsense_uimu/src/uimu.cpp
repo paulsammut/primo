@@ -19,14 +19,16 @@ int UimuClass::connect(void)
     while(iter != devices_found.end())
     {
         serial::PortInfo device = *iter++;
+        ROS_INFO( "Found: (%s, %s, %s)\n", 
+                device.port.c_str(), device.description.c_str(), 
+                device.hardware_id.c_str() );
 
         // Look for the sabertooth module.
         if(strstr(device.description.c_str(), "Silicon") != NULL)
         {
             ROS_INFO( "Found: (%s, %s, %s)\n", 
-                    device.port.c_str(), device.description.c_str(),
-
-            device.hardware_id.c_str() );
+                    device.port.c_str(), device.description.c_str(), 
+                    device.hardware_id.c_str() );
 
             uimuSerPort.setPort(device.port.c_str());
             uimuSerPort.setBaudrate(UIMU_BAUD);
