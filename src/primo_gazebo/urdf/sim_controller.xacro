@@ -27,7 +27,7 @@
             <updateRate>30.0</updateRate>
             <bodyName>base_link</bodyName>
             <frameId>imu_link</frameId>
-            <topicName>imu_data</topicName>
+            <topicName>imu/data</topicName>
             <rpyOffset>0 0 0</rpyOffset> <!-- deprecated -->
             <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
             <accelDrift>0.1 0.1 0.1</accelDrift>

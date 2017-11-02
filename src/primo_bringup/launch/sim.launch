@@ -10,7 +10,7 @@
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
         <arg name="world"       value="empty.world"/> 
-        <arg name="world"       value="bat_cave.world"/> 
+        <!-- <arg name="world"       value="bat_cave.world"/>  -->
         <arg name="rviz"        value="true"/>
         <arg name="publish_tf"  value="false"/>
     </include>
@@ -61,7 +61,6 @@
     <!-- Robot localization -->
     <node if="true" pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
         <rosparam command="load" file="$(find primo_base)/config/robot_localization.yaml" />
-
     </node>
 
 </launch>
