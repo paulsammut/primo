@@ -98,6 +98,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        tail_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tail_wheel_block:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -107,8 +117,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.945419669
-        Min Value: -0.0115703344
+        Max Value: 0.03822577
+        Min Value: -0.00773131847
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -116,7 +126,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -133,12 +143,12 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 1.29248488
-        Min Value: -0.154892564
+        Max Value: 1.00058568
+        Min Value: 0.0131355524
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -146,7 +156,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -163,7 +173,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
@@ -399,7 +409,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
