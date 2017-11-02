@@ -4,7 +4,7 @@
     <arg name="cam" value="stereo1"/>
 
 <!-- Odometry -->
-    <node ns="$(arg cam)" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" output="screen">
+    <node ns="$(arg cam)" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" >
         <remap from="left/image_rect"       to="left/image_rect"                        />
         <remap from="right/image_rect"      to="right/image_rect"                       />
         <remap from="left/camera_info"      to="left/camera_info"                       />
