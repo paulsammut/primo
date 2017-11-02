@@ -21,7 +21,8 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         srv.request.estop = true;
         if(client.call(srv))
         {
-            sc->say("Eeee STOP ACTIVATED. I aint goin NOWHERE");
+            // sc->say("Eeee STOP ACTIVATED. I aint goin NOWHERE");
+            sc->say("Coco is the best. I Like her so very much!");
             ROS_INFO("ESTOP succesfully TURNED ON"); 
         }
         else
