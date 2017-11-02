@@ -9,8 +9,8 @@
     <include file="$(find primo_description)/launch/primo_urdf_sim.launch"/>
 
     <include file="$(find primo_gazebo)/launch/primo_gazebo.launch">
-        <arg name="world"       value="empty.world"/> 
-        <!-- <arg name="world"       value="bat_cave.world"/>  -->
+        <!-- <arg name="world"       value="empty.world"/>  -->
+        <arg name="world"       value="bat_cave.world"/> 
         <arg name="rviz"        value="true"/>
         <arg name="publish_tf"  value="false"/>
     </include>
@@ -47,7 +47,7 @@
 
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
             <arg name="slam"        value="true"/>
-            <arg name="rtabmapviz"  value="false" />
+            <arg name="rtabmapviz"  value="true" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />
             <arg name="odom_topic"  value="odometry/filtered"/>
