@@ -69,7 +69,7 @@ TebLocalPlannerROS:
     weight_dynamic_obstacle: 10 # not in use yet
    #  alternative_time_cost: False # not in use yet
     selection_alternative_time_cost: False
-    weight_viapoint: 100
+    weight_viapoint: 30
    
    
     # Homotopy Class Planner
