@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- args to passed through -->
+    <arg name="base_width" default="0.635"/>
+
+    <!-- Module enable -->
+    <arg name="enable_rtabmap"                 default="true"/>
+    <arg name="enable_rtab_stereo_odom"        default="false"/>
+    <arg name="enable_wheel_odom"              default="true"/>
+    <arg name="enable_imu"                     default="false"/>
+
+    <arg name="enable_ekf"                     default="false"/>
+
+    <!-- tf publishing -->
+    <arg name="publish_tf_stereo_odom"  default="false"/>       
+    <arg name="publish_tf_wheel_odom"   default="true"/>      
+    <arg name="publish_tf_imu"          default="false"/>
+
+    <!-- Odom topic -->
+    <arg name="odom_topic_stereo_odom"  value="/stereo_odom/odom"/>
+    <arg name="odom_topic_wheel_odom"   value="/wheel/odom"/>
+    <arg name="odom_listen_topic_rtabmap" value="/wheel/odom"/>
+
+    <!-- Module: Stereo Odom Module -->
+    <include if="$(arg enable_rtab_stereo_odom)"   file="$(find primo_rtabmap)/launch/rtab_stereo_odom.launch">
+        <arg name="cam"             default="/stereo1"      />
+        <arg name="odom_frame_id"   default="odom"          />
+        <arg name="odom_topic"      default="$(arg odom_topic_stereo_odom)" />
+        <arg name="publish_tf"      default="$(arg publish_tf_imu)"/>
+    </include>
+
+    <!-- Module: Wheel Odom -->
+    <include if="$(arg enable_wheel_odom)" file="$(find primo_base)/launch/diff_tf.launch">
+        <arg name="base_width"  value="$(arg base_width)"/>
+        <arg name="publish_tf"  value="$(arg publish_tf_wheel_odom)"/>
+        <arg name="odom_topic"  value="$(arg odom_topic_wheel_odom)"/>
+    </include>
+
+
+    <!-- Module: Rtabmap -->
+    <group if="$(arg enable_rtabmap)">
+        <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
+            <arg name="rtabmapviz"  value="true" />
+            <arg name="stereo"      value="true" />
+            <arg name="rgbd"        value="false" />
+            <arg name="odom_topic"  value="$(arg odom_listen_topic_rtabmap)"/>
+        </include>
+    </group>
+
+    
+    <!-- Module: IMU -->
+    <group if="$(arg imu)">
+        <node pkg="memsense_uimu" type="uimu" name="uimu"/>
+
+        <node if="true" pkg="imu_complementary_filter" type="complementary_filter_node" name="imu_filter"> 
+            <remap from="imu/data_raw"  to="imu"/>
+            <remap from="imu/mag"       to="mag"/>
+            <param name="use_mag"       value="false"/>
+            <param name="publish_tf"    value="$(arg publish_tf_imu)"/>
+            <param name="fixed_frame"   value="odom"/>
+            <param name="reverse_tf"    value="false"/>
+        </node>
+    </node>
+
+    <!-- Module: Robot localization -->
+    <node if="$(arg enable_ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+        <rosparam command="load" file="$(find primo_base)/config/robot_localization.yaml" />
+    </node>
+
+</launch>
