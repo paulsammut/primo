@@ -3,10 +3,8 @@
 
     <arg name="rtab"        value="true"/>
     <arg name="nav"         value="true"/>
-    <arg name="wheel_odom"  value="true"/>
-    <arg name="stereo"      value="false"/>
+    <arg name="stereo_cams" value="false"/>
     <arg name="joy"         value="true"/>
-    <arg name="odom"        value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
@@ -14,22 +12,23 @@
     <include if="$(arg joy)" file="$(find primo_base)/launch/joy_twist.launch"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
-        <arg name="wheel_odom"  value="$(arg wheel_odom)"/>
-        <arg name="odom_topic"  value="/wheel/odom"/>
         <arg name="PID"         value="true"/>
         <arg name="twist"       value="true"/>
         <arg name="publish_tf"  value="false"/>
     </include>
 
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
+
     <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
+
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
 
     <!-- Estop -->
     <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
+
     <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
 
-    <group if="$(arg stereo)">
+    <group if="$(arg stereo_cams)">
         <include file="$(find primo_stereo)/launch/stereo0.launch">
             <arg name="stereo_real" value="true"/>
         </include>
@@ -38,39 +37,9 @@
             <arg name="stereo_real" value="true"/>
         </include>
     </group>
-
-    <group if="$(arg rtab)">
-        <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="slam"        value="true"/>
-            <arg name="rtabmapviz"  value="true" />
-            <arg name="stereo"      value="true" />
-            <arg name="rgbd"        value="false" />
-            <arg name="odom_topic"  value="odometry/filtered"/>
-        </include>
-    </group>
-
     
-    <group if="$(arg nav)">
-        <include file="$(find primo_nav)/launch/primo_nav.launch"/>
-    </group>
+    <include if="$(arg nav)" file="$(find primo_nav)/launch/primo_nav.launch"/>
 
-    <!-- <include file="$(find primo_rtabmap)/launch/ground_segmenter.launch"/> -->
-
-    <!-- imu -->
-    <node pkg="memsense_uimu" type="uimu" name="uimu"/>
-
-    <node if="true" pkg="imu_complementary_filter" type="complementary_filter_node" name="imu_filter"> 
-        <remap from="imu/data_raw" to="imu"/>
-        <remap from="imu/mag" to="mag"/>
-        <param name="use_mag"       value="false"/>
-        <param name="publish_tf"    value="false"/>
-        <param name="fixed_frame"   value="odom"/>
-        <param name="reverse_tf"    value="false"/>
-    </node>
-
-    <!-- Robot localization -->
-    <node if="true" pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
-        <rosparam command="load" file="$(find primo_base)/config/robot_localization.yaml" />
-    </node>
+    <include file="$(find primo_bringup)/launch/localization.launch"/> 
 
 </launch>

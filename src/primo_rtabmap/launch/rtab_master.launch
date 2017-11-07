@@ -3,14 +3,12 @@
 
     <arg name="rviz"        default="false"/>
     <arg name="rtabmapviz"  default="true"/>
-    <arg name="slam"        default="false"/>
     <arg name="rgbd"        default="false"/>
     <arg name="stereo"      default="true"/>
     <arg name="odom_topic"  default="odom"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
-    <include if="$(arg slam)"   file="$(find primo_rtabmap)/launch/rtab_slam.launch"/>
 
     <!-- Visualization in rtabmap_viz -->
     <group if="$(arg rtabmapviz)">
