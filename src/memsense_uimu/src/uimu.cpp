@@ -62,8 +62,10 @@ UimuClass::UimuClass(void)
     numBytes = 1;
 
     frame_id_ = "imu_link";
-    angular_velocity_stdev_ = 0.5 * (M_PI / 180.0); // 0.5 deg/s noise
-    linear_acceleration_stdev_ = 5.0 * 1e-3 * G; // 5 mg
+    // angular_velocity_stdev_ = 0.5 * (M_PI / 180.0); // 0.5 deg/s noise
+    // linear_acceleration_stdev_ = 5.0 * 1e-3 * G; // 5 mg in the datasheet
+    angular_velocity_stdev_ = 0.5;
+    linear_acceleration_stdev_ = 1.0;
     magnetic_field_stdev_ = 5.6 * 1e-3 * 1e-4; // 5.6 milli gauss converted to teslas
 
     // ---- imu message
@@ -83,7 +85,7 @@ UimuClass::UimuClass(void)
     double ang_vel_var = angular_velocity_stdev_ * angular_velocity_stdev_;
     double lin_acc_var = linear_acceleration_stdev_ * linear_acceleration_stdev_;
     // The orientation variance, using a number I pulled out of my ass
-    double orientation_var = 1e-3;
+    double orientation_var = 0.5;
 
     for (int i = 0; i < 3; ++i)
         for (int j = 0; j < 3; ++j)
@@ -227,12 +229,12 @@ void UimuClass::decodePacket(void)
     // Gyro Z
     temp_val = static_cast<short int>(rawPacket[17])<<8;
     temp_val += rawPacket[18];
-    uimuTempPacket.gyro_Z = (static_cast<float>(temp_val)) * (600/2*1.5/32768);
+    uimuTempPacket.gyro_Z = -(static_cast<float>(temp_val)) * (600/2*1.5/32768);
 
     // Acc X
     temp_val = static_cast<short int>(rawPacket[19])<<8;
     temp_val += rawPacket[20];
-    uimuTempPacket.acc_X = (static_cast<float>(temp_val)) * (10/2*1.5/32768);
+    uimuTempPacket.acc_X = -(static_cast<float>(temp_val)) * (10/2*1.5/32768);
 
     // Acc Y
     temp_val = static_cast<short int>(rawPacket[21])<<8;
