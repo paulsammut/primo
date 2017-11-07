@@ -14,9 +14,11 @@
     <include if="$(arg joy)" file="$(find primo_base)/launch/joy_twist.launch"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
-        <arg name="wheel_odom" value="$(arg odom)"/>
+        <arg name="wheel_odom"  value="$(arg wheel_odom)"/>
+        <arg name="odom_topic"  value="/wheel/odom"/>
         <arg name="PID"         value="true"/>
         <arg name="twist"       value="true"/>
+        <arg name="publish_tf"  value="false"/>
     </include>
 
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
@@ -40,9 +42,10 @@
     <group if="$(arg rtab)">
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
             <arg name="slam"        value="true"/>
-            <arg name="rtabmapviz"  value="false" />
+            <arg name="rtabmapviz"  value="true" />
             <arg name="stereo"      value="true" />
             <arg name="rgbd"        value="false" />
+            <arg name="odom_topic"  value="odometry/filtered"/>
         </include>
     </group>
 
