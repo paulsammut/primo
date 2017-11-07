@@ -5,11 +5,8 @@
          controller. See http://wiki.ros.org/differential_drive for details.
     -->
     
-    <arg name="wheel_odom"  default="true"/>
-    <arg name="publish_tf"  default="true"/>
     <arg name="PID"         default="true"/>
     <arg name="twist"       default="true"/>
-    <arg name="odom_topic"  default="odom"/>
 
     <!-- Defining global parameters -->
     <param name="ticks_meter" value="69000"/>
@@ -28,20 +25,6 @@
     <arg name="timeout_ticks" default="5000"/>
     <arg name="base_width" default="0.635"/>
 
-    <!-- The transform publisher -->
-    <node if="$(arg wheel_odom)" pkg="differential_drive" type="diff_tf.py" name="diff_tf" output="screen">
-        <param name="rate"              value="30"/>
-        <param name="base_width"        value="$(arg base_width)"/>
-        <param name="base_frame_id"     value="base_link"/>
-        <param name="wheel_frame_id"    value="chassis_link"/>
-        <param name="odom_frame_id"     value="odom"/>
-        <param name="publish_tf"        value="false"/>
-
-        <remap from="lwheel" to="encoder_left"/>
-        <remap from="rwheel" to="encoder_right"/>
-        <remap from="odom" to="$(arg odom_topic)"/> 
-
-    </node>
 
     <group if="$(arg PID)">
         <!-- PID This is the cpp version -->
