@@ -121,8 +121,7 @@ class DiffTf:
         self.dr = 0
         self.then = rospy.Time.now()
 
-        # The offset frame
-        self.x2 = 0
+        # The offset frame self.x2 = 0
         self.y2 = 0
         
         # subscriptions
@@ -131,20 +130,42 @@ class DiffTf:
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
         self.odomBroadcaster = TransformBroadcaster()
 
-	self.ODOM_POSE_COVARIANCE = [1e-3, 0, 0, 0, 0, 0, 
-				0, 1e-3, 0, 0, 0, 0,
-				0, 0, 1e6, 0, 0, 0,
-				0, 0, 0, 1e-3, 0, 0,
-				0, 0, 0, 0, 1e-3, 0,
-				0, 0, 0, 0, 0, 100]
+
+
+        # Odom covariances. I'm not going to be fusing these.
+        covar_x = 0.1
+        covar_y = 0.1
+        covar_z = 1
+
+        # roll pitch yaw
+        covar_roll = 1e6
+        covar_pitch = 1e6
+        covar_yaw = 0.3
+
+        # These are the covariances that matter, xdot, ydot and yawdot.                         
+        covar_twist_x = 0.01
+        covar_twist_y = 0.01
+        covar_twist_z = 1e6
+
+        covar_twist_roll = 1e6;
+        covar_twist_pitch = 1e6;
+        covar_twist_yaw = 0.025;
+        
+
+        self.ODOM_POSE_COVARIANCE = [covar_x, 0, 0, 0, 0, 0, 
+                                     0, covar_y, 0, 0, 0, 0,
+                                     0, 0, covar_z, 0, 0, 0,
+                                     0, 0, 0, covar_roll, 0, 0,
+                                     0, 0, 0, 0, covar_pitch, 0,
+                                     0, 0, 0, 0, 0, covar_yaw]
   
   
-	self.ODOM_TWIST_COVARIANCE = [1e-3, 0, 0, 0, 0, 0, 
-				      0, 1e-3, 0, 0, 0, 0,
-                                      0, 0, 1e6, 0, 0, 0,
-				      0, 0, 0, .01, 0, 0,
-                                      0, 0, 0, 0, .01, 0,
-                                      0, 0, 0, 0, 0, .01]
+        self.ODOM_TWIST_COVARIANCE = [covar_twist_x, 0, 0, 0, 0, 0, 
+                                      0, covar_twist_y, 0, 0, 0, 0,
+                                      0, 0, covar_twist_z, 0, 0, 0,
+                                      0, 0, 0, covar_twist_roll, 0, 0,
+                                      0, 0, 0, 0, covar_twist_pitch, 0,
+                                      0, 0, 0, 0, 0, covar_twist_yaw]
         
 
     #############################################################################
@@ -274,7 +295,7 @@ class DiffTf:
             odom.twist.twist.angular.z = self.dr
             
             # Build the covariance matrix
-	    odom.pose.covariance =self.ODOM_POSE_COVARIANCE                
+        odom.pose.covariance =self.ODOM_POSE_COVARIANCE                
             odom.twist.covariance =self.ODOM_TWIST_COVARIANCE
 
             self.odomPub.publish(odom)
