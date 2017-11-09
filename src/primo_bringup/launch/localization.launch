@@ -5,21 +5,21 @@
 
     <!-- Module enable -->
     <arg name="enable_rtabmap"                 default="true"/>
-    <arg name="enable_rtab_stereo_odom"        default="false"/>
+    <arg name="enable_rtab_stereo_odom"        default="true"/>
     <arg name="enable_wheel_odom"              default="true"/>
     <arg name="enable_imu"                     default="false"/>
 
-    <arg name="enable_ekf"                     default="false"/>
+    <arg name="enable_ekf"                     default="true"/>
 
     <!-- tf publishing -->
     <arg name="publish_tf_stereo_odom"  default="false"/>       
-    <arg name="publish_tf_wheel_odom"   default="true"/>      
+    <arg name="publish_tf_wheel_odom"   default="false"/>      
     <arg name="publish_tf_imu"          default="false"/>
 
     <!-- Odom topic -->
     <arg name="odom_topic_stereo_odom"  value="/stereo_odom/odom"/>
     <arg name="odom_topic_wheel_odom"   value="/wheel/odom"/>
-    <arg name="odom_listen_topic_rtabmap" value="/wheel/odom"/>
+    <arg name="odom_listen_topic_rtabmap" value="/odometry/filtered"/>
 
     <!-- Module: Stereo Odom Module -->
     <include if="$(arg enable_rtab_stereo_odom)"   file="$(find primo_rtabmap)/launch/rtab_stereo_odom.launch">
