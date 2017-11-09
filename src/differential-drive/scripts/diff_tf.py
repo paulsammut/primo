@@ -147,9 +147,9 @@ class DiffTf:
         covar_twist_y = 0.01
         covar_twist_z = 1e6
 
-        covar_twist_roll = 1e6;
-        covar_twist_pitch = 1e6;
-        covar_twist_yaw = 0.025;
+        covar_twist_roll = 1e6
+        covar_twist_pitch = 1e6
+        covar_twist_yaw = 0.025
         
 
         self.ODOM_POSE_COVARIANCE = [covar_x, 0, 0, 0, 0, 0, 
@@ -295,7 +295,7 @@ class DiffTf:
             odom.twist.twist.angular.z = self.dr
             
             # Build the covariance matrix
-        odom.pose.covariance =self.ODOM_POSE_COVARIANCE                
+            odom.pose.covariance =self.ODOM_POSE_COVARIANCE                
             odom.twist.covariance =self.ODOM_TWIST_COVARIANCE
 
             self.odomPub.publish(odom)
