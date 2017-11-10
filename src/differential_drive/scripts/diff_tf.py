@@ -19,6 +19,9 @@ from tf.broadcaster import TransformBroadcaster
 from std_msgs.msg import Int16
 from std_msgs.msg import Int32
 
+from dynamic_reconfigure.server import Server
+from differential_drive.cfg import DiffTfConfig
+
 #############################################################################
 class DiffTf:
 #############################################################################
@@ -44,16 +47,34 @@ class DiffTf:
         self.encoder_low_wrap = rospy.get_param('wheel_low_wrap', (self.encoder_max - self.encoder_min) * 0.3 + self.encoder_min )
         self.encoder_high_wrap = rospy.get_param('wheel_high_wrap', (self.encoder_max - self.encoder_min) * 0.7 + self.encoder_min )
 
+        # Odom covariances. I'm not going to be fusing these.
+        self.covar_x = rospy.get_param('covar_x', 1e6)
+        self.covar_y = rospy.get_param('covar_y', 1e6)
+        self.covar_z = rospy.get_param('covar_z', 1e6)
+
+        self.covar_roll = rospy.get_param('covar_roll', 1e6)
+        self.covar_pitch = rospy.get_param('covar_pitch', 1e6)
+        self.covar_yaw = rospy.get_param('covar_yaw', 0.3)
+
+        # These are the covariances that matter, xdot, ydot and yawdot.                         
+        self.covar_twist_x = rospy.get_param('covar_twist_x', 0.01)
+        self.covar_twist_y = rospy.get_param('covar_twist_y', 0.01)
+        self.covar_twist_z = rospy.get_param('covar_twist_z', 1e6)
+
+        self.covar_twist_roll = rospy.get_param('covar_twist_roll', 1e6)
+        self.covar_twist_pitch = rospy.get_param('covar_twist_pitch', 1e6)
+        self.covar_twist_yaw = rospy.get_param('covar_twist_yaw', 0.025)
+
         self.publish_tf = rospy.get_param('~publish_tf', True)
         rospy.loginfo("Parameter: publish_tf set to: {}".format(self.publish_tf))
- 
-        self.t_delta = rospy.Duration(1.0/self.rate)
-        self.t_next = rospy.Time.now() + self.t_delta
 
         # Add a tf listener so we can transforms to the base link
         self.tfBuffer = tf2_ros.Buffer()
         self.listener = tf2_ros.TransformListener(self.tfBuffer)
         
+        self.t_delta = rospy.Duration(1.0/self.rate)
+        self.t_next = rospy.Time.now() + self.t_delta
+
         # internal data
         self.enc_left = None        # wheel encoder readings
         self.enc_right = None
@@ -72,34 +93,16 @@ class DiffTf:
 
         # The offset frame self.x2 = 0
         self.y2 = 0
-        
+
         # subscriptions
         rospy.Subscriber("lwheel", Int32, self.lwheelCallback, queue_size=1)
         rospy.Subscriber("rwheel", Int32, self.rwheelCallback, queue_size=1)
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
         self.odomBroadcaster = TransformBroadcaster()
 
+        updateParams()
 
-
-        # Odom covariances. I'm not going to be fusing these.
-        covar_x = 0.1
-        covar_y = 0.1
-        covar_z = 1
-
-        # roll pitch yaw
-        covar_roll = 1e6
-        covar_pitch = 1e6
-        covar_yaw = 0.3
-
-        # These are the covariances that matter, xdot, ydot and yawdot.                         
-        covar_twist_x = 0.01
-        covar_twist_y = 0.01
-        covar_twist_z = 1e6
-
-        covar_twist_roll = 1e6
-        covar_twist_pitch = 1e6
-        covar_twist_yaw = 0.025
-        
+    def updateParams(self):
 
         self.ODOM_POSE_COVARIANCE = [covar_x, 0, 0, 0, 0, 0, 
                                      0, covar_y, 0, 0, 0, 0,

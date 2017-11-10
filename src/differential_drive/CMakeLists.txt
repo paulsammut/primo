@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 generate_dynamic_reconfigure_options(
-  cfg/Diff_Tf.cfg
+    cfg/DiffTfConfig.cfg
 )
 
 catkin_package(
