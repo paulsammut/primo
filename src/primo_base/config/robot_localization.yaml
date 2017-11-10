@@ -11,10 +11,10 @@ world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # Wheel odom
 odom0: wheel/odom
-odom0_config: [true, true, true,
+odom0_config: [false, false, false,
                false, false, false,
-               true,  true,  true,
-               true, true, true,
+               true,  true,  false,
+               false, false, true,
                false, false, false]
 odom0_queue_size: 2
 odom0_nodelay: false
@@ -22,29 +22,29 @@ odom0_differential: false
 odom0_relative: false
 
 # Visual odom
-# odom1: stereo1/odom
-# odom1_config: [false, false, false,
-#                true, true, true,
-#                true, true, true,
-#                true, true, true,
-#                false, false, false]
-# odom1_queue_size: 2
-# odom1_nodelay: false
-# odom1_differential: false
-# odom1_relative: false
+odom1: stereo1/odom
+odom1_config: [true, true, true,
+               true, true, true,
+               true, true, true,
+               true, true, true,
+               false, false, false]
+odom1_queue_size: 2
+odom1_nodelay: false
+odom1_differential: false
+odom1_relative: false
 
 # IMU
-imu0: imu/data
-imu0_config: [false, false, false,
-              true,  true,  true,
-              false, false, false,
-              true,  true,  true,
-              true,  true,  true]
-imu0_nodelay: false
-imu0_differential: false
-imu0_relative: true
-imu0_queue_size: 5
-imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
-imu0_twist_rejection_threshold: 0.8                #
-imu0_linear_acceleration_rejection_threshold: 0.8  #
+# imu0: imu/data
+# imu0_config: [false, false, false,
+#               true,  true,  true,
+#               false, false, false,
+#               true,  true,  true,
+#               true,  true,  true]
+# imu0_nodelay: false
+# imu0_differential: false
+# imu0_relative: true
+# imu0_queue_size: 5
+# imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
+# imu0_twist_rejection_threshold: 0.8                #
+# imu0_linear_acceleration_rejection_threshold: 0.8  #
 
