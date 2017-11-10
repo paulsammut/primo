@@ -102,6 +102,8 @@ class DiffTf:
 
         updateParams()
 
+        srv = Server(DiffTfConfig, paramCallback)
+
     def updateParams(self):
 
         self.ODOM_POSE_COVARIANCE = [covar_x, 0, 0, 0, 0, 0, 
@@ -119,6 +121,10 @@ class DiffTf:
                                       0, 0, 0, 0, covar_twist_pitch, 0,
                                       0, 0, 0, 0, 0, covar_twist_yaw]
         
+    def paramCallback(self, config, level):
+        rospy.loginfo("""Reconfigure Request: {int_param}, {double_param},\ 
+              {str_param}, {bool_param}, {size}""".format(**config))
+        return config
 
     #############################################################################
     def spin(self):
