@@ -100,30 +100,46 @@ class DiffTf:
         self.odomPub = rospy.Publisher("odom", Odometry, queue_size=10)
         self.odomBroadcaster = TransformBroadcaster()
 
-        updateParams()
+        self.updateParams()
 
-        srv = Server(DiffTfConfig, paramCallback)
+        srv = Server(DiffTfConfig, self.paramCallback)
 
     def updateParams(self):
 
-        self.ODOM_POSE_COVARIANCE = [covar_x, 0, 0, 0, 0, 0, 
-                                     0, covar_y, 0, 0, 0, 0,
-                                     0, 0, covar_z, 0, 0, 0,
-                                     0, 0, 0, covar_roll, 0, 0,
-                                     0, 0, 0, 0, covar_pitch, 0,
-                                     0, 0, 0, 0, 0, covar_yaw]
+
+        self.ODOM_POSE_COVARIANCE = [self.covar_x, 0, 0, 0, 0, 0, 
+                                     0, self.covar_y, 0, 0, 0, 0,
+                                     0, 0, self.covar_z, 0, 0, 0,
+                                     0, 0, 0, self.covar_roll, 0, 0,
+                                     0, 0, 0, 0, self.covar_pitch, 0,
+                                     0, 0, 0, 0, 0, self.covar_yaw]
   
   
-        self.ODOM_TWIST_COVARIANCE = [covar_twist_x, 0, 0, 0, 0, 0, 
-                                      0, covar_twist_y, 0, 0, 0, 0,
-                                      0, 0, covar_twist_z, 0, 0, 0,
-                                      0, 0, 0, covar_twist_roll, 0, 0,
-                                      0, 0, 0, 0, covar_twist_pitch, 0,
-                                      0, 0, 0, 0, 0, covar_twist_yaw]
+        self.ODOM_TWIST_COVARIANCE = [self.covar_twist_x, 0, 0, 0, 0, 0, 
+                                      0, self.covar_twist_y, 0, 0, 0, 0,
+                                      0, 0, self.covar_twist_z, 0, 0, 0,
+                                      0, 0, 0, self.covar_twist_roll, 0, 0,
+                                      0, 0, 0, 0, self.covar_twist_pitch, 0,
+                                      0, 0, 0, 0, 0, self.covar_twist_yaw]
         
     def paramCallback(self, config, level):
-        rospy.loginfo("""Reconfigure Request: {int_param}, {double_param},\ 
-              {str_param}, {bool_param}, {size}""".format(**config))
+        rospy.loginfo("""Reconfigure Request: {covar_x}, {covar_y},\ 
+              # {covar_yaw}, {covar_roll}, {covar_twist_y}""".format(**config))
+
+        rospy.loginfo(str(config.get('covar_roll')))
+        rospy.loginfo(str(config.keys()))
+
+        self.config = config
+        # self.covar_x = config.get('covar_x', 1.0)
+        # self.covar_x = config['covar_x']
+        for k, v in config.iteritems():
+            if hasattr(self, k):
+                setattr(self, k, v)
+            elif:
+                rospy.logwarn("Dynamic reconfigure error. Attribute does not exist")
+
+        self.updateParams()
+
         return config
 
     #############################################################################
