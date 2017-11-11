@@ -133,10 +133,14 @@ class DiffTf:
         # self.covar_x = config.get('covar_x', 1.0)
         # self.covar_x = config['covar_x']
         for k, v in config.iteritems():
+            if k == 'groups':
+                continue
+
             if hasattr(self, k):
                 setattr(self, k, v)
-            elif:
-                rospy.logwarn("Dynamic reconfigure error. Attribute does not exist")
+            else:
+                rospy.logwarn("Dynamic reconfigure error. Attribute does not exist: "
+                    "key (%s)" % k)
 
         self.updateParams()
 
