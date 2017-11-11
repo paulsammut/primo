@@ -126,19 +126,26 @@ class DiffTf:
         rospy.loginfo("""Reconfigure Request: {covar_x}, {covar_y},\ 
               # {covar_yaw}, {covar_roll}, {covar_twist_y}""".format(**config))
 
-        rospy.loginfo(str(config.get('covar_roll')))
-        rospy.loginfo(str(config.keys()))
+        # Beautiful Lucas debugs!
+        # rospy.loginfo(str(config.get('covar_roll')))
+        # rospy.loginfo(str(config.keys()))
 
+        # copy over config to our local config
         self.config = config
         # self.covar_x = config.get('covar_x', 1.0)
         # self.covar_x = config['covar_x']
+
+        # loop through our config keys
         for k, v in config.iteritems():
+            # if the config key is groups, skip (internal property of ros)
             if k == 'groups':
                 continue
 
+            # if we have the attribute in our self class already, update the value
             if hasattr(self, k):
                 setattr(self, k, v)
             else:
+                # what the fuck is this key
                 rospy.logwarn("Dynamic reconfigure error. Attribute does not exist: "
                     "key (%s)" % k)
 
