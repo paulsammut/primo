@@ -7,33 +7,33 @@
     <arg name="enable_rtabmap"                 default="true"/>
     <arg name="enable_rtab_stereo_odom"        default="true"/>
     <arg name="enable_wheel_odom"              default="true"/>
-    <arg name="enable_imu"                     default="false"/>
+    <arg name="enable_imu"                     default="true"/>
 
     <arg name="enable_ekf"                     default="true"/>
 
     <!-- tf publishing -->
-    <arg name="publish_tf_stereo_odom"  default="false"/>       
-    <arg name="publish_tf_wheel_odom"   default="false"/>      
+    <arg name="publish_tf_rtab_stereo"  default="false"/>       
+    <arg name="publish_tf_wheel"        default="false"/>      
     <arg name="publish_tf_imu"          default="false"/>
 
     <!-- Odom topic -->
-    <arg name="odom_topic_stereo_odom"  value="/stereo_odom/odom"/>
-    <arg name="odom_topic_wheel_odom"   value="/wheel/odom"/>
-    <arg name="odom_listen_topic_rtabmap" value="/odometry/filtered"/>
+    <arg name="odom_topic_stereo"           value="/stereo_odom/odom"/>
+    <arg name="odom_topic_wheel"            value="/wheel/odom"/>
+    <arg name="odom_listen_topic_rtabmap"   value="/odometry/filtered"/>
 
     <!-- Module: Stereo Odom Module -->
     <include if="$(arg enable_rtab_stereo_odom)"   file="$(find primo_rtabmap)/launch/rtab_stereo_odom.launch">
         <arg name="cam"             default="/stereo1"      />
         <arg name="odom_frame_id"   default="odom"          />
-        <arg name="odom_topic"      default="$(arg odom_topic_stereo_odom)" />
-        <arg name="publish_tf"      default="$(arg publish_tf_imu)"/>
+        <arg name="odom_topic"      default="$(arg odom_topic_stereo)" />
+        <arg name="publish_tf"      default="$(arg publish_tf_rtab_stereo)"/>
     </include>
 
     <!-- Module: Wheel Odom -->
     <include if="$(arg enable_wheel_odom)" file="$(find primo_base)/launch/diff_tf.launch">
         <arg name="base_width"  value="$(arg base_width)"/>
-        <arg name="publish_tf"  value="$(arg publish_tf_wheel_odom)"/>
-        <arg name="odom_topic"  value="$(arg odom_topic_wheel_odom)"/>
+        <arg name="publish_tf"  value="$(arg publish_tf_wheel)"/>
+        <arg name="odom_topic"  value="$(arg odom_topic_wheel)"/>
     </include>
 
 
