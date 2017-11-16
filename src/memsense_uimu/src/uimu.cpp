@@ -68,6 +68,9 @@ UimuClass::UimuClass(void)
     linear_acceleration_stdev_ = 1.0;
     magnetic_field_stdev_ = 5.6 * 1e-3 * 1e-4; // 5.6 milli gauss converted to teslas
 
+    // Measured this guy
+    bias_gyro = -0.00672731859796;
+
     // ---- imu message
 
     imu_msg.header.frame_id = frame_id_;
@@ -294,9 +297,9 @@ void UimuClass::processPacket(void)
     imu_msg.linear_acceleration.z = - uimuTempPacket.acc_Z * G;
 
     // set angular velocities
-    imu_msg.angular_velocity.x = uimuTempPacket.gyro_X  * (M_PI / 180.0);
-    imu_msg.angular_velocity.y = uimuTempPacket.gyro_Y  * (M_PI / 180.0);
-    imu_msg.angular_velocity.z = uimuTempPacket.gyro_Z  * (M_PI / 180.0);
+    imu_msg.angular_velocity.x = (uimuTempPacket.gyro_X  * (M_PI / 180.0)) - bias_gyro;
+    imu_msg.angular_velocity.y = (uimuTempPacket.gyro_Y  * (M_PI / 180.0)) - bias_gyro;
+    imu_msg.angular_velocity.z = (uimuTempPacket.gyro_Z  * (M_PI / 180.0)) - bias_gyro;
 
     // mag message
     // device reports data in Gauss, multiply by 1e-4 to convert to Tesla

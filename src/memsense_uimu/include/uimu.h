@@ -32,6 +32,8 @@ class UimuClass
         double linear_acceleration_stdev_;
         double magnetic_field_stdev_;
 
+        double bias_gyro;
+
         ros::Publisher  imu_publisher;
         ros::Publisher  mag_publisher;
 
