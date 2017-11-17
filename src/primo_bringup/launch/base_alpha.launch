@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rtab"        value="true"/>
     <arg name="nav"         value="true"/>
     <arg name="stereo_cams" value="false"/>
     <arg name="joy"         value="true"/>
@@ -37,8 +36,8 @@
         </include>
     </group>
     
-    <include if="$(arg nav)" file="$(find primo_nav)/launch/primo_nav.launch"/>
+    <!-- <include if="$(arg nav)" file="$(find primo_nav)/launch/primo_nav.launch"/> -->
 
-    <include file="$(find primo_bringup)/launch/localization.launch"/> 
+    <!-- <include file="$(find primo_bringup)/launch/localization.launch"/>  -->
 
 </launch>
