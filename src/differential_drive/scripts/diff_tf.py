@@ -63,7 +63,7 @@ class DiffTf:
 
         self.covar_twist_roll = rospy.get_param('covar_twist_roll', 1e6)
         self.covar_twist_pitch = rospy.get_param('covar_twist_pitch', 1e6)
-        self.covar_twist_yaw = rospy.get_param('covar_twist_yaw', 0.025)
+        self.covar_twist_yaw = rospy.get_param('covar_twist_yaw', 0.01)
 
         self.publish_tf = rospy.get_param('~publish_tf', True)
         rospy.loginfo("Parameter: publish_tf set to: {}".format(self.publish_tf))
