@@ -11,7 +11,7 @@ world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # Wheel odom
 odom0: wheel/odom
-odom0_config: [false, false, false,
+odom0_config: [false, false, true,
                false, false, false,
                true,  true,  false,
                false, false, true,
@@ -48,4 +48,3 @@ imu0_queue_size: 5
 imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
 imu0_twist_rejection_threshold: 0.8                #
 imu0_linear_acceleration_rejection_threshold: 0.8  #
-
