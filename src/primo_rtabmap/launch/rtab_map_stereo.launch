@@ -26,7 +26,7 @@
         <param name="queue_size"            type="int"      value="30"/>
 
         <param name="GridGlobal/MinSize"        type="double"   value="50"/>
-        <param name="Grid/MaxGroundHeight"      type="string"   value="0.40"/>       
+        <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
         <param name="Grid/MaxGroundAngle"       type="double"   value="45"/>
         <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
         <param name="Grid/MinClusterSize"       type="int"      value="20"/>

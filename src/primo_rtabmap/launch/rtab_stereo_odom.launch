@@ -7,7 +7,7 @@
     <arg name="publish_tf"      default="false"         />
 
     <!-- Odometry -->
-    <node ns="stereo_odom_1" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" output="screen">
+    <node ns="stereo_odom_1" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" >
 
         <remap from="left/image_rect"       to="$(arg cam)/left/image_rect"                        />
         <remap from="right/image_rect"      to="$(arg cam)/right/image_rect"                       />
