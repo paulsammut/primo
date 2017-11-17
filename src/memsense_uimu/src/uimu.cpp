@@ -147,7 +147,7 @@ void UimuClass::readPort(void)
 
     readBuffer.insert(readBuffer.end(), tempDataV.begin(), tempDataV.end());
 
-    ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
+    // ROS_INFO("Read: %lu, total size is: %lu", tempData.length(), readBuffer.size());
 
     std::vector<uint8_t>::iterator it;
 
