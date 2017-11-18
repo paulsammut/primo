@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <!-- args to passed through -->
-    <arg name="base_width" default="0.635"/>
+    <arg name="base_width" default="0.84"/>
 
     <!-- Module enable -->
     <arg name="enable_rtabmap"                 default="true"/>

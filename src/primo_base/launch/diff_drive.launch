@@ -23,7 +23,7 @@
     <arg name="rate" default="30"/>
     <arg name="rolling_pts" default="4"/>
     <arg name="timeout_ticks" default="5000"/>
-    <arg name="base_width" default="0.635"/>
+    <arg name="base_width" default="0.84"/>
 
 
     <group if="$(arg PID)">
