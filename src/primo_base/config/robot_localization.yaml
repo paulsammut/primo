@@ -25,16 +25,16 @@ odom0_differential: false
 odom0_relative: false
 
 # Visual odom
-odom1: stereo_odom/odom
-odom1_config: [false, false, false,
-               false, false, false,
-               true, true, false,
-               false, false, true,
-               false, false, false]
-odom1_queue_size: 2
-odom1_nodelay: false
-odom1_differential: false
-odom1_relative: false
+# odom1: stereo_odom/odom
+# odom1_config: [false, false, false,
+#                false, false, false,
+#                true, true, false,
+#                false, false, true,
+#                false, false, false]
+# odom1_queue_size: 2
+# odom1_nodelay: false
+# odom1_differential: false
+# odom1_relative: false
 
 # IMU
 # Just use the angular gyro. That is it.

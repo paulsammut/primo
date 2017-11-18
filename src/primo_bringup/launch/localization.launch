@@ -4,7 +4,7 @@
     <arg name="base_width" default="0.635"/>
 
     <!-- Module enable -->
-    <arg name="enable_rtabmap"                 default="false"/>
+    <arg name="enable_rtabmap"                 default="true"/>
     <arg name="enable_rtab_stereo_odom"        default="true"/>
     <arg name="enable_wheel_odom"              default="true"/>
     <arg name="enable_imu"                     default="true"/>
