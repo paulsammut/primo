@@ -35,8 +35,8 @@ class DiffTf:
         
         #### parameters #######
         self.rate = rospy.get_param('~rate',10.0)  # the rate at which to publish the transform
-        self.ticks_meter = float(rospy.get_param('ticks_meter', 69000))  # The number of wheel encoder ticks per meter of travel
-        self.base_width = float(rospy.get_param('~base_width', 0.245)) # The wheel base width in meters
+        self.ticks_meter = float(rospy.get_param('ticks_meter'))  # The number of wheel encoder ticks per meter of travel
+        self.base_width = float(rospy.get_param('~base_width')) # The wheel base width in meters
         
         self.base_frame_id = rospy.get_param('~base_frame_id','base_link') # the name of the base frame of the robot
         self.odom_frame_id = rospy.get_param('~odom_frame_id', 'odom') # the name of the odometry reference frame
@@ -57,13 +57,13 @@ class DiffTf:
         self.covar_yaw = rospy.get_param('covar_yaw', 0.3)
 
         # These are the covariances that matter, xdot, ydot and yawdot.                         
-        self.covar_twist_x = rospy.get_param('covar_twist_x', 0.01)
-        self.covar_twist_y = rospy.get_param('covar_twist_y', 0.01)
-        self.covar_twist_z = rospy.get_param('covar_twist_z', 1e6)
+        self.covar_twist_x = rospy.get_param('covar_twist_x')
+        self.covar_twist_y = rospy.get_param('covar_twist_y')
+        self.covar_twist_z = rospy.get_param('covar_twist_z')
 
-        self.covar_twist_roll = rospy.get_param('covar_twist_roll', 1e6)
-        self.covar_twist_pitch = rospy.get_param('covar_twist_pitch', 1e6)
-        self.covar_twist_yaw = rospy.get_param('covar_twist_yaw', 0.01)
+        self.covar_twist_roll = rospy.get_param('covar_twist_roll')
+        self.covar_twist_pitch = rospy.get_param('covar_twist_pitch')
+        self.covar_twist_yaw = rospy.get_param('covar_twist_yaw')
 
         self.publish_tf = rospy.get_param('~publish_tf', True)
         rospy.loginfo("Parameter: publish_tf set to: {}".format(self.publish_tf))
