@@ -9,7 +9,7 @@
     <arg name="twist"       default="true"/>
 
     <!-- Defining global parameters -->
-    <param name="ticks_meter" value="69000"/>
+    <param name="ticks_meter" value="59000"/>
     <param name="encoder_min" value="-32768"/>
     <param name="encoder_max" value="32767"/>
     <param name="vel_threshold" value="0.001"/>
