@@ -14,27 +14,21 @@ world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # Wheel odom
 odom0: wheel/odom
-odom0_config: [true, true, false,
+odom0_config: [false, false, false,
                false, false, false,
-               false,  false,  false,
-               false, false, false,
+               true,  true, false,
+               false, false, true,
                false, false, false]
 odom0_queue_size: 2
-odom0_nodelay: false
-odom0_differential: false
-odom0_relative: false
 
 #Visual odom
-# odom0: stereo_odom/odom
-# odom0_config: [false, false, false,
-#                false, false, false,
-#                true, true, false,
-#                false, false, true,
-#                false, false, false]
-# odom0_queue_size: 2
-# odom0_nodelay: false
-# odom0_differential: false
-# odom0_relative: false
+odom1: stereo_odom/odom
+odom1_config: [false, false, false,
+               false, false, false,
+               true, true, false,
+               false, false, true,
+               false, false, false]
+odom1_queue_size: 2
 
 # IMU
 # Just use the angular gyro. That is it.
@@ -44,10 +38,5 @@ imu0_config: [false, false, false,
               false, false, false,
               false,  false,  true,
               true,  false,  false]
-imu0_nodelay: false
-imu0_differential: false
-imu0_relative: false
-imu0_queue_size: 5
-# imu0_pose_rejection_threshold: 0.8                 # Note the difference in parameter names
-imu0_twist_rejection_threshold: 0.01                #
-# imu0_linear_acceleration_rejection_threshold: 0.8  #
+# imu0_nodelay: false
+imu0_queue_size: 2
