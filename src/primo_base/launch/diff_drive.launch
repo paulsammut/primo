@@ -9,7 +9,7 @@
     <arg name="twist"       default="true"/>
 
     <!-- Defining global parameters -->
-    <param name="ticks_meter" value="59000"/>
+    <param name="ticks_meter" value="68500"/>
     <param name="encoder_min" value="-32768"/>
     <param name="encoder_max" value="32767"/>
     <param name="vel_threshold" value="0.001"/>
@@ -23,7 +23,7 @@
     <arg name="rate" default="30"/>
     <arg name="rolling_pts" default="4"/>
     <arg name="timeout_ticks" default="5000"/>
-    <arg name="base_width" default="0.84"/>
+    <arg name="base_width" default="0.65"/>
 
 
     <group if="$(arg PID)">
