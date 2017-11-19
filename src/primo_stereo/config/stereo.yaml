@@ -3,6 +3,7 @@ stereo0:
         texture_threshold: 2500
         speckle_size: 1000
         disparity_range: 128
+        correlation_window_size: 17
 
 stereo1:
     stereo_image_proc:
@@ -10,6 +11,7 @@ stereo1:
         speckle_size: 1000
         uniqueness_ratio: 50
         disparity_range: 128
+        correlation_window_size: 17
 
 # /stereo0/disparity/P1
 # /stereo0/disparity/P2
