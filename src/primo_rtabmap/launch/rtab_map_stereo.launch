@@ -22,43 +22,9 @@
         <param name="approx_sync"               type="bool"     value="true"/>
         <param name="frame_id"                  type="string"   value="base_link"/>
 
-
         <param name="queue_size"                type="int"      value="30"/>
 
-        <param name="GridGlobal/MinSize"        type="double"   value="10"/>
-        <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
-        <param name="Grid/MaxGroundAngle"       type="double"   value="45"/>
-        <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
-        <param name="Grid/MinClusterSize"       type="int"      value="20"/>
-
-        <param name="Grid/DepthMax"             type="double"   value="4"/>
-
-        <!-- Use simple passthrough to filter the ground instead of normals segmentation -->
-        <!-- <param name="Grid/NormalsSegmentation" type="string" value="false"/>  -->
-
-        <!-- RTAB-Map's parameters -->
-        <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
-        <param name="Rtabmap/DetectionRate"             type="string"   value="5"/>
-        <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
-        <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
-        <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
-        <!-- use SURF -->
-        <param name="Kp/NNStrategy"                     type="string"   value="1"/>
-        <!-- kdTree -->
-        <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
-        <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="1.0"  />
-        <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
-        <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
-        <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
-
-        <param name="Vis/MinInliers"                    type="string"   value="10"/>
-        <param name="Vis/InlierDistance"                type="string"   value="0.1"/>
-        <param name="Viz/EstimationType"                type="int"      value="1"/>
-        <param name="Vis/MaxFeatures"                   type="int"      value="1000"/>
-
-        <!-- http://bit.ly/2wdXVtj -->
-
+        <!-- Stereo Settings -->
         <!-- Adding a despeckler -->
         <param name="Stereo/WinWidth"                   type="int"      value="15"   />
         <param name="Stereo/WinHeight"                  type="int"      value="3"    />
@@ -79,12 +45,6 @@
         <param name="StereoBM/TextureThreshold"         type="int"      value="3000"  />
         <param name="StereoBM/SpeckleWindowSize"        type="int"      value="1000" />
         <param name="StereoBM/SpeckleRange"             type="int"      value="4"   />
-
-        <!-- Force 2d mode -->
-        <param name="Reg/Force3DoF"                                     value="true" />
-        <param name="Optimizer/Slam2D"                                  value="true" />
-
-
     </node>
 
 </launch>

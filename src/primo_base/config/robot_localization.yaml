@@ -22,13 +22,15 @@ odom0_config: [false, false, false,
 odom0_queue_size: 2
 
 #Visual odom
-odom1: stereo_odom/odom
-odom1_config: [false, false, false,
-               false, false, false,
-               true, true, false,
-               false, false, true,
-               false, false, false]
-odom1_queue_size: 2
+# odom1: stereo_odom/odom
+# odom1_config: [false, false, false,
+#                false, false, false,
+#                true, true, false,
+#                false, false, true,
+#                false, false, false]
+# odom1_queue_size: 2
+# # added this after experimentation.
+# odom1_twist_rejection_threshold: 0.2
 
 # IMU
 # Just use the angular gyro. That is it.
@@ -40,3 +42,4 @@ imu0_config: [false, false, false,
               true,  false,  false]
 # imu0_nodelay: false
 imu0_queue_size: 2
+imu0_twist_rejection_threshold: 0.1 
