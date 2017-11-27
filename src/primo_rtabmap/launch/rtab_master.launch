@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rviz"        default="false"/>
-    <arg name="rtabmapviz"  default="false"/>
-    <arg name="rgbd"        default="true"/>
-    <arg name="stereo"      default="false"/>
-    <arg name="odom_topic"  default="odom"/>
-    <arg name="rtab_args"   default=""/>
+    <arg name="rviz"            default="false"/>
+    <arg name="rtabmapviz"      default="false"/>
+    <arg name="rgbd"            default="false"/>
+    <arg name="stereo"          default="true"/>
+    <arg name="odom_topic"      default="odom"/>
+    <arg name="rtab_localize"   default="false"/>
+    <arg name="del_db"          default="false"/>
+
+    <!-- delete db on start -->
+    <arg if="$(arg del_db)"     name="rtab_args"   value="--delete_db_on_start"/>
+    <arg unless="$(arg del_db)" name="rtab_args"   value=""/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
@@ -26,7 +31,9 @@
     <group ns="rtabmap">
 
         <!-- LOCALIZATION MODE -->
-        <param name="Mem/IncrementalMemory" type="string" value="false"/>
+        <group if="$(arg rtab_localize)">
+            <param name="Mem/IncrementalMemory" type="string" value="false"/>
+        </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.02"/>
         <param name="GridGlobal/MinSize"        type="double"   value="10"/>
@@ -64,10 +71,12 @@
 
     <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch">
         <arg name="odom_topic"  value="$(arg odom_topic)"/>
+        <arg name="rtab_args"   value="$(arg rtab_args)"/>
     </include>
 
     <include if="$(arg rgbd)"   file="$(find primo_rtabmap)/launch/rtab_map_rgbd.launch">
         <arg name="odom_topic"  value="$(arg odom_topic)"/>
+        <arg name="rtab_args"   value="$(arg rtab_args)"/>
     </include>
 
 
