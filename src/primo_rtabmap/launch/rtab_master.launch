@@ -6,6 +6,7 @@
     <arg name="rgbd"        default="true"/>
     <arg name="stereo"      default="false"/>
     <arg name="odom_topic"  default="odom"/>
+    <arg name="rtab_args"   default=""/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
@@ -23,6 +24,10 @@
 
     <!-- rtabmap paramateres which are commom for either stereo or rbgd -->
     <group ns="rtabmap">
+
+        <!-- LOCALIZATION MODE -->
+        <param name="Mem/IncrementalMemory" type="string" value="false"/>
+
         <param name="Grid/CellSize"             type="double"   value="0.02"/>
         <param name="GridGlobal/MinSize"        type="double"   value="10"/>
         <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
@@ -33,7 +38,7 @@
 
         <!-- RTAB-Map's parameters -->
         <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
-        <param name="Rtabmap/DetectionRate"             type="string"   value="3"/>
+        <param name="Rtabmap/DetectionRate"             type="string"   value="10"/>
         <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
         <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
         <param name="Kp/DetectorStrategy"               type="string"   value="0"/>

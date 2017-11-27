@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="odom_topic" default="odom"/>
+    <arg name="rtab_args"               default=""/>
 
     <!-- 
          This launch file launches rtabmap that connects to the stereo1 camera and
@@ -8,8 +9,7 @@
          to use rtab's stereo sytem which is more finicky than stereo_image_proc. 
     -->
 
-    <node name="rtabmap_mapper" pkg="rtabmap_ros" type="rtabmap" output="screen" 
-        args="--delete_db_on_start">
+    <node name="rtabmap_mapper" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg rtab_args)">
 
         <remap from="odom" to="$(arg odom_topic)"/>
         <remap from="left/image_rect"   to="/stereo1/left/image_rect"/>
