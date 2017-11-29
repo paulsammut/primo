@@ -38,10 +38,19 @@
         <param name="Grid/CellSize"             type="double"   value="0.02"/>
         <param name="GridGlobal/MinSize"        type="double"   value="10"/>
         <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
-        <param name="Grid/MaxGroundAngle"       type="double"   value="45"/>
+        <param name="Grid/MaxGroundAngle"       type="double"   value="80"/>
         <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
         <param name="Grid/MinClusterSize"       type="int"      value="20"/>
-        <param name="Grid/DepthMax"             type="double"   value="4"/>
+        <param name="Grid/DepthMax"             type="double"   value="0.1"/>
+        <param name="Grid/DepthMin"             type="double"   value="1"/>
+
+        <param name="Grid/FootprintLength"      type="double"   value="0.7"/>
+        <param name="Grid/FootprintWidth"       type="double"   value="0.9"/>
+        <param name="Grid/FootprintHeight"      type="double"   value="2"/>
+
+        <!-- Disableing this uses the simple passthrough -->
+        <param name="Grid/NormalsSegmentation"  type="bool"     value="false"/>
+
 
         <!-- RTAB-Map's parameters -->
         <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>

@@ -3,7 +3,8 @@
 
     <node pkg="rviz" type="rviz" name="rviz" 
         args="-d $(find primo_nav)/rviz/teb_planner.rviz">
-        <remap from="move_base_simple/goal" to="/planner_goal"/>
+        <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
+        <remap from="move_base_simple/goal" to="/goal"/>
     </node>
 
 </launch>

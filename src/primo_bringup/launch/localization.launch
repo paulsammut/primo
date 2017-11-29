@@ -44,8 +44,8 @@
             <arg name="stereo"          value="true" />
             <arg name="rgbd"            value="false" />
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
-            <arg name="rtab_localize"   value="false"/>
-            <arg name="del_db"          value="true"/>
+            <arg name="rtab_localize"   value="true"/>
+            <arg name="del_db"          value="false"/>
         </include>
     </group>
 
