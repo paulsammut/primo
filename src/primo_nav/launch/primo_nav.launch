@@ -2,7 +2,9 @@
 <launch>
 
     <remap from="map" to="/grid_map"/>
-    <remap from="move_base_simple/goal" to="/planner_goal"/>
+    <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
+
+    <remap from="move_base_simple/goal" to="/goal_out"/>
 
     <!-- <include file="$(find primo_nav)/launch/map_transform.launch"/> -->
 
