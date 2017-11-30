@@ -6,15 +6,11 @@
     <arg name="rgbd"            default="false"/>
     <arg name="stereo"          default="true"/>
     <arg name="odom_topic"      default="odom"/>
-    <arg name="rtab_localize"   default="false"/>
+    <arg name="localize"        default="false"/>
     <arg name="detectionRate"   default="1"/>
-
-    <!-- delete db on start -->
-    <arg if="$(arg rtab_localize)"     name="rtab_args"   value="--delete_db_on_start"/>
-    <arg unless="$(arg rtab_localize)" name="rtab_args"   value=""/>
+    <arg name="rtab_args"       default=""/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
-
 
     <!-- Visualization in rtabmap_viz -->
     <group if="$(arg rtabmapviz)">
@@ -31,15 +27,19 @@
     <group ns="rtabmap">
 
         <!-- LOCALIZATION MODE -->
-        <group if="$(arg rtab_localize)">
-            <param name="Mem/IncrementalMemory" type="string" value="false"/>
-            <param name="Rtabmap/DetectionRate" type="string"  value="1"/>
+        <group if="$(arg localize)">
+            <param name="Mem/IncrementalMemory" type="string"   value="false"/>
+            <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
+            <param name="Grid/DepthMax"         type="double"   value="0.1"/>
+            <param name="Grid/DepthMin"         type="double"   value="0.2"/>
         </group>
 
         <!-- MAPPING MODE -->
-        <group unless="$(arg rtab_localize)">
-            <param name="Mem/IncrementalMemory" type="string" value="false"/>
-            <param name="Rtabmap/DetectionRate" type="string"  value="0"/>
+        <group unless="$(arg localize)">
+            <param name="Mem/IncrementalMemory" type="string"   value="true"/>
+            <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
+            <param name="Grid/DepthMax"         type="double"   value="2.8"/>
+            <param name="Grid/DepthMin"         type="double"   value="0.2"/>
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
@@ -48,8 +48,6 @@
         <param name="Grid/MaxGroundAngle"       type="double"   value="80"/>
         <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
         <param name="Grid/MinClusterSize"       type="int"      value="20"/>
-        <param name="Grid/DepthMax"             type="double"   value="0.1"/>
-        <param name="Grid/DepthMin"             type="double"   value="1"/>
 
         <param name="Grid/FootprintLength"      type="double"   value="0.7"/>
         <param name="Grid/FootprintWidth"       type="double"   value="0.9"/>

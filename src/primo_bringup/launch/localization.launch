@@ -40,12 +40,13 @@
     <!-- Module: Rtabmap -->
     <group if="$(arg enable_rtabmap)">
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="rtabmapviz"      value="true" />
+            <arg name="rtabmapviz"      value="false" />
             <arg name="stereo"          value="true" />
             <arg name="rgbd"            value="false" />
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
-            <arg name="rtab_localize"   value="true"/>
-            <arg name="del_db"          value="false"/>
+            <arg name="localize"        value="false"/>
+            <arg name="rtab_args"       value="--delete_db_on_start"/>
+            <!-- <arg name="rtab_args"       value=""/> -->
         </include>
     </group>
 
