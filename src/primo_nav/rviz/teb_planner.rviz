@@ -4,14 +4,12 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /RobotModel1
-        - /Stereo11
+        - /Global Cost Map1/Status1
         - /Frontier1/Boundary selection1
         - /Frontier1/Explore costmap1
         - /Frontier1/PointCloud21
       Splitter Ratio: 0.6734007
-    Tree Height: 320
+    Tree Height: 351
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -172,7 +170,7 @@ Visualization Manager:
       Axes Radius: 0.100000001
       Class: rviz/Pose
       Color: 255; 25; 0
-      Enabled: true
+      Enabled: false
       Head Length: 0.300000012
       Head Radius: 0.100000001
       Name: Pose
@@ -181,12 +179,12 @@ Visualization Manager:
       Shape: Arrow
       Topic: /goal_out
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 0; 0; 0
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.300000012
       Head Length: 0.200000003
       Length: 0.300000012
@@ -204,12 +202,12 @@ Visualization Manager:
       Shaft Length: 0.100000001
       Topic: /move_base/TebLocalPlannerROS/global_plan
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 25; 255; 0
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.300000012
       Head Length: 0.200000003
       Length: 0.300000012
@@ -227,20 +225,17 @@ Visualization Manager:
       Shaft Length: 0.100000001
       Topic: /move_base/TebLocalPlannerROS/global_plan
       Unreliable: false
-      Value: true
-    - Alpha: 1
-      Class: rtabmap_ros/MapGraph
-      Enabled: false
-      Global loop closure: 255; 0; 0
-      Local loop closure: 255; 255; 0
-      Merged neighbor: 255; 170; 0
-      Name: MapGraph
-      Neighbor: 0; 0; 255
-      Topic: /mapGraph
-      Unreliable: false
-      User: 255; 0; 0
       Value: false
-      Virtual: 255; 0; 255
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: true
+      Enabled: true
+      Name: Map
+      Topic: /grid_map
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
     - Alpha: 0.699999988
       Class: rviz/Map
       Color Scheme: costmap
@@ -258,16 +253,6 @@ Visualization Manager:
       Enabled: true
       Name: Global Cost Map
       Topic: /move_base/global_costmap/costmap
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Alpha: 0.699999988
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Name: Global Grid Map
-      Topic: /grid_map
       Unreliable: false
       Use Timestamp: false
       Value: true
@@ -334,7 +319,7 @@ Visualization Manager:
       Enabled: true
       Image Rendering: background and overlay
       Image Topic: /stereo1/left/image_mono
-      Name: Camera
+      Name: Stereo1
       Overlay Alpha: 0.5
       Queue Size: 2
       Transport Hint: raw
@@ -342,7 +327,6 @@ Visualization Manager:
       Value: true
       Visibility:
         Base: true
-        Camera: true
         Frontier:
           Boundary selection: true
           Explore costmap: true
@@ -350,12 +334,12 @@ Visualization Manager:
           PointCloud2: true
           Value: true
         Global Cost Map: true
-        Global Grid Map: true
         Grid: true
         Image: true
         Imu: true
         Local Cost Map: true
-        MapGraph: true
+        Map: true
+        MapCloud: true
         NavFnROS_Path: true
         Pose: true
         PoseArray: true
@@ -370,7 +354,7 @@ Visualization Manager:
       Enabled: true
       Image Rendering: background and overlay
       Image Topic: /stereo0/left/image_raw
-      Name: Camera
+      Name: Stereo0
       Overlay Alpha: 0.5
       Queue Size: 2
       Transport Hint: raw
@@ -378,7 +362,6 @@ Visualization Manager:
       Value: true
       Visibility:
         Base: true
-        Camera: true
         Frontier:
           Boundary selection: true
           Explore costmap: true
@@ -386,12 +369,12 @@ Visualization Manager:
           PointCloud2: true
           Value: true
         Global Cost Map: true
-        Global Grid Map: true
         Grid: true
         Image: true
         Imu: true
         Local Cost Map: true
-        MapGraph: true
+        Map: true
+        MapCloud: true
         NavFnROS_Path: true
         Pose: true
         PoseArray: true
@@ -405,12 +388,12 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz_plugin_tutorials/Imu
       Color: 204; 51; 204
-      Enabled: true
+      Enabled: false
       History Length: 1
       Name: Imu
       Topic: ""
       Unreliable: false
-      Value: true
+      Value: false
     - Class: rviz/Group
       Displays:
         - Alpha: 1
@@ -469,8 +452,45 @@ Visualization Manager:
           Use Fixed Frame: true
           Use rainbow: true
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Frontier
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rtabmap_ros/MapCloud
+      Cloud decimation: 4
+      Cloud max depth (m): 4
+      Cloud min depth (m): 0
+      Cloud voxel size (m): 0.00999999978
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Download graph: false
+      Download map: false
+      Enabled: false
+      Filter ceiling (m): 0
+      Filter floor (m): 0
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: MapCloud
+      Node filtering angle (degrees): 30
+      Node filtering radius (m): 0
+      Position Transformer: XYZ
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Flat Squares
+      Topic: /mapData
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -494,7 +514,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -1.07500064
+      Angle: 0.864999533
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
@@ -504,24 +524,26 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 102.046585
+      Scale: 131.567581
       Target Frame: map
       Value: TopDownOrtho (rviz)
-      X: 0.80409348
-      Y: 0.0686902031
+      X: 0.100241028
+      Y: 3.37976646
     Saved: ~
 Window Geometry:
-  Camera:
-    collapsed: false
   Displays:
     collapsed: false
-  Height: 1019
+  Height: 1080
   Hide Left Dock: false
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000017200000396fc020000000cfb000000100044006900730070006c0061007900730100000045000001d3000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000001700fffffffb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000000c00430061006d006500720061010000021e000000db0000001700fffffffb0000000c00430061006d00650072006101000002ff000000dc0000001700ffffff000000010000011200000396fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000004500000396000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004000000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000172000003d3fc020000000cfb000000100044006900730070006c0061007900730100000045000001f2000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000001700fffffffb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000000e00530074006500720065006f0031010000023d000000ea0000001700fffffffb0000000e00530074006500720065006f0030010000032d000000eb0000001700ffffff0000000100000112000003d3fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000045000003d3000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004f0000003d300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
+    collapsed: false
+  Stereo0:
+    collapsed: false
+  Stereo1:
     collapsed: false
   Time:
     collapsed: false
@@ -529,6 +551,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1680
-  X: 0
-  Y: 31
+  Width: 1920
+  X: 1920
+  Y: 0
