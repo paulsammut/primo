@@ -25,7 +25,7 @@
         <param name="recovery_behavior_enabled" value="true" />
         <param name="clearing_rotation_allowed" value="true" />
 
-        <remap from="/cmd_vel"      to="/raw_cmd_vel"/>
+        <!-- <remap from="/cmd_vel"      to="/raw_cmd_vel"/> -->
 
     </node>
 
