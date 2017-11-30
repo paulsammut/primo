@@ -8,6 +8,7 @@
     <arg name="odom_topic"      default="odom"/>
     <arg name="rtab_localize"   default="false"/>
     <arg name="del_db"          default="false"/>
+    <arg name="detectionRate"   default="1"/>
 
     <!-- delete db on start -->
     <arg if="$(arg del_db)"     name="rtab_args"   value="--delete_db_on_start"/>
@@ -33,9 +34,16 @@
         <!-- LOCALIZATION MODE -->
         <group if="$(arg rtab_localize)">
             <param name="Mem/IncrementalMemory" type="string" value="false"/>
+            <param name="Rtabmap/DetectionRate" type="string"  value="1"/>
         </group>
 
-        <param name="Grid/CellSize"             type="double"   value="0.02"/>
+        <!-- MAPPING MODE -->
+        <group unless="$(arg rtab_localize)">
+            <param name="Mem/IncrementalMemory" type="string" value="false"/>
+            <param name="Rtabmap/DetectionRate" type="string"  value="0"/>
+        </group>
+
+        <param name="Grid/CellSize"             type="double"   value="0.2"/>
         <param name="GridGlobal/MinSize"        type="double"   value="10"/>
         <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
         <param name="Grid/MaxGroundAngle"       type="double"   value="80"/>
@@ -54,7 +62,6 @@
 
         <!-- RTAB-Map's parameters -->
         <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
-        <param name="Rtabmap/DetectionRate"             type="string"   value="10"/>
         <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
         <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
         <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
