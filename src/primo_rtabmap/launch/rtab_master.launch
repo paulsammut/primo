@@ -7,12 +7,11 @@
     <arg name="stereo"          default="true"/>
     <arg name="odom_topic"      default="odom"/>
     <arg name="rtab_localize"   default="false"/>
-    <arg name="del_db"          default="false"/>
     <arg name="detectionRate"   default="1"/>
 
     <!-- delete db on start -->
-    <arg if="$(arg del_db)"     name="rtab_args"   value="--delete_db_on_start"/>
-    <arg unless="$(arg del_db)" name="rtab_args"   value=""/>
+    <arg if="$(arg rtab_localize)"     name="rtab_args"   value="--delete_db_on_start"/>
+    <arg unless="$(arg rtab_localize)" name="rtab_args"   value=""/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
