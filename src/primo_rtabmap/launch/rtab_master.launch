@@ -38,7 +38,7 @@
         <group unless="$(arg localize)">
             <param name="Mem/IncrementalMemory" type="string"   value="true"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
-            <param name="Grid/DepthMax"         type="double"   value="2.8"/>
+            <param name="Grid/DepthMax"         type="double"   value="2.1"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
         </group>
 
