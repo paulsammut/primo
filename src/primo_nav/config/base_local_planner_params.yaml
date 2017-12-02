@@ -12,17 +12,16 @@ TebLocalPlannerROS:
     # This is so we stick to the global plan and don't make s's 
     max_global_plan_lookahead_dist: 2.0
     feasibility_check_no_poses: 5
-    # not sure what this does
-    global_plan_viapoint_sep: .3
+    global_plan_viapoint_sep: -0.1 
        
     # Robot
             
-    max_vel_x: 0.5
-    max_vel_x_backwards: 0.5
+    max_vel_x: 0.3
+    max_vel_x_backwards: 0.3
     max_vel_theta: 0.5 
-    acc_lim_x: 0.1
+    acc_lim_x: 0.5
     # If this is low, we overshoot on a rotate
-    acc_lim_theta: 1
+    acc_lim_theta: 0.5
     min_turning_radius: 0.0
     footprint_model: 
        type: "polygon"
@@ -42,7 +41,7 @@ TebLocalPlannerROS:
     # Obstacles
        
     min_obstacle_dist: 0.001
-    inflation_dist: 0.00
+    inflation_dist: 0.01
     include_costmap_obstacles: True
     costmap_obstacles_behind_robot_dist: 1.0
     obstacle_poses_affected: 30
