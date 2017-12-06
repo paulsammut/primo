@@ -10,10 +10,10 @@ footprint: [
 
 footprint_padding: -0.00
 
-inflation_layer:
-    cost_scaling_factor: 1.
-    inflation_radius: 2.5
-
-static_layer:
-    enabled:              true
-    map_topic:            "/map"
+# inflation_layer:
+#     cost_scaling_factor: 1.
+#     inflation_radius: 2.5
+#
+# static_layer:
+#     enabled:              true
+#     map_topic:            "/map"
