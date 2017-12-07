@@ -4,6 +4,7 @@
     <arg name="rviz"            default="false"/>
     <arg name="rtabmapviz"      default="false"/>
     <arg name="rgbd"            default="false"/>
+    <arg name="sim"             default="false"/>
     <arg name="stereo"          default="true"/>
     <arg name="odom_topic"      default="odom"/>
     <arg name="localize"        default="false"/>
@@ -67,7 +68,9 @@
         <!-- kdTree -->
         <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
         <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="1.0"  />
+        <param if="$(arg sim)"      name="RGBD/OptimizeMaxError"    type="double"   value="0.0001"  />
+        <param unless="$(arg sim)"  name="RGBD/OptimizeMaxError"    type="double"   value="0.0001"  />
+
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
         <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
