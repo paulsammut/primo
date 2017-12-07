@@ -40,18 +40,6 @@
         <include file="$(find primo_stereo)/launch/stereo1.launch">
             <arg name="stereo_real" value="false"/>
         </include>
-
-        <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="slam"        value="true"/>
-            <arg name="rtabmapviz"  value="true" />
-            <arg name="stereo"      value="true" />
-            <arg name="rgbd"        value="false" />
-            <arg name="odom_topic"  value="odometry/filtered"/>
-            
-        </include>
-
-        <include file="$(find primo_nav)/launch/primo_nav.launch"/>
-
     </group>
 
 </launch>
