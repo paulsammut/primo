@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="nav"         value="true"/>
-    <arg name="stereo_cams" value="false"/>
+    <arg name="nav"         value="false"/>
     <arg name="joy"         value="true"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
@@ -25,19 +24,5 @@
     <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
 
     <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
-
-    <group if="$(arg stereo_cams)">
-        <include file="$(find primo_stereo)/launch/stereo0.launch">
-            <arg name="stereo_real" value="true"/>
-        </include>
-
-        <include file="$(find primo_stereo)/launch/stereo1.launch">
-            <arg name="stereo_real" value="true"/>
-        </include>
-    </group>
     
-    <!-- <include if="$(arg nav)" file="$(find primo_nav)/launch/primo_nav.launch"/> -->
-
-    <!-- <include file="$(find primo_bringup)/launch/localization.launch"/>  -->
-
 </launch>
