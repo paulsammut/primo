@@ -101,6 +101,7 @@
             <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
             <param name="Grid/DepthMax"         type="double"   value="0.1"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
+            <param name="RGBD/OptimizeMaxError"    type="double"   value="1.00"  />
         </group>
 
         <!-- MAPPING MODE -->
@@ -115,6 +116,7 @@
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
             <param name="Grid/DepthMax"         type="double"   value="4"/>
+            <param name="RGBD/OptimizeMaxError"    type="double"   value="0.05"  />
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
@@ -145,7 +147,6 @@
 
         <!-- This is to avoid incorrect loop closures with the repatitive sim
              textures -->
-        <param name="RGBD/OptimizeMaxError"    type="double"   value="0.05"  />
 
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
