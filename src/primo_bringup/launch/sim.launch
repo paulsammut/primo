@@ -27,12 +27,8 @@
     <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
-        <arg name="wheel_odom"  value="true"/>
-        <arg name="publish_tf"  value="true"/>
         <arg name="PID"         value="false"/>
         <arg name="twist"       value="false"/>
-        <arg name="odom_topic"  value="wheel/odom"/>
-        <!-- <arg name="odom_topic"  value="odom"/> -->
     </include>
 
     <!-- Stereo Cam stuff -->
@@ -57,10 +53,5 @@
         <include file="$(find primo_nav)/launch/primo_nav.launch"/>
 
     </group>
-
-    <!-- Robot localization -->
-    <node if="true" pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
-        <rosparam command="load" file="$(find primo_base)/config/robot_localization.yaml" />
-    </node>
 
 </launch>
