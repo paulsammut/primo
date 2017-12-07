@@ -25,7 +25,7 @@
     </group>
 
     <!-- rtabmap paramateres which are commom for either stereo or rbgd -->
-    <group ns="rtabmap">
+    <group unless="$(arg sim)" ns="rtabmap">
 
         <!-- LOCALIZATION MODE -->
         <group if="$(arg localize)">
@@ -36,11 +36,18 @@
         </group>
 
         <!-- MAPPING MODE -->
+        <!-- Here we set the incremental memory to true, make the detection rate
+             go as fast as possible and also set the DepthMax value. We use DepthMax
+             to limit the point cloud values we use because the stereo cams in real 
+             life give shittier data at distances more than a couple meters. In the
+             sim though the sensors are much better so fuck it when not make making
+             mapping easier -->
         <group unless="$(arg localize)">
             <param name="Mem/IncrementalMemory" type="string"   value="true"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
-            <param name="Grid/DepthMax"         type="double"   value="2.3"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
+            <param if="$(arg sim)"      name="Grid/DepthMax"         type="double"   value="10"/>
+            <param unless="$(arg sim)"  name="Grid/DepthMax"         type="double"   value="2.3"/>
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
@@ -67,9 +74,78 @@
         <param name="Kp/NNStrategy"                     type="string"   value="1"/>
         <!-- kdTree -->
         <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
+
         <!-- 3D->2D (PnP) -->
-        <param if="$(arg sim)"      name="RGBD/OptimizeMaxError"    type="double"   value="0.0001"  />
-        <param unless="$(arg sim)"  name="RGBD/OptimizeMaxError"    type="double"   value="0.0001"  />
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="1.000"  />
+
+        <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
+        <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
+        <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
+
+        <param name="Vis/MinInliers"                    type="string"   value="10"/>
+        <param name="Vis/InlierDistance"                type="string"   value="0.1"/>
+        <param name="Viz/EstimationType"                type="int"      value="1"/>
+        <param name="Vis/MaxFeatures"                   type="int"      value="1000"/>
+
+        <!-- Force 2d mode -->
+        <param name="Reg/Force3DoF"                                     value="true" />
+        <param name="Optimizer/Slam2D"                                  value="true" />
+    </group>
+
+    <!-- Added a mirrored bit of sim values -->
+    <group if="$(arg sim)" ns="rtabmap">
+
+        <!-- LOCALIZATION MODE -->
+        <group if="$(arg localize)">
+            <param name="Mem/IncrementalMemory" type="string"   value="false"/>
+            <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
+            <param name="Grid/DepthMax"         type="double"   value="0.1"/>
+            <param name="Grid/DepthMin"         type="double"   value="0.2"/>
+        </group>
+
+        <!-- MAPPING MODE -->
+        <!-- Here we set the incremental memory to true, make the detection rate
+             go as fast as possible and also set the DepthMax value. We use DepthMax
+             to limit the point cloud values we use because the stereo cams in real 
+             life give shittier data at distances more than a couple meters. In the
+             sim though the sensors are much better so fuck it when not make making
+             mapping easier -->
+        <group unless="$(arg localize)">
+            <param name="Mem/IncrementalMemory" type="string"   value="true"/>
+            <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
+            <param name="Grid/DepthMin"         type="double"   value="0.2"/>
+            <param name="Grid/DepthMax"         type="double"   value="4"/>
+        </group>
+
+        <param name="Grid/CellSize"             type="double"   value="0.05"/>
+        <param name="GridGlobal/MinSize"        type="double"   value="10"/>
+        <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
+        <param name="Grid/MaxGroundAngle"       type="double"   value="45"/>
+        <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
+        <param name="Grid/MinClusterSize"       type="int"      value="20"/>
+
+        <param name="Grid/FootprintLength"      type="double"   value="0.7"/>
+        <param name="Grid/FootprintWidth"       type="double"   value="0.9"/>
+        <param name="Grid/FootprintHeight"      type="double"   value="2"/>
+
+        <!-- Disableing this uses the simple passthrough -->
+        <param name="Grid/NormalsSegmentation"  type="bool"     value="true"/>
+
+        <!-- RTAB-Map's parameters -->
+        <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
+        <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
+        <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
+        <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
+        <!-- use SURF -->
+        <param name="Kp/NNStrategy"                     type="string"   value="1"/>
+        <!-- kdTree -->
+        <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
+
+        <!-- 3D->2D (PnP) -->
+
+        <!-- This is to avoid incorrect loop closures with the repatitive sim
+             textures -->
+        <param name="RGBD/OptimizeMaxError"    type="double"   value="0.05"  />
 
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
@@ -94,6 +170,5 @@
         <arg name="odom_topic"  value="$(arg odom_topic)"/>
         <arg name="rtab_args"   value="$(arg rtab_args)"/>
     </include>
-
 
 </launch>
