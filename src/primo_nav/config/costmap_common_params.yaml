@@ -12,7 +12,7 @@ footprint_padding: 0.00
 
 static_layer:
     enabled:              true
-    map_topic:            "/map"
+    map_topic:            "/grid_map"
 
 
 inflation_layer:
