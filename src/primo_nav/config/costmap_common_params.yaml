@@ -14,7 +14,6 @@ static_layer:
     enabled:              true
     map_topic:            "/grid_map"
 
-
 inflation_layer:
     cost_scaling_factor: 1.
     inflation_radius: 2.5
