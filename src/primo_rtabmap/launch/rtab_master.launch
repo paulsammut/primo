@@ -51,7 +51,7 @@
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
-        <param name="GridGlobal/MinSize"        type="double"   value="10"/>
+        <param name="GridGlobal/MinSize"        type="double"   value="40"/>
         <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
         <param name="Grid/MaxGroundAngle"       type="double"   value="80"/>
         <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
@@ -120,7 +120,7 @@
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
-        <param name="GridGlobal/MinSize"        type="double"   value="10"/>
+        <param name="GridGlobal/MinSize"        type="double"   value="40"/>
         <param name="Grid/MaxGroundHeight"      type="string"   value="0.50"/>       
         <param name="Grid/MaxGroundAngle"       type="double"   value="45"/>
         <param name="Grid/MaxObstacleHeight"    type="double"   value="2"/>
