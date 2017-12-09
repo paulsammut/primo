@@ -4,11 +4,9 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Path1/Status1
-        - /Frontier1/Boundary selection1
         - /Frontier1/Explore costmap1
-        - /Frontier1/PointCloud21
-      Splitter Ratio: 0.668478251
+        - /Frontier1/Frontiers1
+      Splitter Ratio: 0.663043499
     Tree Height: 351
   - Class: rviz/Selection
     Name: Selection
@@ -231,7 +229,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
-      Color: 25; 255; 0
+      Color: 255; 0; 0
       Enabled: true
       Head Diameter: 0.300000012
       Head Length: 0.200000003
@@ -270,7 +268,7 @@ Visualization Manager:
       Pose Style: None
       Radius: 0.0299999993
       Shaft Diameter: 0.100000001
-      Shaft Length: 0.100000001
+      Shaft Length: 1
       Topic: /move_base/TrajectoryPlannerROS/local_plan
       Unreliable: false
       Value: true
@@ -291,7 +289,7 @@ Visualization Manager:
           Boundary selection: true
           Explore costmap: true
           Footprint: true
-          PointCloud2: true
+          Frontiers: true
           Value: true
         Global Cost Map: true
         Global Path: true
@@ -303,6 +301,7 @@ Visualization Manager:
         Stereo0: true
         Stereo1: true
         Value: true
+        Waypoints: true
       Zoom Factor: 1
     - Class: rviz/Camera
       Enabled: true
@@ -321,7 +320,7 @@ Visualization Manager:
           Boundary selection: true
           Explore costmap: true
           Footprint: true
-          PointCloud2: true
+          Frontiers: true
           Value: true
         Global Cost Map: true
         Global Path: true
@@ -333,6 +332,7 @@ Visualization Manager:
         Stereo0: true
         Stereo1: true
         Value: true
+        Waypoints: true
       Zoom Factor: 1
     - Class: rviz/Group
       Displays:
@@ -354,7 +354,7 @@ Visualization Manager:
           Value: true
         - Alpha: 0.699999988
           Class: rviz/Map
-          Color Scheme: map
+          Color Scheme: costmap
           Draw Behind: false
           Enabled: true
           Name: Explore costmap
@@ -380,7 +380,7 @@ Visualization Manager:
           Max Intensity: 4096
           Min Color: 0; 0; 0
           Min Intensity: 0
-          Name: PointCloud2
+          Name: Frontiers
           Position Transformer: XYZ
           Queue Size: 10
           Selectable: true
@@ -394,6 +394,22 @@ Visualization Manager:
           Value: true
       Enabled: false
       Name: Frontier
+    - Alpha: 1
+      Arrow Length: 0.300000012
+      Axes Length: 0.300000012
+      Axes Radius: 0.00999999978
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.0700000003
+      Head Radius: 0.0299999993
+      Name: Waypoints
+      Shaft Length: 0.230000004
+      Shaft Radius: 0.00999999978
+      Shape: Arrow (Flat)
+      Topic: /waypoints
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -418,25 +434,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 18.7956505
+      Distance: 25.9023037
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 4.14144802
-        Y: 3.75627828
-        Z: 2.38418579e-06
+        X: -1.23208666
+        Y: -3.31766033
+        Z: 8.66118171e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.38539779
+      Pitch: 0.629797399
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 6.13358212
+      Yaw: 3.78284693
     Saved: ~
 Window Geometry:
   Displays:
