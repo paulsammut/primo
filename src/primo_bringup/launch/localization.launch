@@ -45,7 +45,7 @@
             <arg name="rgbd"            value="true" />
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
             <arg name="localize"        value="true"/>
-            <arg name="sim"             value="true"/>
+            <arg name="sim"             value="false"/>
             <!-- <arg name="rtab_args"       value="&#45;&#45;delete_db_on_start"/> -->
             <arg name="rtab_args"       value=""/>
         </include>
