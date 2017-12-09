@@ -9,6 +9,9 @@
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
+        <!-- Send the output to the velocity smoother -->
+        <remap from="cmd_vel" to="raw_cmd_vel"/>
+
         <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="global_costmap"/>
         <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="local_costmap"/>
         <rosparam file="$(find primo_nav)/config/local_costmap_params.yaml"      command="load"/>
