@@ -1,3 +1,6 @@
+obstacle_range: 2.0
+raytrace_range: 2.0
+
 frequency: 1.0
 goal_aliasing: 1
 track_unknown_space: true
@@ -17,4 +20,4 @@ explore_boundary:
     resize_to_boundary: false
     frontier_travel_point: middle
     #set to false for gmapping, true if re-exploring a known area
-    explore_clear_space: false
+    explore_clear_space: true
