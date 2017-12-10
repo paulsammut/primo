@@ -12,10 +12,6 @@ inflation_layer:
     cost_scaling_factor: 1.0
     inflation_radius: 3.0
 
-plugins:
-    - {name: static_layer,              type: "costmap_2d::StaticLayer"}
-    - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
-    - {name: inflation_layer,           type: "costmap_2d::InflationLayer"}
 
 footprint_padding: 0.00
 
@@ -24,6 +20,8 @@ static_layer:
     map_topic:            "/grid_map"
 
 obstacle_layer:
+
+    footprint_clearing_enable: false
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1
 
@@ -48,3 +46,8 @@ obstacle_layer:
         max_obstacle_height: 2.0,
         observation_persistence: 0.0
     }
+
+plugins:
+    - {name: static_layer,              type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer,           type: "costmap_2d::InflationLayer"}
