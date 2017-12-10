@@ -8,14 +8,14 @@ footprint: [
    [ 0.4, -0.36],
 ]
 
-footprint_padding: 0.00
+footprint_padding: 0.015
 
 static_layer:
     enabled:              true
     map_topic:            "/grid_map"
 
 inflation_layer:
-    cost_scaling_factor: 1.
+    cost_scaling_factor: 0.7
     inflation_radius: 2.5
 
 obstacle_layer:
