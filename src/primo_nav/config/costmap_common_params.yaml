@@ -11,8 +11,8 @@ footprint: [
 footprint_padding: 0.015
 
 static_layer:
-    enabled:              true
-    map_topic:            "/grid_map"
+    enabled: true
+    map_topic: "/grid_map"
 
 inflation_layer:
     cost_scaling_factor: 0.9
