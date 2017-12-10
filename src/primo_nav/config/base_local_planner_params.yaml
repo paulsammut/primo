@@ -19,3 +19,4 @@ TrajectoryPlannerROS:
     latch_xy_goal_tolerance: false
 
     meter_scoring: true
+    escape_vel: -0.2

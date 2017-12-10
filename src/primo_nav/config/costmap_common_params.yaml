@@ -8,11 +8,16 @@ footprint: [
    [ 0.4, -0.36],
 ]
 
-footprint_padding: 0.00
-
 inflation_layer:
-    cost_scaling_factor: 3.0
+    cost_scaling_factor: 1.0
     inflation_radius: 3.0
+
+plugins:
+    - {name: static_layer,              type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer,           type: "costmap_2d::InflationLayer"}
+
+footprint_padding: 0.00
 
 static_layer:
     enabled:              true
