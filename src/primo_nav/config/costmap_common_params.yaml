@@ -14,10 +14,6 @@ static_layer:
     enabled:              true
     map_topic:            "/grid_map"
 
-inflation_layer:
-    cost_scaling_factor: 1.
-    inflation_radius: 2.5
-
 obstacle_layer:
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1
