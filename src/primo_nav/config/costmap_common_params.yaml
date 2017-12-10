@@ -15,8 +15,8 @@ static_layer:
     map_topic:            "/grid_map"
 
 inflation_layer:
-    cost_scaling_factor: 0.7
-    inflation_radius: 2.5
+    cost_scaling_factor: 0.9
+    inflation_radius: 2.0
 
 obstacle_layer:
 
