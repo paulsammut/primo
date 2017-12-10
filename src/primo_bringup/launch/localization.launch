@@ -40,7 +40,7 @@
     <!-- Module: Rtabmap -->
     <group if="$(arg enable_rtabmap)">
         <include file="$(find primo_rtabmap)/launch/rtab_master.launch">
-            <arg name="rtabmapviz"      value="false" />
+            <arg name="rtabmapviz"      value="true" />
             <arg name="stereo"          value="false" />
             <arg name="rgbd"            value="true" />
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
