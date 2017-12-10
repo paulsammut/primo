@@ -13,7 +13,3 @@ plugins:
     - {name: static_layer,              type: "costmap_2d::StaticLayer"}
     - {name: obstacle_layer,            type: "costmap_2d::ObstacleLayer"}
     - {name: inflation_local_layer,     type: "costmap_2d::InflationLayer"}
-
-inflation_layer:
-    cost_scaling_factor: 3.0
-    inflation_radius: 3.0
