@@ -7,9 +7,3 @@ global_costmap:
     width: 50
     rolling_window: true
     resolution: 0.05
-    
-plugins:
-    - {name: static_layer,          type: "costmap_2d::StaticLayer"}
-    - {name: obstacle_layer,        type: "costmap_2d::ObstacleLayer"}
-    - {name: inflation_layer,       type: "costmap_2d::InflationLayer"}
-
