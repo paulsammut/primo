@@ -22,7 +22,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         if(client.call(srv))
         {
             // sc->say("Eeee STOP ACTIVATED. I aint goin NOWHERE");
-            sc->say("Coco is the best. I Like her so very much!");
+            sc->say("ESPOT Activated");
             ROS_INFO("ESTOP succesfully TURNED ON"); 
         }
         else
