@@ -4,17 +4,19 @@
 // This is so we can make the robot make sound
 #include "unistd.h"
 #include "sound_play/sound_play.h"
+#include <std_msgs/Empty.h>
 
 // Sound client as a pointer so that it doesn't get initialized till later
 sound_play::SoundClient *sc;
 ros::ServiceClient client;
+ros::Publisher waypoint_pub;
 bool curState = false;
 
 
 void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
 {
     sabertooth_simple::SabertoothEstop srv;
-    bool estop_button = msg->buttons[3];
+    bool estop_button = (msg->buttons[3] || msg->buttons[10] || msg->buttons[9]);
     
     if(estop_button)
     {
@@ -48,6 +50,14 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
             ROS_ERROR("ESTOP CLEAR FAILED"); 
         }
     }
+    // Waypoint follow button
+    else if(msg->buttons[2])
+    {
+        std_msgs::Empty msg;
+        sc->say("Starting mission. Let's do this!");
+        ROS_INFO("Starting mission"); 
+        waypoint_pub.publish(msg);
+    }
 }
 
 int main(int argc, char **argv)
@@ -57,6 +67,7 @@ int main(int argc, char **argv)
     ros::NodeHandle n;
     sc = new sound_play::SoundClient;
     client = n.serviceClient<sabertooth_simple::SabertoothEstop>("motor_estop");
+    waypoint_pub = n.advertise<std_msgs::Empty>("/path_ready", 1000);
 
     ros::Subscriber joySub = n.subscribe("/joy",1000, joyCb);
 
