@@ -8,18 +8,7 @@ footprint: [
    [ 0.4, -0.36],
 ]
 
-plugins:
-    - {name: static_layer,          type: "costmap_2d::StaticLayer"}
-
 footprint_padding: 0.015
-
-static_layer:
-    enabled: true
-    map_topic: "/grid_map"
-
-inflation_layer:
-    cost_scaling_factor: 0.9
-    inflation_radius: 2.0
 
 obstacle_layer:
 
@@ -46,3 +35,8 @@ obstacle_layer:
         max_obstacle_height: 2.0,
         observation_persistence: 0.0
     }
+
+inflation_layer:
+    cost_scaling_factor: 0.9
+    inflation_radius: 2.0
+
