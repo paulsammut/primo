@@ -3,7 +3,8 @@
 
     <remap from="map" to="/grid_map"/>
 
-    <arg name="lanes_file" default="$(find primo_nav)/maps/lanes/shop_lanes.pgm"/>
+    <!-- <arg name="lanes_file" default="$(find primo_nav)/lanes/shop_lanes.yaml"/> -->
+    <arg name="lanes_file" default="$(find primo_nav)/lanes/sim_lanes.yaml"/>
 
     <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
     <remap from="move_base_simple/goal" to="/goal_out"/>
@@ -22,6 +23,8 @@
 
     </node>
 
-    <node pkg="map_server" type="map_server" name="map_server" args="-f $(arg lanes_file)"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
+        <remap from="map" to="lanes"/>
+    </node>
 
 </launch>
