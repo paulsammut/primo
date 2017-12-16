@@ -10,6 +10,7 @@ project(primo_base)
 find_package(catkin REQUIRED COMPONENTS
     roscpp
     sabertooth_simple
+    message_generation
 )
 
 ###################################
