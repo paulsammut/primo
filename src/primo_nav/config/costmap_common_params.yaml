@@ -8,15 +8,15 @@ footprint: [
    [ 0.4, -0.36],
 ]
 
-inflation_layer:
-    cost_scaling_factor: 1.0
-    inflation_radius: 3.0
-
 footprint_padding: 0.00
 
 static_layer:
     enabled:              true
     map_topic:            "/grid_map"
+
+lanes_layer:
+    enabled:              true
+    map_topic:            "/lanes"
 
 obstacle_layer:
 
@@ -46,3 +46,6 @@ obstacle_layer:
         observation_persistence: 0.0
     }
 
+inflation_layer:
+    cost_scaling_factor: 1.0
+    inflation_radius: 3.0
