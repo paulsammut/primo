@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES primo_base
-    CATKIN_DEPENDS sabertooth_simple
+    CATKIN_DEPENDS message_runtime
 #  DEPENDS system_lib
 )
 
@@ -34,5 +34,7 @@ include_directories(
  ${catkin_INCLUDE_DIRS}
 )
 
+# This adds a dependency on the message generation
 add_executable(joy_manager src/joy_manager.cpp)
 target_link_libraries(joy_manager ${catkin_LIBRARIES})
+add_dependencies(joy_manager ${catkin_EXPORTED_TARGETS})
