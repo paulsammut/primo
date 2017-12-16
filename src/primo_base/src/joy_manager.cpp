@@ -87,6 +87,7 @@ int main(int argc, char **argv)
 
     ros::Subscriber joySub = n.subscribe("/joy",1000, joyCb);
 
+    ROS_INFO("Launching the joystick manager."); 
     ros::spin();
 
     // Cleanup the pointer 
