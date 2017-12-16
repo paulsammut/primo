@@ -198,5 +198,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(joy_estop src/joy_estop.cpp)
-target_link_libraries(joy_estop ${catkin_LIBRARIES})
+add_executable(joy_manager src/joy_manager.cpp)
+target_link_libraries(joy_manager ${catkin_LIBRARIES})
