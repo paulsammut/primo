@@ -172,8 +172,6 @@ public:
 
         motor = (Kp * error) + (Ki * integral) + (Kd * derivative);
 
-
-
         if (motor > out_max) {
             motor = out_max;
             integral = integral - (error * pid_dt);
