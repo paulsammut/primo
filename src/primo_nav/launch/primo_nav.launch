@@ -9,6 +9,10 @@
     <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
     <remap from="move_base_simple/goal" to="/goal_out"/>
 
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
+        <remap from="map" to="lanes"/>
+    </node>
+
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
         <!-- Send the output to the velocity smoother -->
@@ -21,10 +25,6 @@
 
         <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
 
-    </node>
-
-    <node pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
-        <remap from="map" to="lanes"/>
     </node>
 
 </launch>

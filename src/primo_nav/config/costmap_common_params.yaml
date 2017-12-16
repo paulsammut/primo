@@ -14,9 +14,9 @@ static_layer:
     enabled:              true
     map_topic:            "/grid_map"
 
-lanes_layer:
-    enabled:              true
-    map_topic:            "/lanes"
+# lanes_layer:
+#     enabled:              true
+#     map_topic:            "/lanes"
 
 obstacle_layer:
 
