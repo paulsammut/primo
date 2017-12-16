@@ -23,6 +23,6 @@
 
     <!-- Joystick Manager that handles the rest of the buttons and other
          joystick functionality -->
-    <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
+    <node pkg="primo_base" type="joy_manager" name="joy_manager" output="screen"/>
 
 </launch>
