@@ -4,6 +4,7 @@
     <arg name="rviz"            default="false"/>
     <arg name="rtabmapviz"      default="false"/>
     <arg name="rgbd"            default="false"/>
+    <arg name="laser"           default="false"/>
     <arg name="sim"             default="false"/>
     <arg name="stereo"          default="true"/>
     <arg name="odom_topic"      default="odom"/>
@@ -24,7 +25,7 @@
         </include>
     </group>
 
-    <!-- rtabmap paramateres which are commom for either stereo or rbgd -->
+    <!-- rtabmap paramateres which are commom for stereo, rbgd or laser -->
     <group unless="$(arg sim)" ns="rtabmap">
 
         <!-- LOCALIZATION MODE -->
@@ -168,6 +169,11 @@
     </include>
 
     <include if="$(arg rgbd)"   file="$(find primo_rtabmap)/launch/rtab_map_rgbd.launch">
+        <arg name="odom_topic"  value="$(arg odom_topic)"/>
+        <arg name="rtab_args"   value="$(arg rtab_args)"/>
+    </include>
+
+    <include if="$(arg laser)"   file="$(find primo_rtabmap)/launch/rtab_map_laser.launch">
         <arg name="odom_topic"  value="$(arg odom_topic)"/>
         <arg name="rtab_args"   value="$(arg rtab_args)"/>
     </include>
