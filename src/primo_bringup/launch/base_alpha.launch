@@ -7,7 +7,7 @@
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
 
-    <include if="$(arg joy)" file="$(find primo_base)/launch/joy_twist.launch"/>
+    <include if="$(arg joy)" file="$(find primo_base)/launch/joy.launch"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="PID"         value="true"/>
@@ -23,6 +23,5 @@
     <!-- Estop -->
     <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
 
-    <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
     
 </launch>
