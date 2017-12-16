@@ -18,13 +18,12 @@
     <!-- Generate encoder data -->
     <node pkg="primo_gazebo" type="sim_wheel_encoders.py" name="encoder_sim"/>
 
+    <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
+
     <!-- These let us control the sim robot with the joystick -->
-    <include file="$(find primo_base)/launch/joy_twist.launch"/>
+    <include file="$(find primo_base)/launch/joy.launch"/>
     <include file="$(find primo_base)/launch/vel_smooth.launch"/>
 
-    <!-- Estop -->
-    <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
-    <node pkg="primo_base" type="joy_estop" name="estop" output="screen"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
         <arg name="PID"         value="false"/>

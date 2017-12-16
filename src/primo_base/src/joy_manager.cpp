@@ -89,6 +89,7 @@ int main(int argc, char **argv)
 
     ros::spin();
 
+    // Cleanup the pointer 
     delete sc;
 
     return 1;
