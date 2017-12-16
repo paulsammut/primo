@@ -34,7 +34,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
     bool estop_button = (btn_left_stick || btn_right_stick);
     
     // Emergency Stop Activate
-    if(estop_button)
+    if(estop_button && !estopState)
     {
         // set our service object to be true so we engage the estop
         srv.request.estop = true;
@@ -42,13 +42,14 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         {
             sc->say("Emergency stop activated");
             ROS_INFO("ESTOP succesfully TURNED ON"); 
+            estopState = true;
         }
         else
         {
             sc->say("Emergency stop failed to activate");
             ROS_ERROR("ESTOP failed to activate"); 
+            estopState = false;
         }
-        estopState = true;
     }
     // Emergency Stop clear button
     else if(btn_start && estopState)
