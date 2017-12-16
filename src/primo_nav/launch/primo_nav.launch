@@ -3,8 +3,9 @@
 
     <remap from="map" to="/grid_map"/>
 
-    <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
+    <arg name="lanes_file" default="$(find primo_nav)/maps/lanes/shop_lanes.pgm"/>
 
+    <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
     <remap from="move_base_simple/goal" to="/goal_out"/>
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -20,5 +21,7 @@
         <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
 
     </node>
+
+    <node pkg="map_server" type="map_server" name="map_server" args="-f $(arg lanes_file)"/>
 
 </launch>
