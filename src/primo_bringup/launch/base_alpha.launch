@@ -22,6 +22,5 @@
 
     <!-- Estop -->
     <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
-
     
 </launch>
