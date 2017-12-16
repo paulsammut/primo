@@ -48,10 +48,10 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
             sc->say("Emergency stop failed to activate");
             ROS_ERROR("ESTOP failed to activate"); 
         }
-        curState = true;
+        estopState = true;
     }
     // Emergency Stop clear button
-    else if(btn_start && curState)
+    else if(btn_start && estopState)
     {
         // set our service object to be false so we can clear the estop
         srv.request.estop = false;
@@ -59,7 +59,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         {
             sc->say("Primo torqued and ready to fuck shit uup");
             ROS_INFO("ESTOP succesfully cleared"); 
-            curState = false;
+            estopState = false;
         }
         else
         {
