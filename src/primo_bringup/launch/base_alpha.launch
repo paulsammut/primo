@@ -7,6 +7,8 @@
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
 
+    <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
+
     <include if="$(arg joy)" file="$(find primo_base)/launch/joy.launch"/>
 
     <include file="$(find primo_base)/launch/diff_drive.launch">
@@ -19,8 +21,5 @@
     <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
 
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
-
-    <!-- Estop -->
-    <node pkg="sound_play" type="soundplay_node.py" name="soundplay"/>
     
 </launch>
