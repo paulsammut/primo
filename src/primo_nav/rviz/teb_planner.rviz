@@ -6,8 +6,8 @@ Panels:
       Expanded:
         - /Frontier1/Explore costmap1
         - /Frontier1/Frontiers1
-        - /Global Cost Map2
-      Splitter Ratio: 0.663043499
+        - /Lanes1
+      Splitter Ratio: 0.662162185
     Tree Height: 328
   - Class: rviz/Selection
     Name: Selection
@@ -295,6 +295,7 @@ Visualization Manager:
         Global Cost Map: true
         Global Path: true
         Grid: true
+        Lanes: true
         Local Cost Map: true
         Local Path: true
         Map: true
@@ -326,6 +327,7 @@ Visualization Manager:
         Global Cost Map: true
         Global Path: true
         Grid: true
+        Lanes: true
         Local Cost Map: true
         Local Path: true
         Map: true
@@ -415,12 +417,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
-      Enabled: true
-      Name: Global Cost Map
+      Enabled: false
+      Name: Lanes
       Topic: /lanes
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -445,25 +447,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 23.8306713
+      Distance: 13.2426357
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -2.60164285
-        Y: -1.29359877
-        Z: 8.66118171e-07
+        X: 5.19709826
+        Y: 4.49406242
+        Z: 3.40168299e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.56979632
+      Pitch: 0.779797196
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 3.56784797
+      Yaw: 6.14102459
     Saved: ~
 Window Geometry:
   Displays:
