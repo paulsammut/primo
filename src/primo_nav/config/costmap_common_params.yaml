@@ -11,9 +11,10 @@ footprint: [
 footprint_padding: 0.00
 
 static_layer:
-    enabled:              true
-    map_topic:            "/map_mod"
-    track_unknown_space:    true 
+    enabled:                true
+    map_topic:              "/map_mod"
+    track_unknown_space:    false 
+    trinary_costmap:        false
 
 obstacle_layer:
 
