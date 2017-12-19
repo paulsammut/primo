@@ -12,7 +12,8 @@ footprint_padding: 0.00
 
 static_layer:
     enabled:              true
-    map_topic:            "/grid_map"
+    map_topic:            "/map_mod"
+    track_unknown_space:    false 
 
 obstacle_layer:
 
