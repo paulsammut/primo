@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rviz" default="false"/>
-    <arg name="rtab_viz_stereo" default="false"/>
-    <arg name="rtab_viz_rgbd"   default="false"/>
+    <arg name="stereo"          default="false"/>
+    <arg name="rgbd"            default="false"/>
     <arg name="odom_topic"      default="odom"/>
     <arg name="localize"        default="false"/>
       
     <!-- Visualisation RTAB-Map RGBD -->
-    <node if="$(arg rtab_viz_rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_rgbd" 
+    <node if="$(arg rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_rgbd" 
       args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
 	    <param name="subscribe_rgbd"        type="bool"     value="true"/>
@@ -33,7 +32,7 @@
     </node>
     
     <!-- Visualisation RTAB-Map with a Stereo feed-->
-    <node if="$(arg rtab_viz_stereo)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_stereo" 
+    <node if="$(arg stereo)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_stereo" 
       args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
 	    <param name="subscribe_stereo"      type="bool"     value="true"/>
@@ -51,8 +50,10 @@
 	    <remap from="odom"                  to="$(arg odom_topic)"/>
 
     </node>
-
-  	<!-- Visualisation RVIZ -->
-    <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find primo_rtabmap)/rviz/rtabmap.rviz" />
+    
+    <node if="$(arg localize)" name="rtabmapviz" pkg="rtabmap_ros" type="rtabmapviz" 
+        output="screen" args="-d $(find rtabmap_ros)/launch/config/appearance_gui.ini">
+                 
+    </node>
 
 </launch>
