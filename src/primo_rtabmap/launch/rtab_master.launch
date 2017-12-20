@@ -160,11 +160,6 @@
         <param name="Reg/Force3DoF"                                     value="true" />
         <param name="Optimizer/Slam2D"                                  value="true" />
     </group>
-    
-    <include if="$(arg localize)" file="$(find primo_rtabmap)/launch/rtab_map_localize.launch">
-        <arg name="odom_topic"  value="$(arg odom_topic)"/>
-        <arg name="rtab_args"   value="$(arg rtab_args)"/>
-    </include>
 
     <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch">
         <arg name="odom_topic"  value="$(arg odom_topic)"/>
