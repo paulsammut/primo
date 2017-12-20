@@ -3,10 +3,10 @@
 
     <arg name="rviz"            default="false"/>
     <arg name="rtabmapviz"      default="false"/>
-    <arg name="rgbd"            default="false"/>
+    <arg name="rgbd"            default="true"/>
     <arg name="laser"           default="false"/>
     <arg name="sim"             default="false"/>
-    <arg name="stereo"          default="true"/>
+    <arg name="stereo"          default="false"/>
     <arg name="odom_topic"      default="odom"/>
     <arg name="localize"        default="false"/>
     <arg name="detectionRate"   default="1"/>
@@ -102,7 +102,7 @@
             <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
             <param name="Grid/DepthMax"         type="double"   value="0.1"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
-            <param name="RGBD/OptimizeMaxError"    type="double"   value="1.00"  />
+            <param name="RGBD/OptimizeMaxError" type="double"   value="1.00"  />
         </group>
 
         <!-- MAPPING MODE -->
@@ -117,7 +117,7 @@
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
             <param name="Grid/DepthMax"         type="double"   value="4"/>
-            <param name="RGBD/OptimizeMaxError"    type="double"   value="0.05"  />
+            <param name="RGBD/OptimizeMaxError" type="double"   value="0.05"  />
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
@@ -162,6 +162,11 @@
         <param name="Reg/Force3DoF"                                     value="true" />
         <param name="Optimizer/Slam2D"                                  value="true" />
     </group>
+    
+    <include if="$(arg localize)" file="$(find primo_rtabmap)/launch/rtab_map_localize.launch">
+        <arg name="odom_topic"  value="$(arg odom_topic)"/>
+        <arg name="rtab_args"   value="$(arg rtab_args)"/>
+    </include>
 
     <include if="$(arg stereo)" file="$(find primo_rtabmap)/launch/rtab_map_stereo.launch">
         <arg name="odom_topic"  value="$(arg odom_topic)"/>

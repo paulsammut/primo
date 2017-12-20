@@ -5,6 +5,7 @@
     <arg name="rtab_viz_stereo" default="false"/>
     <arg name="rtab_viz_rgbd"   default="false"/>
     <arg name="odom_topic"      default="odom"/>
+    <arg name="localize"        default="false"/>
       
     <!-- Visualisation RTAB-Map RGBD -->
     <node if="$(arg rtab_viz_rgbd)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_rgbd" 
