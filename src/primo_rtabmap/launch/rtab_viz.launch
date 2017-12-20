@@ -33,7 +33,7 @@
     
     <!-- Visualisation RTAB-Map with a Stereo feed-->
     <node if="$(arg stereo)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz_stereo" 
-      args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
+      args="" output="screen">
 
 	    <param name="subscribe_stereo"      type="bool"     value="true"/>
 	    <param name="subscribe_odom_info"   type="bool"     value="false"/>
@@ -51,9 +51,9 @@
 
     </node>
     
-    <node if="$(arg localize)" name="rtabmapviz" pkg="rtabmap_ros" type="rtabmapviz" 
-        output="screen" args="-d $(find rtabmap_ros)/launch/config/appearance_gui.ini">
-                 
-    </node>
+    <!-- <node if="$(arg localize)" name="rtabmapviz" pkg="rtabmap_ros" type="rtabmapviz"  -->
+    <!--     output="screen" args="&#45;d $(find rtabmap_ros)/launch/config/appearance_gui.ini"> -->
+    <!--               -->
+    <!-- </node> -->
 
 </launch>
