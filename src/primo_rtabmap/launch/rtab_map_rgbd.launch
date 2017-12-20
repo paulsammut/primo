@@ -19,6 +19,8 @@
 
 
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg rtab_args)">
+        <param name="RBGD/Enabled"          type="string"   value="true"/>
+        
 		<param name="subscribe_stereo"      type="bool"     value="false"/>
 		<param name="subscribe_depth"       type="bool"     value="true"/>
         <param name="subscribe_scan_cloud"  type="bool"     value="false"/>
