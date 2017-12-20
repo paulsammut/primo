@@ -8,26 +8,25 @@
     <arg name="odom_topic"              default="odom"/>
     <arg name="rtab_args"               default=""/>
     
-    <node ns="stereo1/" pkg="nodelet" type="nodelet" name="disparity2depth" 
-        args="standalone rtabmap_ros/disparity_to_depth"/>
-
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg rtab_args)">
-		<param name="subscribe_stereo"      type="bool"     value="false"/>
-		<param name="subscribe_depth"       type="bool"     value="false"/>
-        <param name="subscribe_scan_cloud"  type="bool"     value="false"/>
-		<param name="stereo_approx_sync"    type="bool"     value="false"/>
-
+        <param name="subscribe_stereo"          type="bool"     value="false"/>
+        <param name="subscribe_depth"           type="bool"     value="false"/>
+        <param name="subscribe_scan_cloud"      type="bool"     value="false"/>
+        <param name="stereo_approx_sync"        type="bool"     value="false"/>
+    
         <param name="RGBD/Enabled"              type="string"   value="false"/>  
         <param name="Mem/IncrementalMemory"     type="string"   value="false"/>
         <param name="Mem/InitWMWithAllNodes"    type="string"   value="true"/>
-
-        <param name="frame_id"              type="string"   value="base_link"/>
-
-        <remap from="odom"              to="$(arg odom_topic)"/>
-        <remap from="rgb/image"         to="/stereo1/left/image_rect_color"/>
-        <remap from="depth/image"       to="/stereo1/depth"/>
-        <remap from="rgb/camera_info"   to="/stereo1/left/camera_info"/>
+    
+        <param name="frame_id"                  type="string"   value="base_link"/>
+    
+        <remap from="odom"                      to="$(arg odom_topic)"/>
+        <remap from="rgb/image"                 to="/stereo2/left/image_rect_color"/>
+        <remap from="depth/image"               to="/stereo1/depth"/>
+        <remap from="rgb/camera_info"           to="/stereo1/left/camera_info"/>
+    
         <param name="queue_size"                type="int"      value="30"/>
+    
+    </node>
 
-	  </node>
 </launch>
