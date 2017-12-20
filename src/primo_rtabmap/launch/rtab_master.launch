@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="rviz"            default="false"/>
     <arg name="rtabmapviz"      default="false"/>
     <arg name="rgbd"            default="true"/>
     <arg name="laser"           default="false"/>
@@ -17,7 +16,6 @@
     <!-- Visualization in rtabmap_viz -->
     <group if="$(arg rtabmapviz)">
         <include file="$(find primo_rtabmap)/launch/rtab_viz.launch">
-            <arg name="rviz"        value="$(arg rviz)"/>
             <arg name="stereo"      value="$(arg stereo)"/>
             <arg name="rgbd"        value="$(arg rgbd)"/>
             <arg name="localize"    value="$(arg localize)"/>
