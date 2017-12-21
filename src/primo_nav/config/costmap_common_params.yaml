@@ -12,7 +12,8 @@ footprint_padding: 0.00
 
 static_layer:
     enabled:                true
-    map_topic:              "/map_mod"
+    # map_topic:              "/map_mod"
+    map_topic:              "/grid_map"
     track_unknown_space:    false 
     trinary_costmap:        false
     use_maximum:            true
