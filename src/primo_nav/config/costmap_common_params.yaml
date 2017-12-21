@@ -20,7 +20,7 @@ static_layer:
 
 obstacle_layer:
 
-    footprint_clearing_enable: false
+    footprint_clearing_enabled: false
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1
 
