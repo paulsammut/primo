@@ -87,6 +87,7 @@ void setup()
     Timer1.initialize(period_us);
     Timer1.attachInterrupt(pulse);
     pulse_state = true;
+    digitalWrite(13, HIGH);
 }
 
 void loop()
