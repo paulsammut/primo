@@ -1,6 +1,7 @@
 #include <ros.h>
 #include <std_msgs/Float32.h>
 #include <ros/time.h>
+#include <stdio.h>
 
 #define PIN_TRIGGER 2
 
@@ -22,14 +23,21 @@ void setup()
     // ROS initialize
     nh.getHardware()->setBaud(115200);
     nh.initNode();
-    nh.param("rate", rate, 10);
+
+    while(!nh.connected()) {nh.spinOnce();}
+    nh.getParam("rate", &rate, 10);
+
+    char info_msg[20] = "";
+    sprintf(info_msg, " Stereo loaded at the %.1f hertz, with period %.1f ms", rate, period_ms);
+
+    nh.loginfo(info_msg);
 }
 
 void loop()
 {
-    nh.spinOnce();
+    while(!nh.connected()) {nh.spinOnce();}
 
-    if timeLast + period_ms > millis()
+    if ((timeLast + period_ms) > millis())
     {
         timeLast = millis();
         pulse();
@@ -40,6 +48,6 @@ void pulse()
 {
     // set the trigger high
     digitalWrite(PIN_TRIGGER, LOW);
-    delayus(500);
+    delayMicroseconds(500);
     digitalWrite(PIN_TRIGGER, HIGH);
 }
