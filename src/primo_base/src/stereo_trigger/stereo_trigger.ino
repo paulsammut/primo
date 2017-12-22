@@ -9,7 +9,7 @@ ros::NodeHandle nh;
 
 // Interval in milliseconds for publishing the battery data
 float rate = 10;
-float period_ms = 1 / rate * 1000;
+unsigned long period_ms = 1 / rate * 1000;
 unsigned long timeLast = millis();
 
 void setup()
@@ -24,20 +24,18 @@ void setup()
     nh.getHardware()->setBaud(115200);
     nh.initNode();
 
-    while(!nh.connected()) {nh.spinOnce();}
-    nh.getParam("rate", &rate, 10);
-
     char info_msg[20] = "";
-    sprintf(info_msg, " Stereo loaded at the %.1f hertz, with period %.1f ms", rate, period_ms);
+    sprintf(info_msg,"Stereo loaded with period %d ms", period_ms);
 
-    nh.loginfo(info_msg);
+    // while(!nh.connected()) { nh.spinOnce();}
+    // nh.loginfo(info_msg);
 }
 
 void loop()
 {
-    while(!nh.connected()) {nh.spinOnce();}
+    // nh.spinOnce();
 
-    if ((timeLast + period_ms) > millis())
+    if ((timeLast + period_ms) < millis())
     {
         timeLast = millis();
         pulse();
