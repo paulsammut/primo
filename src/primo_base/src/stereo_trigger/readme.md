@@ -27,3 +27,7 @@ sycing to ros, but it seems to work OK when used under 20 Hz.
          |                |            |                  |
          |                |            +------------------+
          +----------------+
+
+## Connector pinout
+![connector pinout](con_pinout.png)
+![connector schematic](con_schematic.png)
