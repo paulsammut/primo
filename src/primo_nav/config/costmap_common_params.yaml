@@ -12,14 +12,15 @@ footprint_padding: 0.00
 
 static_layer:
     enabled:                true
-    map_topic:              "/map_mod"
+    # map_topic:              "/map_mod"
+    map_topic:              "/grid_map"
     track_unknown_space:    false 
     trinary_costmap:        false
     use_maximum:            true
 
 obstacle_layer:
 
-    footprint_clearing_enable: false
+    footprint_clearing_enabled: false
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1
 
