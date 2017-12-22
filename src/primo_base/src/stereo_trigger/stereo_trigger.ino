@@ -8,12 +8,13 @@
 ros::NodeHandle nh;
 
 // Interval in milliseconds for publishing the battery data
-float rate = 10;
+float rate = 20;
 unsigned long period_ms = 1 / rate * 1000;
 unsigned long timeLast = millis();
 
 void setup()
 {
+
     // Set the pin modes
     pinMode(PIN_TRIGGER, OUTPUT);
     
@@ -33,7 +34,7 @@ void setup()
 
 void loop()
 {
-    // nh.spinOnce();
+    nh.spinOnce();
 
     if ((timeLast + period_ms) < millis())
     {
