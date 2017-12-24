@@ -553,6 +553,8 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
 		throw std::runtime_error("couldn't dequeue buffer");
 	bytes_used = buffer_.bytesused;
 
+    boost::timer::cpu_timer timer1;
+
 	if (mode_ == MODE_Y16)
 	{
 	   		
@@ -578,6 +580,8 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
       (*left_frame) = left_frame_;
       
 	}
+
+    printf(timer1.format());
   return buffer_.index;
 }
 
