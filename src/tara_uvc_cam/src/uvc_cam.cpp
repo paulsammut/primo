@@ -533,7 +533,10 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
 	timeout.tv_sec = 1;
 	timeout.tv_usec = 0;
 	bytes_used = 0;
+    boost::timer::cpu_timer timer1;
 	ret = select(device_file_h_ + 1, &rdset, NULL, NULL, &timeout);
+    
+    printf(timer1.format().c_str());
 	if (ret == 0)
 	{
 		printf("select timeout in grab\n");
@@ -553,7 +556,7 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
 		throw std::runtime_error("couldn't dequeue buffer");
 	bytes_used = buffer_.bytesused;
 
-    boost::timer::cpu_timer timer1;
+
 
 	if (mode_ == MODE_Y16)
 	{
@@ -581,7 +584,6 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
       
 	}
 
-    // printf(timer1.format());
   return buffer_.index;
 }
 
