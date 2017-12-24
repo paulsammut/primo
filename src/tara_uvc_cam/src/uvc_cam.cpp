@@ -581,7 +581,7 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
       
 	}
 
-    printf(timer1.format());
+    // printf(timer1.format());
   return buffer_.index;
 }
 

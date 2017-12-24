@@ -3,7 +3,7 @@ project(uvc_camera)
 
 find_package(catkin REQUIRED COMPONENTS camera_info_manager image_transport nodelet roscpp sensor_msgs)
 
-find_package(Boost REQUIRED COMPONENTS thread system)
+find_package(Boost REQUIRED COMPONENTS thread system timer)
 
 FIND_PACKAGE(PkgConfig)
 PKG_CHECK_MODULES(PC_GLIB QUIET glib-2.0)
