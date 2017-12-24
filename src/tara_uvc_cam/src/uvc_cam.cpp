@@ -22,10 +22,10 @@ using std::string;
 using namespace uvc_cam;
 
 
-	static void
-enumerate_menu (int device_file_h_,
-		struct v4l2_queryctrl &queryctrl,
-		struct v4l2_querymenu &querymenu)
+static void enumerate_menu (
+        int device_file_h_, 
+        struct v4l2_queryctrl &queryctrl, 
+        struct v4l2_querymenu &querymenu)
 {
 	printf ("  Menu items:\n");
 
@@ -42,10 +42,14 @@ enumerate_menu (int device_file_h_,
 }
 
 
-	Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
-: mode_(_mode), device_(_device),
-	motion_threshold_luminance_(100), motion_threshold_count(-1),
-	width_(_width), height_(_height), fps_(_fps), rgb_frame_(NULL)
+Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
+:   mode_(_mode), device_(_device),
+	motion_threshold_luminance_(100), 
+    motion_threshold_count(-1),
+	width_(_width), 
+    height_(_height), 
+    fps_(_fps), 
+    rgb_frame_(NULL)
 {
 	//enumerate();
 
