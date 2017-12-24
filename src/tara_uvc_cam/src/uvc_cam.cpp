@@ -16,6 +16,7 @@
 #include <iostream>
 #include <limits>
 #include "uvc_cam/uvc_cam.h"
+#include <boost/timer/timer.hpp>
 
 using std::string;
 using namespace uvc_cam;
