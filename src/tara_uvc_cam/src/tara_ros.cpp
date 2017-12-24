@@ -19,10 +19,14 @@ namespace uvc_camera {
 
 	IMUDATAINPUT_TypeDef lIMUInput;
 
-
 	taraCamera::taraCamera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :
-		node(_comm_nh), pnode(_param_nh), it(_comm_nh),
-		info_mgr_left(_comm_nh, "cameraLeft"), info_mgr_right(_comm_nh, "cameraRight"), cam(0) {
+		node(_comm_nh), 
+        pnode(_param_nh), 
+        it(_comm_nh),
+		info_mgr_left(_comm_nh, "cameraLeft"), 
+        info_mgr_right(_comm_nh, "cameraRight"), 
+        cam(0) 
+    {
 
 			/* default config values */
 			width = 640;
@@ -151,18 +155,18 @@ namespace uvc_camera {
 				pnode.getParam("time_topic", time_topic);
 				time_sub = node.subscribe("time_topic", 1, &taraCamera::timeCb, this );
 
-				exposure_sub = node.subscribe ("set_exposure", 1, &taraCamera::callBackExposure, this);
-				brightness_sub = node.subscribe ("set_brightness", 1, &taraCamera::callBackBrightness, this);
+				// exposure_sub = node.subscribe ("set_exposure", 1, &taraCamera::callBackExposure, this);
+				// brightness_sub = node.subscribe ("set_brightness", 1, &taraCamera::callBackBrightness, this);
 
-				IMU_pub = node.advertise<sensor_msgs::Imu>("get_IMU", 1, true);
-				IMU_inclination_pub = node.advertise<geometry_msgs::Point>("get_inclination", 1, true);
-				IMU_thread = boost::thread(boost::bind(&taraCamera::IMU_enable, this));
+				// IMU_pub = node.advertise<sensor_msgs::Imu>("get_IMU", 1, true);
+				// IMU_inclination_pub = node.advertise<geometry_msgs::Point>("get_inclination", 1, true);
+				// IMU_thread = boost::thread(boost::bind(&taraCamera::IMU_enable, this));
 			}
 		}
 	
 	void taraCamera::callBackExposure (std_msgs::Float64 call_exposure_msg)
 	{
-		DisableIMU();
+		// DisableIMU();
 		exposure_value=(float)call_exposure_msg.data;
 		returnValue = SetManualExposureValue_Stereo( exposure_value); 
 		if (true == returnValue)
@@ -185,16 +189,16 @@ namespace uvc_camera {
 
 		exposure_pub.publish( call_exposure_msg );
 
-		SetIMUConfigDefaultEnable ();
-		if (GetIMUValueBuffer_write() == false )
-		{
-			cout <<"GetIMUValueBuffer_write failed" << endl;
-		}
+		// SetIMUConfigDefaultEnable ();
+		// if (GetIMUValueBuffer_write() == false )
+		// {
+		// 	cout <<"GetIMUValueBuffer_write failed" << endl;
+		// }
 	}
 	
 	void taraCamera::callBackBrightness (std_msgs::Float64 call_brightness_msg)
 	{
-		DisableIMU();
+		// DisableIMU();
 		brightness_value=(float)call_brightness_msg.data;
 		returnValue = cam -> set_control( V4L2_CID_BRIGHTNESS ,brightness_value); 
 		if (true == returnValue)
@@ -215,11 +219,11 @@ namespace uvc_camera {
 			printf ("Error while getting brightness\n");
 		}
 		brightness_pub.publish( call_brightness_msg );
-		SetIMUConfigDefaultEnable ();
-		if (GetIMUValueBuffer_write() == false )
-		{
-			cout <<"GetIMUValueBuffer_write failed" << endl;
-		}
+		// SetIMUConfigDefaultEnable ();
+		// if (GetIMUValueBuffer_write() == false )
+		// {
+		// 	cout <<"GetIMUValueBuffer_write failed" << endl;
+		// }
 	}
 	
 	void taraCamera::sendInfoRight(ImagePtr &image, ros::Time time) {
@@ -362,11 +366,11 @@ namespace uvc_camera {
 		{
 			ok = false;
 			image_thread.join();
-			DisableIMU();
+			// DisableIMU();
 
 			//Freeing the memory
-			free(lIMUOutput);
-			IMU_thread.join();
+			// free(lIMUOutput);
+			// IMU_thread.join();
 		}
 		if (cam) delete cam;
 	}

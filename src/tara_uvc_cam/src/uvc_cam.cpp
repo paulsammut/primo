@@ -537,10 +537,10 @@ int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char *
 	timeout.tv_sec = 1;
 	timeout.tv_usec = 0;
 	bytes_used = 0;
-    boost::timer::cpu_timer timer1;
+    // boost::timer::cpu_timer timer1;
 	ret = select(device_file_h_ + 1, &rdset, NULL, NULL, &timeout);
     
-    printf(timer1.format().c_str());
+    // printf(timer1.format().c_str());
 	if (ret == 0)
 	{
 		printf("select timeout in grab\n");
