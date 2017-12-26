@@ -355,6 +355,7 @@
       <child link="stereo0_corrected_link"/>
     </joint>
 
+
   </xacro:macro>
 
   <!-- stereo1 cam macro -->
