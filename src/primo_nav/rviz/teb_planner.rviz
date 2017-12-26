@@ -5,6 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /RobotModel1
+        - /RobotModel1/Links1
+        - /RobotModel1/Links1/stereo0_end_link1
         - /Frontier1/Explore costmap1
         - /Frontier1/Frontiers1
         - /Lanes1
@@ -57,6 +60,78 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chassis_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo0_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo0_end_link:
+          Alpha: 1
+          Show Axes: true
+          Show Trail: false
+          Value: true
+        stereo0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo0_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo0_roll_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo0_yaw_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo1_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tail_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tail_wheel_block:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -66,8 +141,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: -0.158129454
-        Min Value: -0.27385819
+        Max Value: 0.824463129
+        Min Value: -0.0166312456
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -75,7 +150,7 @@ Visualization Manager:
       Color: 85; 255; 127
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -92,12 +167,12 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 1.49875021
-        Min Value: -0.23371017
+        Max Value: 1.10441887
+        Min Value: 0.0143553019
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -396,25 +471,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 5.65807152
+      Distance: 3.9585731
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 3.00965118
-        Y: -1.51552773
-        Z: 1.13470401e-06
+        X: -0.368570805
+        Y: 0.469133377
+        Z: 8.96285428e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.759797215
+      Pitch: 0.554797351
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 3.78101897
+      Yaw: 2.08420873
     Saved: ~
 Window Geometry:
   Displays:
