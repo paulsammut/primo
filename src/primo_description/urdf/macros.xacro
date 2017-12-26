@@ -254,6 +254,86 @@
 
   </xacro:macro>
 
+  <!-- stereo0 joint test macro -->
+  <xacro:macro name="m_stereo0_joint_test">
+    <link name="stereo0_link">
+      <!-- this name is required for the point cloud -->
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+      <inertial>
+        <mass value="${stereocamMass}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia 
+            ixx="1e-6" ixy="0" ixz="0" 
+            iyy="1e-6" iyz="0" 
+            izz="1e-6"/>
+      </inertial>
+    </link>
+
+    <!-- Joint links -->
+    <link name="stereo0_roll_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+    <link name="stereo0_pitch_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+    </link>
+    <link name="stereo0_yaw_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <joint name="stereo0_joint" type="fixed">
+      <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
+      <origin xyz="-.02 .01 1.81" rpy="-2.72 0.1 -1.570796"/>
+      <parent link="chassis_link"/>
+      <child link="stereo0_link"/>
+    </joint>
+
+    <link name="stereo0_corrected_link">
+      <inertial>
+        <mass value="0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia 
+            ixx="1e-6" ixy="0" ixz="0" 
+            iyy="1e-6" iyz="0" 
+            izz="1e-6"/>
+      </inertial>
+    </link>
+
+    <joint name="stereo0_corrected_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
+      <parent link="stereo0_link"/>
+      <child link="stereo0_corrected_link"/>
+    </joint>
+
+
+  </xacro:macro>
+
   <!-- stereo1 cam macro -->
   <xacro:macro name="m_stereo1">
     <link name="stereo1_link">
