@@ -251,7 +251,6 @@
       <child link="stereo0_corrected_link"/>
     </joint>
 
-
   </xacro:macro>
 
   <!-- stereo0 joint test macro -->
@@ -307,13 +306,35 @@
         </visual>
     </link>
 
-    <joint name="stereo0_joint" type="fixed">
-      <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
-      <origin xyz="-.02 .01 1.81" rpy="-2.72 0.1 -1.570796"/>
-      <parent link="chassis_link"/>
-      <child link="stereo0_link"/>
+    <!-- Joint test joints -->
+    <joint name="stereo0_joint_test_anchor" type="fixed">
+        <origin xyz="-.02 .01 1.81" rpy="0 0 0"/>
+        <parent link="chassis_link"/>
+        <child link="stere0_roll_link"/>
     </joint>
 
+    <!-- Roll joint -->
+    <joint name="stereo0_joint_test_roll" type="continuous">
+        <origin xyz="1 0 0" rpy="0 0 0"/>
+        <parent link="stereo0_roll_link"/>
+        <child link="stere0_pitch_link"/>
+    </joint>
+
+    <!-- Pitch joint -->
+    <joint name="stereo0_joint_test_pitch" type="continuous">
+        <origin xyz="0 1 0" rpy="0 0 0"/>
+        <parent link="stere0_pitch_link"/>
+        <child link="stere0_yaw_link"/>
+    </joint>
+
+    <!-- Yaw joint -->
+    <joint name="stereo0_joint_test_yaw" type="continuous">
+        <origin xyz="0 0 1" rpy="0 0 0"/>
+        <parent link="stere0_yaw_link"/>
+        <child link="stereo0_link"/>
+    </joint>
+
+    <!-- Corrected link for gazebo -->
     <link name="stereo0_corrected_link">
       <inertial>
         <mass value="0"/>
