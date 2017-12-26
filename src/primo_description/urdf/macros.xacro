@@ -228,7 +228,7 @@
     </link>
 
     <joint name="stereo0_joint" type="fixed">
-        <origin xyz="-.02 .01 1.81" rpy="0.54 2.82 -2.44"/>
+        <origin xyz="-.03 .20 1.81" rpy="-2.539 0.128 -0.754"/>
         <parent link="chassis_link"/>
         <child link="stereo0_link"/>
     </joint>
@@ -291,14 +291,14 @@
 
     <!-- Joint test joints -->
     <joint name="stereo0_joint_test_anchor" type="fixed">
-        <origin xyz="-.02 .01 1.81" rpy="0 0 0"/>
+        <origin xyz="-.03 .20 1.81" rpy="0 0 0"/>
         <parent link="chassis_link"/>
         <child link="stereo0_roll_link"/>
     </joint>
 
     <!-- Roll joint -->
     <joint name="stereo0_joint_test_roll" type="continuous">
-        <origin xyz="1 0 0"/>
+        <origin xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
         <parent link="stereo0_roll_link"/>
         <child link="stereo0_pitch_link"/>
@@ -306,7 +306,7 @@
 
     <!-- Pitch joint -->
     <joint name="stereo0_joint_test_pitch" type="continuous">
-        <origin xyz="1 0 0"/>
+        <origin xyz="0 0 0"/>
         <axis xyz="0 1 0"/>
         <parent link="stereo0_pitch_link"/>
         <child link="stereo0_yaw_link"/>
@@ -314,7 +314,7 @@
 
     <!-- Yaw joint -->
     <joint name="stereo0_joint_test_yaw" type="continuous">
-        <origin xyz="1 0 0"/>
+        <origin xyz="0 0 0"/>
         <axis xyz="0 0 1"/>
         <parent link="stereo0_yaw_link"/>
         <child link="stereo0_end_link"/>
