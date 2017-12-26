@@ -228,7 +228,7 @@
     </link>
 
     <joint name="stereo0_joint" type="fixed">
-        <origin xyz="-.03 .20 1.81" rpy="-2.539 0.128 -0.754"/>
+        <origin xyz="-.03 .20 1.6" rpy="-2.537 -0.197 -0.701"/>
         <parent link="chassis_link"/>
         <child link="stereo0_link"/>
     </joint>
