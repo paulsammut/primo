@@ -13,7 +13,8 @@
   <xacro:m_sim_tail/>
 
   <!-- Sensor suite -->
-  <xacro:m_stereo0/>
+  <!-- <xacro:m_stereo0/> -->
+  <xacro:m_stereo0_joint_test/>
   <xacro:m_stereo1/>
   <xacro:m_imu/>
 
