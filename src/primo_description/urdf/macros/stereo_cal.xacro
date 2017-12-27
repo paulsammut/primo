@@ -70,22 +70,28 @@
         <xacro:m_cal_link name="yaw" color="blue"/>
 
         <!-- Joint test joints -->
-        <joint name="stereo${num}_cal_x_joint" type="continuous">
+        <joint name="stereo${num}_cal_x_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
             <parent link="chassis_link"/>
             <child link="stereo${num}_x_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
         </joint>
 
-        <joint name="stereo${num}_cal_y_joint" type="continuous">
+        <joint name="stereo${num}_cal_y_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
             <parent link="stereo${num}_x_link"/>
             <child link="stereo${num}_y_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
         </joint>
 
-        <joint name="stereo${num}_cal_z_joint" type="continuous">
+        <joint name="stereo${num}_cal_z_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
             <parent link="stereo${num}_y_link"/>
             <child link="stereo${num}_z_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
         </joint>
 
 
