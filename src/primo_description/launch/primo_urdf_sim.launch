@@ -14,7 +14,7 @@
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
-        <param name="use_tf_static" value="false"/> 
+        <param name="use_tf_static" value="true"/> 
     </node>
 
 </launch>
