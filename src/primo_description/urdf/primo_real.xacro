@@ -11,6 +11,8 @@
 
   <!-- Sensor suite -->
   <xacro:include filename="$(find primo_description)/urdf/stereo_suite.xacro"/>
+  
   <xacro:include filename="$(find primo_description)/urdf/imu.xacro"/>
+  <xacro:m_imu/>
 
 </robot>
