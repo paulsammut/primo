@@ -34,6 +34,8 @@
 
     <!-- stereo${num} joint test macro -->
     <xacro:macro name="m_stereo_cal" params="num">
+
+        <!-- Stereo cam link -->
         <link name="stereo${num}_link">
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -63,21 +65,24 @@
         <xacro:m_cal_link name="x" color="red"/>
         <xacro:m_cal_link name="y" color="green"/>
         <xacro:m_cal_link name="z" color="blue"/>
+        <xacro:m_cal_link name="roll" color="red"/>
+        <xacro:m_cal_link name="pitch" color="green"/>
+        <xacro:m_cal_link name="yaw" color="blue"/>
 
         <!-- Joint test joints -->
-        <joint name="stereo${num}_x_joint" type="continuous">
+        <joint name="stereo${num}_cal_x_joint" type="continuous">
             <axis xyz="1 0 0"/>
             <parent link="chassis_link"/>
             <child link="stereo${num}_x_link"/>
         </joint>
 
-        <joint name="stereo${num}_y_joint" type="continuous">
+        <joint name="stereo${num}_cal_y_joint" type="continuous">
             <axis xyz="0 1 0"/>
             <parent link="stereo${num}_x_link"/>
             <child link="stereo${num}_y_link"/>
         </joint>
 
-        <joint name="stereo${num}_z_joint" type="continuous">
+        <joint name="stereo${num}_cal_z_joint" type="continuous">
             <axis xyz="0 0 1"/>
             <parent link="stereo${num}_y_link"/>
             <child link="stereo${num}_z_link"/>
@@ -85,25 +90,32 @@
 
 
         <!-- Roll joint -->
-        <joint name="stereo${num}_joint_test_yaw" type="continuous">
+        <joint name="stereo${num}_cal_yaw_joint" type="continuous">
             <origin xyz="0 0 0"/>
             <axis xyz="0 0 1"/>
+            <parent link="stereo${num}_z_link"/>
+            <child link="stereo${num}_yaw_link"/>
+        </joint>
+
+        <!-- Pitch joint -->
+        <joint name="stereo${num}_cal_pitch_joint" type="continuous">
+            <origin xyz="0 0 0"/>
+            <axis xyz="0 1 0"/>
             <parent link="stereo${num}_yaw_link"/>
             <child link="stereo${num}_pitch_link"/>
         </joint>
 
-        <!-- Pitch joint -->
-        <joint name="stereo${num}_joint_test_pitch" type="continuous">
+        <!-- Yaw joint -->
+        <joint name="stereo${num}_cal_roll_joint" type="continuous">
             <origin xyz="0 0 0"/>
-            <axis xyz="0 1 0"/>
+            <axis xyz="1 0 0"/>
             <parent link="stereo${num}_pitch_link"/>
             <child link="stereo${num}_roll_link"/>
         </joint>
 
-        <!-- Yaw joint -->
-        <joint name="stereo${num}_joint_test_roll" type="continuous">
+        <!-- Final connection -->
+        <joint name="stereo${num}_cal_con_joint" type="fixed">
             <origin xyz="0 0 0"/>
-            <axis xyz="1 0 0"/>
             <parent link="stereo${num}_roll_link"/>
             <child link="stereo${num}_link"/>
         </joint>
