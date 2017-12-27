@@ -32,4 +32,5 @@
             <child link="imu_link"/>
         </joint>
     </xacro:macro>
+
 </robot>

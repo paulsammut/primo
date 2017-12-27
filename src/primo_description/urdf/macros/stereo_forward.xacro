@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="seecamSize" value="0.05"/>
+    <xacro:property name="seecamMass" value="0.1"/>
+
+    <!-- seecam1 macro -->
+    <xacro:macro name="m_seecam1">
+        <link name="link_seecam1">
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${seecamSize} ${seecamSize} ${seecamSize}"/>
+                </geometry>
+                <material name="green"/>
+            </visual>
+            <inertial>
+                <mass value="${seecamMass}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <box_inertia m="${seecamMass}" x="${seecamSize}" y="${seecamSize}" z="${seecamSize}"/>
+                <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+            </inertial>
+        </link>
+        <joint name="seecam1_joint" type="fixed">
+            <axis xyz="0 1 0"/>
+            <origin xyz="-.113 -.139 1.212" rpy="0 0 0"/>
+            <parent link="chassis_link"/>
+            <child link="link_seecam1"/>
+        </joint>
+    </xacro:macro>
+
+</robot>
