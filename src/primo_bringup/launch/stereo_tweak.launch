@@ -20,8 +20,10 @@
         <param name="image" value="/stereo0/disparity"/>
     </node>
 
-    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" />
-
-    <include file="$(find primo_rtabmap)/launch/rtab_master.launch"/>
+    <!-- Play a rosbag -->
+    <arg name="path" default="/home/paul/primo_data/"/>
+    <arg name="file" default="2017-12-26-14-29-44.bag"/>
+    <node pkg="rosbag" type="play" name="bag_play" output="screen"
+        args="--clock -l $(arg path)$(arg file)"/>
 
 </launch>
