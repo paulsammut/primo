@@ -10,8 +10,7 @@
   <xacro:m_wheel lr="right" reflect="-1"/>
 
   <!-- Sensor suite -->
-  <xacro:m_stereo0/>
-  <xacro:m_stereo1/>
-  <xacro:m_imu/>
+  <xacro:include filename="$(find primo_description)/urdf/stereo_suite.xacro"/>
+  <xacro:include filename="$(find primo_description)/urdf/imu.xacro"/>
 
 </robot>

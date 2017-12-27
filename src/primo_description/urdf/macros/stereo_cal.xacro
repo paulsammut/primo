@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
     <!-- parameters -->
     <xacro:property name="seecamSize" value="0.05"/>
     <xacro:property name="seecamMass" value="0.1"/>
     <xacro:property name="stereocamSize" value="0.05"/>
     <xacro:property name="stereocamMass" value="0.1"/>
-    <!-- stereo1 joint test macro -->
 
+    <!-- stereo1 joint test macro -->
     <xacro:macro name="m_stereo1_cal">
         <link name="stereo1_link">
             <!-- this name is required for the point cloud -->

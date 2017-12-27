@@ -5,9 +5,10 @@
     <xacro:property name="stereocamMass" value="0.1"/>
 
     <!-- stereo cam macro -->
-    <xacro:macro name="m_stereo" params="num">
+    <xacro:macro name="m_stereo" params="num x y z r p y">
+
+        <!-- this name is required for the point cloud -->
         <link name="stereo${num}_link">
-            <!-- this name is required for the point cloud -->
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
@@ -31,13 +32,14 @@
             </inertial>
         </link>
 
+        <!-- The stereo joint -->
         <joint name="stereo${num}_joint" type="fixed">
             <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${y}"/>
-            <origin xyz="-.04 .20 1.6" rpy="-2.895 -0.093 -0.637"/>
             <parent link="chassis_link"/>
             <child link="stereo${num}_link"/>
         </joint>
 
+        <!-- The corrected link for gazebo -->
         <link name="stereo${num}_corrected_link">
             <inertial>
                 <mass value="0"/>
@@ -53,60 +55,6 @@
             <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
             <parent link="stereo${num}_link"/>
             <child link="stereo${num}_corrected_link"/>
-        </joint>
-
-    </xacro:macro>
-
-    <!-- stereo1 cam macro -->
-    <xacro:macro name="m_stereo1">
-        <link name="stereo1_link">
-            <!-- this name is required for the point cloud -->
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
-                </geometry>
-            </collision>
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <box size="${stereocamSize} ${stereocamSize} ${stereocamSize}"/>
-                </geometry>
-                <material name="red"/>
-            </visual>
-            <inertial>
-                <mass value="${stereocamMass}"/>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <inertia 
-                    ixx="1e-6" ixy="0" ixz="0" 
-                    iyy="1e-6" iyz="0" 
-                    izz="1e-6"/>
-            </inertial>
-        </link>
-
-        <joint name="stereo1_joint" type="fixed">
-            <origin xyz="-.04 .20 1.6" rpy="-2.895 -0.093 -0.637"/>
-            <!-- <origin xyz="&#45;.06 .210 1.87" rpy="&#45;2.0 0 &#45;1.570796"/> -->
-            <parent link="chassis_link"/>
-            <child link="stereo1_link"/>
-        </joint>
-
-        <!-- Corrected Link for Gazebo -->
-        <link name="stereo1_corrected_link">
-            <inertial>
-                <mass value="0"/>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <inertia 
-                    ixx="1e-6" ixy="0" ixz="0" 
-                    iyy="1e-6" iyz="0" 
-                    izz="1e-6"/>
-            </inertial>
-        </link>
-
-        <joint name="stereo1_corrected_joint" type="fixed">
-            <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
-            <parent link="stereo1_link"/>
-            <child link="stereo1_corrected_link"/>
         </joint>
 
     </xacro:macro>
