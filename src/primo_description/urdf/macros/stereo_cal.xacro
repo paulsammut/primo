@@ -119,5 +119,24 @@
             <parent link="stereo${num}_roll_link"/>
             <child link="stereo${num}_link"/>
         </joint>
+
+        <!-- The corrected link for gazebo -->
+        <link name="stereo${num}_corrected_link">
+            <inertial>
+                <mass value="0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia 
+                    ixx="1e-6" ixy="0" ixz="0" 
+                    iyy="1e-6" iyz="0" 
+                    izz="1e-6"/>
+            </inertial>
+        </link>
+
+        <joint name="stereo${num}_corrected_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
+            <parent link="stereo${num}_link"/>
+            <child link="stereo${num}_corrected_link"/>
+        </joint>
+
     </xacro:macro>
 </robot>
