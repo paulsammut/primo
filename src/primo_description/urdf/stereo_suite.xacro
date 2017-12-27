@@ -3,7 +3,10 @@
 
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_taras.xacro"/>
 
-    <xacro:m_stereo num="0" x="-0.04" y="0.20" z="1.60" roll="-2.895" pitch="-0.093" yaw="-0.637"/>
-    <xacro:m_stereo num="1" x="-0.04" y="0.20" z="1.60" roll="-2.895" pitch="-0.093" yaw="-0.637"/>
+    <!-- <xacro:m_stereo num="0" x="&#45;0.04" y="0.20" z="1.60" roll="&#45;2.895" pitch="&#45;0.093" yaw="&#45;0.637"/> -->
+    <!-- <xacro:m_stereo num="1" x="&#45;0.04" y="0.20" z="1.60" roll="&#45;2.895" pitch="&#45;0.093" yaw="&#45;0.637"/> -->
+
+    <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
+    <xacro:m_stereo_cal num="1"/>
 
 </robot>
