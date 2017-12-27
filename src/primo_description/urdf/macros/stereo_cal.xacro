@@ -96,33 +96,33 @@
 
 
         <!-- Roll joint -->
-        <joint name="stereo${num}_cal_yaw_joint" type="continuous">
+        <joint name="stereo${num}_cal_roll_joint" type="continuous">
             <origin xyz="0 0 0"/>
-            <axis xyz="0 0 1"/>
+            <axis xyz="1 0 0"/>
             <parent link="stereo${num}_z_link"/>
-            <child link="stereo${num}_yaw_link"/>
+            <child link="stereo${num}_roll_link"/>
         </joint>
 
         <!-- Pitch joint -->
         <joint name="stereo${num}_cal_pitch_joint" type="continuous">
             <origin xyz="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <parent link="stereo${num}_yaw_link"/>
+            <parent link="stereo${num}_roll_link"/>
             <child link="stereo${num}_pitch_link"/>
         </joint>
 
         <!-- Yaw joint -->
-        <joint name="stereo${num}_cal_roll_joint" type="continuous">
+        <joint name="stereo${num}_cal_yaw_joint" type="continuous">
             <origin xyz="0 0 0"/>
-            <axis xyz="1 0 0"/>
+            <axis xyz="0 0 1"/>
             <parent link="stereo${num}_pitch_link"/>
-            <child link="stereo${num}_roll_link"/>
+            <child link="stereo${num}_yaw_link"/>
         </joint>
 
         <!-- Final connection -->
         <joint name="stereo${num}_cal_con_joint" type="fixed">
             <origin xyz="0 0 0"/>
-            <parent link="stereo${num}_roll_link"/>
+            <parent link="stereo${num}_yaw_link"/>
             <child link="stereo${num}_link"/>
         </joint>
 
