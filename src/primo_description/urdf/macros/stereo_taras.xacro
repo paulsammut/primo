@@ -5,7 +5,7 @@
     <xacro:property name="stereocamMass" value="0.1"/>
 
     <!-- stereo cam macro -->
-    <xacro:macro name="m_stereo" params="num x y z r p y">
+    <xacro:macro name="m_stereo" params="num x y z roll pitch yaw">
 
         <!-- this name is required for the point cloud -->
         <link name="stereo${num}_link">
@@ -34,7 +34,7 @@
 
         <!-- The stereo joint -->
         <joint name="stereo${num}_joint" type="fixed">
-            <origin xyz="${x} ${y} ${z}" rpy="${r} ${p} ${y}"/>
+            <origin xyz="${x} ${y} ${z}" rpy="${roll} ${pitch} ${yaw}"/>
             <parent link="chassis_link"/>
             <child link="stereo${num}_link"/>
         </joint>
