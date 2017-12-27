@@ -228,7 +228,7 @@
     </link>
 
     <joint name="stereo0_joint" type="fixed">
-        <origin xyz="-.03 .20 1.6" rpy="-2.895 -0.093 -0.637"/>
+        <origin xyz="-.04 .20 1.6" rpy="-2.895 -0.093 -0.637"/>
         <parent link="chassis_link"/>
         <child link="stereo0_link"/>
     </joint>
@@ -351,10 +351,10 @@
     </link>
 
     <joint name="stereo1_joint" type="fixed">
-      <!-- origin xyz=".1 -.10 1.143" rpy="-1.570796 0 -1.570796"/-->
-      <origin xyz="-.06 .210 1.87" rpy="-2.0 0 -1.570796"/>
-      <parent link="chassis_link"/>
-      <child link="stereo1_link"/>
+        <origin xyz="-.04 .20 1.6" rpy="-2.895 -0.093 -0.637"/>
+        <!-- <origin xyz="&#45;.06 .210 1.87" rpy="&#45;2.0 0 &#45;1.570796"/> -->
+        <parent link="chassis_link"/>
+        <child link="stereo1_link"/>
     </joint>
 
     <link name="stereo1_corrected_link">
