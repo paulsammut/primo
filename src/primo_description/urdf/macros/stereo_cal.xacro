@@ -7,10 +7,22 @@
     <xacro:property name="stereocamSize" value="0.05"/>
     <xacro:property name="stereocamMass" value="0.1"/>
 
-    <!-- stereo1 joint test macro -->
-    <xacro:macro name="m_stereo1_cal">
-        <link name="stereo1_link">
-            <!-- this name is required for the point cloud -->
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <!-- stereo${num} joint test macro -->
+    <xacro:macro name="m_stereo_cal" params="num">
+        <link name="stereo${num}_link">
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
@@ -35,7 +47,7 @@
         </link>
 
         <!-- Joint links -->
-        <link name="stereo1_roll_link">
+        <link name="stereo${num}_x_link">
             <visual>
                 <geometry>
                     <box size="0.1 0.1 0.1"/>
@@ -43,7 +55,7 @@
                 <material name="red"/>
             </visual>
         </link>
-        <link name="stereo1_pitch_link">
+        <link name="stereo${num}_y_link">
             <visual>
                 <geometry>
                     <box size="0.1 0.1 0.1"/>
@@ -51,7 +63,31 @@
                 <material name="green"/>
             </visual>
         </link>
-        <link name="stereo1_yaw_link">
+        <link name="stereo${num}_z_link">
+            <visual>
+                <geometry>
+                    <box size="0.1 0.1 0.1"/>
+                </geometry>
+                <material name="blue"/>
+            </visual>
+        </link>
+        <link name="stereo${num}_roll_link">
+            <visual>
+                <geometry>
+                    <box size="0.1 0.1 0.1"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+        </link>
+        <link name="stereo${num}_pitch_link">
+            <visual>
+                <geometry>
+                    <box size="0.1 0.1 0.1"/>
+                </geometry>
+                <material name="green"/>
+            </visual>
+        </link>
+        <link name="stereo${num}_yaw_link">
             <visual>
                 <geometry>
                     <box size="0.1 0.1 0.1"/>
@@ -61,35 +97,36 @@
         </link>
 
         <!-- Joint test joints -->
-        <joint name="stereo1_joint_test_anchor" type="fixed">
+        <joint name="stereo${num}_x_joint" type="continuous">
             <origin xyz="-.03 .20 1.81" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
             <parent link="chassis_link"/>
-            <child link="stereo1_yaw_link"/>
+            <child link="stereo${num}_yaw_link"/>
         </joint>
 
         <!-- Roll joint -->
-        <joint name="stereo1_joint_test_yaw" type="continuous">
+        <joint name="stereo${num}_joint_test_yaw" type="continuous">
             <origin xyz="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <parent link="stereo1_yaw_link"/>
-            <child link="stereo1_pitch_link"/>
+            <parent link="stereo${num}_yaw_link"/>
+            <child link="stereo${num}_pitch_link"/>
         </joint>
 
         <!-- Pitch joint -->
-        <joint name="stereo1_joint_test_pitch" type="continuous">
+        <joint name="stereo${num}_joint_test_pitch" type="continuous">
             <origin xyz="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <parent link="stereo1_pitch_link"/>
-            <child link="stereo1_roll_link"/>
+            <parent link="stereo${num}_pitch_link"/>
+            <child link="stereo${num}_roll_link"/>
         </joint>
 
         <!-- Yaw joint -->
-        <joint name="stereo1_joint_test_roll" type="continuous">
+        <joint name="stereo${num}_joint_test_roll" type="continuous">
             <origin xyz="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <parent link="stereo1_roll_link"/>
-            <!-- <child link="stereo1_end_link"/> -->
-            <child link="stereo1_link"/>
+            <parent link="stereo${num}_roll_link"/>
+            <!-- <child link="stereo${num}_end_link"/> -->
+            <child link="stereo${num}_link"/>
         </joint>
     </xacro:macro>
 </robot>
