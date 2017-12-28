@@ -11,8 +11,6 @@
     <arg name="x_neg"           default="-1"/>
     <arg name="y_pos"           default="1"/>
     <arg name="y_neg"           default="-1"/>
-    <arg name="z_pos"           default="1"/>
-    <arg name="z_neg"           default="-1"/>
 
     <!-- Run a passthrough filter to delimit in x direction -->
     <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
@@ -33,17 +31,6 @@
                 filter_field_name: y
                 filter_limit_min: $(arg y_pos)
                 filter_limit_max: $(arg y_neg)
-        </rosparam>
-    </node>
-
-    <!-- Run a passthrough filter to delimit in z direction -->
-    <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
-        <remap from="~input" to="psy/output" />
-        <rosparam>
-                input_frame: base_link
-                filter_field_name: z
-                filter_limit_min: $(arg z_pos)
-                filter_limit_max: $(arg z_neg)
         </rosparam>
     </node>
 
