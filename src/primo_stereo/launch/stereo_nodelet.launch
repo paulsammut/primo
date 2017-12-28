@@ -8,7 +8,12 @@
         didn't have to do this. 
     -->
 
-    <arg name="nodelet_manager"     default="nodelet_manager" />
+    <!-- 
+         We have this whole node_space issue because we need a globally
+         qualified nodelet_manager name for this to work. This will created a nodelet
+         manager called $(arg node_space)/nodelet_manager
+    -->
+    <arg name="node_space"          default="" />
     <arg name="respawn"             default="false"/>
 
     <arg name="left"                value="left" />
@@ -22,7 +27,7 @@
 
     <!-- Throttle the data coming from ucv_cam-->
     <node pkg="nodelet" type="nodelet" name="stereo_throttle" 
-        args="load rtabmap_ros/stereo_throttle $(arg manager)">
+        args="load rtabmap_ros/stereo_throttle $(arg node_space)/nodelet_manager">
 
         <remap from="left/image"        to="left/image_raw"/>
         <remap from="right/image"       to="right/image_raw"/>
@@ -44,19 +49,19 @@
         <!-- Debayered images -->
         <group ns="left">
             <node pkg="nodelet" type="nodelet" name="debayer"
-                args="load image_proc/debayer $(arg manager) $(arg bond)"
+                args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
             </node>
 
             <!-- Monochrome rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_mono"
-                args="load image_proc/rectify $(arg manager) $(arg bond)"
+                args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
             </node>
 
             <!-- Color rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_color"
-                args="load image_proc/rectify $(arg manager) $(arg bond)"
+                args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)">
 
                 <remap from="image_mono" to="image_color" />
@@ -69,17 +74,17 @@
         <!-- Debayered images -->
         <group ns="right">
             <node pkg="nodelet" type="nodelet" name="debayer"
-                args="load image_proc/debayer $(arg manager) $(arg bond)"
+                args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" />
 
             <!-- Monochrome rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_mono"
-                args="load image_proc/rectify $(arg manager) $(arg bond)"
+                args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" />
 
             <!-- Color rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_color"
-                args="load image_proc/rectify $(arg manager) $(arg bond)"
+                args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)">
 
                 <remap from="image_mono" to="image_color" />
@@ -90,14 +95,14 @@
 
         <!-- Disparity image -->
         <node pkg="nodelet" type="nodelet" name="disparity"
-            args="load stereo_image_proc/disparity $(arg manager) $(arg bond)"
+            args="load stereo_image_proc/disparity $(arg node_space)/nodelet_manager $(arg bond)"
             respawn="$(arg respawn)" >
             <param name="disparity_range" value="128"/>
         </node>
 
         <!-- PointCloud2 -->
         <node pkg="nodelet" type="nodelet" name="point_cloud2"
-            args="load stereo_image_proc/point_cloud2 $(arg manager) $(arg bond)"
+            args="load stereo_image_proc/point_cloud2 $(arg node_space)/nodelet_manager $(arg bond)"
             respawn="$(arg respawn)" >
         </node>
 
