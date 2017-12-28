@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+
+    <!-- Copied from this post:
+         https://answers.ros.org/question/10121/point-cloud-box-filtering/
+    -->
+
     <arg name="nodelet_manager"  />
+    <arg name="points_topic"    default="/points2"/>
     <arg name="x_pos"           default="1"/>
     <arg name="x_neg"           default="-1"/>
     <arg name="y_pos"           default="1"/>
@@ -9,24 +15,36 @@
     <arg name="z_neg"           default="-1"/>
 
     <!-- Run a passthrough filter to delimit in x direction -->
-    <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough stereo1_nodelet_manager" output="screen">
-        <remap from="~input" to="/stereo1/points2" />
+    <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
+        <remap from="~input" to="$(arg points_topic)" />
         <rosparam>
                 input_frame: base_link
                 filter_field_name: x
-                filter_limit_min: -0.5
-                filter_limit_max: 0.4
+                filter_limit_min: $(arg x_pos)
+                filter_limit_max: $(arg x_neg)
         </rosparam>
     </node>
 
-    <!-- Run a passthrough filter to delimit in x direction -->
-    <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough stereo1_nodelet_manager" output="screen">
-        <remap from="~input" to="/stereo1/points2" />
+    <!-- Run a passthrough filter to delimit in y direction -->
+    <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
+        <remap from="~input" to="psx/output" />
         <rosparam>
                 input_frame: base_link
-                filter_field_name: x
-                filter_limit_min: -0.5
-                filter_limit_max: 0.4
+                filter_field_name: y
+                filter_limit_min: $(arg y_pos)
+                filter_limit_max: $(arg y_neg)
         </rosparam>
     </node>
+
+    <!-- Run a passthrough filter to delimit in z direction -->
+    <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
+        <remap from="~input" to="psy/output" />
+        <rosparam>
+                input_frame: base_link
+                filter_field_name: z
+                filter_limit_min: $(arg z_pos)
+                filter_limit_max: $(arg z_neg)
+        </rosparam>
+    </node>
+
 </launch>
