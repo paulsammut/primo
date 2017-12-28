@@ -11,7 +11,7 @@
     <arg name="stereo_ns"   />
 
     <group ns="$(arg stereo_ns)">
-        <arg name="manager" value="/stereo0/nodelet_manager"/>
+        <arg name="manager" value="$(arg stereo_ns)/nodelet_manager"/>
         <arg name="respawn" value="false"/>
         <arg name="left" value="left" />
         <arg name="right" value="right" />

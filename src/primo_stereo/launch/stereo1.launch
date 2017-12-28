@@ -19,24 +19,20 @@
         </node>
     </group>
 
-    <group ns="/stereo1">
-        <node pkg="nodelet" type="nodelet" name="stereo1_nodelet_manager" args="manager" output="screen"/>
+    <!-- <node ns="/stereo1" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc"/> -->
 
-        <include file="$(find stereo_image_proc)/launch/stereo_image_proc.launch">
-            <arg name="manager"     value="/stereo1/stereo1_nodelet_manager"/>
-        </include>
+    <include file="$(find primo_stereo)/launch/stereo_nodelet.launch">
+        <param name="stereo_ns"     value="/stereo1"/>
+    </include>
 
-        <!-- Run a passthrough filter to delimit in x direction -->
-        <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough stereo1_nodelet_manager" output="screen">
-            <remap from="~input" to="/stereo1/points2" />
-            <rosparam>
-                input_frame: base_link
-                filter_field_name: x
-                filter_limit_min: -.8
-                filter_limit_max: 0.5
-            </rosparam>
-        </node>
-    </group>
+    <include file="$(find primo_stereo)/launch/filter_box.launch">
+        <param name="nodelet_manager" value="/stereo1/nodelet_manager"/>
+        <param name="points_topic"    value="/points2"/>
+        <param name="x_pos"           value="0.4"/>
+        <param name="x_neg"           value="-0.5"/>
+        <param name="y_pos"           value="0.36"/>
+        <param name="y_neg"           value="-0.36"/>
+    </include>
 
     <!-- <node name="record_topics_for_verification" pkg="rosbag" type="record" args="/stereo/left/camera_info /stereo/right/camera_info /stereo/right/image_rect /stereo/left/image_rect" output="screen"/> -->
 
