@@ -18,8 +18,8 @@
         <rosparam>
                 input_frame: base_link
                 filter_field_name: x
-                filter_limit_min: $(arg x_pos)
-                filter_limit_max: $(arg x_neg)
+                filter_limit_max: $(arg x_pos)
+                filter_limit_min: $(arg x_neg)
         </rosparam>
     </node>
 
@@ -29,8 +29,8 @@
         <rosparam>
                 input_frame: base_link
                 filter_field_name: y
-                filter_limit_min: $(arg y_pos)
-                filter_limit_max: $(arg y_neg)
+                filter_limit_max: $(arg y_pos)
+                filter_limit_min: $(arg y_neg)
         </rosparam>
     </node>
 

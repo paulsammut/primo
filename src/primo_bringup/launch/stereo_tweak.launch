@@ -8,17 +8,17 @@
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch">
-        <arg name="stereo_real" value="false"/>
-    </include>
+    <!-- <include file="$(find primo_stereo)/launch/stereo0.launch"> -->
+    <!--     <arg name="stereo_real" value="false"/> -->
+    <!-- </include> -->
 
     <include file="$(find primo_stereo)/launch/stereo1.launch">
         <arg name="stereo_real" value="false"/>
     </include>
 
-    <node pkg="image_view" type="disparity_view" name="disparity_view">
-        <param name="image" value="/stereo0/disparity"/>
-    </node>
+    <!-- <node pkg="image_view" type="disparity_view" name="disparity_view"> -->
+    <!--     <param name="image" value="/stereo0/disparity"/> -->
+    <!-- </node> -->
 
     <!-- Play a rosbag -->
     <arg name="path" default="/home/paul/primo_data/"/>
