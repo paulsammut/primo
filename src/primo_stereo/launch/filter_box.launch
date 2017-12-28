@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    
+    <arg name="nodelet_manager"  />
+    <arg name="x_pos"           default="1"/>
+    <arg name="x_neg"           default="-1"/>
+    <arg name="y_pos"           default="1"/>
+    <arg name="y_neg"           default="-1"/>
+    <arg name="z_pos"           default="1"/>
+    <arg name="z_neg"           default="-1"/>
+
+    <!-- Run a passthrough filter to delimit in x direction -->
+    <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough stereo1_nodelet_manager" output="screen">
+        <remap from="~input" to="/stereo1/points2" />
+        <rosparam>
+                input_frame: base_link
+                filter_field_name: x
+                filter_limit_min: -0.5
+                filter_limit_max: 0.4
+        </rosparam>
+    </node>
+
+    <!-- Run a passthrough filter to delimit in x direction -->
+    <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough stereo1_nodelet_manager" output="screen">
+        <remap from="~input" to="/stereo1/points2" />
+        <rosparam>
+                input_frame: base_link
+                filter_field_name: x
+                filter_limit_min: -0.5
+                filter_limit_max: 0.4
+        </rosparam>
+    </node>
+</launch>
