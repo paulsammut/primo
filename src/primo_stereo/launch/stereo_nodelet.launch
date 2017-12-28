@@ -7,8 +7,10 @@
         set up stereo_image_proc to get access of its nodelet manager. I probably
         didn't have to do this. 
     -->
+    
+    <arg name="stereo_ns"   />
 
-    <group ns="/stereo0">
+    <group ns="$(arg stereo_ns)">
         <arg name="manager" value="/stereo0/nodelet_manager"/>
         <arg name="respawn" value="false"/>
         <arg name="left" value="left" />
