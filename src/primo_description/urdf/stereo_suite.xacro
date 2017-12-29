@@ -11,18 +11,20 @@
         pitch=  " 0.101" 
         yaw=    "-2.402"
     />
+
     <xacro:m_stereo num="1" 
-        x=      "-0.099" 
-        y=      " 0.276" 
-        z=      " 1.870" 
-        roll=   "-2.934" 
-        pitch=  "-0.048" 
-        yaw=    "-0.750"
+        x=      "-0.036" 
+        y=      " 0.282" 
+        z=      " 1.851" 
+        roll=   "-2.991" 
+        pitch=  "-0.025" 
+        yaw=    "-0.763"
     />
 
     <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
          stereo cam. To use this, you have to disable the m_stereo macro and just
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
-    <xacro:m_stereo_cal num="0"/>
+    <xacro:m_stereo_cal num="1"/>
+
 </robot>
