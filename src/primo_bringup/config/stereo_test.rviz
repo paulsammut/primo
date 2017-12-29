@@ -6,9 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
+        - /Stereo11
         - /Stereo12
-        - /Stereo12/Status1
       Splitter Ratio: 0.662162185
     Tree Height: 297
   - Class: rviz/Selection
@@ -26,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Stereo1
 Visualization Manager:
   Class: ""
   Displays:
@@ -109,8 +108,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.964887142
-        Min Value: -0.0295432806
+        Max Value: 0.976076066
+        Min Value: -0.0834187269
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -139,8 +138,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.0268324614
-        Min Value: -0.00998795033
+        Max Value: 0.952500761
+        Min Value: 0.00961327553
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -161,7 +160,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Flat Squares
-      Topic: /stereo1/points2
+      Topic: /stereo1/psy/output
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
@@ -224,25 +223,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 3.9585731
+      Distance: 4.06406736
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.368570805
-        Y: 0.469133377
-        Z: 8.96285428e-07
+        X: 0.561459661
+        Y: 0.487786978
+        Z: 1.13470401e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.384797573
+      Pitch: 0.56479764
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 2.19421291
+      Yaw: 0.949211597
     Saved: ~
 Window Geometry:
   Displays:
@@ -264,5 +263,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1680
-  X: 3130
-  Y: 59
+  X: 0
+  Y: 31

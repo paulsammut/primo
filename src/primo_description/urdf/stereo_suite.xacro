@@ -25,6 +25,6 @@
          stereo cam. To use this, you have to disable the m_stereo macro and just
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
-    <xacro:m_stereo_cal num="1"/>
+    <!-- <xacro:m_stereo_cal num="1"/> -->
 
 </robot>

@@ -7,10 +7,10 @@
 
     <arg name="nodelet_manager"  />
     <arg name="points_topic"    default="/points2"/>
-    <arg name="x_pos"           default="1"/>
-    <arg name="x_neg"           default="-1"/>
-    <arg name="y_pos"           default="1"/>
-    <arg name="y_neg"           default="-1"/>
+    <arg name="x_pos"           type="float"    default="1"/>
+    <arg name="x_neg"           type="float"    default="-1"/>
+    <arg name="y_pos"           type="float"    default="1"/>
+    <arg name="y_neg"           type="float"    default="-1"/>
 
     <param name="/max_queue_size"           value="30"/>
     <param name="/use_indices"              value="true"/>
@@ -19,23 +19,23 @@
     <!-- Run a passthrough filter to delimit in x direction -->
     <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
         <remap from="~input" to="$(arg points_topic)" />
-        <rosparam>
-                input_frame: base_link
-                filter_field_name: x
-                filter_limit_max: $(arg x_pos)
-                filter_limit_min: $(arg x_neg)
-        </rosparam>
+
+        <param name="input_frame"           value="base_link"/>
+        <param name="filter_field_name"     value="x"/>
+        <param name="filter_limit_min"      value="$(arg x_neg)"/>
+        <param name="filter_limit_max"      value="$(arg x_pos)"/>
+        <param name="filter_limit_negative" value="false"/>
     </node>
 
-    <!-- <!&#45;&#45; Run a passthrough filter to delimit in y direction &#45;&#45;> -->
-    <!-- <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen"> -->
-    <!--     <remap from="~input" to="psx/output" /> -->
-    <!--     <rosparam> -->
-    <!--             input_frame: base_link -->
-    <!--             filter_field_name: y -->
-    <!--             filter_limit_max: $(arg y_pos) -->
-    <!--             filter_limit_min: $(arg y_neg) -->
-    <!--     </rosparam> -->
-    <!-- </node> -->
+    <!-- Run a passthrough filter to delimit in y direction -->
+    <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
+        <remap from="~input" to="psx/output" />
+
+        <param name="input_frame"           value="base_link"/>
+        <param name="filter_field_name"     value="y"/>
+        <param name="filter_limit_min"      value="$(arg y_neg)"/>
+        <param name="filter_limit_max"      value="$(arg y_pos)"/>
+        <param name="filter_limit_negative" value="false"/>
+    </node>
 
 </launch>
