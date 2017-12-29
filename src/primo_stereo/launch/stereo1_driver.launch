@@ -7,8 +7,8 @@
         <param name="width"         type="int"      value="640"             />
         <param name="height"        type="int"      value="480"             />
         <param name="fps"           type="int"      value="30"              />
-        <param name="frame"         type="string"   value="stereo0_link"    />
-        <param name="frame_id"      type="string"   value="stereo0_link"    />
+        <param name="frame"         type="string"   value="stereo1_link"    />
+        <param name="frame_id"      type="string"   value="stereo1_link"    />
         <param name="device"        type="string"   value="/dev/video1"     />
         <param name="exposureValue" type="int"      value="1"               />
 

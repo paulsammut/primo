@@ -10,15 +10,12 @@
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch">
-        <arg name="stereo_real" value="false"/>
+    <include file="$(find primo_stereo)/launch/stereo0_proc.launch">
         <arg name="filter"      value="true"/>
     </include>
-
-    <!-- <include file="$(find primo_stereo)/launch/stereo1.launch"> -->
-    <!--     <arg name="stereo_real" value="false"/> -->
-    <!--     <arg name="filter"      value="true"/> -->
-    <!-- </include> -->
+    <include file="$(find primo_stereo)/launch/stereo1_proc.launch">
+        <arg name="filter"      value="true"/>
+    </include>
 
     <!-- <node pkg="image_view" type="disparity_view" name="disparity_view"> -->
     <!--     <param name="image" value="/stereo0/disparity"/> -->
