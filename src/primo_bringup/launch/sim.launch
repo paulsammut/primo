@@ -32,13 +32,7 @@
 
     <!-- Stereo Cam stuff -->
     <group if="true">
-        <include file="$(find primo_stereo)/launch/stereo0.launch">
-            <arg name="stereo_real" value="false"/>
-        </include>
-
-        <include file="$(find primo_stereo)/launch/stereo1.launch">
-            <arg name="stereo_real" value="false"/>
-        </include>
+        <include file="$(find primo_stereo)/launch/stereo_sidelooking.launch"/>
     </group>
 
 </launch>
