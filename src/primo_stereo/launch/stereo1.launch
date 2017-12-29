@@ -29,10 +29,10 @@
         <include if="$(arg filter)" file="$(find primo_stereo)/launch/filter_box.launch">
             <arg name="nodelet_manager" value="/stereo1/nodelet_manager"/>
             <arg name="points_topic"    value="/stereo1/points2"/>
-            <arg name="x_pos"           value="0.4"/>
+            <arg name="x_pos"           value="0.5"/>
             <arg name="x_neg"           value="-0.5"/>
-            <arg name="y_pos"           value="0.36"/>
-            <arg name="y_neg"           value="-0.36"/>
+            <arg name="y_pos"           value="0.38"/>
+            <arg name="y_neg"           value="-0.38"/>
         </include>
     </group>
 
