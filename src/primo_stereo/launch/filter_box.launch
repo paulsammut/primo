@@ -7,14 +7,26 @@
 
     <arg name="nodelet_manager"  />
     <arg name="points_topic"    default="/points2"/>
-    <arg name="x_pos"           type="float"    default="1"/>
-    <arg name="x_neg"           type="float"    default="-1"/>
-    <arg name="y_pos"           type="float"    default="1"/>
-    <arg name="y_neg"           type="float"    default="-1"/>
+    <arg name="x_pos"           default="1"/>
+    <arg name="x_neg"           default="-1"/>
+    <arg name="y_pos"           default="1"/>
+    <arg name="y_neg"           default="-1"/>
 
     <param name="/max_queue_size"           value="30"/>
     <param name="/use_indices"              value="true"/>
     <param name="/approximate_sync"         value="true"/>
+
+    <!-- Add a voxel downsampler -->
+    <node pkg="nodelet" type="nodelet" name="vxl_x" args="load pcl/VoxelGrid $(arg nodelet_manager)" output="screen">
+        <remap from="~input" to="$(arg points_topic)" />
+
+        <param name="leaf_size"             value="0.02"/>
+        <param name="input_frame"           value="base_link"/>
+        <param name="filter_field_name"     value="x"/>
+        <param name="filter_limit_min"      value="-100"/>
+        <param name="filter_limit_max"      value="100"/>
+        <param name="filter_limit_negative" value="false"/>
+    </node>
 
     <!-- Run a passthrough filter to delimit in x direction -->
     <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
