@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Stereo01
         - /Stereo11
         - /Stereo12
       Splitter Ratio: 0.662162185
@@ -108,16 +109,16 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.977337778
-        Min Value: -0.0596506596
+        Max Value: 0.388872027
+        Min Value: -0.109284639
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
       Color: 85; 255; 127
-      Color Transformer: AxisColor
+      Color Transformer: RGB8
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 85; 0; 127
       Max Intensity: 4096
@@ -128,13 +129,13 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.00999999978
-      Style: Flat Squares
-      Topic: /stereo0/points2
+      Size (m): 0.0199999996
+      Style: Boxes
+      Topic: /stereo0/crbx/output
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -223,25 +224,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 3.35655308
+      Distance: 4.09007168
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.00394394994
-        Y: 0.181044191
-        Z: 8.36680783e-07
+        X: 0.0261538327
+        Y: 0.55937469
+        Z: 1.07509936e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.429798186
+      Pitch: 0.459797561
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 0.989212513
+      Yaw: 0.474214613
     Saved: ~
 Window Geometry:
   Displays:
