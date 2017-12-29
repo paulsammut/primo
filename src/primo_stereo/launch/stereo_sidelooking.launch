@@ -11,8 +11,6 @@
     <arg name="y_pos"       value=" 0.38"/>
     <arg name="y_neg"       value="-0.38"/>
 
-    <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
-
     <include file="$(find primo_stereo)/launch/stereo0_proc.launch">
         <arg name="filter"      value="$(arg filter)"/>
         <arg name="rate"        value="$(arg rate)"/>
