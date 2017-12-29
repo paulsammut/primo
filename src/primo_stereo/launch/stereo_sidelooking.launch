@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- this is a master launch file for the process pipeline of sidelooking
+         stereo cameres
+    -->
+    
+    <arg name="rate"        value="10"/>
+    <arg name="filter"      value="true"/>
+    <arg name="x_pos"       value=" 0.50"/>
+    <arg name="x_neg"       value="-0.50"/>
+    <arg name="y_pos"       value=" 0.38"/>
+    <arg name="y_neg"       value="-0.38"/>
+
+    <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
+
+    <include file="$(find primo_stereo)/launch/stereo0_proc.launch">
+        <arg name="filter"      value="$(arg filter)"/>
+        <arg name="rate"        value="$(arg rate)"/>
+    </include>
+    <include file="$(find primo_stereo)/launch/stereo1_proc.launch">
+        <arg name="filter"      value="$(arg filter)"/>
+        <arg name="rate"        value="$(arg rate)"/>
+    </include>
+
+</launch>
