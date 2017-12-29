@@ -4,9 +4,13 @@
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_taras.xacro"/>
 
     <xacro:m_stereo num="0" x="-0.04" y="0.20" z="1.60" roll="-2.895" pitch="-0.093" yaw="-0.637"/>
-    <xacro:m_stereo num="1" x="0.202" y="0.276" z="1.851" roll="-2.967" pitch="-0.033" yaw="-0.802"/>
+    <xacro:m_stereo num="1" x="0.078" y="0.276" z="1.851" roll="-2.967" pitch="-0.033" yaw="-0.802"/>
 
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
     <!-- <xacro:m_stereo_cal num="1"/> -->
+
+    <!-- &#45; Translation: [0.202, 0.276, 1.851] -->
+    <!-- &#45; Rotation: in Quaternion [0.918, &#45;0.387, 0.049, &#45;0.074] -->
+    <!--             in RPY (radian) [&#45;2.967, &#45;0.033, &#45;0.802] -->
 
 </robot>
