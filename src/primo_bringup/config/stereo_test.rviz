@@ -6,7 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Stereo01
         - /Stereo11
         - /Stereo12
       Splitter Ratio: 0.662162185
@@ -131,7 +130,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.0199999996
       Style: Boxes
-      Topic: /stereo0/crbx/output
+      Topic: /stereo0/cbx/output
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
@@ -161,7 +160,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.0199999996
       Style: Boxes
-      Topic: /stereo1/crbx/output
+      Topic: /stereo1/cbx/output
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
@@ -239,10 +238,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.459797561
+      Pitch: 0.254797846
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 0.474214613
+      Yaw: 0.109216198
     Saved: ~
 Window Geometry:
   Displays:

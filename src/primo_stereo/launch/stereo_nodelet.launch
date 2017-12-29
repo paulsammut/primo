@@ -15,9 +15,7 @@
     -->
     <arg name="node_space"          default="" />
     <arg name="respawn"             default="false"/>
-
-    <arg name="left"                value="left" />
-    <arg name="right"               value="right" />
+    <arg name="rate"                default="10"/>
 
     <!-- Create a nodelet manager  -->
     <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
@@ -35,35 +33,32 @@
         <remap from="right/camera_info" to="right/camera_info"/>
 
         <param name="queue_size"    type="int"      value="10"/>
-        <param name="rate"          type="double"   value="20"/>
+        <param name="rate"          type="double"   value="5"/>
 
     </node>
 
     <group>
-        <remap from="left/image_raw"    to="left/image_raw_throttle"/>
-        <remap from="left/camera_info"  to="left/camera_info_throttle"/>
-        <remap from="right/image_raw"   to="right/image_raw_throttle"/>
-        <remap from="right/camera_info" to="right/camera_info_throttle"/>
-
         <!-- Basic processing for left camera -->
         <!-- Debayered images -->
         <group ns="left">
             <node pkg="nodelet" type="nodelet" name="debayer"
                 args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
+                <remap from="image_raw"    to="image_raw_throttle"/>
             </node>
 
             <!-- Monochrome rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_mono"
                 args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
+                <remap from="camera_info"  to="camera_info_throttle"/>
             </node>
 
             <!-- Color rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_color"
                 args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)">
-
+                <remap from="camera_info"  to="camera_info_throttle"/>
                 <remap from="image_mono" to="image_color" />
                 <remap from="image_rect" to="image_rect_color" />
             </node>
@@ -75,21 +70,26 @@
         <group ns="right">
             <node pkg="nodelet" type="nodelet" name="debayer"
                 args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
-                respawn="$(arg respawn)" />
+                respawn="$(arg respawn)" >
+                <remap from="image_raw"    to="image_raw_throttle"/>
+            </node>
+                            
 
             <!-- Monochrome rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_mono"
                 args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
-                respawn="$(arg respawn)" />
+                respawn="$(arg respawn)" >
+                <remap from="camera_info"  to="camera_info_throttle"/>
+            </node>
 
             <!-- Color rectified image -->
             <node pkg="nodelet" type="nodelet" name="rectify_color"
                 args="load image_proc/rectify $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)">
-
+                <remap from="camera_info"  to="camera_info_throttle"/>
                 <remap from="image_mono" to="image_color" />
                 <remap from="image_rect" to="image_rect_color" />
-            </node>  
+            </node>
         </group>
 
 

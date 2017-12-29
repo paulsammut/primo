@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
+    <arg name="rate"        default="10"/>
     <arg name="filter"      default="true"/>
+    <arg name="x_pos"       default=" 0.50"/>
+    <arg name="x_neg"       default="-0.50"/>
+    <arg name="y_pos"       default=" 0.38"/>
+    <arg name="y_neg"       default="-0.38"/>
 
     <rosparam file="$(find primo_stereo)/config/stereo.yaml" command="load"/>
 
     <group ns="/stereo1" >
         <include file="$(find primo_stereo)/launch/stereo_nodelet.launch">
-            <arg name="node_space"     value="/stereo1"/>
+            <arg name="node_space"      value="/stereo1"/>
+            <arg name="rate"            value="$(arg rate)"/>
         </include>
 
         <include if="$(arg filter)" file="$(find primo_stereo)/launch/filter_box.launch">
             <arg name="nodelet_manager" value="/stereo1/nodelet_manager"/>
             <arg name="points_topic"    value="/stereo1/points2"/>
-            <arg name="x_pos"           value="0.5"/>
-            <arg name="x_neg"           value="-0.5"/>
-            <arg name="y_pos"           value="0.38"/>
-            <arg name="y_neg"           value="-0.38"/>
+            <arg name="x_pos"           value="$(arg x_pos)"/>
+            <arg name="x_neg"           value="$(arg x_neg)"/>
+            <arg name="y_pos"           value="$(arg y_pos)"/>
+            <arg name="y_neg"           value="$(arg y_neg)"/>
         </include>
     </group>
-
 
 </launch>
