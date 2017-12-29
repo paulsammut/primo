@@ -20,7 +20,7 @@
     <node pkg="nodelet" type="nodelet" name="vxl_x" args="load pcl/VoxelGrid $(arg nodelet_manager)" output="screen">
         <remap from="~input" to="$(arg points_topic)" />
 
-        <param name="leaf_size"             value="0.02"/>
+        <param name="leaf_size"             value="0.03"/>
         <param name="input_frame"           value="base_link"/>
         <param name="filter_field_name"     value="x"/>
         <param name="filter_limit_min"      value="-100"/>
