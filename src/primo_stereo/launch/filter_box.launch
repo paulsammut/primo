@@ -27,15 +27,15 @@
         </rosparam>
     </node>
 
-    <!-- Run a passthrough filter to delimit in y direction -->
-    <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen">
-        <remap from="~input" to="psx/output" />
-        <rosparam>
-                input_frame: base_link
-                filter_field_name: y
-                filter_limit_max: $(arg y_pos)
-                filter_limit_min: $(arg y_neg)
-        </rosparam>
-    </node>
+    <!-- <!&#45;&#45; Run a passthrough filter to delimit in y direction &#45;&#45;> -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough $(arg nodelet_manager)" output="screen"> -->
+    <!--     <remap from="~input" to="psx/output" /> -->
+    <!--     <rosparam> -->
+    <!--             input_frame: base_link -->
+    <!--             filter_field_name: y -->
+    <!--             filter_limit_max: $(arg y_pos) -->
+    <!--             filter_limit_min: $(arg y_neg) -->
+    <!--     </rosparam> -->
+    <!-- </node> -->
 
 </launch>
