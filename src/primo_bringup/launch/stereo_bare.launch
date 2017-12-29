@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-    <include file="$(find primo_stereo)/launch/stereo0.launch">
-        <arg name="stereo_real" value="true"/>
-    </include>
+    <include file="$(find primo_stereo)/launch/stereo0_driver.launch"/>
     
-    <include file="$(find primo_stereo)/launch/stereo1.launch">
-        <arg name="stereo_real" value="true"/>
-    </include>
+    <include file="$(find primo_stereo)/launch/stereo1_driver.launch"/>
 
 </launch>
