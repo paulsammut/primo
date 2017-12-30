@@ -41,4 +41,4 @@ include_directories(
 
 # This adds a dependency on the message generation
 add_executable(pcl_merge src/pcl_merge.cpp)
-target_link_libraries(pcl_merge ${PCL_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(pcl_merge ${catkin_LIBRARIES})
