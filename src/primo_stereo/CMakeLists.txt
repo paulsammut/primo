@@ -34,8 +34,10 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-# ${catkin_INCLUDE_DIRS}
+    include
+    ${catkin_INCLUDE_DIRS}
 )
 
-
+# This adds a dependency on the message generation
+add_executable(pcl_merge src/pcl_merge.cpp)
+target_link_libraries(pcl_merge ${PCL_LIBRARIES})
