@@ -10,14 +10,12 @@
 #include "tf/transform_datatypes.h"
 #include "Eigen/Core"
 #include "Eigen/Geometry"
-#include <boost/timer/timer.hpp>
 #include <stdio.h>
+#include <ctime>
 
 static sensor_msgs::PointCloud2 channel0_buffer, channel1_buffer, output;
 
 static pcl::PCLPointCloud2 channel0_temp, channel1_temp, output_temp;
-
-
 
 void channel0_Cb(sensor_msgs::PointCloud2 PCmsg)
 {
@@ -80,7 +78,7 @@ int main (int argc, char **argv)
         boost::timer::cpu_timer timer1;
         //convert channel1 to be in the channel0 frame
         pcl_ros::transformPointCloud("/stereo0_link", channel1_buffer, channel1_buffer, listener);
-        printf(timer1.format().c_str());
+        // printf(timer1.format().c_str());
 
         // convert to PCL from sensor_msgs:PCL
         pcl_conversions::toPCL(channel0_buffer, channel0_temp);

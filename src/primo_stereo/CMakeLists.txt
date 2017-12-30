@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(primo_stereo)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -16,13 +16,9 @@ find_package(catkin REQUIRED COMPONENTS
     tf2
     )
 
-find_package(Boost REQUIRED COMPONENTS thread system timer)
+find_package(Boost REQUIRED COMPONENTS chrono thread system timer)
 
 find_package(PCL 1.2 REQUIRED)
-
-include_directories(${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
 
 catkin_package(
 #  INCLUDE_DIRS include
@@ -44,4 +40,8 @@ include_directories(
 
 # This adds a dependency on the message generation
 add_executable(pcl_merge src/pcl_merge.cpp)
-target_link_libraries(pcl_merge ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+target_link_libraries(pcl_merge 
+    ${Boost_LIBRARIES} 
+    ${catkin_LIBRARIES} 
+)
