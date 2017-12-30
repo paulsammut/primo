@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
     pcl_ros
     pcl_msgs
     pcl_conversions
+    tf2
     )
 
 find_package(PCL 1.2 REQUIRED)
