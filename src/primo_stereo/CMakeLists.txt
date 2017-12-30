@@ -9,6 +9,7 @@ project(primo_stereo)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS 
     roscpp
+    std_msgs
     pcl_ros
     pcl_msgs
     pcl_conversions
@@ -40,4 +41,4 @@ include_directories(
 
 # This adds a dependency on the message generation
 add_executable(pcl_merge src/pcl_merge.cpp)
-target_link_libraries(pcl_merge ${PCL_LIBRARIES})
+target_link_libraries(pcl_merge ${PCL_LIBRARIES} ${catkin_LIBRARIES})
