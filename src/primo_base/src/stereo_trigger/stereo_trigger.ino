@@ -6,7 +6,7 @@
 #include <TimerOne.h>
 
 #define PIN_TRIGGER 2
-#define TRIGGER_HOLD_US 500
+#define TRIGGER_HOLD_US 1500
 
 ros::NodeHandle nh;
 
