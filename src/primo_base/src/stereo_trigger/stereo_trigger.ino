@@ -63,7 +63,6 @@ void setup()
     // Set the pin modes
     pinMode(PIN_TRIGGER, OUTPUT);
     pinMode(13, OUTPUT);    
-    digitalWrite(13, LOW);
     
     // Set the trigger low. (active low)
     digitalWrite(PIN_TRIGGER, HIGH);
@@ -87,7 +86,6 @@ void setup()
     Timer1.initialize(period_us);
     Timer1.attachInterrupt(pulse);
     pulse_state = true;
-    digitalWrite(13, HIGH);
 }
 
 void loop()
@@ -101,7 +99,9 @@ void loop()
 void pulse()
 {
     // set the trigger high
+    digitalWrite(13, HIGH);
     digitalWrite(PIN_TRIGGER, LOW);
     delayMicroseconds(TRIGGER_HOLD_US);
     digitalWrite(PIN_TRIGGER, HIGH);
+    digitalWrite(13, LOW);
 }

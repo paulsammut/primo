@@ -90,7 +90,7 @@ int main (int argc, char **argv)
         // pcl_ros::transformPointCloud(out_transform, channel1_buffer, channel1_buffer);
 
         int stop_s=clock();
-        std::cout << "tranform time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "tranform time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
         start_s=clock();
         // convert to PCL from sensor_msgs:PCL
@@ -98,27 +98,27 @@ int main (int argc, char **argv)
         pcl_conversions::toPCL(channel1_buffer, channel1_temp);
 
         stop_s=clock();
-        std::cout << "pcl conver time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "pcl conver time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
         start_s=clock();
         // Do the merge to the output variable
         pcl::concatenatePointCloud(channel0_temp, channel1_temp, output_temp);
         stop_s=clock();
-        std::cout << "merge time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "merge time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
         start_s=clock();
         // convert back to sensor_msgs:PCL
         pcl_conversions::fromPCL(output_temp, output);
         stop_s=clock();
-        std::cout << "convert back to sensor_msgs time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "convert back to sensor_msgs time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
         start_s=clock();
         // publish our merged point cloud!
         pcl_pub.publish(output);
         stop_s=clock();
-        std::cout << "publish time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
-        std::cout << "total time: " << (stop_s-start_f)/double(CLOCKS_PER_SEC)*1000 << std::endl;
-        std::cout << "=====================" << std::endl;
+        // std::cout << "publish time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "total time: " << (stop_s-start_f)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+        // std::cout << "=====================" << std::endl;
 
         // Do the ROS
         ros::spinOnce();
