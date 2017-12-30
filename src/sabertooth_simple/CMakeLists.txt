@@ -28,7 +28,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES sabertooth_simple
-#  CATKIN_DEPENDS roscpp serial
+ CATKIN_DEPENDS message_runtime
 #  DEPENDS system_lib
 )
 
@@ -44,7 +44,9 @@ include_directories(
 )
 
 
+
 add_executable(sabertooth_simple src/sabertooth_simple_node.cpp
     src/sabertooth_simple.cpp)
 target_link_libraries(sabertooth_simple ${catkin_LIBRARIES})
 
+add_dependencies(sabertooth_simple sabertooth_simple_generate_messages.cpp)

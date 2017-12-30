@@ -75,10 +75,12 @@ int main (int argc, char **argv)
     while(ros::ok())
     {       
         
-        boost::timer::cpu_timer timer1;
+        int start_s=clock();
         //convert channel1 to be in the channel0 frame
         pcl_ros::transformPointCloud("/stereo0_link", channel1_buffer, channel1_buffer, listener);
         // printf(timer1.format().c_str());
+        int stop_s=clock();
+        std::cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
         // convert to PCL from sensor_msgs:PCL
         pcl_conversions::toPCL(channel0_buffer, channel0_temp);
