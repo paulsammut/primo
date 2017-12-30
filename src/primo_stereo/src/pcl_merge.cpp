@@ -62,14 +62,21 @@ int main (int argc, char **argv)
     ros::Rate loop_rate(pub_rate); 
     
     // Get our transform
-    try{
-        listener.lookupTransform("/stereo0_link", "/stereo1_link",  
-                ros::Time(0), transform);
+    bool wait_for_tf = true;
+    while(wait_for_tf)
+    {
+        try{
+            listener.lookupTransform("/stereo0_link", "/stereo1_link",  
+                    ros::Time(0), transform);
+            wait_for_tf = false;
+        }
+        catch (tf::TransformException ex){
+            ROS_ERROR("%s",ex.what());
+            ros::Duration(1.0).sleep();
+        }
     }
-    catch (tf::TransformException ex){
-        ROS_ERROR("%s",ex.what());
-        ros::Duration(1.0).sleep();
-    }
+    Eigen::Matrix4f out_transform;
+    pcl_ros::transformAsMatrix (transform, out_transform);
 
     ros::spinOnce();
     while(ros::ok())
@@ -77,6 +84,7 @@ int main (int argc, char **argv)
         
         int start_s=clock();
         //convert channel1 to be in the channel0 frame
+       
         pcl_ros::transformPointCloud("/stereo0_link", channel1_buffer, channel1_buffer, listener);
         // printf(timer1.format().c_str());
         int stop_s=clock();
