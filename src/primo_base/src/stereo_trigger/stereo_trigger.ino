@@ -19,8 +19,8 @@ void calcPeriod() { period_us = 1 / rate * 1000000; }
 
 void stopMsgCb( const std_msgs::Empty& empty_msg){
     Timer1.stop();
-    // Set the line to idle (active low)
-    digitalWrite(PIN_TRIGGER, HIGH);
+    // Set the line to idle
+    digitalWrite(PIN_TRIGGER, LOW);
     digitalWrite(13, LOW);
     pulse_state = false;
 }
@@ -64,8 +64,8 @@ void setup()
     pinMode(PIN_TRIGGER, OUTPUT);
     pinMode(13, OUTPUT);    
     
-    // Set the trigger low. (active low)
-    digitalWrite(PIN_TRIGGER, HIGH);
+    // Set the trigger low.
+    digitalWrite(PIN_TRIGGER, LOW);
 
     // Subscribe to the message
     ros::Subscriber<std_msgs::Empty> sub1("~stop", stopMsgCb );
@@ -100,8 +100,8 @@ void pulse()
 {
     // set the trigger high
     digitalWrite(13, HIGH);
-    digitalWrite(PIN_TRIGGER, LOW);
-    delayMicroseconds(TRIGGER_HOLD_US);
     digitalWrite(PIN_TRIGGER, HIGH);
+    delayMicroseconds(TRIGGER_HOLD_US);
+    digitalWrite(PIN_TRIGGER, LOW);
     digitalWrite(13, LOW);
 }
