@@ -4,7 +4,7 @@
          stereo cameres
     -->
     
-    <arg name="rate"        value="10"/>
+    <arg name="rate"        value="15"/>
     <arg name="filter"      value="true"/>
     <arg name="x_pos"       value=" 0.50"/>
     <arg name="x_neg"       value="-0.50"/>
