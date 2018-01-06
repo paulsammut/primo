@@ -33,7 +33,7 @@ camera = str(os.path.split(calParentDir)[1])
 # directory, which tells us which stereo camera we have along with this directory's
 # path, which is where the yaml files are going to go
 
-if camera not in ["stereo0", "stereo1"]:
+if camera not in ["stereo0", "stereo1", "stereo2"]:
     print("You must run this file in the archive folder of the stereo camera you are trying to calibrate")
     sys.exit()
 
