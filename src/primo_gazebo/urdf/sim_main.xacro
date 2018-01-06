@@ -7,8 +7,9 @@
 
     <xacro:include filename="$(find primo_gazebo)/urdf/sim_stereo.xacro"/>
 
-    <xacro:m_sim_stereo num="0"/>
-    <xacro:m_sim_stereo num="1"/>
+    <xacro:m_sim_stereo_tara    num="0"/>
+    <xacro:m_sim_stereo_tara    num="1"/>
+    <xacro:m_sim_stereo_see3cam num="2"/>
 
 
 </robot>
