@@ -3,7 +3,7 @@
     <!-- serial node -->
     <node pkg="rosserial_python" type="serial_node.py" 
         name="stereo_trigger" output="screen">
-        <param name="port" value="/dev/ttyACM0"/>
+        <param name="port" value="/dev/str_trig"/>
         <param name="baud" value="115200"/>
     </node>
 </launch>
