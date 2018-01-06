@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="primo">
 
-    <xacro:include filename="$(find primo_description)/urdf/macros/stereo_taras.xacro"/>
+    <xacro:include filename="$(find primo_description)/urdf/macros/stereo.xacro"/>
 
     <xacro:m_stereo num="0" 
         x=      " 0.040" 
@@ -19,6 +19,15 @@
         roll=   "-2.991" 
         pitch=  "-0.025" 
         yaw=    "-0.763"
+    />
+
+    <xacro:m_stereo num="2" 
+        x=      "-0.036" 
+        y=      " 0.075" 
+        z=      " 1.000" 
+        roll=   " 0.000" 
+        pitch=  " 0.000" 
+        yaw=    " 0.000"
     />
 
     <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
