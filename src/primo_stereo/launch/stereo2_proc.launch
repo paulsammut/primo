@@ -12,13 +12,14 @@
 
     <group ns="/stereo2" >
         <include file="$(find primo_stereo)/launch/stereo_nodelet.launch">
-            <arg name="node_space"      value="/stereo0"/>
+            <arg name="node_space"      value="/stereo2"/>
             <arg name="rate"            value="$(arg rate)"/>
+            <arg name="throttle"        value="false"/>
         </include>
 
         <include if="$(arg filter)" file="$(find primo_stereo)/launch/filter_box.launch">
-            <arg name="nodelet_manager" value="/stereo0/nodelet_manager"/>
-            <arg name="points_topic"    value="/stereo0/points2"/>
+            <arg name="nodelet_manager" value="/stereo2/nodelet_manager"/>
+            <arg name="points_topic"    value="/stereo2/points2"/>
             <arg name="x_pos"           value="$(arg x_pos)"/>
             <arg name="x_neg"           value="$(arg x_neg)"/>
             <arg name="y_pos"           value="$(arg y_pos)"/>
