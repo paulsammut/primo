@@ -24,7 +24,7 @@
         
 		<param name="subscribe_stereo"      type="bool"     value="false"/>
 		<param name="subscribe_depth"       type="bool"     value="true"/>
-        <param name="subscribe_scan_cloud"  type="bool"     value="false"/>
+        <param name="subscribe_scan_cloud"  type="bool"     value="true"/>
 		<param name="stereo_approx_sync"    type="bool"     value="true"/>
 
         <param name="frame_id"              type="string"   value="base_link"/>
@@ -33,6 +33,7 @@
         <remap from="rgb/image"         to="$(arg stereo_cam)/left/image_rect_color"/>
         <remap from="depth/image"       to="$(arg stereo_cam)/depth"/>
         <remap from="rgb/camera_info"   to="$(arg stereo_cam)/left/camera_info"/>
+        <remap from="scan_cloud"        to="$(arg stereo_cam)/vxl/output"/>
 
         <param name="queue_size"                type="int"      value="30"/>
 
