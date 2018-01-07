@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="jsp" value="true"/>
+    <arg name="jsp" value="false"/>
 
     <node if="$(arg jsp)" name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher"> 
