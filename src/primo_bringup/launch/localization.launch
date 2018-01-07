@@ -23,7 +23,7 @@
 
     <!-- Module: Stereo Odom Module -->
     <include if="$(arg enable_rtab_stereo_odom)"   file="$(find primo_rtabmap)/launch/rtab_stereo_odom.launch">
-        <arg name="cam"             default="/stereo1"      />
+        <arg name="cam"             default="/stereo2"      />
         <arg name="odom_frame_id"   default="odom"          />
         <arg name="odom_topic"      default="$(arg odom_topic_stereo)" />
         <arg name="publish_tf"      default="$(arg publish_tf_rtab_stereo)"/>
