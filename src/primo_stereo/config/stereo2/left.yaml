@@ -1,0 +1,20 @@
+image_width: 1280
+image_height: 960
+camera_name: stereo2_link
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [870.095065, 0.000000, 648.328903, 0.000000, 867.317562, 495.940703, 0.000000, 0.000000, 1.000000]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.345651, 0.108694, 0.000171, -0.000629, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [0.999061, 0.018127, -0.039343, -0.018042, 0.999834, 0.002529, 0.039382, -0.001817, 0.999223]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [598.388423, 0.000000, 697.802048, 0.000000, 0.000000, 598.388423, 487.107174, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]
