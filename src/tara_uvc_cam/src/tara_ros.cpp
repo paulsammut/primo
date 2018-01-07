@@ -99,6 +99,7 @@ taraCamera::taraCamera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :
         info_pub_right = node.advertise<CameraInfo>("right//camera_info", 1);
 
         returnValue = cam->set_control(V4L2_CID_BRIGHTNESS , 4); // brightness
+        printf("didnt' make it it here");
         if ( false == returnValue)
         {
             printf ("setting brightness : FAIL\n");
