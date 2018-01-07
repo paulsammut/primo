@@ -3,6 +3,7 @@
 
     <arg name="rate"        default="10"/>
     <arg name="filter"      default="true"/>
+    <arg name="throttle"    default="true"/>
     <arg name="x_pos"       default=" 0.50"/>
     <arg name="x_neg"       default="-0.50"/>
     <arg name="y_pos"       default=" 0.38"/>
@@ -14,6 +15,7 @@
         <include file="$(find primo_stereo)/launch/stereo_nodelet.launch">
             <arg name="node_space"      value="/stereo0"/>
             <arg name="rate"            value="$(arg rate)"/>
+            <arg name="throttle"    value="$(arg throttle)"/>
         </include>
 
         <include if="$(arg filter)" file="$(find primo_stereo)/launch/filter_box.launch">

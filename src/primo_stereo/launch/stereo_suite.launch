@@ -17,10 +17,15 @@
         <arg name="rate"        value="$(arg rate)"/>
         <arg name="throttle"    value="$(arg throttle)"/>
     </include>
+
     <include file="$(find primo_stereo)/launch/stereo1_proc.launch">
         <arg name="filter"      value="$(arg filter)"/>
         <arg name="rate"        value="$(arg rate)"/>
         <arg name="throttle"    value="$(arg throttle)"/>
+    </include>
+
+    <include file="$(find primo_stereo)/launch/stereo2_proc.launch">
+        <arg name="filter"      value="$(arg filter)"/>
     </include>
 
 </launch>
