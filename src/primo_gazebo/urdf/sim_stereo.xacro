@@ -110,7 +110,7 @@
                     <cameraInfoTopicName>camera_info</cameraInfoTopicName>
                     <frameName>stereo${num}_link</frameName>
                     <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
-                    <hackBaseline>0.06</hackBaseline>
+                    <hackBaseline>0.15</hackBaseline>
                     <distortionK1>0.0</distortionK1>
                     <distortionK2>0.0</distortionK2>
                     <distortionK3>0.0</distortionK3>
