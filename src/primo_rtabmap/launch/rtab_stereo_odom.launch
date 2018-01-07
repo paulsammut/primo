@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="cam"             default="/stereo1"      />
+    <arg name="cam"             default="/stereo2"      />
     <arg name="odom_frame_id"   default="odom"          />
-    <arg name="odom_topic"      default="/stereo1/odom" />
+    <arg name="odom_topic"      default="/stereo2/odom" />
     <arg name="publish_tf"      default="false"         />
 
     <!-- Odometry -->

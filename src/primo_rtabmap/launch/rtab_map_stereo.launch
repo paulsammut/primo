@@ -12,10 +12,10 @@
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg rtab_args)">
 
         <remap from="odom" to="$(arg odom_topic)"/>
-        <remap from="left/image_rect"   to="/stereo1/left/image_rect"/>
-        <remap from="right/image_rect"  to="/stereo1/right/image_rect"/>
-        <remap from="left/camera_info"  to="/stereo1/left/camera_info"/>
-        <remap from="right/camera_info" to="/stereo1/right/camera_info"/>
+        <remap from="left/image_rect"   to="/stereo2/left/image_rect"/>
+        <remap from="right/image_rect"  to="/stereo2/right/image_rect"/>
+        <remap from="left/camera_info"  to="/stereo2/left/camera_info"/>
+        <remap from="right/camera_info" to="/stereo2/right/camera_info"/>
 
         <param name="subscribe_stereo"          type="bool"     value="true"/>
         <param name="subscribe_depth"           type="bool"     value="false"/>
