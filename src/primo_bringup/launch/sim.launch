@@ -32,7 +32,7 @@
 
     <!-- Stereo Cam stuff -->
     <group if="true">
-        <include file="$(find primo_stereo)/launch/stereo_stereo_suite.launch">
+        <include file="$(find primo_stereo)/launch/stereo_suite.launch">
             <arg name="throttle"    value="false"/>
         </include>
     </group>
