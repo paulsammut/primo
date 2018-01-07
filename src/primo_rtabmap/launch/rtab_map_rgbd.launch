@@ -11,9 +11,9 @@
     <node ns="stereo1/" pkg="nodelet" type="nodelet" name="disparity2depth" 
         args="standalone rtabmap_ros/disparity_to_depth"/>
 
-    <arg name="rgb_topic"               value="/stereo1/left/image_rect_color"/>
-    <arg name="depth_registered_topic"  value="/stereo1/depth"/>
-    <arg name="camera_info_topic"       value="/stereo1/left/camera_info"/>
+    <arg name="rgb_topic"               value="/stereo2/left/image_rect_color"/>
+    <arg name="depth_registered_topic"  value="/stereo2/depth"/>
+    <arg name="camera_info_topic"       value="/stereo2/left/camera_info"/>
     <arg name="frame_id"                value="base_link"/>
     <arg name="compressed"              value="false"/>
 
