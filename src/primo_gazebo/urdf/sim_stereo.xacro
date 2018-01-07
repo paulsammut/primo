@@ -69,8 +69,8 @@
                 <camera name="left">
                     <horizontal_fov>0.872665</horizontal_fov>
                     <image>
-                        <width>1280</width>
-                        <height>960</height>
+                        <width>640</width>
+                        <height>480</height>
                         <format>R8G8B8</format>
                     </image>
                     <clip>
@@ -88,8 +88,8 @@
                     <pose>0 -0.15 0 0 0 0</pose>
                     <horizontal_fov>0.872665</horizontal_fov>
                     <image>
-                        <width>1280</width>
-                        <height>960</height>
+                        <width>640</width>
+                        <height>480</height>
                         <format>R8G8B8</format>
                     </image>
                     <clip>
