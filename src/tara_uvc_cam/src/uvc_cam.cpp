@@ -57,7 +57,7 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
 
 	index = ( _device[10] ) - 48;
 
-//	printf("opening %s\n", _device);
+	printf("opening %s\n", _device);
 
 	if ((device_file_h_ = open(_device, O_RDWR)) == -1)
 	{
@@ -83,14 +83,14 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
 	format_desc.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	int ret;
 
-//	printf("## FORMATS: ##\n");
+	printf("## FORMATS: ##\n");
 
 	while ((ret = ioctl(device_file_h_, VIDIOC_ENUM_FMT, &format_desc)) == 0)
 	{
-/*
+
 		printf("pixfmt %d = '%4s' desc = '%s'\n",
 				format_desc.index, (char *)&format_desc.pixelformat, format_desc.description);
-*/
+
 		format_desc.index++;
 
 		// enumerate frame sizes
@@ -148,6 +148,7 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
 		throw std::runtime_error("error enumerating frame formats");
 
 	///////////////////////////////////////////
+    
 
 	struct v4l2_queryctrl queryctrl;
 	struct v4l2_querymenu querymenu;
@@ -385,6 +386,9 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
 			cout << "InitCamera : Extension Unit Initialisation Failed\n";
 		}
 	}
+
+    // Paul code:
+		IsStereo = true;
 
 	//  EnableTriggerMode();
 }
