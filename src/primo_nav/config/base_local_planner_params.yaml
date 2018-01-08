@@ -14,6 +14,8 @@ TrajectoryPlannerROS:
 
     holonomic_robot: false
 
+    sim_time: 3.0
+
     # Goal Tolerance Parameters
     yaw_goal_tolerance: 0.5
     xy_goal_tolerance: 0.5
