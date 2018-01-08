@@ -46,11 +46,16 @@ int main (int argc, char **argv)
     tf::StampedTransform transform;
 
     // Get the parameters
-    ros::param::param<std::string>("channel0", channel0_topic, "/stereo0/cbx/output");
-    ros::param::param<std::string>("channel1", channel1_topic, "/stereo1/cbx/output");
-    ros::param::param<std::string>("channel0_frame", channel0_frame, "stereo0_link");
-    ros::param::param<std::string>("channel1_frame", channel1_frame, "stereo1_link");
-    ros::param::param<double>("pub_rate", pub_rate, 10);
+    ros::param::param<std::string>("~channel0",          channel0_topic, "/stereo0/cbx/output");
+    ros::param::param<std::string>("~channel1",          channel1_topic, "/stereo1/cbx/output");
+    ros::param::param<std::string>("~channel0_frame",    channel0_frame, "stereo0_link");
+    ros::param::param<std::string>("~channel1_frame",    channel1_frame, "stereo1_link");
+    ros::param::param<double>("~pub_rate",               pub_rate, 10);
+
+    ROS_INFO("param channel0 with value:%s",            channel0_topic.c_str());
+    ROS_INFO("param channel0_frame with value:%s",      channel0_frame.c_str());
+    ROS_INFO("param channel1 with value:%s",            channel1_topic.c_str());
+    ROS_INFO("param channel1_frame with value:%s",      channel1_frame.c_str());
 
 
     // Make the subscribers
