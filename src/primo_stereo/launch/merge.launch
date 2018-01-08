@@ -5,13 +5,17 @@
      -->
 
     <node ns="merge0" pkg="primo_stereo" type="pcl_merge" name="merge0" output="screen">
-        <param name="channel0"  value="/stereo0/cbx/output"/>
-        <param name="channel1"  value="/stereo1/cbx/output"/>
+        <param name="channel0"          value="/stereo0/cbx/output"/>
+        <param name="channel0_frame"    value="stereo0_link"/>
+        <param name="channel1"          value="/stereo1/cbx/output"/>
+        <param name="channel1_frame"    value="stereo1_link"/>
     </node>
 
-    <node ns="merge1" pkg="primo_stereo" type="pcl_merge" name="merge0" output="screen">
-        <param name="channel0"  value="/merge0/output"/>
-        <param name="channel1"  value="/stereo2/cbx/output"/>
+    <node ns="merge1" pkg="primo_stereo" type="pcl_merge" name="merge1" output="screen">
+        <param name="channel0"          value="/merge0/output"/>
+        <param name="channel0_frame"    value="stereo1_link"/>
+        <param name="channel1"          value="/stereo2/cbx/output"/>
+        <param name="channel1_frame"    value="stereo2_link"/>
     </node>
 </launch>
 
