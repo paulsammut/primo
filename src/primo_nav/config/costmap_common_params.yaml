@@ -27,7 +27,7 @@ obstacle_layer:
     point_cloud_sensor0: {
         sensor_frame: base_link, 
         data_type: PointCloud2, 
-        topic: /stereo0/points2, 
+        topic: /stereo0/vxl/output, 
         marking: true, 
         clearing: true,
         min_obstacle_height: 0.3,
@@ -38,7 +38,18 @@ obstacle_layer:
     point_cloud_sensor1: {
         sensor_frame: base_link, 
         data_type: PointCloud2, 
-        topic: /stereo1/points2, 
+        topic: /stereo1/vxl/output, 
+        marking: true, 
+        clearing: true,
+        min_obstacle_height: 0.3,
+        max_obstacle_height: 2.0,
+        observation_persistence: 0.0
+    }
+
+    point_cloud_sensor2: {
+        sensor_frame: base_link, 
+        data_type: PointCloud2, 
+        topic: /stereo2/vxl/output, 
         marking: true, 
         clearing: true,
         min_obstacle_height: 0.3,
