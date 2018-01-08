@@ -4,9 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /RobotModel1
         - /RobotModel1/Links1
         - /RobotModel1/Links1/stereo2_link1
+        - /Stereo1
         - /Stereo1/PCL1
       Splitter Ratio: 0.564179122
     Tree Height: 1192
@@ -17,7 +19,8 @@ Panels:
     Name: Tool Properties
     Splitter Ratio: 0.588679016
   - Class: rviz/Views
-    Expanded: ~
+    Expanded:
+      - /Current View1
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
@@ -282,7 +285,6 @@ Visualization Manager:
                 RobotModel: true
                 Stereo:
                   Images:
-                    Stereo0_Image: true
                     Stereo1_Image: true
                     Stereo2_Image: true
                     Value: true
@@ -291,6 +293,7 @@ Visualization Manager:
                     Stereo1: true
                     Stereo2: true
                     Value: true
+                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
@@ -321,7 +324,6 @@ Visualization Manager:
                 Stereo:
                   Images:
                     Stereo0_Image: true
-                    Stereo1_Image: true
                     Stereo2_Image: true
                     Value: true
                   PCL:
@@ -329,6 +331,7 @@ Visualization Manager:
                     Stereo1: true
                     Stereo2: true
                     Value: true
+                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
@@ -360,13 +363,13 @@ Visualization Manager:
                   Images:
                     Stereo0_Image: true
                     Stereo1_Image: true
-                    Stereo2_Image: true
                     Value: true
                   PCL:
                     Stereo0: true
                     Stereo1: true
                     Stereo2: true
                     Value: true
+                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
@@ -386,7 +389,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: RGB8
               Decay Time: 0
-              Enabled: true
+              Enabled: false
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -403,12 +406,12 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: true
+              Value: false
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.0304709673
-                Min Value: -0.0106443167
+                Max Value: 0.0484178066
+                Min Value: -0.0182332993
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -416,7 +419,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: true
+              Enabled: false
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -433,7 +436,7 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: true
+              Value: false
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
@@ -464,6 +467,36 @@ Visualization Manager:
               Use Fixed Frame: true
               Use rainbow: false
               Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 10
+                Min Value: -10
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 255; 255; 255
+              Color Transformer: RGB8
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Max Intensity: 4096
+              Min Color: 0; 0; 0
+              Min Intensity: 0
+              Name: merge
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.00999999978
+              Style: Flat Squares
+              Topic: /output
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
           Enabled: true
           Name: PCL
       Enabled: true
@@ -471,7 +504,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -492,25 +525,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 4.311625
+      Distance: 10.2208557
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.139685512
-        Y: -0.491730928
-        Z: 1.08388758e-06
+        X: 1.14191246
+        Y: -2.43888545
+        Z: 1.4346524e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.615204096
+      Pitch: 0.679796696
       Target Frame: map
       Value: XYOrbit (rviz)
-      Yaw: 3.75438952
+      Yaw: 3.81621385
     Saved: ~
 Window Geometry:
   Displays:

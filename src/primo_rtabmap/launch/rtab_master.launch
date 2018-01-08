@@ -114,7 +114,7 @@
             <param name="Mem/IncrementalMemory" type="string"   value="true"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
-            <param name="Grid/DepthMax"         type="double"   value="4"/>
+            <param name="Grid/DepthMax"         type="double"   value="10"/>
             <param name="RGBD/OptimizeMaxError" type="double"   value="0.05"  />
         </group>
 
