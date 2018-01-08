@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!--
+         This node merges all the point cloud data of the primo sensor suite
+     -->
+
+    <node ns="merge0" pkg="primo_stereo" type="pcl_merge" name="merge0" output="screen">
+        <param name="channel0"  value="/stereo0/cbx/output"/>
+        <param name="channel1"  value="/stereo1/cbx/output"/>
+    </node>
+
+    <node ns="merge1" pkg="primo_stereo" type="pcl_merge" name="merge0" output="screen">
+        <param name="channel0"  value="/merge0/output"/>
+        <param name="channel1"  value="/stereo2/cbx/output"/>
+    </node>
+</launch>
+
