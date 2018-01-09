@@ -13,12 +13,12 @@
     />
 
     <xacro:m_stereo num="1" 
-        x=      "-0.036" 
-        y=      " 0.265" 
-        z=      " 1.76" 
-        roll=   "-2.991" 
-        pitch=  "-0.025" 
-        yaw=    "-0.763"
+        x=      "-0.040" 
+        y=      " 0.178" 
+        z=      " 1.776"
+        roll=   "-2.798" 
+        pitch=  " 0.370" 
+        yaw=    "-0.634"
     />
 
     <xacro:m_stereo num="2" 
@@ -34,6 +34,6 @@
          stereo cam. To use this, you have to disable the m_stereo macro and just
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
-    <!-- <xacro:m_stereo_cal num="2"/> -->
+    <xacro:m_stereo_cal num="1"/>
 
 </robot>
