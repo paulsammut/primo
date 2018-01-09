@@ -5,4 +5,5 @@
     
     <include file="$(find primo_stereo)/launch/stereo1_driver.launch"/>
 
+    <include file="$(find primo_stereo)/launch/stereo2_driver.launch"/>
 </launch>

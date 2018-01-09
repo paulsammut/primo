@@ -20,6 +20,7 @@
 
     <node pkg="sabertooth_simple" type="sabertooth_simple" name="sabertooth"/>
 
+    <include file="$(find primo_base)/launch/stereo_trigger.launch"/>
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
     
 </launch>
