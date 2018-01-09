@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <include file="$(find primo_stereo)/launch/stereo0.launch"/>
+    <!-- <include file="$(find primo_stereo)/launch/stereo0.launch"/> -->
     <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" output="screen" 
         args="--size 8x6 --square 0.108 right:=/stereo0/right/image_raw left:=/stereo0/left/image_raw"/>
     
