@@ -10,8 +10,8 @@
 
 ros::NodeHandle nh;
 
-// Interval in milliseconds for publishing the battery data
-float rate = 20;
+// Rate in Hz at which to trigger the cameras
+float rate = 10;
 unsigned long period_us;
 bool pulse_state = false;
 
