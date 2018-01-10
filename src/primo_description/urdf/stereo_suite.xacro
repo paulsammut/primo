@@ -13,8 +13,8 @@
     />
 
     <xacro:m_stereo num="1" 
-        x=      "-0.040" 
-        y=      " 0.178" 
+        x=      "-0.050" 
+        y=      " 0.128" 
         z=      " 1.776"
         roll=   "-2.798" 
         pitch=  " 0.370" 
@@ -23,13 +23,12 @@
 
     <xacro:m_stereo num="2" 
         x=      " 0.000" 
-        y=      " 0.072" 
-        z=      " 1.170" 
-        roll=   "-1.611" 
-        pitch=  " 0.057"
-        yaw=    "-1.585"
+        y=      " 0.097" 
+        z=      " 1.145" 
+        roll=   "-1.886" 
+        pitch=  "-0.015"
+        yaw=    "-1.575"
     />
-
 
     <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
          stereo cam. To use this, you have to disable the m_stereo macro and just

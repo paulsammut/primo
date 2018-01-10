@@ -8,8 +8,9 @@ Panels:
         - /Stereo1
         - /Stereo1/Images1
         - /Stereo1/PCL1
+        - /Stereo1/PCL1/Stereo11
       Splitter Ratio: 0.564179122
-    Tree Height: 771
+    Tree Height: 746
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -104,6 +105,36 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         stereo2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_roll_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_x_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_y_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_yaw_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_z_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -260,16 +291,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Images:
@@ -277,16 +300,13 @@ Visualization Manager:
                     Stereo2_Image: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
             - Class: rviz/Camera
-              Enabled: true
+              Enabled: false
               Image Rendering: background and overlay
               Image Topic: /stereo1/left/image_mono
               Name: Stereo1_Image
@@ -294,7 +314,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: true
+              Value: false
               Visibility:
                 Grid: true
                 Planning:
@@ -336,8 +356,16 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  "": true
+                  Base: true
+                  Current Goal: true
+                  Global Cost Map: true
+                  Global Path: true
+                  Lanes: true
+                  Local Cost Map: true
+                  Local Path: true
+                  Map: true
                   Value: true
+                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Images:
@@ -345,8 +373,11 @@ Visualization Manager:
                     Stereo1_Image: true
                     Value: true
                   PCL:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
                     Value: true
+                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
@@ -357,8 +388,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.885483027
-                Min Value: -0.0945900679
+                Max Value: 0.866031885
+                Min Value: -0.11192286
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -387,8 +418,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: -9999
-                Min Value: 9999
+                Max Value: 0.882714391
+                Min Value: -1.61836934
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -396,7 +427,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: false
+              Enabled: true
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -407,18 +438,18 @@ Visualization Manager:
               Queue Size: 10
               Selectable: true
               Size (Pixels): 3
-              Size (m): 0.0299999993
+              Size (m): 0.0199999996
               Style: Boxes
               Topic: /stereo1/vxl/output
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: false
+              Value: true
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.4038887
-                Min Value: -0.0247590542
+                Max Value: 1.84712863
+                Min Value: -0.0527579784
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -426,7 +457,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: false
+              Enabled: true
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -443,7 +474,7 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: false
+              Value: true
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
@@ -502,25 +533,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 10
+      Distance: 2.53465462
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.607041001
+        Y: 0.969376266
+        Z: 2.37952918e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.240398481
+      Pitch: 0.524793684
       Target Frame: base_link
       Value: ThirdPersonFollower (rviz)
-      Yaw: 1.05039883
+      Yaw: 3.58030605
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 10
@@ -544,11 +575,11 @@ Visualization Manager:
         Yaw: 0.785398185
 Window Geometry:
   Displays:
-    collapsed: false
-  Height: 1019
-  Hide Left Dock: false
-  Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000002a000000396fc020000000afb000000100044006900730070006c006100790073010000004500000396000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000000000010000027400000396fc0200000006fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650100000045000002610000001700fffffffb0000001a00530074006500720065006f0030005f0049006d0061006700650000000045000001c80000001700fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000045000000e20000001700fffffffb0000000a0056006900650077007301000002ac0000012f000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000001700000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+    collapsed: true
+  Height: 994
+  Hide Left Dock: true
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd0000000400000000000002a00000037dfc020000000afb000000100044006900730070006c00610079007300000000450000037d000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c000000000000000000000001000002740000037dfc0200000006fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000045000002610000001700fffffffb0000001a00530074006500720065006f0030005f0049006d0061006700650000000045000001c80000001700fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000045000002710000001700fffffffb0000000a0056006900650077007300000002bc00000106000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000003460000037d00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Stereo0_Image:
@@ -556,13 +587,13 @@ Window Geometry:
   Stereo1_Image:
     collapsed: false
   Stereo2_Image:
-    collapsed: false
+    collapsed: true
   Time:
     collapsed: false
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: false
-  Width: 1680
+    collapsed: true
+  Width: 838
   X: 0
   Y: 31
