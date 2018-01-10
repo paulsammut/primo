@@ -21,7 +21,7 @@ stereo1:
 
 stereo2:
     stereo_image_proc:
-        texture_threshold: 2500
+        texture_threshold: 3000
         speckle_size: 1000
         uniqueness_ratio: 50
         disparity_range: 128
