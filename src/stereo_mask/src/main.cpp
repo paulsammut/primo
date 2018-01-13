@@ -2,12 +2,30 @@
 #include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
+
     try
     {
-        cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
+        cv::Mat image = cv_bridge::toCvShare(msg, "bgr8")->image;
+        // Ok cool, now we have an image, and now we need to draw on it!
+        // Make the polygon
+
+        cv::Point pts[1][3];
+        pts[0][0] = cv::Point(   0, 479 );
+        pts[0][1] = cv::Point( 400, 222 );
+        pts[0][2] = cv::Point( 624, 479 );
+
+        const cv::Point* ppt[1] = { pts[0] };
+        int npt[] = {3};
+
+        // boost::timer::cpu_timer timer1;
+        cv::fillPoly(image, ppt, npt, 1, cv::Scalar(0, 0, 0), cv::LINE_8);
+
+        cv::imshow("view", image);
         cv::waitKey(30);
     }
     catch (cv_bridge::Exception& e)
