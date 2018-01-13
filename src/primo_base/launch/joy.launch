@@ -10,7 +10,7 @@
   
     <!-- Twist node that converts joystick messages to velocity commands -->
     <node pkg="teleop_twist_joy" type="teleop_node" name="joy_twist" output="screen">
-        <remap from="cmd_vel" to="raw_cmd_vel"/>
+        <!-- <remap from="cmd_vel" to="raw_cmd_vel"/> -->
         <param name="axis_linear" value="1"/>
         <param name="axis_angular" value="0"/>
         <param name="enable_button" value="0"/>
