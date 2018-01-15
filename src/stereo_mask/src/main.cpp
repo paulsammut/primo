@@ -77,6 +77,9 @@ void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
 
 int main(int argc, char **argv)
 {
+    // topics we will subscribe to
+    std::string topicLeft, topicRight;
+
     ros::init(argc, argv, "stereo_mask");
     ros::NodeHandle nh;
 
