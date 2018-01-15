@@ -17,6 +17,7 @@
     <arg name="respawn"             default="false"/>
     <arg name="rate"                default="10"/>
     <arg name="throttle"            default="true"/>
+    <arg name="mask"                default="false"/>
 
     <!-- Create a nodelet manager  -->
     <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
@@ -46,6 +47,7 @@
                 args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
                 <remap if="$(arg throttle)"     from="image_raw"    to="image_raw_throttle"/>
+                <remap if="$(arg mask)"         from="image_raw"    to="image_raw_mask"/>
             </node>
 
             <!-- Monochrome rectified image -->
@@ -73,6 +75,7 @@
                 args="load image_proc/debayer $(arg node_space)/nodelet_manager $(arg bond)"
                 respawn="$(arg respawn)" >
                 <remap if="$(arg throttle)"     from="image_raw"    to="image_raw_throttle"/>
+                <remap if="$(arg mask)"         from="image_raw"    to="image_raw_mask"/>
             </node>
                             
 
