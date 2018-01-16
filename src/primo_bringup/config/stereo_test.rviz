@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Stereo01
+        - /Stereo02
       Splitter Ratio: 0.662162185
     Tree Height: 436
   - Class: rviz/Selection
@@ -176,7 +176,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
-      Image Topic: /stereo0/left/image_raw
+      Image Topic: /stereo0/left/image_raw_throttle
       Name: Stereo0
       Overlay Alpha: 0.5
       Queue Size: 2

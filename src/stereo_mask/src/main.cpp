@@ -62,7 +62,7 @@ void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
         pts[0][0] = cv::Point(   0, 479 );
         pts[0][1] = cv::Point( 400, 222 );
         pts[0][2] = cv::Point( 500, 300 );
-        pts[0][3] = cv::Point( 700, 479 );
+        pts[0][3] = cv::Point( 624, 479 );
 
         // Set up the points for the filly poly function
         const cv::Point* ppt[1] = { pts[0] };
