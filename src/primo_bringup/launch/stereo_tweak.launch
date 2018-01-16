@@ -12,10 +12,9 @@
     <!--     <arg name="stereo_real" value="false"/> -->
     <!-- </include> -->
 
-
     <include file="$(find primo_stereo)/launch/stereo0_proc.launch">
         <arg name="filter"      value="true"/>
-        <arg name="throttle"    value="true"/>
+        <arg name="throttle"    value="false"/>
         <arg name="mask"        value="true"/>
     </include>
 
