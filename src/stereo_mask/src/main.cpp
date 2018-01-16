@@ -34,11 +34,11 @@ void imageLeftCallback(const sensor_msgs::ImageConstPtr& msg)
         cv::fillPoly(image, ppt, npt, 1, cv::Scalar(0, 0, 0), cv::LINE_8);
         // printf(timer1.format().c_str());
 
-        // Convert to ros image
-        sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg();
+        // Convert to ros image while keeping the header
+        sensor_msgs::ImagePtr msgOut = cv_bridge::CvImage(msg->header, "mono8", image).toImageMsg();
 
         // Publish the image
-        pubLeft.publish(msg);
+        pubLeft.publish(msgOut);
     }
     catch (cv_bridge::Exception& e)
     {
@@ -72,14 +72,11 @@ void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
         cv::fillPoly(image, ppt, npt, 1, cv::Scalar(0, 0, 0), cv::LINE_8);
         // printf(timer1.format().c_str());
 
-        // Convert to ros image
-        // keep the header 
-        std_msgs::Header hdr;
-        hdr.stamp = msg->header.stamp;
-        sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "mono8", image).toImageMsg();
+        // Convert to ros image while keeping the header
+        sensor_msgs::ImagePtr msgOut = cv_bridge::CvImage(msg->header, "mono8", image).toImageMsg();
 
         // Publish the image
-        pubRight.publish(msg);
+        pubRight.publish(msgOut);
     }
     catch (cv_bridge::Exception& e)
     {
