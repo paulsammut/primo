@@ -42,11 +42,13 @@
     </node>
 
     <!-- Launch the mask --> 
-    <node if="$(arg mask)" ns="stereo0" pkg="stereo_mask" type="stereo_mask" name="mask" 
+    <node if="$(arg mask)" pkg="stereo_mask" type="stereo_mask" name="mask" 
         output="screen">
-        <remap if="$(arg throttle)"     from="image_raw"    to="image_raw_throttle"/>
+        <remap if="$(arg throttle)"     from="left/image_raw"   to="left/image_raw_throttle"/>
+        <remap if="$(arg throttle)"     from="right/image_raw"  to="right/image_raw_throttle"/>
     </node>
-
+    
+    <!-- Stereo Image Proc pipeline -->
     <group>
         <!-- Basic processing for left camera -->
         <!-- Debayered images -->
