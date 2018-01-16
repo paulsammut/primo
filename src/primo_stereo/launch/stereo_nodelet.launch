@@ -25,6 +25,8 @@
     <arg     if="$(arg respawn)" name="bond" value="" />
     <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
 
+
+
     <!-- Throttle the data coming from ucv_cam-->
     <node if="$(arg throttle)" pkg="nodelet" type="nodelet" name="stereo_throttle" 
         args="load rtabmap_ros/stereo_throttle $(arg node_space)/nodelet_manager">
@@ -37,6 +39,12 @@
         <param name="queue_size"    type="int"      value="10"/>
         <param name="rate"          type="double"   value="$(arg rate)"/>
 
+    </node>
+
+    <!-- Launch the mask --> 
+    <node if="$(arg mask)" ns="stereo0" pkg="stereo_mask" type="stereo_mask" name="mask" 
+        output="screen">
+        <remap if="$(arg throttle)"     from="image_raw"    to="image_raw_throttle"/>
     </node>
 
     <group>
