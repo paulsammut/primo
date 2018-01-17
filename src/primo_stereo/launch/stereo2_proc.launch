@@ -7,6 +7,7 @@
     <arg name="x_neg"       default="-0.50"/>
     <arg name="y_pos"       default=" 0.38"/>
     <arg name="y_neg"       default="-0.38"/>
+    <arg name="mask"        default="false"/>
 
     <rosparam file="$(find primo_stereo)/config/stereo.yaml" command="load"/>
 
@@ -15,6 +16,7 @@
             <arg name="node_space"      value="/stereo2"/>
             <arg name="rate"            value="$(arg rate)"/>
             <arg name="throttle"        value="false"/>
+            <arg name="mask"            value="$(arg mask)"/>
         </include>
 
         <include if="$(arg filter)" file="$(find primo_stereo)/launch/filter_box.launch">

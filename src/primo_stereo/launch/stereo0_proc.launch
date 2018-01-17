@@ -4,7 +4,7 @@
     <arg name="rate"        default="10"/>
     <arg name="filter"      default="true"/>
     <arg name="throttle"    default="true"/>
-    <arg name="mask"        default="false"/>
+    <arg name="mask"        default="true"/>
     <arg name="x_pos"       default=" 0.50"/>
     <arg name="x_neg"       default="-0.50"/>
     <arg name="y_pos"       default=" 0.38"/>
