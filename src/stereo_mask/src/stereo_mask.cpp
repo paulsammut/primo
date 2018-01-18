@@ -1,18 +1,9 @@
-#include <ros/ros.h>
-#include <image_transport/image_transport.h>
-#include <opencv2/highgui/highgui.hpp>
-#include <cv_bridge/cv_bridge.h>
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
+#include "stereo_mask/stereo_mask.h"
 
-image_transport::Publisher pubLeft;
-image_transport::Publisher pubRight;
+namespace stereo_mask
+{
 
-/**
- * @name Callback for the left image. Applies the polygon overlay
- * @{ */
-/**  @} */
-void imageLeftCallback(const sensor_msgs::ImageConstPtr& msg)
+void StereoMask::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
@@ -46,11 +37,7 @@ void imageLeftCallback(const sensor_msgs::ImageConstPtr& msg)
     }
 }
 
-/**
- * @name Callback for the right image. Applies the polygon overlay
- * @{ */
-/**  @} */
-void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
+void StereoMask::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
@@ -84,13 +71,10 @@ void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
     }
 }
 
-int main(int argc, char **argv)
+StereoMask::StereoMask(ros::NodeHandle _nh) : nh(_nh), it(_nh)
 {
     // topics we will subscribe to
     std::string topicLeft, topicRight;
-
-    ros::init(argc, argv, "stereo_mask");
-    ros::NodeHandle nh;
 
     // Get the parameters
     ros::param::param<std::string>("~left_image_topic",   topicLeft,  "left/image_raw" );
@@ -101,12 +85,10 @@ int main(int argc, char **argv)
     ROS_INFO("param right_image_topic with value:%s",   topicRight.c_str());
 
     // Handle the image transport subscribers and publishers
-    image_transport::ImageTransport it(nh);
-    image_transport::Subscriber subLeft     =   it.subscribe(topicLeft,   1, imageLeftCallback);
-    image_transport::Subscriber subRight    =   it.subscribe(topicRight,  1, imageRightCallback);
+    subLeft     =   it.subscribe(topicLeft,   1, this->imageLeftCb);
+    subRight    =   it.subscribe(topicRight,  1, this->imageRightCb);
 
     pubLeft = it.advertise("left/image_raw_mask", 1);
     pubRight = it.advertise("right/image_raw_mask", 1);
-
-    ros::spin();
+}
 }
