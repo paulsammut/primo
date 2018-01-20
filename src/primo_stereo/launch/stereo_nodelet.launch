@@ -20,7 +20,8 @@
     <arg name="mask"                default="false"/>
 
     <!-- Create a nodelet manager  -->
-    <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager"
+        output="screen"/>
 
     <arg     if="$(arg respawn)" name="bond" value="" />
     <arg unless="$(arg respawn)" name="bond" value="--no-bond" />
