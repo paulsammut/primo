@@ -13,7 +13,7 @@ void StereoMask::onInit()
     private_nh = getPrivateNodeHandle();
 
     // initializse the image trasnport
-    it = image_transport::ImageTransport(nh);
+    image_transport::ImageTransport it(nh);
 
     // topics we will subscribe to
     std::string topicLeft, topicRight;
