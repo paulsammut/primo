@@ -1,40 +1,18 @@
-#include "stereo_mask/stereo_mask.h"
+#include <ros/ros.h>
+#include <image_transport/image_transport.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
-PLUGINLIB_EXPORT_CLASS(stereo_mask::StereoMask, nodelet::Nodelet)
+image_transport::Publisher pubLeft;
+image_transport::Publisher pubRight;
 
-namespace stereo_mask
-{
-
-void StereoMask::onInit()
-{
-    nh = getNodeHandle();
-    private_nh = getPrivateNodeHandle();
-
-    // initializse the image trasnport
-    it = image_transport::ImageTransport(nh);
-
-    // topics we will subscribe to
-    std::string topicLeft, topicRight;
-
-    // Get the parameters
-    private_nh.param<std::string>("left_image_topic",   topicLeft,  "left/image_raw" );
-    private_nh.param<std::string>("right_image_topic",  topicRight, "right/image_raw");
-
-    // Debug info
-    NODELET_INFO("param left_image_topic with value:%s",    topicLeft.c_str());
-    NODELET_INFO("param right_image_topic with value:%s",   topicRight.c_str());
-
-    // Handle the image transport subscribers and publishers
-    subLeft     =   it.subscribe(topicLeft,   1, & StereoMask::imageLeftCb, this);    
-    subRight    =   it.subscribe(topicRight,  1, & StereoMask::imageRightCb, this);
-
-    pubLeft = it.advertise("left/image_raw_mask", 1);
-    pubRight = it.advertise("right/image_raw_mask", 1);
-}
-
-
-
-void StereoMask::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
+/**
+ * @name Callback for the left image. Applies the polygon overlay
+ * @{ */
+/**  @} */
+void imageLeftCallback(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
@@ -64,11 +42,15 @@ void StereoMask::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
     }
     catch (cv_bridge::Exception& e)
     {
-        NODELET_ERROR("Could not convert from '%s' to 'mono8'.", msg->encoding.c_str());
+        ROS_ERROR("Could not convert from '%s' to 'mono8'.", msg->encoding.c_str());
     }
 }
 
-void StereoMask::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
+/**
+ * @name Callback for the right image. Applies the polygon overlay
+ * @{ */
+/**  @} */
+void imageRightCallback(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
@@ -98,8 +80,33 @@ void StereoMask::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
     }
     catch (cv_bridge::Exception& e)
     {
-        NODELET_ERROR("Could not convert from '%s' to 'mono8'.", msg->encoding.c_str());
+        ROS_ERROR("Could not convert from '%s' to 'mono8'.", msg->encoding.c_str());
     }
 }
-}
 
+int main(int argc, char **argv)
+{
+    // topics we will subscribe to
+    std::string topicLeft, topicRight;
+
+    ros::init(argc, argv, "stereo_mask");
+    ros::NodeHandle nh;
+
+    // Get the parameters
+    ros::param::param<std::string>("~left_image_topic",   topicLeft,  "left/image_raw" );
+    ros::param::param<std::string>("~right_image_topic",  topicRight, "right/image_raw");
+
+    // Debug info
+    ROS_INFO("param left_image_topic with value:%s",    topicLeft.c_str());
+    ROS_INFO("param right_image_topic with value:%s",   topicRight.c_str());
+
+    // Handle the image transport subscribers and publishers
+    image_transport::ImageTransport it(nh);
+    image_transport::Subscriber subLeft     =   it.subscribe(topicLeft,   1, imageLeftCallback);
+    image_transport::Subscriber subRight    =   it.subscribe(topicRight,  1, imageRightCallback);
+
+    pubLeft = it.advertise("left/image_raw_mask", 1);
+    pubRight = it.advertise("right/image_raw_mask", 1);
+
+    ros::spin();
+}
