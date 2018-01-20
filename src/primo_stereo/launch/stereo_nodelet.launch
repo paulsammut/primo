@@ -42,7 +42,8 @@
     </node>
 
     <!-- Launch the mask --> 
-    <node if="$(arg mask)" pkg="stereo_mask" type="stereo_mask" name="mask" 
+    <node if="$(arg mask)" pkg="nodelet" type="nodelet" name="stereo_mask_nodelet" 
+        args="load stereo_mask/stereo_mask_nodelet $(arg node_space)/nodelet_manager">
         output="screen">
         <remap if="$(arg throttle)"     from="left/image_raw"   to="left/image_raw_throttle"/>
         <remap if="$(arg throttle)"     from="right/image_raw"  to="right/image_raw_throttle"/>
