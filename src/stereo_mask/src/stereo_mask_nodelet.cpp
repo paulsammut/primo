@@ -7,6 +7,8 @@ namespace stereo_mask
 
 void StereoMask::onInit()
 {
+    NODELET_INFO("Initializing stereo_mask nodelet");
+
     nh = getNodeHandle();
     private_nh = getPrivateNodeHandle();
 
@@ -102,4 +104,3 @@ void StereoMask::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
     }
 }
 }
-
