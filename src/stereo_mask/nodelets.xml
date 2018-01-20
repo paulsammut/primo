@@ -1,7 +1,9 @@
-<library path="lib/libStereoMask">
-    <class  name="stereo_mask/StereoMask" 
-            type="stereo_mask::StereoMask" 
+<library path="lib/libstereo_mask_nodelet">
+
+    <class  name="stereo_mask/stereo_mask_nodelet" 
+            type="stereo_mask::StereoMaskNodelet" 
             base_class_type="nodelet::Nodelet">
+
         <description>
             Stereo mask nodelet. 
         </description>

@@ -9,7 +9,7 @@
 
 namespace stereo_mask
 {
-class StereoMask : public nodelet::Nodelet
+class StereoMaskNodelet : public nodelet::Nodelet
 {
 public:
     /**

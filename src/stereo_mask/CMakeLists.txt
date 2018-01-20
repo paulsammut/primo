@@ -22,12 +22,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(stereo_mask
+add_library(stereo_mask_nodelet
   src/stereo_mask_nodelet.cpp
 )
 
 # add_executable(stereo_mask_node src/stereo_mask_node.cpp)
 
-target_link_libraries(stereo_mask
+target_link_libraries(stereo_mask_nodelet
    ${catkin_LIBRARIES}
 )

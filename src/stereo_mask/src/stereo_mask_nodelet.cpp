@@ -1,18 +1,18 @@
-#include "stereo_mask/stereo_mask.h"
+#include "stereo_mask/stereo_mask_nodelet.h"
 
-PLUGINLIB_EXPORT_CLASS(stereo_mask::StereoMask, nodelet::Nodelet)
+PLUGINLIB_EXPORT_CLASS(stereo_mask::StereoMaskNodelet, nodelet::Nodelet)
 
 namespace stereo_mask
 {
 
-void StereoMask::onInit()
+void StereoMaskNodelet::onInit()
 {
-    NODELET_INFO("Initializing stereo_mask nodelet");
-
     nh = getNodeHandle();
     private_nh = getPrivateNodeHandle();
 
-    // initializse the image trasnport
+    NODELET_INFO("Initializing stereo_mask nodelet");
+
+    // initialize the image trasnport
     image_transport::ImageTransport it(nh);
 
     // topics we will subscribe to
@@ -22,13 +22,14 @@ void StereoMask::onInit()
     private_nh.param<std::string>("left_image_topic",   topicLeft,  "left/image_raw" );
     private_nh.param<std::string>("right_image_topic",  topicRight, "right/image_raw");
 
+
     // Debug info
     NODELET_INFO("param left_image_topic with value:%s",    topicLeft.c_str());
     NODELET_INFO("param right_image_topic with value:%s",   topicRight.c_str());
 
     // Handle the image transport subscribers and publishers
-    subLeft     =   it.subscribe(topicLeft,   1, & StereoMask::imageLeftCb, this);    
-    subRight    =   it.subscribe(topicRight,  1, & StereoMask::imageRightCb, this);
+    subLeft     =   it.subscribe(topicLeft,   1, & StereoMaskNodelet::imageLeftCb, this);    
+    subRight    =   it.subscribe(topicRight,  1, & StereoMaskNodelet::imageRightCb, this);
 
     pubLeft = it.advertise("left/image_raw_mask", 1);
     pubRight = it.advertise("right/image_raw_mask", 1);
@@ -36,7 +37,7 @@ void StereoMask::onInit()
 
 
 
-void StereoMask::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
+void StereoMaskNodelet::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
@@ -70,7 +71,7 @@ void StereoMask::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
     }
 }
 
-void StereoMask::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
+void StereoMaskNodelet::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
 {
     try
     {
