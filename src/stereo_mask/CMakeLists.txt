@@ -22,12 +22,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/stereo_mask.cpp
-# )
+add_library(stereo_mask
+  src/stereo_mask_nodelet.cpp
+)
 
-add_executable(stereo_mask_node src/stereo_mask_node.cpp)
+# add_executable(stereo_mask_node src/stereo_mask_node.cpp)
 
 target_link_libraries(stereo_mask
    ${catkin_LIBRARIES}
