@@ -31,7 +31,6 @@ private:
 
     ros::NodeHandle nh;
     ros::NodeHandle private_nh;
-    image_transport::ImageTransport it;
     image_transport::Publisher pubLeft;
     image_transport::Publisher pubRight;
     image_transport::Subscriber subLeft;
