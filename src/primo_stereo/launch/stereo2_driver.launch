@@ -2,7 +2,7 @@
 
 <launch>
     <group ns="stereo2">
-        <node pkg="uvc_camera" type="uvc_stereo_node" name="stereo2_driver" output="screen">
+        <node pkg="see3cam_10cug" type="uvc_stereo_node" name="stereo2_driver" output="screen">
             <param name="width" type="int" value="1280" />
             <param name="height" type="int" value="960" />
             <param name="fps" type="int" value="30" />
