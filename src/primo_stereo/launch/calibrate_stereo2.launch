@@ -2,6 +2,8 @@
 <launch>
 
     <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" output="screen" 
-        args="--size 8x6 --square 0.108 right:=/stereo2/right/image_raw left:=/stereo2/left/image_raw"/>
+        args="  --size 8x6 --square 0.108 \
+                --size 5x4 --square 0.230 \ 
+                right:=/stereo2/right/image_raw left:=/stereo2/left/image_raw"/>
     
 </launch>
