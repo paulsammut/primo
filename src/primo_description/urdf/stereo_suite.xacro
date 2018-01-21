@@ -3,7 +3,7 @@
 
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo.xacro"/>
 
-    <xacro:m_stereo num="0" 
+    <xacro:m_stereo num="1" 
         x=      "-0.050" 
         y=      " 0.128" 
         z=      " 1.776"
@@ -12,7 +12,7 @@
         yaw=    "-0.634"
     />
 
-    <xacro:m_stereo num="1" 
+    <xacro:m_stereo num="0" 
         x=      " 0.053" 
         y=      "-0.196" 
         z=      " 1.745" 
