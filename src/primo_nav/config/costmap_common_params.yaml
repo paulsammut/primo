@@ -20,6 +20,8 @@ static_layer:
 
 obstacle_layer:
 
+    decay_time: 0.1
+
     footprint_clearing_enabled: false
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1
