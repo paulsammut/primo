@@ -16,11 +16,12 @@ void StereoMaskNodelet::onInit()
     image_transport::ImageTransport it(nh);
 
     // topics we will subscribe to
-    std::string topicLeft, topicRight;
+    std::string topicLeft, topicRight, camera_str;
 
     // Get the parameters
     private_nh.param<std::string>("left_image_topic",   topicLeft,  "left/image_raw" );
     private_nh.param<std::string>("right_image_topic",  topicRight, "right/image_raw");
+    private_nh.param<std::string>("camera",             camera_str, "stereo0");
 
 
     // Debug info
