@@ -45,7 +45,7 @@ void StereoMaskNodelet::onInit()
     NODELET_INFO("param right_image_topic with value:%s",   topicRight.c_str());
 
     // Handle the image transport subscribers and publishers
-    subLeft     =   it.subscribe(topicLeft,   1, & StereoMaskNodelet::imageLeftCb, this);    
+    subLeft     =   it.subscribe(topicLeft,   1, & StereoMaskNodelet::imageLeftCb, this);
     subRight    =   it.subscribe(topicRight,  1, & StereoMaskNodelet::imageRightCb, this);
 
     pubLeft = it.advertise("left/image_raw_mask", 1);
@@ -67,13 +67,21 @@ void StereoMaskNodelet::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
         if(camera == stereo0)
         {
             //Stereo0 - Left
-            pts[0][0] = cv::Point( 276, 479 );
-            pts[0][1] = cv::Point( 371, 365 );
-            pts[0][2] = cv::Point( 355, 324 );
-            pts[0][3] = cv::Point( 436, 283 );
-            pts[0][4] = cv::Point( 492, 332 );
-            pts[0][5] = cv::Point( 493, 374 );
-            pts[0][6] = cv::Point( 605, 477 );
+            // pts[0][0] = cv::Point( 276, 479 );
+            // pts[0][1] = cv::Point( 371, 365 );
+            // pts[0][2] = cv::Point( 355, 324 );
+            // pts[0][3] = cv::Point( 436, 283 );
+            // pts[0][4] = cv::Point( 492, 332 );
+            // pts[0][5] = cv::Point( 493, 374 );
+            // pts[0][6] = cv::Point( 605, 477 );
+
+            pts[0][0] = cv::Point( 215, 479 );
+            pts[0][1] = cv::Point( 337, 334 );
+            pts[0][2] = cv::Point( 343, 294 );
+            pts[0][3] = cv::Point( 411, 279 );
+            pts[0][4] = cv::Point( 488, 324 );
+            pts[0][5] = cv::Point( 494, 375 );
+            pts[0][6] = cv::Point( 611, 479 );
         }
 
         else if(camera == stereo1)
@@ -117,21 +125,29 @@ void StereoMaskNodelet::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
         // Make the polygon
         //
         cv::Point pts[1][7];
-         
+
         if(camera == stereo0)
         {
             //Stereo0 - Right
-            pts[0][0] = cv::Point( 208, 479 );
-            pts[0][1] = cv::Point( 320, 350 );
-            pts[0][2] = cv::Point( 311, 308 );
-            pts[0][3] = cv::Point( 381, 273 );
-            pts[0][4] = cv::Point( 429, 300 );
-            pts[0][5] = cv::Point( 448, 361 );
-            pts[0][6] = cv::Point( 576, 479 );
+            // pts[0][0] = cv::Point( 208, 479 );
+            // pts[0][1] = cv::Point( 320, 350 );
+            // pts[0][2] = cv::Point( 311, 308 );
+            // pts[0][3] = cv::Point( 381, 273 );
+            // pts[0][4] = cv::Point( 429, 300 );
+            // pts[0][5] = cv::Point( 448, 361 );
+            // pts[0][6] = cv::Point( 576, 479 );
+            
+            pts[0][0] = cv::Point( 215, 479 );
+            pts[0][1] = cv::Point( 337, 334 );
+            pts[0][2] = cv::Point( 343, 294 );
+            pts[0][3] = cv::Point( 411, 279 );
+            pts[0][4] = cv::Point( 488, 324 );
+            pts[0][5] = cv::Point( 494, 375 );
+            pts[0][6] = cv::Point( 611, 479 );
         }
 
         else if(camera == stereo1)
-        {                
+        {
             //Stereo1 - Right
             pts[0][0] = cv::Point( 270, 479 );
             pts[0][1] = cv::Point( 364, 394 );
