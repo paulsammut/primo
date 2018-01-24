@@ -24,12 +24,12 @@ void StereoMaskNodelet::onInit()
     private_nh.param<std::string>("camera",             camera_str, "stereo0");
 
     // Set the right camera enum
-    if(camera_str == "stereo0")
+    if(camera_str == "stereo0" || camera_str == "/stereo0")
     {
         camera = stereo0;
         NODELET_INFO("Loading stereo0 mask");
     }
-    else if(camera_str == "stereo1")
+    else if(camera_str == "stereo1" || camera_str == "/stereo1")
     {
         camera = stereo1;
         NODELET_INFO("Loading stereo1 mask");

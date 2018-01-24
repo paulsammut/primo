@@ -6,6 +6,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <pluginlib/class_list_macros.h>
+#include <string>
 
 namespace stereo_mask
 {
@@ -13,6 +14,9 @@ class StereoMaskNodelet : public nodelet::Nodelet
 {
 public:
     
+    /**
+     * @brief This enum allows me to use much easier hardcoded values for the mask
+     */
     enum Camera
     {
         stereo0,
@@ -42,6 +46,7 @@ private:
     image_transport::Publisher pubRight;
     image_transport::Subscriber subLeft;
     image_transport::Subscriber subRight;
+    StereoMaskNodelet::Camera camera;
 
 };
 }
