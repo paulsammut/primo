@@ -20,7 +20,7 @@ static_layer:
 
 obstacle_layer:
 
-    decay_time: 0.1
+    decay_time: 15.0
 
     footprint_clearing_enabled: false
 

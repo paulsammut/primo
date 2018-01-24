@@ -1,5 +1,11 @@
 controller_frequency: 20
-conservative_reset_dist: 1.0
+
+recovery_behaviors:
+  - name: 'aggressive_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+
+aggressive_reset:
+    reset_distance: 0.0
 
 TrajectoryPlannerROS:
 
@@ -8,7 +14,6 @@ TrajectoryPlannerROS:
     max_vel_theta: 3.0
     min_vel_theta: -3.0
     min_in_place_vel_theta: -0.1
-    escape_vel: -0.10
 
     acc_lim_theta: 3.0
     acc_lim_x: 1.0
@@ -16,14 +21,8 @@ TrajectoryPlannerROS:
 
     holonomic_robot: false
 
-    sim_time: 1.0
-
     # Goal Tolerance Parameters
     yaw_goal_tolerance: 0.5
     xy_goal_tolerance: 0.5
-    latch_xy_goal_tolerance: false
 
-    dwa: true
-    meter_scoring: true
     publish_cost_grid_pc: true
-    
