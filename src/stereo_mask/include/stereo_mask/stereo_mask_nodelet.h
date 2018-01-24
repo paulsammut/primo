@@ -12,6 +12,13 @@ namespace stereo_mask
 class StereoMaskNodelet : public nodelet::Nodelet
 {
 public:
+    
+    enum Camera
+    {
+        stereo0,
+        stereo1
+    };
+
     /**
      * @brief Callback for receiving the image
      *
