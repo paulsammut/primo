@@ -5,8 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /Planning1
         - /Stereo1
-        - /Stereo1/Images1
+        - /Stereo1/Images1/Stereo0_Image1
         - /Stereo1/PCL1
       Splitter Ratio: 0.564179122
     Tree Height: 562
@@ -273,6 +274,19 @@ Visualization Manager:
           Topic: /move_base/TrajectoryPlannerROS/local_plan
           Unreliable: false
           Value: true
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
+=======
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /move_base/TebLocalPlannerROS/teb_markers
+          Name: Marker
+          Namespaces:
+            PointObstacles: true
+            RobotFootprintModel: true
+            TebContainer: true
+          Queue Size: 100
+          Value: true
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
         - Alpha: 1
           Arrow Length: 0.300000012
           Axes Length: 0.300000012
@@ -441,23 +455,25 @@ Visualization Manager:
                     Stereo3_Image: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
-          Enabled: true
+          Enabled: false
           Name: Images
         - Class: rviz/Group
           Displays:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
                 Max Value: 0.592621326
                 Min Value: -0.787734389
+=======
+                Max Value: 0.0304198265
+                Min Value: 0.00241279602
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -486,8 +502,13 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
                 Max Value: 0.0555913448
                 Min Value: -0.0580163002
+=======
+                Max Value: 0.208845496
+                Min Value: 0.0421742201
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -516,8 +537,13 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
                 Max Value: 1.99837875
                 Min Value: -0.114680052
+=======
+                Max Value: 2.24399853
+                Min Value: 0.0361382961
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -573,7 +599,7 @@ Visualization Manager:
               Use Fixed Frame: true
               Use rainbow: true
               Value: false
-          Enabled: true
+          Enabled: false
           Name: PCL
       Enabled: true
       Name: Stereo
@@ -601,25 +627,42 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
       Distance: 5.56234264
+=======
+      Distance: 8.70516396
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
         X: -1.57120526
         Y: 0.0617398024
         Z: 1.90734863e-06
+=======
+        X: -0.217658281
+        Y: 0.449668735
+        Z: 3.81469727e-06
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
+<<<<<<< 38fb94e7e89fe086aeca777435d8c08af78f32f7
       Pitch: 0.224796966
       Target Frame: map
       Value: ThirdPersonFollower (rviz)
       Yaw: 2.33038855
+=======
+      Pitch: 1.56979632
+      Target Frame: map
+      Value: ThirdPersonFollower (rviz)
+      Yaw: 3.45539093
+>>>>>>> Ughh having a hard day with this shit. I did find out that I didn't have the stereo2 cloud feeding into the local_costmap, but then when I enabled it move_base shits a brick. Perf issues with it. UGhhh.
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 10
