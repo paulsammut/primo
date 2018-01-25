@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Planning1
-        - /Stereo1/Images1
+        - /Stereo1
         - /Stereo1/Images1/Stereo0_Image1
         - /Stereo1/PCL1
       Splitter Ratio: 0.564179122
@@ -156,12 +156,12 @@ Visualization Manager:
           Class: rviz/Map
           Color Scheme: costmap
           Draw Behind: false
-          Enabled: true
+          Enabled: false
           Name: Global Cost Map
           Topic: /move_base/global_costmap/costmap
           Unreliable: false
           Use Timestamp: false
-          Value: true
+          Value: false
         - Alpha: 1
           Class: rviz/Polygon
           Color: 25; 255; 0
@@ -240,7 +240,6 @@ Visualization Manager:
             PointObstacles: true
             RobotFootprintModel: true
             TebContainer: true
-            ViaPoints: true
           Queue Size: 100
           Value: true
         - Alpha: 1
@@ -276,7 +275,7 @@ Visualization Manager:
         - Class: rviz/Group
           Displays:
             - Class: rviz/Camera
-              Enabled: true
+              Enabled: false
               Image Rendering: background and overlay
               Image Topic: /stereo0/left/image_rect
               Name: Stereo0_Image
@@ -284,7 +283,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: true
+              Value: false
               Visibility:
                 Grid: true
                 Planning:
@@ -369,8 +368,6 @@ Visualization Manager:
                 Grid: true
                 Planning:
                   "": true
-                  Marker: true
-                  PoseArray: true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -379,23 +376,20 @@ Visualization Manager:
                     Stereo1_Image: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Value: true
               Zoom Factor: 1
-          Enabled: true
+          Enabled: false
           Name: Images
         - Class: rviz/Group
           Displays:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.0205602646
-                Min Value: -0.0198110342
+                Max Value: 0.0304198265
+                Min Value: 0.00241279602
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -424,8 +418,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.974015951
-                Min Value: -0.0102266073
+                Max Value: 0.208845496
+                Min Value: 0.0421742201
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -454,8 +448,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.2202692
-                Min Value: -0.0577484369
+                Max Value: 2.24399853
+                Min Value: 0.0361382961
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -511,9 +505,9 @@ Visualization Manager:
               Use Fixed Frame: true
               Use rainbow: true
               Value: false
-          Enabled: true
+          Enabled: false
           Name: PCL
-      Enabled: false
+      Enabled: true
       Name: Stereo
   Enabled: true
   Global Options:
@@ -539,25 +533,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 11.4054108
+      Distance: 8.70516396
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.28195095
-        Y: 2.04929924
+        X: -0.217658281
+        Y: 0.449668735
         Z: 3.81469727e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.979797006
+      Pitch: 1.56979632
       Target Frame: map
       Value: ThirdPersonFollower (rviz)
-      Yaw: 3.225389
+      Yaw: 3.45539093
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 10
@@ -585,7 +579,7 @@ Window Geometry:
   Height: 1019
   Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd0000000400000000000001a300000396fc020000000afb000000100044006900730070006c006100790073010000004500000396000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c000000000000000000000001000002f000000396fc0200000006fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000045000000e00000001700fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065000000012b000001cb0000001700fffffffb0000001a00530074006500720065006f0032005f0049006d00610067006500000001f1000001280000001700fffffffb0000000a00560069006500770073000000004500000396000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004e70000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001a300000396fc020000000afb000000100044006900730070006c006100790073010000004500000396000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000006800fffffffb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c000000000000000000000001000002f000000396fc0200000006fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000045000001c90000001700fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065000000012b000001cb0000001700fffffffb0000001a00530074006500720065006f0032005f0049006d00610067006500000001f1000001280000001700fffffffb0000000a00560069006500770073000000004500000396000000b600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000e4fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064f00000016fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004e70000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Stereo0_Image:
