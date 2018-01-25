@@ -7,22 +7,87 @@ recovery_behaviors:
 aggressive_reset:
     reset_distance: 0.0
 
-TrajectoryPlannerROS:
+TebLocalPlannerROS:
 
-    max_vel_x: 0.30
-    min_vel_x: 0.1
-    max_vel_theta: 1.0
-    min_vel_theta: -1.0
-
-    acc_lim_theta: 1.0
-    acc_lim_x: 1.0
-    acc_lim_y: 1.0
-
-    holonomic_robot: false
-
-    # Goal Tolerance Parameters
-    yaw_goal_tolerance: 0.5
+    odom_topic: /odometery/filtered
+    map_frame: /map
+       
+    # Trajectory
+     
+    teb_autosize: True
+    dt_ref: 0.4
+    dt_hysteresis: 0.1
+    global_plan_overwrite_orientation: True
+    # This is so we stick to the global plan and don't make s's 
+    max_global_plan_lookahead_dist: 3.0
+    feasibility_check_no_poses: 5
+    # not sure what this does
+    global_plan_viapoint_sep: .2
+       
+    # Robot
+            
+    max_vel_x: 0.5
+    max_vel_x_backwards: 0.5
+    max_vel_theta: 1.5 
+    acc_lim_x: 0.5
+    # If this is low, we overshoot on a rotate
+    acc_lim_theta: 3
+    min_turning_radius: 0.0
+    footprint_model: 
+       type: "polygon"
+       vertices: [
+           [ 0.4, 0.36],
+           [ -0.5, 0.36],
+           [ -0.5, -0.36],
+           [ 0.4, -0.36],
+       ]
+   
+    # GoalTolerance
+       
     xy_goal_tolerance: 0.5
-
-    publish_cost_grid_pc: true
-    escape_vel: 0
+    yaw_goal_tolerance: 1.2
+    free_goal_vel: False
+       
+    # Obstacles
+       
+    min_obstacle_dist: 0.10
+    inflation_dist: 0.20
+    include_costmap_obstacles: True
+    costmap_obstacles_behind_robot_dist: 1.0
+    obstacle_poses_affected: 30
+   
+    # Optimization
+       
+    no_inner_iterations: 5
+    no_outer_iterations: 4
+    optimization_activate: True
+    optimization_verbose: False
+    penalty_epsilon: 0.04
+    weight_max_vel_x: 1
+    weight_max_vel_theta: 1
+    weight_acc_lim_x: 1
+    weight_acc_lim_theta: 1
+    weight_kinematics_nh: 1000
+    weight_kinematics_forward_drive: 30
+    weight_kinematics_turning_radius: 1
+    weight_optimaltime: 1
+    weight_obstacle: 20
+    weight_dynamic_obstacle: 10 # not in use yet
+   #  alternative_time_cost: False # not in use yet
+    selection_alternative_time_cost: False
+    weight_viapoint: 40 
+   
+   
+    # Homotopy Class Planner
+   
+    enable_homotopy_class_planning: True
+    enable_multithreading: True
+    simple_exploration: False
+    max_number_classes: 4
+    roadmap_graph_no_samples: 15
+    roadmap_graph_area_width: 5
+    h_signature_prescaler: 0.5
+    h_signature_threshold: 0.1
+    obstacle_keypoint_offset: 0.1
+    obstacle_heading_threshold: 0.45
+    visualize_hc_graph: False
