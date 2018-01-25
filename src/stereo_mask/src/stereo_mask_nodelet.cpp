@@ -67,14 +67,6 @@ void StereoMaskNodelet::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
         if(camera == stereo0)
         {
             //Stereo0 - Left
-            // pts[0][0] = cv::Point( 276, 479 );
-            // pts[0][1] = cv::Point( 371, 365 );
-            // pts[0][2] = cv::Point( 355, 324 );
-            // pts[0][3] = cv::Point( 436, 283 );
-            // pts[0][4] = cv::Point( 492, 332 );
-            // pts[0][5] = cv::Point( 493, 374 );
-            // pts[0][6] = cv::Point( 605, 477 );
-
             pts[0][0] = cv::Point( 215, 479 );
             pts[0][1] = cv::Point( 337, 334 );
             pts[0][2] = cv::Point( 343, 294 );
@@ -87,13 +79,13 @@ void StereoMaskNodelet::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
         else if(camera == stereo1)
         {
             //Stereo1 - Left
-            pts[0][0] = cv::Point( 328, 479 );
-            pts[0][1] = cv::Point( 418, 399 );
-            pts[0][2] = cv::Point( 422, 366 );
-            pts[0][3] = cv::Point( 486, 325 );
-            pts[0][4] = cv::Point( 548, 370 );
-            pts[0][5] = cv::Point( 546, 404 );
-            pts[0][6] = cv::Point( 630, 479 );
+            pts[0][0] = cv::Point( 265, 479 );
+            pts[0][1] = cv::Point( 366, 395 );
+            pts[0][2] = cv::Point( 372, 346 );
+            pts[0][3] = cv::Point( 445, 320 );
+            pts[0][4] = cv::Point( 551, 360 );
+            pts[0][5] = cv::Point( 548, 408 );
+            pts[0][6] = cv::Point( 611, 479 );
         }
 
         // Set up the points for the filly poly function
@@ -129,14 +121,6 @@ void StereoMaskNodelet::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
         if(camera == stereo0)
         {
             //Stereo0 - Right
-            // pts[0][0] = cv::Point( 208, 479 );
-            // pts[0][1] = cv::Point( 320, 350 );
-            // pts[0][2] = cv::Point( 311, 308 );
-            // pts[0][3] = cv::Point( 381, 273 );
-            // pts[0][4] = cv::Point( 429, 300 );
-            // pts[0][5] = cv::Point( 448, 361 );
-            // pts[0][6] = cv::Point( 576, 479 );
-            
             pts[0][0] = cv::Point( 215, 479 );
             pts[0][1] = cv::Point( 337, 334 );
             pts[0][2] = cv::Point( 343, 294 );
@@ -149,13 +133,13 @@ void StereoMaskNodelet::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
         else if(camera == stereo1)
         {
             //Stereo1 - Right
-            pts[0][0] = cv::Point( 270, 479 );
-            pts[0][1] = cv::Point( 364, 394 );
-            pts[0][2] = cv::Point( 360, 354 );
-            pts[0][3] = cv::Point( 429, 320 );
-            pts[0][4] = cv::Point( 480, 355 );
-            pts[0][5] = cv::Point( 476, 394 );
-            pts[0][6] = cv::Point( 563, 479 );
+            pts[0][0] = cv::Point( 265, 479 );
+            pts[0][1] = cv::Point( 366, 395 );
+            pts[0][2] = cv::Point( 372, 346 );
+            pts[0][3] = cv::Point( 445, 320 );
+            pts[0][4] = cv::Point( 551, 360 );
+            pts[0][5] = cv::Point( 548, 408 );
+            pts[0][6] = cv::Point( 611, 479 );
         }
 
         // Set up the points for the filly poly function
