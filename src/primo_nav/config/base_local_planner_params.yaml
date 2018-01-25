@@ -1,7 +1,5 @@
 base_local_planner: "teb_local_planner/TebLocalPlannerROS"
 
-controller_frequency: 20
-
 recovery_behaviors:
   - name: 'aggressive_reset'
     type: 'clear_costmap_recovery/ClearCostmapRecovery'
@@ -30,7 +28,7 @@ TrajectoryPlannerROS:
     escape_vel: 0
 
     ## Costmap converter plugin   
-    costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
+    # costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSMCCH"
     #costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSConcaveHull"
@@ -43,7 +41,7 @@ TrajectoryPlannerROS:
     ## The parameters must be added for each plugin separately
     costmap_converter/CostmapToLinesDBSRANSAC:
         cluster_max_distance: 0.4
-        cluster_min_pts: 2
+        cluster_min_pts: 300
         ransac_inlier_distance: 0.15
         ransac_min_inliers: 10
         ransac_no_iterations: 2000
@@ -57,13 +55,13 @@ TrajectoryPlannerROS:
        
     # Trajectory
      
-    # teb_autosize: True
-    # dt_ref: 0.4
-    # dt_hysteresis: 0.1
+    teb_autosize: True
+    dt_ref: 0.4
+    dt_hysteresis: 0.1
     # global_plan_overwrite_orientation: True
     # This is so we stick to the global plan and don't make s's 
     # max_global_plan_lookahead_dist: 3.0
-    # feasibility_check_no_poses: 5
+    feasibility_check_no_poses: 5
     # not sure what this does
     # global_plan_viapoint_sep: -1 
        
@@ -101,10 +99,10 @@ TrajectoryPlannerROS:
    
     # Optimization
        
-   #  no_inner_iterations: 5
-   #  no_outer_iterations: 4
-   #  optimization_activate: True
-   #  optimization_verbose: False
+    no_inner_iterations: 5
+    no_outer_iterations: 4
+    optimization_activate: True
+    optimization_verbose: False
    #  penalty_epsilon: 0.04
    #  weight_max_vel_x: 1
    #  weight_max_vel_theta: 1
@@ -123,14 +121,14 @@ TrajectoryPlannerROS:
    
     # Homotopy Class Planner
    
-    # enable_homotopy_class_planning: True
-    # enable_multithreading: True
-    # simple_exploration: False
-    # max_number_classes: 4
-    # roadmap_graph_no_samples: 15
-    # roadmap_graph_area_width: 5
-    # h_signature_prescaler: 0.5
-    # h_signature_threshold: 0.1
-    # obstacle_keypoint_offset: 0.1
-    # obstacle_heading_threshold: 0.45
-    # visualize_hc_graph: False
+    enable_homotopy_class_planning: True
+    enable_multithreading: True
+    simple_exploration: False
+    max_number_classes: 4
+    roadmap_graph_no_samples: 15
+    roadmap_graph_area_width: 5
+    h_signature_prescaler: 0.5
+    h_signature_threshold: 0.1
+    obstacle_keypoint_offset: 0.1
+    obstacle_heading_threshold: 0.45
+    visualize_hc_graph: False
