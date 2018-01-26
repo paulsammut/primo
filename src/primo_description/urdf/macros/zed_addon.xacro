@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="m_zed" params="num">
+
+        <!-- Standard ZED stuff -->
+        <link name="zed_left_camera">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 1.57 0"/>
+                <geometry>
+                    <cylinder radius="0.007" length=".031"/>
+                </geometry>
+                <material name="dark_grey">
+                    <color rgba="0.1 0.1 0.1 1"/>
+                </material>
+            </visual>
+        </link>
+        <link name="zed_center">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://zed_wrapper/urdf/ZED.stl" />
+                </geometry>
+                <material name="light_grey">
+                    <color rgba="0.8 0.8 0.8 0.8"/>
+                </material>
+            </visual>
+        </link>
+        <link name="zed_right_camera">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 1.57 0"/>
+                <geometry>
+                    <cylinder radius="0.007" length=".031"/>
+                </geometry>
+                <material name="dark_grey">
+                    <color rgba="0.1 0.1 0.1 1"/>
+                </material>
+            </visual>
+        </link>
+        <link name="zed_depth_camera" />
+
+        <joint name="zed_left_camera_joint" type="fixed">
+            <parent link="zed_center"/>
+            <child link="zed_left_camera"/>
+            <origin xyz="0 0.06 0" rpy="0 0 0" />
+        </joint>
+        <joint name="zed_depth_camera_joint" type="fixed">
+            <parent link="zed_left_camera"/>
+            <child link="zed_depth_camera"/>
+            <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966" />
+        </joint>
+
+        <joint name="zed_right_camera_joint" type="fixed">
+            <parent link="zed_center"/>
+            <child link="zed_right_camera"/>
+            <origin xyz="0 -0.06 0" rpy="0 0 0" />
+        </joint>
+
+        <!-- Addon joint which bolts the zed stuff to my urdf -->
+        <joint name="stereo${num}_zed_addon_joint" type="fixed">
+            <parent link="stereo${num}_link"/>
+            <child link="zed_center"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+    </xacro:macro>
+</robot>
