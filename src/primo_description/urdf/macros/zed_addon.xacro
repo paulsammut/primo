@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="m_zed" params="num">
+    <xacro:macro name="m_zed_addon" params="num">
 
         <!-- Standard ZED stuff -->
         <link name="zed_left_camera">
