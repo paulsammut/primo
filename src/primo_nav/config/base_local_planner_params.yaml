@@ -1,4 +1,4 @@
-base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+# base_local_planner: "teb_local_planner/TebLocalPlannerROS"
 
 recovery_behaviors:
   - name: 'aggressive_reset'
@@ -31,7 +31,7 @@ TrajectoryPlannerROS:
     # costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSMCCH"
-    #costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSConcaveHull"
+    costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSConcaveHull"
     #costmap_converter_plugin: "" # deactivate plugin
     costmap_converter_spin_thread: True
     costmap_converter_rate: 5
