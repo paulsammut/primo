@@ -4,6 +4,7 @@
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/zed_addon.xacro"/>
 
+    <!-- Tara 0 -->
     <xacro:m_stereo num="0" 
         x=      " 0.053" 
         y=      "-0.210" 
@@ -13,6 +14,7 @@
         yaw=    "-2.466"
     />
 
+    <!-- Tara 1 -->
     <xacro:m_stereo num="1" 
         x=      "-0.034" 
         y=      " 0.247" 
@@ -22,6 +24,7 @@
         yaw=    "-0.755"
     />
 
+    <!-- See3cam stereo rig -->
     <xacro:m_stereo num="2" 
         x=      "-0.070" 
         y=      " 0.097" 
@@ -31,12 +34,23 @@
         yaw=    "-1.575"
     />
 
+    <!-- Zed -->
+    <xacro:m_stereo num="3" 
+        x=      "-0.177" 
+        y=      " 0.000" 
+        z=      " 1.870" 
+        roll=   " 0.000" 
+        pitch=  " 0.718"
+        yaw=    "-3.142"
+    />
+    <xacro:m_zed_addon num="3"/>
+
     <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
          stereo cam. To use this, you have to disable the m_stereo macro and just
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
 
-    <xacro:m_stereo_cal num="3"/>
-    <xacro:m_zed_addon num="3"/>
+    <!-- <xacro:m_stereo_cal num="3"/> -->
+    <!-- <xacro:m_zed_addon num="3"/> -->
 
 </robot>

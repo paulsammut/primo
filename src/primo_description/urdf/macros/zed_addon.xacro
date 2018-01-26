@@ -1,4 +1,17 @@
 <?xml version="1.0"?>
+
+<!-- 
+
+This is an "addon" macro to the stereo macro. It allows the use of the
+standard methods of implementing a stereo camera on primo, while allowing 
+for maximum reuse of the ZED urdf  and systems, all the while not modifying
+the zed_wrapper package to keep the codebase clean and unhacky. 
+To use, just invoke the stereo cam with whatever number you want and also 
+invoke this macro with the same number.
+
+Paul code!
+
+ -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:macro name="m_zed_addon" params="num">
