@@ -112,6 +112,17 @@
             </node>
         </group>
 
+        <!-- Add a voxel downsampler -->
+        <node pkg="nodelet" type="nodelet" name="vxl" 
+            args="load pcl/VoxelGrid $(arg node_space)/nodelet_manager" output="screen">
+            <remap from="~input" to="$(arg node_space)/point_cloud/cloud_registered" />
+            <param name="leaf_size"             value="0.03"/>
+            <param name="filter_field_name"     value="x"/>
+            <param name="filter_limit_min"      value="-100"/>
+            <param name="filter_limit_max"      value="100"/>
+            <param name="filter_limit_negative" value="false"/>
+        </node>
+
     </group>
 
 </launch>
