@@ -103,15 +103,6 @@
 
         </node>
 
-        <!-- ROS URDF description of the ZED -->
-        <group if="$(arg publish_urdf)">
-            <param if="$(arg camera_model)" name="zed_description" textfile="$(find zed_wrapper)/urdf/zedm.urdf" />
-            <param unless="$(arg camera_model)" name="zed_description" textfile="$(find zed_wrapper)/urdf/zed.urdf" />
-            <node name="zed_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-                <remap from="robot_description" to="zed_description" />
-            </node>
-        </group>
-
         <!-- Add a voxel downsampler -->
         <node pkg="nodelet" type="nodelet" name="vxl" 
             args="load pcl/VoxelGrid $(arg node_space)/nodelet_manager" output="screen">
