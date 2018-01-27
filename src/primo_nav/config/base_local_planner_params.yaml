@@ -1,4 +1,4 @@
-# base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+base_local_planner: "teb_local_planner/TebLocalPlannerROS"
 
 recovery_behaviors:
   - name: 'aggressive_reset'
@@ -7,31 +7,12 @@ recovery_behaviors:
 aggressive_reset:
     reset_distance: 0.0
 
-TrajectoryPlannerROS:
-
-    max_vel_x: 0.30
-    min_vel_x: 0.1
-    max_vel_theta: 1.0
-    min_vel_theta: -1.0
-
-    acc_lim_theta: 1.0
-    acc_lim_x: 1.0
-    acc_lim_y: 1.0
-
-    holonomic_robot: false
-
-    # Goal Tolerance Parameters
-    yaw_goal_tolerance: 0.5
-    xy_goal_tolerance: 0.5
-
-    publish_cost_grid_pc: true
-    escape_vel: 0
-
+TebLocalPlannerROS:
     ## Costmap converter plugin   
-    # costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
+    costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
     #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSMCCH"
-    costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSConcaveHull"
+    # costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSConcaveHull"
     #costmap_converter_plugin: "" # deactivate plugin
     costmap_converter_spin_thread: True
     costmap_converter_rate: 5
@@ -41,7 +22,7 @@ TrajectoryPlannerROS:
     ## The parameters must be added for each plugin separately
     costmap_converter/CostmapToLinesDBSRANSAC:
         cluster_max_distance: 0.4
-        cluster_min_pts: 300
+        cluster_min_pts: 20
         ransac_inlier_distance: 0.15
         ransac_min_inliers: 10
         ransac_no_iterations: 2000
@@ -91,7 +72,7 @@ TrajectoryPlannerROS:
        
     # Obstacles
        
-    # min_obstacle_dist: 0.10
+    min_obstacle_dist: 0.001
     # inflation_dist: 0.20
     # include_costmap_obstacles: True
     # costmap_obstacles_behind_robot_dist: 1.0
