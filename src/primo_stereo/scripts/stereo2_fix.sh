@@ -17,7 +17,7 @@ xinput list | grep "$searchStr" | while read -r line ; do
     id=$(awk '{print $1}' <<< $var)
 
     echo "Disabling $var"
-    echo xinput --disable $id
+    xinput --disable $id
 
 
 done
