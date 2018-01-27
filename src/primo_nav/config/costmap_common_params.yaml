@@ -65,7 +65,7 @@ obstacle_layer:
         topic: /stereo3/vxl/output, 
         marking: true, 
         clearing: true,
-        min_obstacle_height: 0.3,
+        min_obstacle_height: 0.5,
         max_obstacle_height: 2.0,
         observation_persistence: 0.0
     }
