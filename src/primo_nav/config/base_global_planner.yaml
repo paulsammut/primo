@@ -1,0 +1,7 @@
+base_global_planner: global_planner/GlobalPlanner
+
+GlobalPlanner:
+    allow_unknown: true
+    visualize_potential: true
+    use_dijkstra: true
+    cost_factor: 1

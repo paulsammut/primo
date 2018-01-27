@@ -21,12 +21,13 @@
         <remap from="cmd_vel" to="raw_cmd_vel"/>
         <!-- <remap from="cmd_vel" to="you_aint_goin_NOWHERES"/> -->
 
-        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="global_costmap"/>
-        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"     command="load" ns="local_costmap"/>
-        <rosparam file="$(find primo_nav)/config/local_costmap_params.yaml"      command="load"/>
-        <rosparam file="$(find primo_nav)/config/global_costmap_params.yaml"     command="load"/>
+        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"        command="load" ns="global_costmap"/>
+        <rosparam file="$(find primo_nav)/config/costmap_common_params.yaml"        command="load" ns="local_costmap"/>
+        <rosparam file="$(find primo_nav)/config/local_costmap_params.yaml"         command="load"/>
+        <rosparam file="$(find primo_nav)/config/global_costmap_params.yaml"        command="load"/>
 
-        <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml" command="load"/>
+        <rosparam file="$(find primo_nav)/config/base_local_planner_params.yaml"    command="load"/>
+        <rosparam file="$(find primo_nav)/config/base_global_planner.yaml"     command="load"/>
 
 		<param name="controller_frequency" value="5.0" />
 		<param name="controller_patience" value="15.0" />
