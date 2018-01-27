@@ -54,7 +54,7 @@ TebLocalPlannerROS:
     max_vel_theta: 1.0 
     acc_lim_x: 0.5
     # If this is low, we overshoot on a rotate
-    # acc_lim_theta: 5
+    acc_lim_theta: 1
     # min_turning_radius: 0.0
     footprint_model: 
        type: "polygon"
