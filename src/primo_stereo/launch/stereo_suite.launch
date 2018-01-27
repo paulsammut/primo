@@ -32,4 +32,7 @@
         <arg name="mask"        value="false"/>
     </include>
 
+    <include file="$(find primo_stereo)/launch/stereo3.launch">
+    </include>
+
 </launch>
