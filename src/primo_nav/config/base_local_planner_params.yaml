@@ -44,18 +44,19 @@ TebLocalPlannerROS:
     # This is so we stick to the global plan and don't make s's 
     # max_global_plan_lookahead_dist: 3.0
     feasibility_check_no_poses: 5
-    # not sure what this does
-    # global_plan_viapoint_sep: -1 
+
+    global_plan_viapoint_sep: 0.5
        
     # Robot
             
     max_vel_x: 0.5
     max_vel_x_backwards: 0.5
-    max_vel_theta: 1.0 
+    max_vel_theta: 1.5 
     acc_lim_x: 0.5
     # If this is low, we overshoot on a rotate
-    acc_lim_theta: 1
-    # min_turning_radius: 0.0
+    acc_lim_theta: 3
+    min_turning_radius: 0.01
+    wheelbase: 0.1
     footprint_model: 
        type: "polygon"
        vertices: [
@@ -91,14 +92,14 @@ TebLocalPlannerROS:
    #  weight_acc_lim_x: 1
    #  weight_acc_lim_theta: 1
    #  weight_kinematics_nh: 1000
-   #  weight_kinematics_forward_drive: 30
-   #  weight_kinematics_turning_radius: 1
+    weight_kinematics_forward_drive: 30
+    weight_kinematics_turning_radius: 100
    #  weight_optimaltime: 1
    #  weight_obstacle: 20
    #  weight_dynamic_obstacle: 10 # not in use yet
    # #  alternative_time_cost: False # not in use yet
    #  selection_alternative_time_cost: False
-   #  weight_viapoint: 1 
+    weight_viapoint: 200 
    
    
     # Homotopy Class Planner
