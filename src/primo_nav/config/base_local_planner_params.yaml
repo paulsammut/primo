@@ -19,10 +19,11 @@ TebLocalPlannerROS:
    
    
     ## Configure plugins (namespace move_base/TebLocalPlannerROS/PLUGINNAME)
-    ## The parameters must be added for each plugin separately
-    costmap_converter/CostmapToLinesDBSRANSAC:
+    costmap_converter/CostmapToPolygonsDBSMCCH:
         cluster_max_distance: 0.4
         cluster_min_pts: 20
+        cluster_max_pts: 200 
+
         ransac_inlier_distance: 0.15
         ransac_min_inliers: 10
         ransac_no_iterations: 2000
