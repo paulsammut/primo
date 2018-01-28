@@ -24,7 +24,12 @@
 	</group>
 </launch>
 
-<!--
+<!-- 
+     Use the following command to figure out what resolution is good. 
+     Very easy to make a mistake! Look at the file image type!
+
+     v4l2-ctl -d /dev/video5 (dash dash)list-formats-ext
+
   looking at parent device '/devices/pci0000:00/0000:00:14.0/usb1/1-5/1-5.4/1-5.4.4/1-5.4.4.2':
     KERNELS=="1-5.4.4.2"
     SUBSYSTEMS=="usb"
