@@ -12,7 +12,7 @@
 			<!-- <param name="index" value="0"/> -->
 
 			<!-- Image size and type -->
-			<param name="width" value="640"/>
+			<param name="width" value="864"/>
 			<param name="height" value="480"/>
 			<!-- choose whichever uncompressed format the camera supports: -->
 			<param name="video_mode" value="yuyv"/> <!-- or yuyv/nv12/mjpeg -->
