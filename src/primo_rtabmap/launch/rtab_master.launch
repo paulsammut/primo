@@ -45,7 +45,7 @@
             <param name="Mem/IncrementalMemory" type="string"   value="true"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="0"/>
             <param name="Grid/DepthMin"         type="double"   value="0.2"/>
-            <param name="Grid/DepthMax"         type="double"   value="2.3"/>
+            <param name="Grid/DepthMax"         type="double"   value="1.9"/>
         </group>
 
         <param name="Grid/CellSize"             type="double"   value="0.05"/>
@@ -74,7 +74,7 @@
         <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 
         <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="1.000"  />
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="0.700"  />
 
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
