@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- Spool up the camera -->
+    <include file="$(find primo_base)/launch/color0.launch"/>
+
+    <!-- Run yolo -->
+    <include file="$(find primo_base)/launch/yolo2_proc.launch"/>
+    
+</launch>
