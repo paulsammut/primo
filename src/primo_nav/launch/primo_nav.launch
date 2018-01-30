@@ -12,7 +12,7 @@
     <remap from="move_base_simple/goal" to="/goal_out"/>
 
     <node if="$(arg mod)" pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
-        <remap from="map" to="map_mod"/>
+        <remap from="map" to="lanes"/>
     </node>
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
