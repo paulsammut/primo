@@ -12,7 +12,7 @@
     <arg name="x_neg"       value="-0.50"/>
     <arg name="y_pos"       value=" 0.38"/>
     <arg name="y_neg"       value="-0.38"/>
-    <arg name="stereo3"     default="true"/>
+    <arg name="sim"         default="false"/>
 
     <include file="$(find primo_stereo)/launch/stereo0_proc.launch">
         <arg name="filter"      value="$(arg filter)"/>
@@ -33,7 +33,7 @@
         <arg name="mask"        value="false"/>
     </include>
 
-    <include if="$(arg stereo3)" file="$(find primo_stereo)/launch/stereo3.launch">
+    <include unless="$(arg stereo3)" file="$(find primo_stereo)/launch/stereo3.launch">
     </include>
 
 </launch>
