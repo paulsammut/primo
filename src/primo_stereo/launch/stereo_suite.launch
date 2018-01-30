@@ -33,7 +33,7 @@
         <arg name="mask"        value="false"/>
     </include>
 
-    <include unless="$(arg stereo3)" file="$(find primo_stereo)/launch/stereo3.launch">
+    <include unless="$(arg sim)" file="$(find primo_stereo)/launch/stereo3.launch">
     </include>
 
 </launch>
