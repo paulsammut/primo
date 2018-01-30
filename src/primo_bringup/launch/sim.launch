@@ -34,6 +34,7 @@
     <group if="true">
         <include file="$(find primo_stereo)/launch/stereo_suite.launch">
             <arg name="throttle"    value="true"/>
+            <arg name="sim"         value="true"/>
         </include>
     </group>
 
