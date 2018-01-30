@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <!--XML-->
 <launch>
+    <arg name="dev" default="/dev/input/js0"/>
+
     <!-- joy node that loads the driver that interfaces ROS to the joystick -->
     <node pkg="joy" type="joy_node" name="joy_node">
-        <param name="dev" type="string" value="/dev/input/js0"/>
+        <param name="dev" type="string" value="$(arg dev)"/>
         <param name="deadzone" value="0.25"/>
         <param name="autorepeat_rate" value="30"/>
     </node>
