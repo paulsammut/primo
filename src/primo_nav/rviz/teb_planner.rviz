@@ -8,6 +8,7 @@ Panels:
         - /Planning1
         - /Stereo1
         - /Stereo1/Cameras1
+        - /Stereo1/PCL1
         - /Stereo1/Images1
       Splitter Ratio: 0.701086938
     Tree Height: 376
@@ -486,8 +487,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.903387547
-                Min Value: -0.019821167
+                Max Value: -9999
+                Min Value: 9999
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -516,8 +517,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.903250515
-                Min Value: 0.00694978237
+                Max Value: 0.0432808399
+                Min Value: -0.0139001608
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -546,8 +547,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.9355309
-                Min Value: -0.0374352932
+                Max Value: 2.37357235
+                Min Value: -0.085270524
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -576,8 +577,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.53437102
-                Min Value: -0.570507884
+                Max Value: 1.64476538
+                Min Value: -1.26704061
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -704,7 +705,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -725,25 +726,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 9.48011303
+      Distance: 6.63259935
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.14132178
-        Y: -1.28760123
+        X: 1.35462403
+        Y: -0.281652927
         Z: -1.43051147e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.56979632
+      Pitch: 0.444797099
       Target Frame: map
       Value: ThirdPersonFollower (rviz)
-      Yaw: 5.07176733
+      Yaw: 4.58175373
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 10
