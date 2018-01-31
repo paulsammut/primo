@@ -8,7 +8,7 @@ footprint: [
    [ 0.4, -0.36],
 ]
 
-footprint_padding: 0.010
+footprint_padding: 0.020
 
 static_layer:
     enabled:                true
