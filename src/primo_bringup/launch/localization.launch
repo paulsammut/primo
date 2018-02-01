@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <launch>
     <!-- args to passed through -->
-    <arg name="base_width" default="0.65"/>
+    <arg name="sim"         default="false"/>
+    <arg name="localize"    default="true"/>
+    <arg name="del_db"      default="false"/>
+    <arg name="base_width"  default="0.65"/>
 
     <!-- Module enable -->
     <arg name="enable_rtabmap"                 default="true"/>
@@ -47,15 +50,16 @@
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
             <arg name="localize"        value="true"/>
             <arg name="sim"             value="false"/>
-            <!-- <arg name="rtab_args"       value="&#45;&#45;delete_db_on_start"/> -->
-            <arg name="rtab_args"       value=""/>
+
+            <arg if="$(arg del_db)"     name="rtab_args"       value="--delete_db_on_start"/>
+            <arg unless="$(arg del_db)" name="rtab_args"       value=""/>
         </include>
     </group>
 
     
     <!-- Module: IMU -->
     <group if="$(arg enable_imu)">
-        <node pkg="memsense_uimu" type="uimu" name="uimu"/>
+        <node unless="$(arg sim)" pkg="memsense_uimu" type="uimu" name="uimu"/>
 
         <node if="true" pkg="imu_complementary_filter" type="complementary_filter_node" name="imu_filter"> 
             <remap from="imu/data_raw"  to="imu"/>
