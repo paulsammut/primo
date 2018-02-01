@@ -48,8 +48,8 @@
             <arg name="rgbd"            value="true" />
             <arg name="laser"           value="false" />
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
-            <arg name="localize"        value="true"/>
-            <arg name="sim"             value="false"/>
+            <arg name="localize"        value="$(arg localize)"/>
+            <arg name="sim"             value="$(arg sim)"/>
 
             <arg if="$(arg del_db)"     name="rtab_args"       value="--delete_db_on_start"/>
             <arg unless="$(arg del_db)" name="rtab_args"       value=""/>
