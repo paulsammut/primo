@@ -70,7 +70,7 @@ void StereoMaskNodelet::imageLeftCb(const sensor_msgs::ImageConstPtr& msg)
             pts[0][0] = cv::Point( 215, 479 );
             pts[0][1] = cv::Point( 337, 334 );
             pts[0][2] = cv::Point( 343, 294 );
-            pts[0][3] = cv::Point( 411, 279 );
+            pts[0][3] = cv::Point( 420, 270 );
             pts[0][4] = cv::Point( 488, 324 );
             pts[0][5] = cv::Point( 494, 375 );
             pts[0][6] = cv::Point( 611, 479 );
@@ -124,7 +124,7 @@ void StereoMaskNodelet::imageRightCb(const sensor_msgs::ImageConstPtr& msg)
             pts[0][0] = cv::Point( 215, 479 );
             pts[0][1] = cv::Point( 337, 334 );
             pts[0][2] = cv::Point( 343, 294 );
-            pts[0][3] = cv::Point( 411, 279 );
+            pts[0][3] = cv::Point( 420, 270 );
             pts[0][4] = cv::Point( 488, 324 );
             pts[0][5] = cv::Point( 494, 375 );
             pts[0][6] = cv::Point( 611, 479 );
