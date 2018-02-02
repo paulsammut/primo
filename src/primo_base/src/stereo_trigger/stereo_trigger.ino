@@ -11,7 +11,7 @@
 ros::NodeHandle nh;
 
 // Rate in Hz at which to trigger the cameras
-float rate = 1;
+float rate = 1.2;
 unsigned long period_us;
 bool pulse_state = false;
 
