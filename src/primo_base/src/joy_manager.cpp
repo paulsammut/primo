@@ -19,7 +19,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
 {
     sabertooth_simple::SabertoothEstop srv;
 
-    // Buttons
+    // PS4 mappings
     bool btn_a = msg->buttons[0];
     bool btn_b = msg->buttons[1];
     bool btn_x = msg->buttons[2];
@@ -27,11 +27,13 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
     bool btn_l_paddle = msg->buttons[4];
     bool btn_r_paddle = msg->buttons[5];
     bool btn_back = msg->buttons[6];
-    bool btn_start = msg->buttons[7];
+    // bool btn_start = msg->buttons[7];
+    bool btn_start = msg->buttons[10];
     bool btn_left_stick  = msg->buttons[9];
     bool btn_right_stick = msg->buttons[10];
 
-    bool estop_button = (btn_left_stick || btn_right_stick);
+    // bool estop_button = (btn_left_stick || btn_right_stick);
+    bool estop_button = (msg->buttons[6] || msg->buttons[7]);
     
     // Emergency Stop Activate
     if(estop_button && !estopState)
