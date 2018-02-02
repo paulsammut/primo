@@ -60,7 +60,7 @@ void joyCb(const sensor_msgs::Joy::ConstPtr& msg)
         srv.request.estop = false;
         if(client.call(srv))
         {
-            sc->say("Primo torqued and ready to fuck shit uup");
+            sc->say("Primo is ready to roll.");
             ROS_INFO("ESTOP succesfully cleared"); 
             estopState = false;
         }
