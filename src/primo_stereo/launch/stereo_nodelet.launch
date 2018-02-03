@@ -116,6 +116,7 @@
             args="load stereo_image_proc/disparity $(arg node_space)/nodelet_manager $(arg bond)"
             respawn="$(arg respawn)" >
             <param name="disparity_range" value="128"/>
+            <param name="approximate_sync" value="false"/>
         </node>
 
         <!-- PointCloud2 -->
