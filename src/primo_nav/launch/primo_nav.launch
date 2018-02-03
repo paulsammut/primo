@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="mod" default="false"/>
+    <arg name="lanes" default="false"/>
 
     <remap from="map" to="/grid_map"/>
 
@@ -11,7 +11,7 @@
     <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
     <remap from="move_base_simple/goal" to="/goal_out"/>
 
-    <node if="$(arg mod)" pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
+    <node if="$(arg lanes)" pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
         <remap from="map" to="lanes"/>
     </node>
 
