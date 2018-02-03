@@ -312,18 +312,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -337,8 +327,12 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
+                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -357,18 +351,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -382,8 +366,12 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
+                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -451,18 +439,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -476,8 +454,12 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
+                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -490,8 +472,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.619214535
-                Min Value: -0.0777075291
+                Max Value: 0.915314436
+                Min Value: -0.0820837021
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -520,8 +502,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.954618394
-                Min Value: 0.0036290884
+                Max Value: -9999
+                Min Value: 9999
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -550,8 +532,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.07849741
-                Min Value: -0.0312651396
+                Max Value: -9999
+                Min Value: 9999
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -580,8 +562,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.62491441
-                Min Value: -0.120459914
+                Max Value: 1.47156322
+                Min Value: -0.361494899
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -637,7 +619,7 @@ Visualization Manager:
               Use Fixed Frame: true
               Use rainbow: true
               Value: false
-          Enabled: false
+          Enabled: true
           Name: PCL
         - Class: rviz/Group
           Displays:
@@ -729,25 +711,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 8.92154312
+      Distance: 29.2054958
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.98279631
-        Y: -6.07845736
+        X: -0.896563649
+        Y: -6.61100435
         Z: -1.43051147e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.924796939
+      Pitch: 0.25479728
       Target Frame: map
       Value: ThirdPersonFollower (rviz)
-      Yaw: 2.26674581
+      Yaw: 2.29674649
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 10
