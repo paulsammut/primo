@@ -2,7 +2,7 @@
 
 # Mapping recording script
 
-rosbag record --duration 1m\
+rosbag record \
     /odometry/filtered \
     /stereo2/left/image_rect_color \
     /stereo2/depth \
