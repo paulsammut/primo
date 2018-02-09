@@ -55,7 +55,19 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
 
     GetListofDeviceseCon();
 
-    index = ( _device[10] ) - 48;
+    // Paul code fix:
+    // Get the device index, which is the number after /dev/video 
+    int dev_index = ( _device[10] ) - 48;
+    
+    // We have to iterate through the DeviceInstances->listVidDevices[].deviceID
+    // to make sure device ID is equal to the end  
+    for(int i = 0; i<DeviceInstances->num_devices; i++)
+    {
+        // check to see if dev_index is the same as what is listed in this
+        // device. If it is, then we have index
+        if(DeviceInstances->listVidDevices[i].deviceID == dev_index)
+            index = i;
+    }
 
     printf("opening %s\n", _device);
 
@@ -378,6 +390,7 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
     else
     {
         IsStereo = false;
+        printf("[ Paul ] Failed the IsStereo test\n");
     }
     if (true == IsStereo)
     {
@@ -386,9 +399,6 @@ Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)
             cout << "InitCamera : Extension Unit Initialisation Failed\n";
         }
     }
-
-    // Paul code:
-    IsStereo = true;
 
     //  EnableTriggerMode();
 }
