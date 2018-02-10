@@ -82,9 +82,13 @@ bool protectionCheck(void)
     // System is down
     if(readVoltage() <= voltLow)
     {
-        digitalWrite(PIN_SWITCH, LOW);
         digitalWrite(PIN_LED_RED, HIGH);
         digitalWrite(PIN_LED_GREEN, LOW);
+
+        // Wait 5 minutes
+        delay(300000);
+
+        digitalWrite(PIN_SWITCH, LOW);
         return true;
     } 
 
