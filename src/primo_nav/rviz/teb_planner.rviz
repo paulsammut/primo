@@ -8,7 +8,6 @@ Panels:
         - /Stereo1
         - /Stereo1/Cameras1
         - /Stereo1/Cameras1/Stereo2_Image1
-        - /Stereo1/Cameras1/Stereo2_Image1/Status1
       Splitter Ratio: 0.701086938
     Tree Height: 409
   - Class: rviz/Selection
@@ -314,18 +313,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -339,12 +328,8 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
-                    Stereo3: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -363,18 +348,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -388,12 +363,8 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
-                    Stereo3: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -461,18 +432,8 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Map: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -486,12 +447,8 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
-                    Stereo3: true
+                    "": true
                     Value: true
-                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -504,8 +461,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: -9999
-                Min Value: 9999
+                Max Value: 0.0128512383
+                Min Value: -0.088835597
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -534,8 +491,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: -9999
-                Min Value: 9999
+                Max Value: 0.749656975
+                Min Value: -0.0506161451
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -564,8 +521,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 19.4110317
-                Min Value: -3.25331736
+                Max Value: 2.17410159
+                Min Value: -0.172271729
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -594,8 +551,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.57102036
-                Min Value: -1.8172344
+                Max Value: 1.42005837
+                Min Value: -0.149576783
                 Value: true
               Axis: Z
               Channel Name: intensity
