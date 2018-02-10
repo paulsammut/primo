@@ -14,7 +14,7 @@ unsigned long timePub = 0;
 
 // Interval in milliseconds for publishing the battery data
 int pubInterval = 50;
-float voltLow = 21.5;
+float voltLow = 19.0;
 
 sensor_msgs::BatteryState msg_batt;
 
