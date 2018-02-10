@@ -86,7 +86,7 @@ bool protectionCheck(void)
         digitalWrite(PIN_LED_GREEN, LOW);
 
         // Wait 5 minutes
-        delay(300000);
+        // delay(300000);
 
         digitalWrite(PIN_SWITCH, LOW);
         return true;
