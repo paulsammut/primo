@@ -77,7 +77,7 @@
         <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 
         <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="2.000"  />
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="3.000"  />
 
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
