@@ -13,6 +13,8 @@ rosbag record   \
                 /stereo2/left/camera_info \
                 /stereo2/right/image_raw \
                 /stereo2/right/camera_info \
+                /stereo3/left/image_raw_color
+                /stereo3/left/camera_info
                 /stereo0/vxl/output \
                 /stereo1/vxl/output \
                 /stereo2/vxl/output \
