@@ -4,13 +4,16 @@
     <!-- This launch file serves as a single launch file to load up everything I
          need to record stuff and play it back so that rtabmapping works -->
 
-    <include file="$(find primo_bringup)/launch/primo_urdf_real.launch"/>
-    <include file="$(find primo_bringup)/launch/stereo_bare.launch"/>
-    <include file="$(find primo_stereo)/launch/stereo_suite.launch"/>
+    <!-- <include file="$(find primo_bringup)/launch/base_alpha.launch"/> -->
+    <!-- <include file="$(find primo_bringup)/launch/stereo_bare.launch"/> -->
+    <!-- <include file="$(find primo_stereo)/launch/stereo_suite.launch"/> -->
 
     <!-- The localization stuff -->
-    <include file="$(find primo_stereo)/launch/stereo_suite.launch">
+    <include file="$(find primo_bringup)/launch/localization.launch">
         <arg name="enable_rtabmap" value="false"/>
     </include>
+    
+    <node ns="/stereo2" pkg="nodelet" type="nodelet" name="disparity2depth" 
+        args="standalone rtabmap_ros/disparity_to_depth"/>
 
 </launch>
