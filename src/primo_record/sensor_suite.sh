@@ -25,7 +25,19 @@ rosbag record   \
                 /imu \
                 /battery \
                 /tf \
-                /tf_static 
+                /tf_static \
                 /odometry/filtered \
                 /goal \
                 /goal_node \
+                # path planning
+                /octomap_occupied_space \
+                /move_base/global_costmap/costmap \
+                /move_base/local_costmap/costmap \
+                /move_base/current_goal \
+                /move_base/GlobalPlanner/plan \
+                /move_base/TebLocalPlannerROS/teb_markers \
+                /waypoints \
+                /move_base/TebLocalPlannerROS/teb_poses \
+                /move_base/TrajectoryPlannerROS/local_plan \
+                /lanes \
+                /grid_map \
