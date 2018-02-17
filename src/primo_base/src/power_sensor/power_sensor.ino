@@ -12,14 +12,37 @@ ros::NodeHandle nh;
 
 unsigned long timePub = 0;
 
-// Interval in milliseconds for publishing the battery data
-int pubInterval = 50;
-float voltLow = 19.0;
+/**
+ * @brief Interval in milliseconds for publishing the battery data
+ */
+int     pubInterval = 100;
+
+/**
+ * @brief Low voltage threshold
+ */
+float   voltLow = 19.0;
+
+/**
+ * @brief Armed only if we are below 19.0 volts. If we ever go above that number we
+ * disarm.
+ */      
+bool    arm = false;
+
+/**
+ * @brief Count up positive hits which serve as a timer so we don't shutdown
+ * instantly when we see a high
+ */
+int     armCount = 0;
+
+/**
+ * @brief Threshold at which we shutdown the battery. We operate at 10 Hz
+ * (unless pubInterval is changed) so thats 600 counts in 1 minute.
+ */
+int     armThreshold = 600 * 5;
 
 sensor_msgs::BatteryState msg_batt;
 
 ros::Publisher pub_battState("battery", &msg_batt);
-
 
 void setup()
 {
@@ -47,7 +70,6 @@ void loop()
     {
         msg_batt.voltage = readVoltage();
         msg_batt.current = readCurrent();
-
 
         msg_batt.header.stamp = nh.now();
 
@@ -79,16 +101,16 @@ float readCurrent(void)
 
 bool protectionCheck(void)
 {
-    // System is down
+    // Below cutoff
     if(readVoltage() <= voltLow)
     {
-        digitalWrite(PIN_LED_RED, HIGH);
         digitalWrite(PIN_LED_GREEN, LOW);
+        // Toggle the red light
+        digitalWrite(PIN_LED_RED, !digitalRead(PIN_LED_RED));
 
-        // Wait 5 minutes
-        // delay(300000);
+        // Arm the shutoff circuit!
+        arm = true;
 
-        digitalWrite(PIN_SWITCH, LOW);
         return true;
     } 
 
@@ -98,6 +120,27 @@ bool protectionCheck(void)
         digitalWrite(PIN_SWITCH, HIGH);
         digitalWrite(PIN_LED_RED, LOW);
         digitalWrite(PIN_LED_GREEN, HIGH);
+
+        // Reset our arming count to 0
+        arm = false;
+        armCount = 0;
+
         return false;
+    }
+
+    // Check the arming circuit
+    if(arm)
+    {
+        // We are armed!!! lets count up
+        armCount ++;
+
+        // Check to see if we are over the threshold
+        if (armCount >= armThreshold)
+        {
+            // Oh Dear, we have reached the end of our rope. SHUTDOWN ZE
+            // SYSTEMS!
+            
+            digitalWrite(PIN_SWITCH, LOW);
+        }
     }
 }
