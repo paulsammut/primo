@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- This launch file serves as a single launch file to load up everything I
+         need to record stuff and play it back so that rtabmapping works -->
+
+    <include file="$(find primo_bringup)/launch/primo_urdf_real.launch"/>
+    <include file="$(find primo_bringup)/launch/stereo_bare.launch"/>
+    <include file="$(find primo_stereo)/launch/stereo_suite.launch"/>
+
+    <!-- The localization stuff -->
+    <include file="$(find primo_stereo)/launch/stereo_suite.launch">
+        <arg name="enable_rtabmap" value="false"/>
+    </include>
+
+</launch>
