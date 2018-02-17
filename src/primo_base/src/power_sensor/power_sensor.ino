@@ -139,6 +139,8 @@ bool protectionCheck(void)
         {
             // Oh Dear, we have reached the end of our rope. SHUTDOWN ZE
             // SYSTEMS!
+            digitalWrite(PIN_LED_RED, HIGH);
+            digitalWrite(PIN_LED_GREEN, LOW);
             
             digitalWrite(PIN_SWITCH, LOW);
         }
