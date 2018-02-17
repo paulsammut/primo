@@ -16,23 +16,23 @@
 
     <!-- Tara 1 -->
     <xacro:m_stereo num="1" 
-        x=      "-0.085" 
-        y=      " 0.278" 
-        z=      " 1.701"
-        roll=   "-2.839" 
-        pitch=  "-0.061" 
-        yaw=    "-0.703"
+        x=      "-0.059" 
+        y=      " 0.276" 
+        z=      " 1.634"
+        roll=   "-2.883" 
+        pitch=  "-0.045" 
+        yaw=    "-0.691"
     />
 
     <!-- See3cam stereo rig -->
-    <xacro:m_stereo num="2" 
-        x=      "-0.070" 
-        y=      " 0.097" 
-        z=      " 1.145" 
-        roll=   "-1.850" 
-        pitch=  "-0.015"
-        yaw=    "-1.575"
-    />
+    <!-- <xacro:m_stereo num="2"  -->
+    <!--     x=      "&#45;0.070"  -->
+    <!--     y=      " 0.097"  -->
+    <!--     z=      " 1.145"  -->
+    <!--     roll=   "&#45;1.850"  -->
+    <!--     pitch=  "&#45;0.015" -->
+    <!--     yaw=    "&#45;1.575" -->
+    <!-- /> -->
 
     <!-- Zed -->
     <xacro:m_stereo num="3" 
@@ -50,6 +50,6 @@
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
 
-    <!-- <xacro:m_stereo_cal num="1"/> -->
+    <xacro:m_stereo_cal num="2"/>
 
 </robot>
