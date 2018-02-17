@@ -41,3 +41,4 @@ rosbag record   \
                 /move_base/TrajectoryPlannerROS/local_plan \
                 /lanes \
                 /grid_map \
+
