@@ -51,6 +51,6 @@
          have this one running. -->
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
 
-    <xacro:m_stereo_cal num="2"/>
+    <!-- <xacro:m_stereo_cal num="2"/> -->
 
 </robot>
