@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find primo_bringup)/launch/base_alpha.launch"/>
+    <include file="$(find primo_bringup)/launch/stereo_bare.launch"/>
+    <include file="$(find primo_stereo)/launch/stereo_suite.launch"/>
+    
+</launch>
