@@ -32,6 +32,8 @@ lanes_layer:
 
 obstacle_layer:
 
+    obstacle_range: 6.0
+
     footprint_clearing_enabled: false
 
     observation_sources: point_cloud_sensor0 point_cloud_sensor1 point_cloud_sensor2 point_cloud_sensor3
