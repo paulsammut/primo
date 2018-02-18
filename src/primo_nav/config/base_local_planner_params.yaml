@@ -52,9 +52,9 @@ TebLocalPlannerROS:
     max_vel_x: 0.8
     max_vel_x_backwards: 0.5
     max_vel_theta: 1.0 
-    acc_lim_x: 2.0
+    acc_lim_x: 4.0
     # If this is low, we overshoot on a rotate
-    acc_lim_theta: 2
+    acc_lim_theta: 5
     min_turning_radius: 0.01
     wheelbase: 0.1
     footprint_model: 
@@ -72,7 +72,7 @@ TebLocalPlannerROS:
    
     # GoalTolerance
        
-    xy_goal_tolerance: 0.5
+    xy_goal_tolerance: 1.0
     yaw_goal_tolerance: 1.5
     # free_goal_vel: False
        
@@ -103,7 +103,7 @@ TebLocalPlannerROS:
    #  weight_dynamic_obstacle: 10 # not in use yet
    # #  alternative_time_cost: False # not in use yet
    #  selection_alternative_time_cost: False
-    weight_viapoint: 100 
+    weight_viapoint: 100
    
    
     # Homotopy Class Planner
