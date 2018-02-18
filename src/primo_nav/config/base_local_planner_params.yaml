@@ -60,14 +60,14 @@ TebLocalPlannerROS:
     footprint_model: 
        type: "polygon"
        vertices: [
-           [  0.40,  0.43],
-           [ -0.43,  0.43],
+           [  0.40,  0.36],
+           [ -0.43,  0.36],
            [ -0.43,  0.08],
            [ -0.54,  0.08],
            [ -0.54, -0.08],
            [ -0.43, -0.08],
-           [ -0.43, -0.43],
-           [  0.40, -0.43],
+           [ -0.43, -0.36],
+           [  0.40, -0.36],
        ]
    
     # GoalTolerance
@@ -78,7 +78,7 @@ TebLocalPlannerROS:
        
     # Obstacles
        
-    min_obstacle_dist: 0.020
+    min_obstacle_dist: 0.025
     # inflation_dist: 0.20
     # include_costmap_obstacles: True
     # costmap_obstacles_behind_robot_dist: 1.0
