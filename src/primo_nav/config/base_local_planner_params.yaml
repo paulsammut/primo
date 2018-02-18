@@ -49,10 +49,10 @@ TebLocalPlannerROS:
        
     # Robot
             
-    max_vel_x: 0.5
+    max_vel_x: 0.8
     max_vel_x_backwards: 0.5
-    max_vel_theta: 0.5 
-    acc_lim_x: 0.5
+    max_vel_theta: 1.0 
+    acc_lim_x: 2.0
     # If this is low, we overshoot on a rotate
     acc_lim_theta: 2
     min_turning_radius: 0.01
@@ -72,8 +72,8 @@ TebLocalPlannerROS:
    
     # GoalTolerance
        
-    xy_goal_tolerance: 0.3
-    yaw_goal_tolerance: 0.5
+    xy_goal_tolerance: 0.5
+    yaw_goal_tolerance: 1.5
     # free_goal_vel: False
        
     # Obstacles
@@ -91,10 +91,10 @@ TebLocalPlannerROS:
     optimization_activate: True
     optimization_verbose: False
    #  penalty_epsilon: 0.04
-   #  weight_max_vel_x: 1
-   #  weight_max_vel_theta: 1
+    weight_max_vel_x: 250 
+    weight_max_vel_theta: 200 
    #  weight_acc_lim_x: 1
-   #  weight_acc_lim_theta: 1
+    weight_acc_lim_theta: 200
    #  weight_kinematics_nh: 1000
     weight_kinematics_forward_drive: 500
     weight_kinematics_turning_radius: 100
@@ -103,7 +103,7 @@ TebLocalPlannerROS:
    #  weight_dynamic_obstacle: 10 # not in use yet
    # #  alternative_time_cost: False # not in use yet
    #  selection_alternative_time_cost: False
-    weight_viapoint: 200 
+    weight_viapoint: 100 
    
    
     # Homotopy Class Planner
