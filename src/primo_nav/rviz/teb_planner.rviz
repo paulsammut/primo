@@ -364,8 +364,18 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  "": true
+                  Base: true
+                  Current Goal: true
+                  Global Cost Map: true
+                  Global Path: true
+                  Lanes: true
+                  Local Cost Map: true
+                  Local Path: true
+                  Map: true
+                  Marker: true
+                  PoseArray: true
                   Value: true
+                  Waypoints: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -374,9 +384,7 @@ Visualization Manager:
                     Stereo3_Image: true
                     Value: true
                   Images:
-                    Stereo0: true
-                    Stereo1: true
-                    Stereo2: true
+                    "": true
                     Value: true
                   PCL:
                     "": true
@@ -491,8 +499,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.0994825363
-                Min Value: -0.00319731236
+                Max Value: 0.532522082
+                Min Value: -0.139410377
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -521,8 +529,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.0920215845
-                Min Value: -0.00340545177
+                Max Value: -0.0393778086
+                Min Value: -0.296747565
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -551,8 +559,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.21765423
-                Min Value: 0.0247905254
+                Max Value: 16.2694206
+                Min Value: -0.0237283707
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -581,8 +589,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.65026379
-                Min Value: 0.0406087637
+                Max Value: 1.71762848
+                Min Value: -0.592279792
                 Value: true
               Axis: Z
               Channel Name: intensity

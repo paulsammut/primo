@@ -2,7 +2,7 @@
 <launch>
 
     <arg name="nav"         value="false"/>
-    <arg name="joy"         value="true"/>
+    <arg name="joy"         value="false"/>
 
     <include file="$(find primo_description)/launch/primo_urdf_real.launch"/>
     <include file="$(find primo_base)/launch/ard_enc.launch"/>
