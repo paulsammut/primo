@@ -1,4 +1,4 @@
-obstacle_range: 6.0
+obstacle_range: 4.0
 raytrace_range: 10.0
 
 footprint: [
@@ -32,7 +32,7 @@ lanes_layer:
 
 obstacle_layer:
 
-    obstacle_range: 5.0
+    obstacle_range: 4.0
 
     footprint_clearing_enabled: false
 
