@@ -42,4 +42,5 @@ rosbag record   \
                 /grid_map \
                 /color0/camera_info \
                 /color0/image_raw \
-
+                /raw_cmd_vel \
+                /cmd_vel \
