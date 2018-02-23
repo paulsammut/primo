@@ -127,6 +127,30 @@ private Q_SLOTS:
 
     void on_pB_stereo_suite_clicked();
 
+    void on_pB_killCostmap_clicked();
+
+    void on_pB_qtcam_2_clicked();
+
+    void on_pB_qtcam_3_clicked();
+
+    void on_pB_killRos_clicked();
+
+    void on_pB_color0_clicked();
+
+    void on_pB_view_s1_right_clicked();
+
+    void on_pB_view_s1_left_clicked();
+
+    void on_pB_view_s0_right_clicked();
+
+    void on_pB_view_s0_left_clicked();
+
+    void on_pb_kill_rqt_view_clicked();
+
+    void on_pB_kill_rqt_view2_clicked();
+
+    void on_pB_localization_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

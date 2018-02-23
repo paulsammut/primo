@@ -226,10 +226,7 @@ void primo_dash::MainWindow::on_pB_roscore_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux select-window -t run \; "
-                          "split-window \"roscore\" \; "
-                          "select-layout even-vertical "
-                          );
+    process.startDetached("tmux new-session -d -s \"roscore\" \"roscore\"" );
 }
 
 void primo_dash::MainWindow::on_pB_rviz_clicked()
@@ -246,11 +243,9 @@ void primo_dash::MainWindow::on_pB_clearCostmap_clicked()
     QProcess process;
     QString output = "Selecting window: " + process.readAllStandardOutput();
     QString commandStr =
-            "tmux select-window -t run \; "
-            "split-window \"watch -n " +
+            "tmux new-session -d -s \"costmap\" \"watch -n " +
             QString::number(ui.num_clear_costmap_wait->value()) +
-            " rosservice call /move_base/clear_costmaps \"{}\"\" \; "
-            "select-layout even-vertical ";
+            " rosservice call /move_base/clear_costmaps \"{}\"\"";
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
 
@@ -414,29 +409,106 @@ void primo_dash::MainWindow::on_pb_launch_base_alpha_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux select-window -t run \; "
-                          "split-window \"roslaunch primo_bringup base_alpha.launch\" \; "
-                          "select-layout even-vertical "
-                          );
-
+    process.startDetached("tmux new-session -d -s \"sbare\" \"primo_bringup base_alpha.launch\"");
 }
 
 void primo_dash::MainWindow::on_pushButton_4_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux select-window -t run \; "
-                          "split-window \"roslaunch primo_stereo stereo_bare.launch\" \; "
-                          "select-layout even-vertical "
-                          );
+    process.startDetached("tmux new-session -d -s \"sbare\" \"roslaunch primo_stereo stereo_bare.launch\"");
 }
 
 void primo_dash::MainWindow::on_pB_stereo_suite_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux select-window -t run \; "
-                          "split-window \"roslaunch primo_stereo stereo_suite.launch\" \; "
-                          "select-layout even-vertical "
-                          );
+    process.startDetached("tmux new-session -d -s \"ssuite\" \"roslaunch primo_stereo stereo_suite.launch\"" );
+}
+
+void primo_dash::MainWindow::on_pB_killCostmap_clicked()
+{
+    QProcess process;
+    QString command = "pkill watch -n";
+    process.startDetached(command);
+}
+
+void primo_dash::MainWindow::on_pB_qtcam_2_clicked()
+{
+    QProcess process;
+    process.startDetached("guvcview");
+}
+
+void primo_dash::MainWindow::on_pB_qtcam_3_clicked()
+{
+    QProcess process;
+    process.startDetached("pkill guvcview");
+}
+
+void primo_dash::MainWindow::on_pB_killRos_clicked()
+{
+    QProcess process;
+    process.startDetached("pkill ros");
+}
+
+void primo_dash::MainWindow::on_pB_color0_clicked()
+{
+    QProcess process;
+    process.startDetached("tmux new-session -d -s \"color0\" \"roslaunch primo_base color0.launch\"" );
+}
+
+void primo_dash::MainWindow::on_pB_view_s1_right_clicked()
+{
+    QProcess process;
+    process.startDetached("rqt_image_view /stereo1/right/image_raw");
+}
+
+void primo_dash::MainWindow::on_pB_view_s1_left_clicked()
+{
+    QProcess process;
+    process.startDetached("rqt_image_view /stereo1/left/image_raw");
+}
+
+void primo_dash::MainWindow::on_pB_view_s0_right_clicked()
+{
+    QProcess process;
+    process.startDetached("rqt_image_view /stereo0/right/image_raw");
+}
+
+void primo_dash::MainWindow::on_pB_view_s0_left_clicked()
+{
+    QProcess process;
+    process.startDetached("rqt_image_view /stereo0/left/image_raw");
+}
+
+void primo_dash::MainWindow::on_pb_kill_rqt_view_clicked()
+{
+    // Match with pgrep also the arguments
+    QProcess process;
+    process.startDetached("pkill -f rqt_image_view");
+}
+
+void primo_dash::MainWindow::on_pB_kill_rqt_view2_clicked()
+{
+    // Match with pgrep also the arguments
+    QProcess process;
+    process.startDetached("pkill -f rqt_image_view");
+}
+
+void primo_dash::MainWindow::on_pB_localization_clicked()
+{
+    QString command = "roslaunch primo_bringup localization.launch "
+                      "del_db:=false localize:=true maxError:=" +
+                      QString::number(ui.dSb_maxError->value());
+
+    // Make a confirm dialog
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Test", "The launch string is as follows: \n"
+                                  + command,
+                                    QMessageBox::Yes|QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        QProcess process;
+        process.startDetached("tmux new-session -d -s \"map\" \"" + command + "\"" );
+    }
 }

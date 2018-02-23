@@ -4,6 +4,7 @@
     <arg name="sim"         default="false"/>
     <arg name="localize"    default="true"/>
     <arg name="del_db"      default="false"/>
+    <arg name="maxError"    default="3"/>
     <arg name="base_width"  default="0.65"/>
 
     <!-- Module enable -->
@@ -50,6 +51,7 @@
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
             <arg name="localize"        value="$(arg localize)"/>
             <arg name="sim"             value="$(arg sim)"/>
+            <arg name="maxError"        value="$(arg maxError)"/>
 
             <arg if="$(arg del_db)"     name="rtab_args"       value="--delete_db_on_start"/>
             <arg unless="$(arg del_db)" name="rtab_args"       value=""/>

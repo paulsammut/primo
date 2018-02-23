@@ -10,6 +10,8 @@
     <arg name="localize"        default="false"/>
     <arg name="detectionRate"   default="1"/>
     <arg name="rtab_args"       default=""/>
+    <arg name="rangeMax"        default="2"/>
+    <arg name="maxError"        default="3"/>
 
     <include file="$(find primo_rtabmap)/launch/rtab_init.launch"/>
 
@@ -30,8 +32,8 @@
         <group if="$(arg localize)">
             <param name="Mem/IncrementalMemory" type="string"   value="false"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
-            <param name="Grid/DepthMax"         type="double"   value="0.1"/>
-            <param name="Grid/DepthMin"         type="double"   value="0.2"/>
+            <param name="Grid/RangeMin"         type="double"   value="0.1"/>
+            <param name="Grid/RangeMax"         type="double"   value="0.2"/>
         </group>
 
         <!-- MAPPING MODE -->
@@ -47,7 +49,7 @@
             <param name="Mem/IncrementalMemory" type="string"   value="true"/>
             <param name="Rtabmap/DetectionRate" type="string"   value="2"/>
             <param name="Grid/RangeMin"         type="double"   value="0.2"/>
-            <param name="Grid/RangeMax"         type="double"   value="2.5"/>
+            <param name="Grid/RangeMax"         type="double"   value="$(arg rangeMax)"/>
         </group>
    <!-- **************** --> 
 
@@ -68,7 +70,7 @@
 
         <!-- RTAB-Map's parameters -->
         <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
-        <param name="Kp/MaxFeatures"                    type="string"   value="200"/>
+        <param name="Kp/MaxFeatures"                    type="string"   value="400"/>
         <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
         <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
         <!-- use SURF -->
@@ -77,9 +79,9 @@
         <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 
         <!-- 3D->2D (PnP) -->
-        <param name="RGBD/OptimizeMaxError"             type="double"   value="4.000"  />
+        <param name="RGBD/OptimizeMaxError"             type="double"   value="$(arg maxError)"  />
 
-        <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="true"/>
+        <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
         <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
         <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
 
