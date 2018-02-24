@@ -2,28 +2,21 @@
 <launch>
     <param name="/use_sim_time" value="true"/>
     <!-- args to passed through -->
-    <arg name="sim"         default="false"/>
-    <arg name="localize"    default="true"/>
-    <arg name="del_db"      default="false"/>
-    <arg name="base_width"  default="0.65"/>
+    <arg name="sim"                         default="false"/>
+    <arg name="localize"                    default="true"/>
+    <arg name="del_db"                      default="false"/>
+    <arg name="rtabmapviz"                  default="false"/>
+    <arg name="rgbd"                        default="true"/>
+    <arg name="laser"                       default="false"/>
+    <arg name="stereo"                      default="false"/>
+    <arg name="odom_topic"                  default="odom"/>
+    <arg name="detectionRate"               default="1"/>
+    <arg name="rangeMax"                    default="2"/>
+    <arg name="maxError"                    default="3"/>
+    <arg name="odom_listen_topic_rtabmap"   value="/odometry/filtered"/>
 
     <!-- Module enable -->
     <arg name="enable_rtabmap"                 default="true"/>
-    <arg name="enable_rtab_stereo_odom"        default="true"/>
-    <arg name="enable_wheel_odom"              default="true"/>
-    <arg name="enable_imu"                     default="true"/>
-
-    <arg name="enable_ekf"                     default="true"/>
-
-    <!-- tf publishing -->
-    <arg name="publish_tf_rtab_stereo"  default="false"/>       
-    <arg name="publish_tf_wheel"        default="false"/>      
-    <arg name="publish_tf_imu"          default="false"/>
-
-    <!-- Odom topic -->
-    <arg name="odom_topic_stereo"           value="/stereo_odom/odom"/>
-    <arg name="odom_topic_wheel"            value="/wheel/odom"/>
-    <arg name="odom_listen_topic_rtabmap"   value="/odometry/filtered"/>
 
     <!-- Module: Rtabmap -->
     <group if="$(arg enable_rtabmap)">
@@ -35,6 +28,8 @@
             <arg name="odom_topic"      value="$(arg odom_listen_topic_rtabmap)"/>
             <arg name="localize"        value="$(arg localize)"/>
             <arg name="sim"             value="$(arg sim)"/>
+            <arg name="maxError"        value="$(arg maxError)"/>
+            <arg name="rangeMax"        value="$(arg rangeMax)"/>
 
             <arg if="$(arg del_db)"     name="rtab_args"       value="--delete_db_on_start"/>
             <arg unless="$(arg del_db)" name="rtab_args"       value=""/>

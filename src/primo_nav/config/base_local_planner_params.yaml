@@ -45,11 +45,11 @@ TebLocalPlannerROS:
     max_global_plan_lookahead_dist: 6.0
     feasibility_check_no_poses: 5
 
-    global_plan_viapoint_sep: 2.0
+    global_plan_viapoint_sep: 1.0
        
     # Robot
             
-    max_vel_x: 0.8
+    max_vel_x: 0.7
     max_vel_x_backwards: 0.5
     max_vel_theta: 1.0 
     acc_lim_x: 4.0
@@ -72,8 +72,8 @@ TebLocalPlannerROS:
    
     # GoalTolerance
        
-    xy_goal_tolerance: 1.0
-    yaw_goal_tolerance: 1.5
+    xy_goal_tolerance: 2.5
+    yaw_goal_tolerance: 1.0
     # free_goal_vel: False
        
     # Obstacles
@@ -91,19 +91,19 @@ TebLocalPlannerROS:
     optimization_activate: True
     optimization_verbose: False
    #  penalty_epsilon: 0.04
-    weight_max_vel_x: 250 
+    weight_max_vel_x: 100
     weight_max_vel_theta: 200 
    #  weight_acc_lim_x: 1
     weight_acc_lim_theta: 200
    #  weight_kinematics_nh: 1000
-    weight_kinematics_forward_drive: 300
+    weight_kinematics_forward_drive: 500
     weight_kinematics_turning_radius: 100
    #  weight_optimaltime: 1
    #  weight_obstacle: 20
    #  weight_dynamic_obstacle: 10 # not in use yet
    # #  alternative_time_cost: False # not in use yet
    #  selection_alternative_time_cost: False
-    weight_viapoint: 10
+    weight_viapoint: 200
    
    
     # Homotopy Class Planner

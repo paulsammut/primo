@@ -19,3 +19,6 @@ global_costmap:
     inflation_layer:
         cost_scaling_factor: 1.5
         inflation_radius: 0.7
+
+    obstacle_layer:
+        obstacle_range: 3.5
