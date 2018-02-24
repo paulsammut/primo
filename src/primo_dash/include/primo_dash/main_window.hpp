@@ -151,6 +151,8 @@ private Q_SLOTS:
 
     void on_pB_localization_clicked();
 
+    void on_pB_mapping_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

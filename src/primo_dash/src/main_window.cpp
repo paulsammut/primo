@@ -509,6 +509,29 @@ void primo_dash::MainWindow::on_pB_localization_clicked()
 
     if (reply == QMessageBox::Yes) {
         QProcess process;
-        process.startDetached("tmux new-session -d -s \"map\" \"" + command + "\"" );
+        QString fullCmd = "tmux new-session -d -s \"map\" " + command;
+        process.startDetached(fullCmd);
+    }
+}
+
+void primo_dash::MainWindow::on_pB_mapping_clicked()
+{
+    QString command = "roslaunch primo_bringup localization.launch "
+                      "del_db:=true localize:=false maxError:=" +
+                      QString::number(ui.dSb_maxError->value()) +
+                      " rangeMax:=" +
+                      QString::number(ui.dSb_maxDepth->value());
+
+    // Make a confirm dialog
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Mapping confirm", " The current map will be deleted!\n "
+                                                           "The launch string is as follows: \n"
+                                  + command,
+                                    QMessageBox::Yes|QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        QProcess process;
+        QString fullCmd = "tmux new-session -d -s \"map\" " + command;
+        process.startDetached(fullCmd);
     }
 }

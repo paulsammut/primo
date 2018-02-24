@@ -700,13 +700,6 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="0">
-                  <widget class="QPushButton" name="pB_localization">
-                   <property name="text">
-                    <string>Localize</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="0" column="2">
                   <widget class="QLabel" name="label_37">
                    <property name="text">
@@ -714,20 +707,7 @@
                    </property>
                   </widget>
                  </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_6" native="true">
-                <layout class="QGridLayout" name="gridLayout_32">
-                 <item row="0" column="2">
-                  <widget class="QLabel" name="label_38">
-                   <property name="text">
-                    <string>Max Depth</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="2">
+                 <item row="1" column="1">
                   <widget class="QDoubleSpinBox" name="dSb_maxDepth">
                    <property name="decimals">
                     <number>1</number>
@@ -740,10 +720,30 @@
                    </property>
                   </widget>
                  </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="label_38">
+                   <property name="text">
+                    <string>Max Depth</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_6" native="true">
+                <layout class="QGridLayout" name="gridLayout_32">
                  <item row="1" column="0">
                   <widget class="QPushButton" name="pB_mapping">
                    <property name="text">
                     <string>Mapping</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QPushButton" name="pB_localization">
+                   <property name="text">
+                    <string>Localize</string>
                    </property>
                   </widget>
                  </item>
