@@ -1,18 +1,26 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="primo">
 
-  <!-- File includes -->
-  <xacro:include filename="$(find primo_description)/urdf/macros/chassis.xacro"/>
+    <!-- File includes -->
+    <xacro:include filename="$(find primo_description)/urdf/macros/chassis.xacro"/>
 
-  <!-- Bot description -->
-  <xacro:m_chassis type="real"/>
-  <xacro:m_wheel lr="left" reflect="1"/>
-  <xacro:m_wheel lr="right" reflect="-1"/>
+    <!-- Bot description -->
+    <xacro:m_chassis type="real"/>
+    <xacro:m_wheel lr="left" reflect="1"/>
+    <xacro:m_wheel lr="right" reflect="-1"/>
 
-  <!-- Sensor suite -->
-  <xacro:include filename="$(find primo_description)/urdf/stereo_suite.xacro"/>
-  
-  <xacro:include filename="$(find primo_description)/urdf/macros/imu.xacro"/>
-  <xacro:m_imu/>
+    <!-- Sensor suite -->
+    <xacro:include filename="$(find primo_description)/urdf/stereo_suite.xacro"/>
+    
+    <xacro:include filename="$(find primo_description)/urdf/macros/imu.xacro"/>
+    <xacro:m_imu/>
+
+
+    <!-- color cam -->
+    <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
+         stereo cam. To use this, you have to disable the m_stereo macro and just
+         have this one running. -->
+    <xacro:include filename="$(find primo_description)/urdf/macros/color_cal.xacro"/>
+    <xacro:m_color_cal num="0"/>
 
 </robot>
