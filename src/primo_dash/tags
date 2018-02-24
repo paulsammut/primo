@@ -1,0 +1,44 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Debug	include/primo_dash/qnode.hpp	/^	         Debug,$/;"	e	enum:primo_dash::QNode::LogLevel
+Error	include/primo_dash/qnode.hpp	/^	         Error,$/;"	e	enum:primo_dash::QNode::LogLevel
+Fatal	include/primo_dash/qnode.hpp	/^	         Fatal$/;"	e	enum:primo_dash::QNode::LogLevel
+Info	include/primo_dash/qnode.hpp	/^	         Info,$/;"	e	enum:primo_dash::QNode::LogLevel
+LogLevel	include/primo_dash/qnode.hpp	/^	enum LogLevel {$/;"	g	class:primo_dash::QNode
+MainWindow	include/primo_dash/main_window.hpp	/^class MainWindow : public QMainWindow {$/;"	c	namespace:primo_dash
+MainWindow	src/main_window.cpp	/^MainWindow::MainWindow(int argc, char** argv, QWidget *parent)$/;"	f	class:primo_dash::MainWindow
+QNode	include/primo_dash/qnode.hpp	/^class QNode : public QThread {$/;"	c	namespace:primo_dash
+QNode	src/qnode.cpp	/^QNode::QNode(int argc, char** argv ) :$/;"	f	class:primo_dash::QNode
+ReadSettings	src/main_window.cpp	/^void MainWindow::ReadSettings() {$/;"	f	class:primo_dash::MainWindow
+Warn	include/primo_dash/qnode.hpp	/^	         Warn,$/;"	e	enum:primo_dash::QNode::LogLevel
+WriteSettings	src/main_window.cpp	/^void MainWindow::WriteSettings() {$/;"	f	class:primo_dash::MainWindow
+closeEvent	src/main_window.cpp	/^void MainWindow::closeEvent(QCloseEvent *event)$/;"	f	class:primo_dash::MainWindow
+init	src/qnode.cpp	/^bool QNode::init() {$/;"	f	class:primo_dash::QNode
+init	src/qnode.cpp	/^bool QNode::init(const std::string &master_url, const std::string &host_url) {$/;"	f	class:primo_dash::QNode
+init_argc	include/primo_dash/qnode.hpp	/^	int init_argc;$/;"	m	class:primo_dash::QNode
+init_argv	include/primo_dash/qnode.hpp	/^	char** init_argv;$/;"	m	class:primo_dash::QNode
+log	src/qnode.cpp	/^void QNode::log( const LogLevel &level, const std::string &msg) {$/;"	f	class:primo_dash::QNode
+loggingModel	include/primo_dash/qnode.hpp	/^	QStringListModel* loggingModel() { return &logging_model; }$/;"	f	class:primo_dash::QNode
+logging_model	include/primo_dash/qnode.hpp	/^    QStringListModel logging_model;$/;"	m	class:primo_dash::QNode
+main	src/main.cpp	/^int main(int argc, char **argv) {$/;"	f
+on_actionAbout_triggered	src/main_window.cpp	/^void MainWindow::on_actionAbout_triggered() {$/;"	f	class:primo_dash::MainWindow
+on_button_connect_clicked	src/main_window.cpp	/^void MainWindow::on_button_connect_clicked(bool check ) {$/;"	f	class:primo_dash::MainWindow
+on_checkbox_use_environment_stateChanged	src/main_window.cpp	/^void MainWindow::on_checkbox_use_environment_stateChanged(int state) {$/;"	f	class:primo_dash::MainWindow
+primo_dash	include/primo_dash/main_window.hpp	/^namespace primo_dash {$/;"	n
+primo_dash	include/primo_dash/qnode.hpp	/^namespace primo_dash {$/;"	n
+primo_dash	src/main_window.cpp	/^namespace primo_dash {$/;"	n	file:
+primo_dash	src/qnode.cpp	/^namespace primo_dash {$/;"	n	file:
+primo_dash_MAIN_WINDOW_H	include/primo_dash/main_window.hpp	9;"	d
+primo_dash_QNODE_HPP_	include/primo_dash/qnode.hpp	13;"	d
+qnode	include/primo_dash/main_window.hpp	/^	QNode qnode;$/;"	m	class:primo_dash::MainWindow
+run	src/qnode.cpp	/^void QNode::run() {$/;"	f	class:primo_dash::QNode
+showNoMasterMessage	src/main_window.cpp	/^void MainWindow::showNoMasterMessage() {$/;"	f	class:primo_dash::MainWindow
+ui	include/primo_dash/main_window.hpp	/^	Ui::MainWindowDesign ui;$/;"	m	class:primo_dash::MainWindow
+updateLoggingView	src/main_window.cpp	/^void MainWindow::updateLoggingView() {$/;"	f	class:primo_dash::MainWindow
+work_publisher	include/primo_dash/qnode.hpp	/^	ros::Publisher work_publisher;$/;"	m	class:primo_dash::QNode
+~MainWindow	src/main_window.cpp	/^MainWindow::~MainWindow() {}$/;"	f	class:primo_dash::MainWindow
+~QNode	src/qnode.cpp	/^QNode::~QNode() {$/;"	f	class:primo_dash::QNode
