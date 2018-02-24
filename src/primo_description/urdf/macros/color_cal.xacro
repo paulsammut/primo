@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- parameters -->
+    <xacro:property name="colorCamSize" value="0.05"/>
+    <xacro:property name="colorCamMass" value="0.1"/>
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <!-- Cal link macro -->
+    <xacro:macro name="m_c_cal_link" params="name color shape">
+        <link name="color${num}_${name}_link">
+            <visual>
+                <xacro:if value="${shape == 'box'}">
+                    <geometry>
+                        <box size="0.1 0.1 0.1"/>
+                    </geometry>
+                </xacro:if>
+                <xacro:if value="${shape == 'cylinder'}">
+                    <geometry>
+                        <cylinder length="0.2" radius ="0.02"/>
+                    </geometry>
+                </xacro:if>
+                <material name="${color}"/>
+            </visual>
+        </link>
+    </xacro:macro>
+
+    <!-- color${num} joint test macro -->
+    <xacro:macro name="m_color_cal" params="num">
+
+        <!-- Color cam link -->
+        <link name="color${num}_link">
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${colorCamSize} ${colorCamSize} ${colorCamSize}"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${colorCamSize} ${colorCamSize} ${colorCamSize}"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+            <inertial>
+                <mass value="${colorCamMass}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia 
+                    ixx="1e-6" ixy="0" ixz="0" 
+                    iyy="1e-6" iyz="0" 
+                    izz="1e-6"/>
+            </inertial>
+        </link>
+
+        <!-- Joint links -->
+
+        <xacro:m_c_cal_link name="x"      color="red"     shape="box"/>
+        <xacro:m_c_cal_link name="y"      color="green"   shape="box"/>
+        <xacro:m_c_cal_link name="z"      color="blue"    shape="box"/>
+        <xacro:m_c_cal_link name="roll"   color="red"     shape="cylinder"/>
+        <xacro:m_c_cal_link name="pitch"  color="green"   shape="cylinder"/>
+        <xacro:m_c_cal_link name="yaw"    color="blue"    shape="cylinder"/>
+
+        <!-- Joint test joints -->
+        <joint name="color${num}_cal_z_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <parent link="color${num}_y_link"/>
+            <child link="color${num}_z_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
+        </joint>
+
+        <joint name="color${num}_cal_y_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <parent link="color${num}_x_link"/>
+            <child link="color${num}_y_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
+        </joint>
+
+        <joint name="color${num}_cal_x_joint" type="prismatic">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <parent link="chassis_link"/>
+            <child link="color${num}_x_link"/>
+            <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
+        </joint>
+
+        <!-- Yaw joint -->
+        <joint name="color${num}_cal_yaw_joint" type="continuous">
+            <origin xyz="0 0 0"/>
+            <axis xyz="0 0 1"/>
+            <parent link="color${num}_pitch_link"/>
+            <child link="color${num}_yaw_link"/>
+        </joint>
+
+        <!-- Pitch joint -->
+        <joint name="color${num}_cal_pitch_joint" type="continuous">
+            <origin xyz="0 0 0"/>
+            <axis xyz="0 1 0"/>
+            <parent link="color${num}_roll_link"/>
+            <child link="color${num}_pitch_link"/>
+        </joint>
+
+        <!-- Roll joint -->
+        <joint name="color${num}_cal_roll_joint" type="continuous">
+            <origin xyz="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <parent link="color${num}_z_link"/>
+            <child link="color${num}_roll_link"/>
+        </joint>
+
+
+        <!-- Final connection -->
+        <joint name="color${num}_cal_con_joint" type="fixed">
+            <origin xyz="0 0 0"/>
+            <parent link="color${num}_yaw_link"/>
+            <child link="color${num}_link"/>
+        </joint>
+
+        <!-- The corrected link for gazebo -->
+        <link name="color${num}_corrected_link">
+            <inertial>
+                <mass value="0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia 
+                    ixx="1e-6" ixy="0" ixz="0" 
+                    iyy="1e-6" iyz="0" 
+                    izz="1e-6"/>
+            </inertial>
+        </link>
+
+        <joint name="color${num}_corrected_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
+            <parent link="color${num}_link"/>
+            <child link="color${num}_corrected_link"/>
+        </joint>
+
+    </xacro:macro>
+</robot>
