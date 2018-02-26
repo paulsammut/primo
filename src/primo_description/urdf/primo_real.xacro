@@ -3,6 +3,7 @@
 
     <!-- File includes -->
     <xacro:include filename="$(find primo_description)/urdf/macros/chassis.xacro"/>
+    <xacro:include filename="$(find primo_description)/urdf/macros/color.xacro"/>
 
     <!-- Bot description -->
     <xacro:m_chassis type="real"/>
@@ -14,6 +15,16 @@
     
     <xacro:include filename="$(find primo_description)/urdf/macros/imu.xacro"/>
     <xacro:m_imu/>
+
+    <!-- color0 cam -->
+    <xacro:m_color num="0" 
+        x=      " 0.000" 
+        y=      " 0.000" 
+        z=      " 1.710" 
+        roll=   "-1.768" 
+        pitch=  " 0.019"
+        yaw=    "-1.577"
+    />
 
 
     <!-- color cam -->
