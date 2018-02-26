@@ -22,5 +22,7 @@
 
     <include file="$(find primo_base)/launch/stereo_trigger.launch"/>
     <!-- <include file="$(find primo_base)/launch/power_sensor.launch"/> -->
+
+    <include file="$(find primo_base)/launch/color0.launch"/>
     
 </launch>
