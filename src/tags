@@ -1,0 +1,678 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACC_AXIS_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    INT8 ACC_AXIS_CONFIG;$/;"	m	struct:__anon1
+ACC_SENSITIVITY_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    INT8 ACC_SENSITIVITY_CONFIG;$/;"	m	struct:__anon1
+APPLICATION_READY	tara_uvc_cam/src/xunit/xunit_lib.h	11;"	d
+BOOL	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef bool 	  			 BOOL;$/;"	t
+BOOL	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^typedef bool BOOL;$/;"	t
+BUFFER_LENGTH	tara_uvc_cam/src/xunit/xunit_lib.h	49;"	d
+BUFFER_LENGTH	tara_uvc_cam/src/xunit/xunit_lib_tara.h	71;"	d
+CALIB_TIMEOUT	tara_uvc_cam/src/xunit/xunit_lib_tara.h	73;"	d
+CAMERA_CONTROL	tara_uvc_cam/src/xunit/xunit_lib.h	16;"	d
+CAMERA_CONTROL_STEREO	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	34;"	d	file:
+CONTINOUS_FOCUS	tara_uvc_cam/src/xunit/xunit_lib.h	25;"	d
+CONTROL_IMU_VAL	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	44;"	d	file:
+CSU32	tara_uvc_cam/include/uvc_cam/uvc_cam.h	82;"	d
+Cam	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^class Cam$/;"	c	namespace:uvc_cam
+Cam	tara_uvc_cam/src/uvc_cam.cpp	/^	Cam::Cam(const char *_device, mode_t _mode, int _width, int _height, int _fps)$/;"	f	class:Cam
+Camera	tara_uvc_cam/include/uvc_camera/camera.h	/^class Camera {$/;"	c	namespace:uvc_camera
+Camera	tara_uvc_cam/src/camera.cpp	/^Camera::Camera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :$/;"	f	class:uvc_camera::Camera
+CameraNodelet	tara_uvc_cam/src/nodelets.cpp	/^    CameraNodelet() {}$/;"	f	class:uvc_camera::CameraNodelet
+CameraNodelet	tara_uvc_cam/src/nodelets.cpp	/^class CameraNodelet : public nodelet::Nodelet {$/;"	c	namespace:uvc_camera	file:
+ControlIMUCapture	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL ControlIMUCapture(IMUDATAINPUT_TypeDef *lIMUInput)$/;"	f
+DEG2RAD	tara_uvc_cam/include/uvc_camera/tara_ros.h	20;"	d
+DESCRIPTOR_SIZE_ENDPOINT	tara_uvc_cam/src/xunit/xunit_lib_tara.h	74;"	d
+DESCRIPTOR_SIZE_IMU_ENDPOINT	tara_uvc_cam/src/xunit/xunit_lib_tara.h	75;"	d
+DEVICE_NAME_MAX	tara_uvc_cam/src/xunit/xunit_lib.h	55;"	d
+DeinitExtensionUnit	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL DeinitExtensionUnit()$/;"	f
+DeviceInfo	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	char *DeviceInfo;$/;"	m	class:uvc_cam::Cam
+DeviceInstances	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	LDevices *DeviceInstances;$/;"	m	class:uvc_cam::Cam
+DiffTf	differential_drive/scripts/diff_tf.py	/^class DiffTf:$/;"	c
+DisableIMU	tara_uvc_cam/src/tara_ros.cpp	/^	BOOL taraCamera::DisableIMU()$/;"	f	class:uvc_camera::taraCamera
+ENABLEMASTERMODE	tara_uvc_cam/src/xunit/xunit_lib.h	13;"	d
+ENABLETRIGGERMODE	tara_uvc_cam/src/xunit/xunit_lib.h	14;"	d
+EXTRINSIC_FILEID	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	57;"	d	file:
+EnableMasterMode	tara_uvc_cam/src/xunit/xunit_lib_cug.c	/^BOOL EnableMasterMode()$/;"	f
+EnableTriggerMode	tara_uvc_cam/src/xunit/xunit_lib_cug.c	/^BOOL EnableTriggerMode()$/;"	f
+EncoderSim	primo_gazebo/nodes/sim_wheel_encoders.py	/^class EncoderSim:$/;"	c
+FAILURE	tara_uvc_cam/src/xunit/xunit_lib.h	53;"	d
+FAILURE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	69;"	d
+FALSE	tara_uvc_cam/src/xunit/xunit_lib.h	7;"	d
+FALSE	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	61;"	d	file:
+FLASH_OFF	tara_uvc_cam/src/xunit/xunit_lib.h	33;"	d
+FLASH_STROBE	tara_uvc_cam/src/xunit/xunit_lib.h	35;"	d
+FLASH_TORCH	tara_uvc_cam/src/xunit/xunit_lib.h	34;"	d
+FOCUS_BUSY	tara_uvc_cam/src/xunit/xunit_lib.h	31;"	d
+FOCUS_FAILED	tara_uvc_cam/src/xunit/xunit_lib.h	29;"	d
+FOCUS_SUCCEEDED	tara_uvc_cam/src/xunit/xunit_lib.h	30;"	d
+G	memsense_uimu/include/uimu.h	/^const float G = 9.81;$/;"	v
+GETCAMERA_UNIQUEID	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	37;"	d	file:
+GET_EXPOSURE_VALUE	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	39;"	d	file:
+GET_FAIL	tara_uvc_cam/src/xunit/xunit_lib_tara.h	66;"	d
+GET_FLASH_MODE	tara_uvc_cam/src/xunit/xunit_lib.h	22;"	d
+GET_FOCUS_MODE	tara_uvc_cam/src/xunit/xunit_lib.h	17;"	d
+GET_FOCUS_POSITION	tara_uvc_cam/src/xunit/xunit_lib.h	19;"	d
+GET_FOCUS_STATUS	tara_uvc_cam/src/xunit/xunit_lib.h	21;"	d
+GET_IMU_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	42;"	d	file:
+GET_STREAM_MODE_STEREO	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	51;"	d	file:
+GET_SUCCESS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	67;"	d
+GPIO_GET_LEVEL	tara_uvc_cam/src/xunit/xunit_lib.h	41;"	d
+GPIO_HIGH	tara_uvc_cam/src/xunit/xunit_lib.h	45;"	d
+GPIO_INPUT_DETECT	tara_uvc_cam/src/xunit/xunit_lib.h	43;"	d
+GPIO_LEVEL_FAIL	tara_uvc_cam/src/xunit/xunit_lib.h	46;"	d
+GPIO_LEVEL_SUCCESS	tara_uvc_cam/src/xunit/xunit_lib.h	47;"	d
+GPIO_LOW	tara_uvc_cam/src/xunit/xunit_lib.h	44;"	d
+GPIO_OPERATION	tara_uvc_cam/src/xunit/xunit_lib.h	40;"	d
+GPIO_PIN_IN1	tara_uvc_cam/src/xunit/xunit_tab_lib.h	18;"	d
+GPIO_PIN_IN2	tara_uvc_cam/src/xunit/xunit_tab_lib.h	19;"	d
+GPIO_PIN_OUT1	tara_uvc_cam/src/xunit/xunit_tab_lib.h	16;"	d
+GPIO_PIN_OUT2	tara_uvc_cam/src/xunit/xunit_tab_lib.h	17;"	d
+GPIO_SET_LEVEL	tara_uvc_cam/src/xunit/xunit_lib.h	42;"	d
+GYRO_AXIS_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	INT8 GYRO_AXIS_CONFIG;$/;"	m	struct:__anon1
+GYRO_SENSITIVITY_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    INT8 GYRO_SENSITIVITY_CONFIG;$/;"	m	struct:__anon1
+GetCameraUniqueID	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL GetCameraUniqueID (char *UniqueID)$/;"	f
+GetIMUConfig	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL GetIMUConfig(IMUCONFIG_TypeDef *lIMUConfig)$/;"	f
+GetIMUIntervalTime	tara_uvc_cam/src/tara_ros.cpp	/^	double taraCamera::GetIMUIntervalTime(IMUCONFIG_TypeDef	lIMUConfig)$/;"	f	class:uvc_camera::taraCamera
+GetIMUValueBuffer	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL GetIMUValueBuffer( IMUDATAOUTPUT_TypeDef *lIMUAxes )$/;"	f
+GetIMUValueBuffer_write	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^  BOOL GetIMUValueBuffer_write()$/;"	f
+GetListofDeviceseCon	tara_uvc_cam/src/uvc_cam.cpp	/^int Cam::GetListofDeviceseCon(void)$/;"	f	class:Cam
+GetManualExposureValue_Stereo	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL GetManualExposureValue_Stereo(INT32 *ExposureValue)$/;"	f
+GetStreamModeStereo	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL GetStreamModeStereo(UINT32 *iStreamMode)$/;"	f
+GetTickCount	tara_uvc_cam/src/xunit/xunit_lib.c	/^unsigned int GetTickCount()$/;"	f
+GetTickCount	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^unsigned int GetTickCount()$/;"	f
+HALF_PI	tara_uvc_cam/include/uvc_camera/tara_ros.h	19;"	d
+HID_LIST_MAX	tara_uvc_cam/src/xunit/xunit_lib.h	58;"	d
+IMUCONFIG_TypeDef	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^} IMUCONFIG_TypeDef;$/;"	t	typeref:struct:__anon1
+IMUDATAINPUT_TypeDef	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^} IMUDATAINPUT_TypeDef;$/;"	t	typeref:struct:__anon2
+IMUDATAOUTPUT_TypeDef	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^} IMUDATAOUTPUT_TypeDef;$/;"	t	typeref:struct:__anon3
+IMUSensitivityConfig	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^void IMUSensitivityConfig(IMUCONFIG_TypeDef lIMUConfig)$/;"	f
+IMU_ACC_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	89;"	d
+IMU_ACC_GYRO_DISABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	88;"	d
+IMU_ACC_GYRO_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	90;"	d
+IMU_ACC_SENS_16G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	110;"	d
+IMU_ACC_SENS_2G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	107;"	d
+IMU_ACC_SENS_4G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	108;"	d
+IMU_ACC_SENS_8G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	109;"	d
+IMU_ACC_VAL	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	54;"	d	file:
+IMU_ACC_X_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	94;"	d
+IMU_ACC_X_Y_Z_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	93;"	d
+IMU_ACC_Y_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	95;"	d
+IMU_ACC_Z_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	96;"	d
+IMU_AXES_VALUES_MAX	tara_uvc_cam/src/xunit/xunit_lib_tara.h	129;"	d
+IMU_AXES_VALUES_MIN	tara_uvc_cam/src/xunit/xunit_lib_tara.h	128;"	d
+IMU_CONT_UPDT_DIS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	125;"	d
+IMU_CONT_UPDT_EN	tara_uvc_cam/src/xunit/xunit_lib_tara.h	124;"	d
+IMU_GYRO_SENS_2000DPS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	121;"	d
+IMU_GYRO_SENS_245DPS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	119;"	d
+IMU_GYRO_SENS_500DPS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	120;"	d
+IMU_GYRO_VAL	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	55;"	d	file:
+IMU_GYRO_X_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	114;"	d
+IMU_GYRO_X_Y_Z_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	113;"	d
+IMU_GYRO_Y_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	115;"	d
+IMU_GYRO_Z_ENABLE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	116;"	d
+IMU_MODE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	INT8 IMU_MODE;$/;"	m	struct:__anon1
+IMU_NUM_OF_VAL	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	53;"	d	file:
+IMU_NUM_OF_VALUES	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	UINT16 IMU_NUM_OF_VALUES;$/;"	m	struct:__anon2
+IMU_ODR_10_14_9HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	99;"	d
+IMU_ODR_119HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	101;"	d
+IMU_ODR_238HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	102;"	d
+IMU_ODR_476HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	103;"	d
+IMU_ODR_50_59_9HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	100;"	d
+IMU_ODR_952HZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	104;"	d
+IMU_ODR_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	INT8 IMU_ODR_CONFIG;$/;"	m	struct:__anon1
+IMU_UPDATE_MODE	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    INT8 IMU_UPDATE_MODE;$/;"	m	struct:__anon2
+IMU_VALUE_ID	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	UINT16 IMU_VALUE_ID;$/;"	m	struct:__anon3
+IMU_enable	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::IMU_enable()$/;"	f	class:uvc_camera::taraCamera
+IMU_inclination_pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher IMU_inclination_pub;$/;"	m	class:uvc_camera::taraCamera
+IMU_pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher IMU_pub;$/;"	m	class:uvc_camera::taraCamera
+IMU_thread	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			boost::thread IMU_thread;$/;"	m	class:uvc_camera::taraCamera
+INT16	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef int16_t  			 INT16;$/;"	t
+INT32	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef int32_t   			 INT32;$/;"	t
+INT8	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef int8_t    			 INT8;$/;"	t
+INTRINSIC_FILEID	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	56;"	d	file:
+InitExtensionUnit	tara_uvc_cam/src/xunit/xunit_lib.c	/^BOOL InitExtensionUnit(const char* bus_info)$/;"	f
+InitExtensionUnit	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL InitExtensionUnit(char *busname)$/;"	f
+IsStereo	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	bool IsStereo;$/;"	m	class:uvc_cam::Cam
+IsStereoDeviceAvail	tara_uvc_cam/src/uvc_cam.cpp	/^BOOL Cam::IsStereoDeviceAvail(char *pid)$/;"	f	class:Cam
+Kd	differential_drive/src/pid_velocity.cpp	/^    double Kp, Ki, Kd;$/;"	m	class:PidVelocity	file:
+Ki	differential_drive/src/pid_velocity.cpp	/^    double Kp, Ki, Kd;$/;"	m	class:PidVelocity	file:
+Kp	differential_drive/src/pid_velocity.cpp	/^    double Kp, Ki, Kd;$/;"	m	class:PidVelocity	file:
+LDevices	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	} LDevices;$/;"	t	class:uvc_cam::Cam	typeref:struct:uvc_cam::Cam::_LDevices
+LSM6DS0_G_FS_2000	tara_uvc_cam/src/xunit/xunit_lib_tara.h	134;"	d
+LSM6DS0_G_FS_245	tara_uvc_cam/src/xunit/xunit_lib_tara.h	132;"	d
+LSM6DS0_G_FS_500	tara_uvc_cam/src/xunit/xunit_lib_tara.h	133;"	d
+LSM6DS0_XL_FS_16G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	140;"	d
+LSM6DS0_XL_FS_2G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	137;"	d
+LSM6DS0_XL_FS_4G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	138;"	d
+LSM6DS0_XL_FS_8G	tara_uvc_cam/src/xunit/xunit_lib_tara.h	139;"	d
+LoadCameraMatrix	tara_uvc_cam/src/tara_ros.cpp	/^	BOOL taraCamera::LoadCameraMatrix()$/;"	f	class:uvc_camera::taraCamera
+MANUAL_FOCUS	tara_uvc_cam/src/xunit/xunit_lib.h	26;"	d
+MANUFACTURER_NAME_MAX	tara_uvc_cam/src/xunit/xunit_lib.h	56;"	d
+MODE_BAYER	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	e	enum:uvc_cam::Cam::mode_t
+MODE_MJPG	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	e	enum:uvc_cam::Cam::mode_t
+MODE_RGB	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	e	enum:uvc_cam::Cam::mode_t
+MODE_Y16	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	e	enum:uvc_cam::Cam::mode_t
+MODE_YUYV	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	e	enum:uvc_cam::Cam::mode_t
+M_PI	tara_uvc_cam/include/uvc_camera/tara_ros.h	18;"	d
+MainWindow	differential_drive/scripts/virtual_joystick.py	/^class MainWindow(QtGui.QMainWindow):$/;"	c
+MajorVersion	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^   	UINT8 MajorVersion;$/;"	m	class:uvc_cam::Cam
+MajorVersion_t	tara_uvc_cam/include/uvc_camera/tara_ros.h	24;"	d
+MinorVersion1	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	UINT8 MinorVersion1;$/;"	m	class:uvc_cam::Cam
+MinorVersion1_t	tara_uvc_cam/include/uvc_camera/tara_ros.h	25;"	d
+MinorVersion2	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	UINT16 MinorVersion2;$/;"	m	class:uvc_cam::Cam
+MinorVersion2_t	tara_uvc_cam/include/uvc_camera/tara_ros.h	26;"	d
+MinorVersion3	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	UINT16 MinorVersion3;$/;"	m	class:uvc_cam::Cam
+MinorVersion3_t	tara_uvc_cam/include/uvc_camera/tara_ros.h	27;"	d
+MovingAverage	differential_drive/src/pid_velocity.cpp	/^    MovingAverage(int n)  {$/;"	f	class:MovingAverage
+MovingAverage	differential_drive/src/pid_velocity.cpp	/^class MovingAverage {$/;"	c	file:
+NUM_BUFFERS	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  static const unsigned NUM_BUFFERS = 2;$/;"	m	class:uvc_cam::Cam
+PACKAGE	differential_drive/cfg/DiffTf.cfg	/^PACKAGE = "differential-drive"$/;"	v
+PCK_SIZE	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	58;"	d	file:
+PRODUCT_NAME_MAX	tara_uvc_cam/src/xunit/xunit_lib.h	57;"	d
+PidVelocity	differential_drive/scripts/pid_velocity.py	/^class PidVelocity():$/;"	c
+PidVelocity	differential_drive/src/pid_velocity.cpp	/^    PidVelocity(int argc, char **argv) {$/;"	f	class:PidVelocity
+PidVelocity	differential_drive/src/pid_velocity.cpp	/^class PidVelocity {$/;"	c	file:
+RAD2DEG	tara_uvc_cam/include/uvc_camera/tara_ros.h	21;"	d
+READFIRMWAREVERSION	tara_uvc_cam/src/xunit/xunit_lib.h	12;"	d
+READFIRMWAREVERSION	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	36;"	d	file:
+READ_CALIB_DATA	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	48;"	d	file:
+READ_CALIB_REQUEST	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	47;"	d	file:
+ReadFirmwareVersion	tara_uvc_cam/src/xunit/xunit_lib.c	/^BOOL ReadFirmwareVersion (UINT8 *pMajorVersion, UINT8 *pMinorVersion1, UINT16 *pMinorVersion2, UINT16 *pMinorVersion3)$/;"	f
+ReadFirmwareVersion	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL ReadFirmwareVersion (UINT8 *pMajorVersion, UINT8 *pMinorVersion1, UINT16 *pMinorVersion2, UINT16 *pMinorVersion3)$/;"	f
+RwEst	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			double RwEst[3];$/;"	m	class:uvc_camera::taraCamera
+SEE3CAM_10CUG	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^	SEE3CAM_10CUG = 1,$/;"	e	enum:see3cam_device_index
+SEE3CAM_10CUG_C_PID	tara_uvc_cam/src/xunit/xunit_tab_lib.h	11;"	d
+SEE3CAM_10CUG_M_PID	tara_uvc_cam/src/xunit/xunit_tab_lib.h	10;"	d
+SEE3CAM_80USB	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^	SEE3CAM_80USB,$/;"	e	enum:see3cam_device_index
+SEE3CAM_80USB_PID	tara_uvc_cam/src/xunit/xunit_tab_lib.h	12;"	d
+SEE3CAM_STEREO_EXPOSURE_AUTO	tara_uvc_cam/src/xunit/xunit_lib_tara.h	82;"	d
+SEE3CAM_STEREO_EXPOSURE_DEF	tara_uvc_cam/src/xunit/xunit_lib_tara.h	85;"	d
+SEE3CAM_STEREO_EXPOSURE_MAX	tara_uvc_cam/src/xunit/xunit_lib_tara.h	84;"	d
+SEE3CAM_STEREO_EXPOSURE_MIN	tara_uvc_cam/src/xunit/xunit_lib_tara.h	83;"	d
+SEE3CAM_STEREO_HID_FAIL	tara_uvc_cam/src/xunit/xunit_lib_tara.h	79;"	d
+SEE3CAM_STEREO_HID_SUCCESS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	78;"	d
+SEE3CAM_USB_VID	tara_uvc_cam/src/xunit/xunit_tab_lib.h	9;"	d
+SEND_IMU_VAL_BUFF	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	45;"	d	file:
+SET_EXPOSURE_VALUE	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	40;"	d	file:
+SET_FAIL	tara_uvc_cam/src/xunit/xunit_lib_tara.h	64;"	d
+SET_FLASH_FAIL	tara_uvc_cam/src/xunit/xunit_lib.h	37;"	d
+SET_FLASH_MODE	tara_uvc_cam/src/xunit/xunit_lib.h	23;"	d
+SET_FLASH_SUCCESS	tara_uvc_cam/src/xunit/xunit_lib.h	38;"	d
+SET_FOCUS_MODE	tara_uvc_cam/src/xunit/xunit_lib.h	18;"	d
+SET_FOCUS_POSITION	tara_uvc_cam/src/xunit/xunit_lib.h	20;"	d
+SET_IMU_CONFIG	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	43;"	d	file:
+SET_STREAM_MODE_STEREO	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	50;"	d	file:
+SET_SUCCESS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	65;"	d
+SINGLE_TRIG_FOCUS	tara_uvc_cam/src/xunit/xunit_lib.h	27;"	d
+STOOTH_BAUD	sabertooth_simple/include/sabertooth_simple.h	6;"	d
+SUCCESS	tara_uvc_cam/src/xunit/xunit_lib.h	52;"	d
+SUCCESS	tara_uvc_cam/src/xunit/xunit_lib_tara.h	68;"	d
+SabertoothSimple	sabertooth_simple/include/sabertooth_simple.h	/^class SabertoothSimple$/;"	c
+SabertoothSimple	sabertooth_simple/src/sabertooth_simple.cpp	/^SabertoothSimple::SabertoothSimple(void)$/;"	f	class:SabertoothSimple
+See3CAM_STEREO	tara_uvc_cam/src/xunit/xunit_lib_tara.h	28;"	d
+SetIMUConfig	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL SetIMUConfig(IMUCONFIG_TypeDef lIMUConfig)$/;"	f
+SetIMUConfigDefaultEnable	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::SetIMUConfigDefaultEnable()$/;"	f	class:uvc_camera::taraCamera
+SetManualExposureValue_Stereo	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL SetManualExposureValue_Stereo(INT32 ExposureValue)$/;"	f
+SetStreamModeStereo	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL SetStreamModeStereo(UINT32 iStreamMode)$/;"	f
+Sleep	tara_uvc_cam/src/tara_ros.cpp	/^	void Sleep(unsigned int TimeInMilli)$/;"	f	namespace:uvc_camera
+Sleep	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^void Sleep(unsigned int TimeInMilli)$/;"	f
+StereoCalibRead	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL StereoCalibRead(unsigned char **in_buffer, unsigned char **ex_buffer, int *intFileLength, int *extFileLength)$/;"	f
+StereoCamera	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^class StereoCamera {$/;"	c	namespace:uvc_camera
+StereoCamera	tara_uvc_cam/src/stereo.cpp	/^StereoCamera::StereoCamera(ros::NodeHandle comm_nh, ros::NodeHandle param_nh) :$/;"	f	class:uvc_camera::StereoCamera
+StereoNodelet	tara_uvc_cam/src/nodelets.cpp	/^    StereoNodelet() {}$/;"	f	class:uvc_camera::StereoNodelet
+StereoNodelet	tara_uvc_cam/src/nodelets.cpp	/^class StereoNodelet : public nodelet::Nodelet {$/;"	c	namespace:uvc_camera	file:
+TIMEOUT	tara_uvc_cam/src/xunit/xunit_lib.h	50;"	d
+TIMEOUT	tara_uvc_cam/src/xunit/xunit_lib_tara.h	72;"	d
+TRUE	tara_uvc_cam/src/xunit/xunit_lib.h	8;"	d
+TRUE	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	60;"	d	file:
+TwistToMotors	differential_drive/scripts/twist_to_motors.py	/^class TwistToMotors():$/;"	c
+UIMU_BAUD	memsense_uimu/include/uimu.h	11;"	d
+UINT16	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef unsigned short int   UINT16;$/;"	t
+UINT16	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^typedef unsigned short int UINT16;$/;"	t
+UINT32	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef unsigned int		 UINT32;$/;"	t
+UINT8	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^typedef unsigned char		 UINT8;$/;"	t
+UINT8	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^typedef unsigned char UINT8;$/;"	t
+UVC_CAM_H	tara_uvc_cam/include/uvc_cam/uvc_cam.h	23;"	d
+UVC_CTRL_DATA_TYPE_BITMASK	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_BITMASK = 5;$/;"	m	class:uvc_cam::Cam
+UVC_CTRL_DATA_TYPE_BOOLEAN	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_BOOLEAN = 3;$/;"	m	class:uvc_cam::Cam
+UVC_CTRL_DATA_TYPE_ENUM	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_ENUM = 4;$/;"	m	class:uvc_cam::Cam
+UVC_CTRL_DATA_TYPE_RAW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_RAW = 0;$/;"	m	class:uvc_cam::Cam
+UVC_CTRL_DATA_TYPE_SIGNED	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_SIGNED	= 1;$/;"	m	class:uvc_cam::Cam
+UVC_CTRL_DATA_TYPE_UNSIGNED	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 UVC_CTRL_DATA_TYPE_UNSIGNED	= 2;$/;"	m	class:uvc_cam::Cam
+UimuClass	memsense_uimu/include/uimu.h	/^class UimuClass$/;"	c
+UimuClass	memsense_uimu/src/uimu.cpp	/^UimuClass::UimuClass(void)$/;"	f	class:UimuClass
+UimuPacket	memsense_uimu/include/uimu_packet.h	/^class UimuPacket $/;"	c
+UninitExtensionUnit	tara_uvc_cam/src/xunit/xunit_lib.c	/^BOOL UninitExtensionUnit()$/;"	f
+V4L2_CID_BACKLIGHT_COMPENSATION_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_BACKLIGHT_COMPENSATION_NEW = V4L2_CID_BASE_NEW + 28;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_BACKLIGHT_COMPENSATION_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_BACKLIGHT_COMPENSATION_OLD = V4L2_CID_PRIVATE_BASE_OLD + 0;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_BASE_EXTCTR	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_BASE_EXTCTR = 0x0A046D01;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_BASE_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_BASE_LOGITECH = V4L2_CID_BASE_EXTCTR;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_BASE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_BASE_NEW = V4L2_CTRL_CLASS_USER_NEW | 0x900;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_CAMERA_CLASS_BASE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_CAMERA_CLASS_BASE_NEW = V4L2_CTRL_CLASS_CAMERA_NEW | 0x900;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_CAMERA_CLASS_LAST	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_CAMERA_CLASS_LAST = V4L2_CID_CAMERA_CLASS_BASE_NEW + 13;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_DISABLE_PROCESSING_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_DISABLE_PROCESSING_LOGITECH = V4L2_CID_BASE_LOGITECH + 0x70;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_EXPOSURE_ABSOLUTE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_EXPOSURE_ABSOLUTE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 2;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_EXPOSURE_ABSOLUTE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_EXPOSURE_ABSOLUTE_OLD = V4L2_CID_PRIVATE_BASE_OLD + 11;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_EXPOSURE_AUTO_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_EXPOSURE_AUTO_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 1;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_EXPOSURE_AUTO_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_EXPOSURE_AUTO_OLD = V4L2_CID_PRIVATE_BASE_OLD + 10;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_EXPOSURE_AUTO_PRIORITY_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_EXPOSURE_AUTO_PRIORITY_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW+3;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_ABSOLUTE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_ABSOLUTE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 10;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_ABSOLUTE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_ABSOLUTE_OLD = V4L2_CID_PRIVATE_BASE_OLD + 5;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_AUTO_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_AUTO_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 12;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_AUTO_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_AUTO_OLD = V4L2_CID_PRIVATE_BASE_OLD + 4;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_LOGITECH = V4L2_CID_BASE_LOGITECH + 3;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_RELATIVE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_RELATIVE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 11;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_FOCUS_RELATIVE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_FOCUS_RELATIVE_OLD = V4L2_CID_PRIVATE_BASE_OLD + 6;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_HUE_AUTO_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_HUE_AUTO_NEW = V4L2_CID_BASE_NEW + 25;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_HUE_AUTO_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_HUE_AUTO_OLD = V4L2_CID_PRIVATE_BASE_OLD + 3;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_LAST_EXTCTR	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_LAST_EXTCTR = V4L2_CID_RAW_BITS_PER_PIXEL_LOGITECH;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_LAST_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_LAST_NEW = V4L2_CID_BASE_NEW + 29;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_LED1_FREQUENCY_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_LED1_FREQUENCY_LOGITECH = V4L2_CID_BASE_LOGITECH + 5;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_LED1_MODE_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_LED1_MODE_LOGITECH = V4L2_CID_BASE_LOGITECH + 4;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PANTILT_RESET_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PANTILT_RESET_LOGITECH = V4L2_CID_BASE_LOGITECH + 2;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PANTILT_RESET_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PANTILT_RESET_OLD = V4L2_CID_PRIVATE_BASE_OLD + 9;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PAN_ABSOLUTE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PAN_ABSOLUTE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 8;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PAN_RELATIVE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PAN_RELATIVE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 4;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PAN_RELATIVE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PAN_RELATIVE_OLD = V4L2_CID_PRIVATE_BASE_OLD + 7;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PAN_RESET_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PAN_RESET_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 6;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_POWER_LINE_FREQUENCY_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_POWER_LINE_FREQUENCY_NEW = V4L2_CID_BASE_NEW + 24;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_POWER_LINE_FREQUENCY_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_POWER_LINE_FREQUENCY_OLD = V4L2_CID_PRIVATE_BASE_OLD + 1;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PRIVATE_BASE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PRIVATE_BASE_OLD = 0x08000000;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_PRIVATE_LAST	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_PRIVATE_LAST = V4L2_CID_WHITE_BALANCE_TEMP_OLD + 1;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_RAW_BITS_PER_PIXEL_LOGITECH	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_RAW_BITS_PER_PIXEL_LOGITECH = V4L2_CID_BASE_LOGITECH + 0x71;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_SHARPNESS_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_SHARPNESS_NEW = V4L2_CID_BASE_NEW + 27;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_SHARPNESS_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_SHARPNESS_OLD = V4L2_CID_PRIVATE_BASE_OLD + 2;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_TILT_ABSOLUTE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_TILT_ABSOLUTE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 9;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_TILT_RELATIVE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_TILT_RELATIVE_NEW = V4L2_CID_CAMERA_CLASS_BASE_NEW + 5;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_TILT_RELATIVE_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_TILT_RELATIVE_OLD = V4L2_CID_PRIVATE_BASE_OLD + 8;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_TILT_RESET_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_TILT_RESET_NEW	= V4L2_CID_CAMERA_CLASS_BASE_NEW + 7;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_WHITE_BALANCE_TEMPERATURE_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_WHITE_BALANCE_TEMPERATURE_NEW = V4L2_CID_BASE_NEW + 26;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_WHITE_BALANCE_TEMP_AUTO_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_WHITE_BALANCE_TEMP_AUTO_OLD	= V4L2_CID_PRIVATE_BASE_OLD+12;$/;"	m	class:uvc_cam::Cam
+V4L2_CID_WHITE_BALANCE_TEMP_OLD	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CID_WHITE_BALANCE_TEMP_OLD = V4L2_CID_PRIVATE_BASE_OLD + 13;$/;"	m	class:uvc_cam::Cam
+V4L2_CTRL_CLASS_CAMERA_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CTRL_CLASS_CAMERA_NEW = 0x009A0000;	\/* Camera class controls *\/$/;"	m	class:uvc_cam::Cam
+V4L2_CTRL_CLASS_USER_NEW	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  CSU32 V4L2_CTRL_CLASS_USER_NEW = 0x00980000;$/;"	m	class:uvc_cam::Cam
+V4L2_UVC_EXPOSURE_APERTURE_PRIORITY	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	V4L2_UVC_EXPOSURE_APERTURE_PRIORITY = 8$/;"	e	enum:uvc_cam::v4l2_uvc_exposure_auto_type
+V4L2_UVC_EXPOSURE_AUTO	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	V4L2_UVC_EXPOSURE_AUTO = 2,$/;"	e	enum:uvc_cam::v4l2_uvc_exposure_auto_type
+V4L2_UVC_EXPOSURE_MANUAL	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	V4L2_UVC_EXPOSURE_MANUAL = 1,$/;"	e	enum:uvc_cam::v4l2_uvc_exposure_auto_type
+V4L2_UVC_EXPOSURE_SHUTTER_PRIORITY	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	V4L2_UVC_EXPOSURE_SHUTTER_PRIORITY = 4,$/;"	e	enum:uvc_cam::v4l2_uvc_exposure_auto_type
+VID	tara_uvc_cam/src/xunit/xunit_lib_tara.h	27;"	d
+VidDevice	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	} VidDevice;$/;"	t	class:uvc_cam::Cam	typeref:struct:uvc_cam::Cam::_VidDevice
+WheelLoopback	differential_drive/scripts/wheel_loopback.py	/^class WheelLoopback():$/;"	c
+XUNIT_LIB_H	tara_uvc_cam/src/xunit/xunit_lib.h	2;"	d
+XUNIT_LIB_H	tara_uvc_cam/src/xunit/xunit_lib_tara.h	21;"	d
+XUNIT_TAB_LIB_H	tara_uvc_cam/src/xunit/xunit_tab_lib.h	2;"	d
+_LDevices	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	typedef struct _LDevices$/;"	s	class:uvc_cam::Cam
+_VidDevice	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	typedef struct _VidDevice$/;"	s	class:uvc_cam::Cam
+__init__	differential_drive/scripts/diff_tf.py	/^    def __init__(self):$/;"	m	class:DiffTf
+__init__	differential_drive/scripts/pid_velocity.py	/^    def __init__(self):$/;"	m	class:PidVelocity
+__init__	differential_drive/scripts/twist_to_motors.py	/^    def __init__(self):$/;"	m	class:TwistToMotors
+__init__	differential_drive/scripts/virtual_joystick.py	/^    def __init__(self):$/;"	m	class:MainWindow
+__init__	differential_drive/scripts/wheel_loopback.py	/^    def __init__(self):$/;"	m	class:WheelLoopback
+__init__	primo_gazebo/nodes/sim_wheel_encoders.py	/^    def __init__(self, ticks_meter, wheel_radius):$/;"	m	class:EncoderSim
+accX	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    double accX;$/;"	m	struct:__anon3
+accY	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    double accY;$/;"	m	struct:__anon3
+accZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^    double accZ;$/;"	m	struct:__anon3
+acc_X	memsense_uimu/include/uimu_packet.h	/^        float acc_X;$/;"	m	class:UimuPacket
+acc_Y	memsense_uimu/include/uimu_packet.h	/^        float acc_Y;$/;"	m	class:UimuPacket
+acc_Z	memsense_uimu/include/uimu_packet.h	/^        float acc_Z;$/;"	m	class:UimuPacket
+angleX	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			double angleX, angleY, angleZ; \/\/ Rotational angle for cube [NEW]$/;"	m	class:uvc_camera::taraCamera
+angleY	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			double angleX, angleY, angleZ; \/\/ Rotational angle for cube [NEW]$/;"	m	class:uvc_camera::taraCamera
+angleZ	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			double angleX, angleY, angleZ; \/\/ Rotational angle for cube [NEW]$/;"	m	class:uvc_camera::taraCamera
+angular_velocity_stdev_	memsense_uimu/include/uimu.h	/^        double angular_velocity_stdev_;$/;"	m	class:UimuClass
+appendVel	differential_drive/scripts/pid_velocity.py	/^    def appendVel(self, val):$/;"	m	class:PidVelocity
+appendVel	differential_drive/src/pid_velocity.cpp	/^    void appendVel(double new_vel) {$/;"	f	class:PidVelocity
+beta	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			volatile float beta;	\/\/ 2 * proportional gain (Kp)$/;"	m	class:uvc_camera::taraCamera
+betaDef	tara_uvc_cam/include/uvc_camera/tara_ros.h	31;"	d
+bias_gyro	memsense_uimu/include/uimu.h	/^        double bias_gyro;$/;"	m	class:UimuClass
+brightness_pub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Publisher brightness_pub;$/;"	m	class:uvc_camera::Camera
+brightness_pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher brightness_pub;$/;"	m	class:uvc_camera::taraCamera
+brightness_sub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Subscriber brightness_sub;$/;"	m	class:uvc_camera::Camera
+brightness_sub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Subscriber brightness_sub;$/;"	m	class:uvc_camera::taraCamera
+brightness_value	tara_uvc_cam/include/uvc_camera/camera.h	/^    int  brightness_value;$/;"	m	class:uvc_camera::Camera
+brightness_value	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int  brightness_value;$/;"	m	class:uvc_camera::taraCamera
+buffer_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_buffer buffer_;$/;"	m	class:uvc_cam::Cam
+buffer_length_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned buffer_length_;$/;"	m	class:uvc_cam::Cam
+buffer_mem_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  void *buffer_mem_[NUM_BUFFERS];$/;"	m	class:uvc_cam::Cam
+bus_info	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		char *bus_info;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+bus_str	tara_uvc_cam/src/xunit/xunit_lib.c	/^const char *bus_str(int bus)$/;"	f
+bus_str	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^const char *bus_str(int bus)$/;"	f
+calDir	primo_stereo/config/save_cal.py	/^calDir = os.path.abspath(os.path.join(calPath, os.pardir))$/;"	v
+calParentDir	primo_stereo/config/save_cal.py	/^calParentDir = os.path.abspath(os.path.join(calPath, os.pardir))$/;"	v
+calPath	primo_stereo/config/save_cal.py	/^calPath = os.path.join(curWorkingDir,packed_cal)$/;"	v
+calcRollingVel	differential_drive/scripts/pid_velocity.py	/^    def calcRollingVel(self):$/;"	m	class:PidVelocity
+calcRollingVel	differential_drive/src/pid_velocity.cpp	/^    void calcRollingVel() {$/;"	f	class:PidVelocity
+calcVelocity	differential_drive/scripts/pid_velocity.py	/^    def calcVelocity(self):$/;"	m	class:PidVelocity
+calcVelocity	differential_drive/src/pid_velocity.cpp	/^    void calcVelocity() {$/;"	f	class:PidVelocity
+callBackBrightness	tara_uvc_cam/src/camera.cpp	/^	void Camera::callBackBrightness (std_msgs::Float64 call_brightness_msg)$/;"	f	class:uvc_camera::Camera
+callBackBrightness	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::callBackBrightness (std_msgs::Float64 call_brightness_msg)$/;"	f	class:uvc_camera::taraCamera
+callBackExposure	tara_uvc_cam/src/camera.cpp	/^	void Camera::callBackExposure (std_msgs::Float64 call_exposure_msg)$/;"	f	class:uvc_camera::Camera
+callBackExposure	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::callBackExposure (std_msgs::Float64 call_exposure_msg)$/;"	f	class:uvc_camera::taraCamera
+cam	tara_uvc_cam/include/uvc_camera/camera.h	/^    uvc_cam::Cam *cam;$/;"	m	class:uvc_camera::Camera
+cam	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			uvc_cam::Cam *cam;$/;"	m	class:uvc_camera::taraCamera
+cam_left	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    uvc_cam::Cam *cam_left, *cam_right;$/;"	m	class:uvc_camera::StereoCamera
+cam_right	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    uvc_cam::Cam *cam_left, *cam_right;$/;"	m	class:uvc_camera::StereoCamera
+camera	primo_stereo/config/save_cal.py	/^camera = str(os.path.split(calParentDir)[1])$/;"	v
+camera	tara_uvc_cam/src/nodelets.cpp	/^    Camera *camera;$/;"	m	class:uvc_camera::CameraNodelet	file:
+capability_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_capability capability_;$/;"	m	class:uvc_cam::Cam
+checkFirmware	tara_uvc_cam/src/tara_ros.cpp	/^	BOOL taraCamera::checkFirmware (UINT8 MajorVersion, UINT8 MinorVersion1, UINT16 MinorVersion2, UINT16 MinorVersion3)$/;"	f	class:uvc_camera::taraCamera
+client	primo_base/src/joy_manager.cpp	/^ros::ServiceClient client;$/;"	v
+concat_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *concat_frame_;$/;"	m	class:uvc_cam::Cam
+connect	memsense_uimu/src/uimu.cpp	/^int UimuClass::connect(void)$/;"	f	class:UimuClass
+connect	sabertooth_simple/src/sabertooth_simple.cpp	/^int SabertoothSimple::connect(void)$/;"	f	class:SabertoothSimple
+countHidDevices	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^int 							countHidDevices = 0;$/;"	v
+curWorkingDir	primo_stereo/config/save_cal.py	/^curWorkingDir = os.path.abspath(os.getcwd())$/;"	v
+decodePacket	memsense_uimu/src/uimu.cpp	/^void UimuClass::decodePacket(void)$/;"	f	class:UimuClass
+derivative	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+device	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		char *device;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+device	tara_uvc_cam/include/uvc_camera/camera.h	/^    std::string device, frame;$/;"	m	class:uvc_camera::Camera
+device	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			std::string device, frame;$/;"	m	class:uvc_camera::taraCamera
+deviceID	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		short int deviceID;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+device_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  std::string device_;$/;"	m	class:uvc_cam::Cam
+device_file_h_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  int device_file_h_;$/;"	m	class:uvc_cam::Cam
+doPid	differential_drive/scripts/pid_velocity.py	/^    def doPid(self):$/;"	m	class:PidVelocity
+doPid	differential_drive/src/pid_velocity.cpp	/^    void doPid() {$/;"	f	class:PidVelocity
+econ_strcmp	tara_uvc_cam/src/tara_ros.cpp	/^	int taraCamera::econ_strcmp (const char *str1,const char *str2)$/;"	f	class:uvc_camera::taraCamera
+encoder	primo_gazebo/nodes/sim_wheel_encoders.py	/^    encoder = 0$/;"	v	class:EncoderSim
+encoder_high_wrap	differential_drive/src/pid_velocity.cpp	/^    int  encoder_min, encoder_max, encoder_low_wrap, encoder_high_wrap, ticks_since_target;$/;"	m	class:PidVelocity	file:
+encoder_low_wrap	differential_drive/src/pid_velocity.cpp	/^    int  encoder_min, encoder_max, encoder_low_wrap, encoder_high_wrap, ticks_since_target;$/;"	m	class:PidVelocity	file:
+encoder_max	differential_drive/src/pid_velocity.cpp	/^    int  encoder_min, encoder_max, encoder_low_wrap, encoder_high_wrap, ticks_since_target;$/;"	m	class:PidVelocity	file:
+encoder_min	differential_drive/src/pid_velocity.cpp	/^    int  encoder_min, encoder_max, encoder_low_wrap, encoder_high_wrap, ticks_since_target;$/;"	m	class:PidVelocity	file:
+enumerate	tara_uvc_cam/src/uvc_cam.cpp	/^void Cam::enumerate()$/;"	f	class:Cam
+enumerate_menu	tara_uvc_cam/src/uvc_cam.cpp	/^enumerate_menu (int device_file_h_,$/;"	f	file:
+error	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+estop	sabertooth_simple/include/sabertooth_simple.h	/^        bool estop;$/;"	m	class:SabertoothSimple
+estopHandler	sabertooth_simple/src/sabertooth_simple.cpp	/^bool SabertoothSimple::estopHandler(bool _estop)$/;"	f	class:SabertoothSimple
+estopHandler	sabertooth_simple/src/sabertooth_simple_node.cpp	/^bool estopHandler(sabertooth_simple::SabertoothEstop::Request &req,$/;"	f
+estopState	primo_base/src/joy_manager.cpp	/^bool estopState = false;$/;"	v
+exp_vals	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^static const int exp_vals[]=$/;"	m	namespace:uvc_cam
+exposure_pub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Publisher exposure_pub;$/;"	m	class:uvc_camera::Camera
+exposure_pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher exposure_pub;$/;"	m	class:uvc_camera::taraCamera
+exposure_sub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Subscriber exposure_sub;$/;"	m	class:uvc_camera::Camera
+exposure_sub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Subscriber exposure_sub;$/;"	m	class:uvc_camera::taraCamera
+exposure_value	tara_uvc_cam/include/uvc_camera/camera.h	/^    int  exposure_value;$/;"	m	class:uvc_camera::Camera
+exposure_value	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int  exposure_value;$/;"	m	class:uvc_camera::taraCamera
+feedImages	tara_uvc_cam/src/camera.cpp	/^    void Camera::feedImages() {$/;"	f	class:uvc_camera::Camera
+feedImages	tara_uvc_cam/src/stereo.cpp	/^void StereoCamera::feedImages() {$/;"	f	class:uvc_camera::StereoCamera
+feedImages	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::feedImages() {$/;"	f	class:uvc_camera::taraCamera
+find_hid_device	tara_uvc_cam/src/xunit/xunit_lib.c	/^int find_hid_device(const char* physical_location)$/;"	f
+find_hid_device	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^int find_hid_device(char *videobusname)$/;"	f
+format_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_format format_;$/;"	m	class:uvc_cam::Cam
+fps	tara_uvc_cam/include/uvc_camera/camera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::Camera
+fps	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::StereoCamera
+fps	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::taraCamera
+fps_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned width_, height_, fps_;$/;"	m	class:uvc_cam::Cam
+frame	tara_uvc_cam/include/uvc_camera/camera.h	/^    std::string device, frame;$/;"	m	class:uvc_camera::Camera
+frame	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    std::string left_device, right_device, frame;$/;"	m	class:uvc_camera::StereoCamera
+frame	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			std::string device, frame;$/;"	m	class:uvc_camera::taraCamera
+frameLeft	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			std::string frameLeft;$/;"	m	class:uvc_camera::taraCamera
+frameRight	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			std::string frameRight;$/;"	m	class:uvc_camera::taraCamera
+frame_id_	memsense_uimu/include/uimu.h	/^        std::string frame_id_;$/;"	m	class:UimuClass
+frames_to_skip	tara_uvc_cam/include/uvc_camera/camera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::Camera
+frames_to_skip	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::StereoCamera
+frames_to_skip	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::taraCamera
+friendlyname	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		char *friendlyname;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+g_IsIMUConfigured	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^BOOL							g_IsIMUConfigured	= FALSE;$/;"	v
+g_flash_flag	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^BOOL g_flash_flag;$/;"	v
+g_in_packet_buf	tara_uvc_cam/src/xunit/xunit_lib.h	/^unsigned char g_in_packet_buf[BUFFER_LENGTH];$/;"	v
+g_in_packet_buf	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^unsigned char 					g_in_packet_buf[BUFFER_LENGTH];$/;"	v
+g_out_packet_buf	tara_uvc_cam/src/xunit/xunit_lib.h	/^unsigned char g_out_packet_buf[BUFFER_LENGTH];$/;"	v
+g_out_packet_buf	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^unsigned char					g_out_packet_buf[BUFFER_LENGTH];$/;"	v
+gen	differential_drive/cfg/DiffTf.cfg	/^gen = ParameterGenerator()$/;"	v
+getInclination	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::getInclination(double g_x, double g_y, double g_z, double a_x, double a_y, double a_z)$/;"	f	class:uvc_camera::taraCamera
+getM	sabertooth_simple/src/sabertooth_simple.cpp	/^int SabertoothSimple::getM(int motorNum, int &powerVal)$/;"	f	class:SabertoothSimple
+getOrientation	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::getOrientation(double gx, double gy, double gz, double ax, double ay, double az)$/;"	f	class:uvc_camera::taraCamera
+get_control	tara_uvc_cam/src/uvc_cam.cpp	/^int Cam::get_control(uint32_t id, int *value)$/;"	f	class:Cam
+get_position	differential_drive/scripts/virtual_joystick.py	/^    def get_position(self, event):$/;"	m	class:MainWindow
+glAccSensMult	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^float							glAccSensMult = 0;$/;"	v
+glGyroSensMult	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^float							glGyroSensMult = 0;$/;"	v
+glIMUConfig	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^IMUCONFIG_TypeDef				glIMUConfig;$/;"	v
+glIMUInput	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^IMUDATAINPUT_TypeDef			glIMUInput;$/;"	v
+glIMU_Interval	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			double glIMU_Interval;$/;"	m	class:uvc_camera::taraCamera
+grab	tara_uvc_cam/src/uvc_cam.cpp	/^int Cam::grab(unsigned char **frame, uint32_t &bytes_used)$/;"	f	class:Cam
+grabStereo	tara_uvc_cam/src/uvc_cam.cpp	/^int Cam::grabStereo(unsigned char **frame, uint32_t &bytes_used, unsigned char **left_frame = NULL, unsigned char **right_frame = NULL, unsigned char **concat_frame = NULL)$/;"	f	class:Cam
+gyroMeasError	tara_uvc_cam/include/uvc_camera/tara_ros.h	30;"	d
+gyroX	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	double gyroX;$/;"	m	struct:__anon3
+gyroY	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	double gyroY;$/;"	m	struct:__anon3
+gyroZ	tara_uvc_cam/src/xunit/xunit_lib_tara.h	/^	double gyroZ;$/;"	m	struct:__anon3
+gyro_X	memsense_uimu/include/uimu_packet.h	/^        float gyro_X;$/;"	m	class:UimuPacket
+gyro_Y	memsense_uimu/include/uimu_packet.h	/^        float gyro_Y;$/;"	m	class:UimuPacket
+gyro_Z	memsense_uimu/include/uimu_packet.h	/^        float gyro_Z;$/;"	m	class:UimuPacket
+height	tara_uvc_cam/include/uvc_camera/camera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::Camera
+height	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::StereoCamera
+height	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::taraCamera
+height_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned width_, height_, fps_;$/;"	m	class:uvc_cam::Cam
+hid_device	tara_uvc_cam/src/xunit/xunit_lib.h	/^const char	*hid_device;$/;"	v
+hid_device	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^const char						*hid_device;$/;"	v
+hid_device_array	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^const char						*hid_device_array[2];$/;"	v
+hid_fd	tara_uvc_cam/src/xunit/xunit_lib.c	/^int hid_fd = -1;$/;"	v
+hid_fd	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^int 							hid_fd = -1, hid_imu = -1;$/;"	v
+hid_imu	tara_uvc_cam/src/xunit/xunit_lib_tara.cpp	/^int 							hid_fd = -1, hid_imu = -1;$/;"	v
+image_thread	tara_uvc_cam/include/uvc_camera/camera.h	/^    boost::thread image_thread;$/;"	m	class:uvc_camera::Camera
+image_thread	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    boost::thread image_thread;$/;"	m	class:uvc_camera::StereoCamera
+image_thread	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			boost::thread image_thread;$/;"	m	class:uvc_camera::taraCamera
+imu_msg	memsense_uimu/include/uimu.h	/^        sensor_msgs::Imu imu_msg;$/;"	m	class:UimuClass
+imu_publisher	memsense_uimu/include/uimu.h	/^        ros::Publisher  imu_publisher;$/;"	m	class:UimuClass
+index	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^	int index;$/;"	m	class:uvc_cam::Cam
+info_mgr	tara_uvc_cam/include/uvc_camera/camera.h	/^    camera_info_manager::CameraInfoManager info_mgr;$/;"	m	class:uvc_camera::Camera
+info_mgr_left	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			camera_info_manager::CameraInfoManager info_mgr_left;$/;"	m	class:uvc_camera::taraCamera
+info_mgr_right	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			camera_info_manager::CameraInfoManager info_mgr_right;$/;"	m	class:uvc_camera::taraCamera
+info_pub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Publisher info_pub;$/;"	m	class:uvc_camera::Camera
+info_pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher info_pub;$/;"	m	class:uvc_camera::taraCamera
+info_pub_left	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher info_pub_left;$/;"	m	class:uvc_camera::taraCamera
+info_pub_right	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Publisher info_pub_right;    $/;"	m	class:uvc_camera::taraCamera
+initUI	differential_drive/scripts/virtual_joystick.py	/^    def initUI(self):      $/;"	m	class:MainWindow
+integral	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+invSqrt	tara_uvc_cam/src/tara_ros.cpp	/^	float taraCamera::invSqrt(float x)$/;"	f	class:uvc_camera::taraCamera
+isCameraStereo	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			bool isCameraStereo;$/;"	m	class:uvc_camera::taraCamera
+it	tara_uvc_cam/include/uvc_camera/camera.h	/^    image_transport::ImageTransport it;$/;"	m	class:uvc_camera::Camera
+it	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    image_transport::ImageTransport it;$/;"	m	class:uvc_camera::StereoCamera
+it	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			image_transport::ImageTransport it;$/;"	m	class:uvc_camera::taraCamera
+joyCb	primo_base/src/joy_manager.cpp	/^void joyCb(const sensor_msgs::Joy::ConstPtr& msg)$/;"	f
+lIMUConfig	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			IMUCONFIG_TypeDef lIMUConfig;$/;"	m	class:uvc_camera::taraCamera
+lIMUInput	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			IMUDATAINPUT_TypeDef lIMUInput;$/;"	m	class:uvc_camera::taraCamera
+lIMUInput	tara_uvc_cam/src/tara_ros.cpp	/^	IMUDATAINPUT_TypeDef lIMUInput;$/;"	m	namespace:uvc_camera	file:
+lIMUOutput	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			IMUDATAOUTPUT_TypeDef *lIMUOutput;$/;"	m	class:uvc_camera::taraCamera
+last_time	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Time last_time;$/;"	m	class:uvc_camera::Camera
+last_time	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Time last_time;$/;"	m	class:uvc_camera::taraCamera
+last_yuv_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *last_yuv_frame_;$/;"	m	class:uvc_cam::Cam
+leftMotorCb	sabertooth_simple/src/sabertooth_simple_node.cpp	/^void leftMotorCb(const std_msgs::Int16::ConstPtr& msg)$/;"	f
+leftPath	primo_stereo/config/save_cal.py	/^leftPath = os.path.join(calDir,"left.yaml")$/;"	v
+left_device	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    std::string left_device, right_device, frame;$/;"	m	class:uvc_camera::StereoCamera
+left_enc_sim	primo_gazebo/nodes/sim_wheel_encoders.py	/^    left_enc_sim = EncoderSim(ticks_meter,wheel_radius) $/;"	v	class:EncoderSim
+left_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *left_frame_;$/;"	m	class:uvc_cam::Cam
+left_info_mgr	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    camera_info_manager::CameraInfoManager left_info_mgr, right_info_mgr;$/;"	m	class:uvc_camera::StereoCamera
+left_info_pub	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    ros::Publisher left_info_pub, right_info_pub;$/;"	m	class:uvc_camera::StereoCamera
+left_pub	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    image_transport::Publisher left_pub, right_pub;$/;"	m	class:uvc_camera::StereoCamera
+linear_acceleration_stdev_	memsense_uimu/include/uimu.h	/^        double linear_acceleration_stdev_;$/;"	m	class:UimuClass
+listVidDevices	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		VidDevice *listVidDevices;$/;"	m	struct:uvc_cam::Cam::_LDevices
+listener	primo_gazebo/nodes/sim_wheel_encoders.py	/^    listener = tf2_ros.TransformListener(tfBuffer)$/;"	v	class:EncoderSim
+lwheelCallback	differential_drive/scripts/wheel_scaler.py	/^def lwheelCallback(msg):$/;"	f
+mag_X	memsense_uimu/include/uimu_packet.h	/^        float mag_X;$/;"	m	class:UimuPacket
+mag_Y	memsense_uimu/include/uimu_packet.h	/^        float mag_Y;$/;"	m	class:UimuPacket
+mag_Z	memsense_uimu/include/uimu_packet.h	/^        float mag_Z;$/;"	m	class:UimuPacket
+mag_msg	memsense_uimu/include/uimu.h	/^        sensor_msgs::MagneticField mag_msg;$/;"	m	class:UimuClass
+mag_publisher	memsense_uimu/include/uimu.h	/^        ros::Publisher  mag_publisher;$/;"	m	class:UimuClass
+magnetic_field_stdev_	memsense_uimu/include/uimu.h	/^        double magnetic_field_stdev_;$/;"	m	class:UimuClass
+main	differential_drive/scripts/virtual_joystick.py	/^def main():$/;"	f
+main	differential_drive/src/pid_velocity.cpp	/^int main(int argc, char **argv)$/;"	f
+main	differential_drive/src/primo_diff_tf.cpp	/^int main(int argc, char** argv)$/;"	f
+main	memsense_uimu/src/uimu_node.cpp	/^int main(int argc, char **argv)$/;"	f
+main	primo_base/src/joy_manager.cpp	/^int main(int argc, char **argv)$/;"	f
+main	sabertooth_simple/src/sabertooth_simple_node.cpp	/^int main(int argc, char **argv)$/;"	f
+main	tara_uvc_cam/src/camera_node.cpp	/^int main (int argc, char **argv) {$/;"	f
+main	tara_uvc_cam/src/stereo_node.cpp	/^int main (int argc, char **argv) {$/;"	f
+main	tara_uvc_cam/src/tara_node.cpp	/^int main (int argc, char **argv)$/;"	f
+mean	differential_drive/src/pid_velocity.cpp	/^    double mean() {$/;"	f	class:MovingAverage
+mode_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	m	class:uvc_cam::Cam	typeref:enum:uvc_cam::Cam::mode_t
+mode_t	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  enum mode_t { MODE_RGB, MODE_MJPG, MODE_YUYV, MODE_BAYER, MODE_Y16 } mode_;$/;"	g	class:uvc_cam::Cam
+motion_threshold_count	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  int motion_threshold_count;$/;"	m	class:uvc_cam::Cam
+motion_threshold_luminance_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  int motion_threshold_luminance_;$/;"	m	class:uvc_cam::Cam
+motor	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+motor_callback	differential_drive/scripts/wheel_loopback.py	/^    def motor_callback(self, msg):$/;"	m	class:WheelLoopback
+mouseMoveEvent	differential_drive/scripts/virtual_joystick.py	/^    def mouseMoveEvent(self, event):$/;"	m	class:MainWindow
+mousePressEvent	differential_drive/scripts/virtual_joystick.py	/^    def mousePressEvent(self, event):$/;"	m	class:MainWindow
+mouseReleaseEvent	differential_drive/scripts/virtual_joystick.py	/^    def mouseReleaseEvent(self, event):$/;"	m	class:MainWindow
+node	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::Camera
+node	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::StereoCamera
+node	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::taraCamera
+numBytes	memsense_uimu/include/uimu.h	/^        int numBytes;$/;"	m	class:UimuClass
+num_devices	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		int num_devices;$/;"	m	struct:uvc_cam::Cam::_LDevices
+ok	tara_uvc_cam/include/uvc_camera/camera.h	/^    bool ok;$/;"	m	class:uvc_camera::Camera
+ok	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    bool ok;$/;"	m	class:uvc_camera::StereoCamera
+ok	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			bool ok;$/;"	m	class:uvc_camera::taraCamera
+onInit	tara_uvc_cam/src/nodelets.cpp	/^    void onInit() {$/;"	f	class:uvc_camera::CameraNodelet
+onInit	tara_uvc_cam/src/nodelets.cpp	/^    void onInit() {$/;"	f	class:uvc_camera::StereoNodelet
+out_max	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+out_min	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+packed_cal	primo_stereo/config/save_cal.py	/^packed_cal = str(sys.argv[1])$/;"	v
+paramCallback	differential_drive/scripts/diff_tf.py	/^    def paramCallback(self, config, level):$/;"	m	class:DiffTf
+pidVelocity	differential_drive/scripts/pid_velocity.py	/^    pidVelocity = PidVelocity()$/;"	v
+pnode	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::Camera
+pnode	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::StereoCamera
+pnode	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::NodeHandle node, pnode;$/;"	m	class:uvc_camera::taraCamera
+prev_encoder	differential_drive/src/pid_velocity.cpp	/^    int prev_encoder, wheel_mult;$/;"	m	class:PidVelocity	file:
+prev_pid_time	differential_drive/src/pid_velocity.cpp	/^    ros::Time prev_pid_time;$/;"	m	class:PidVelocity	file:
+prev_vel	differential_drive/src/pid_velocity.cpp	/^    MovingAverage *prev_vel;  \/\/empty one for now$/;"	m	class:PidVelocity	file:
+previous_error	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+previous_raw_angle	primo_gazebo/nodes/sim_wheel_encoders.py	/^    previous_raw_angle = 0$/;"	v	class:EncoderSim
+processPacket	memsense_uimu/src/uimu.cpp	/^void UimuClass::processPacket(void)$/;"	f	class:UimuClass
+product	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		char *product;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+pub	differential_drive/src/pid_velocity.cpp	/^    std::tr1::unordered_map<std::string, ros::Publisher> pub;$/;"	m	class:PidVelocity	file:
+pub	tara_uvc_cam/include/uvc_camera/camera.h	/^    image_transport::Publisher pub;$/;"	m	class:uvc_camera::Camera
+pub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			image_transport::Publisher pub, pub_left, pub_right, pub_concat;$/;"	m	class:uvc_camera::taraCamera
+pubTwist	differential_drive/scripts/virtual_joystick.py	/^    def pubTwist(self):$/;"	m	class:MainWindow
+pub_concat	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			image_transport::Publisher pub, pub_left, pub_right, pub_concat;$/;"	m	class:uvc_camera::taraCamera
+pub_left	primo_gazebo/nodes/sim_wheel_encoders.py	/^    pub_left = rospy.Publisher('encoder_left', Int32, queue_size=10)$/;"	v	class:EncoderSim
+pub_left	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			image_transport::Publisher pub, pub_left, pub_right, pub_concat;$/;"	m	class:uvc_camera::taraCamera
+pub_right	primo_gazebo/nodes/sim_wheel_encoders.py	/^    pub_right = rospy.Publisher('encoder_right', Int32, queue_size=10)$/;"	v	class:EncoderSim
+pub_right	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			image_transport::Publisher pub, pub_left, pub_right, pub_concat;$/;"	m	class:uvc_camera::taraCamera
+push	differential_drive/src/pid_velocity.cpp	/^    void push(double v) {$/;"	f	class:MovingAverage
+q	differential_drive/src/pid_velocity.cpp	/^    boost::circular_buffer<double> *q;$/;"	m	class:MovingAverage	file:
+q0	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			volatile float q0, q1, q2, q3;	\/\/ quaternion of sensor frame relative to auxiliary frame$/;"	m	class:uvc_camera::taraCamera
+q1	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			volatile float q0, q1, q2, q3;	\/\/ quaternion of sensor frame relative to auxiliary frame$/;"	m	class:uvc_camera::taraCamera
+q2	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			volatile float q0, q1, q2, q3;	\/\/ quaternion of sensor frame relative to auxiliary frame$/;"	m	class:uvc_camera::taraCamera
+q3	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			volatile float q0, q1, q2, q3;	\/\/ quaternion of sensor frame relative to auxiliary frame$/;"	m	class:uvc_camera::taraCamera
+rate	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+rate	primo_gazebo/nodes/sim_wheel_encoders.py	/^    rate = rospy.Rate(100.0)$/;"	v	class:EncoderSim
+rawPacket	memsense_uimu/include/uimu.h	/^        std::vector<uint8_t> rawPacket;$/;"	m	class:UimuClass
+readBuffer	memsense_uimu/include/uimu.h	/^        std::vector<uint8_t> readBuffer;$/;"	m	class:UimuClass
+readPort	memsense_uimu/src/uimu.cpp	/^void UimuClass::readPort(void)$/;"	f	class:UimuClass
+release	tara_uvc_cam/src/uvc_cam.cpp	/^void Cam::release(unsigned buf_idx)$/;"	f	class:Cam
+request_buffers_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_requestbuffers request_buffers_;$/;"	m	class:uvc_cam::Cam
+returnValue	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int returnValue;$/;"	m	class:uvc_camera::taraCamera
+rgb_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *rgb_frame_;$/;"	m	class:uvc_cam::Cam
+rightMotorCb	sabertooth_simple/src/sabertooth_simple_node.cpp	/^void rightMotorCb(const std_msgs::Int16::ConstPtr& msg)$/;"	f
+rightPath	primo_stereo/config/save_cal.py	/^rightPath = os.path.join(calDir,"right.yaml")$/;"	v
+right_device	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    std::string left_device, right_device, frame;$/;"	m	class:uvc_camera::StereoCamera
+right_enc_sim	primo_gazebo/nodes/sim_wheel_encoders.py	/^    right_enc_sim = EncoderSim(ticks_meter,wheel_radius)$/;"	v	class:EncoderSim
+right_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *right_frame_;$/;"	m	class:uvc_cam::Cam
+right_info_mgr	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    camera_info_manager::CameraInfoManager left_info_mgr, right_info_mgr;$/;"	m	class:uvc_camera::StereoCamera
+right_info_pub	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    ros::Publisher left_info_pub, right_info_pub;$/;"	m	class:uvc_camera::StereoCamera
+right_pub	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    image_transport::Publisher left_pub, right_pub;$/;"	m	class:uvc_camera::StereoCamera
+rolling_pts	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+rotate	tara_uvc_cam/include/uvc_camera/camera.h	/^    bool rotate;$/;"	m	class:uvc_camera::Camera
+rotate	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			bool rotate;$/;"	m	class:uvc_camera::taraCamera
+rotate	tara_uvc_cam/src/stereo.cpp	/^static inline void rotate(unsigned char *dst_chr, unsigned char *src_chr, int pixels) {$/;"	f	file:
+rotate_left	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    bool rotate_left, rotate_right;$/;"	m	class:uvc_camera::StereoCamera
+rotate_right	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    bool rotate_left, rotate_right;$/;"	m	class:uvc_camera::StereoCamera
+rwheelCallback	differential_drive/scripts/wheel_scaler.py	/^def rwheelCallback(msg):$/;"	f
+sabertooth	sabertooth_simple/src/sabertooth_simple_node.cpp	/^SabertoothSimple sabertooth;$/;"	v
+sampleFreq	tara_uvc_cam/include/uvc_camera/tara_ros.h	29;"	d
+sat	tara_uvc_cam/src/uvc_cam.cpp	/^inline unsigned char sat(float f)$/;"	f
+sc	primo_base/src/joy_manager.cpp	/^sound_play::SoundClient *sc;$/;"	v
+see3cam_device_index	tara_uvc_cam/src/xunit/xunit_tab_lib.h	/^enum see3cam_device_index$/;"	g
+sendInfo	tara_uvc_cam/src/camera.cpp	/^    void Camera::sendInfo(ImagePtr &image, ros::Time time) {$/;"	f	class:uvc_camera::Camera
+sendInfo	tara_uvc_cam/src/stereo.cpp	/^void StereoCamera::sendInfo(ros::Time time) {$/;"	f	class:uvc_camera::StereoCamera
+sendInfoLeft	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::sendInfoLeft(ImagePtr &image, ros::Time time) {$/;"	f	class:uvc_camera::taraCamera
+sendInfoRight	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::sendInfoRight(ImagePtr &image, ros::Time time) {$/;"	f	class:uvc_camera::taraCamera
+setM	sabertooth_simple/src/sabertooth_simple.cpp	/^int SabertoothSimple::setM(int motorNum, int powerVal)$/;"	f	class:SabertoothSimple
+setRawPacket	memsense_uimu/src/uimu.cpp	/^void UimuClass::setRawPacket(std::vector<uint8_t> &p_vect)$/;"	f	class:UimuClass
+set_control	tara_uvc_cam/src/uvc_cam.cpp	/^int Cam::set_control(uint32_t id, int val)$/;"	f	class:Cam
+set_motion_thresholds	tara_uvc_cam/src/uvc_cam.cpp	/^void Cam::set_motion_thresholds(int lum, int count)$/;"	f	class:Cam
+showFirmwareVersion	tara_uvc_cam/src/uvc_cam.cpp	/^void Cam::showFirmwareVersion()$/;"	f	class:Cam
+size	differential_drive/src/pid_velocity.cpp	/^    double size() {$/;"	f	class:MovingAverage
+skip_frames	tara_uvc_cam/include/uvc_camera/camera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::Camera
+skip_frames	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::StereoCamera
+skip_frames	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::taraCamera
+spin	differential_drive/scripts/pid_velocity.py	/^    def spin(self):$/;"	m	class:PidVelocity
+spin	differential_drive/scripts/twist_to_motors.py	/^    def spin(self):$/;"	m	class:TwistToMotors
+spin	differential_drive/scripts/wheel_loopback.py	/^    def spin(self):$/;"	m	class:WheelLoopback
+spin	differential_drive/src/pid_velocity.cpp	/^    void spin() {$/;"	f	class:PidVelocity
+spinOnce	differential_drive/scripts/pid_velocity.py	/^    def spinOnce(self):$/;"	m	class:PidVelocity
+spinOnce	differential_drive/scripts/twist_to_motors.py	/^    def spinOnce(self):$/;"	m	class:TwistToMotors
+spinOnce	differential_drive/scripts/wheel_loopback.py	/^    def spinOnce(self):$/;"	m	class:WheelLoopback
+spinOnce	differential_drive/src/pid_velocity.cpp	/^    void spinOnce(ros::Rate r) {$/;"	f	class:PidVelocity
+spinner	differential_drive/src/pid_velocity.cpp	/^    ros::AsyncSpinner *spinner;$/;"	m	class:PidVelocity	file:
+squared	tara_uvc_cam/src/tara_ros.cpp	/^	double taraCamera::squared(double x)$/;"	f	class:uvc_camera::taraCamera
+stereo	tara_uvc_cam/src/nodelets.cpp	/^    StereoCamera *stereo;$/;"	m	class:uvc_camera::StereoNodelet	file:
+stoothSerPort	sabertooth_simple/include/sabertooth_simple.h	/^        serial::Serial stoothSerPort;$/;"	m	class:SabertoothSimple
+stream_parm_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_streamparm stream_parm_;$/;"	m	class:uvc_cam::Cam
+sub	differential_drive/src/pid_velocity.cpp	/^    std::tr1::unordered_map<std::string, ros::Subscriber> sub;$/;"	m	class:PidVelocity	file:
+sum	differential_drive/src/pid_velocity.cpp	/^    double sum;$/;"	m	class:MovingAverage	file:
+taraCamera	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^	class taraCamera {$/;"	c	namespace:uvc_camera
+taraCamera	tara_uvc_cam/src/tara_ros.cpp	/^	taraCamera::taraCamera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :$/;"	f	class:uvc_camera::taraCamera
+target	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+targetCallback	differential_drive/scripts/pid_velocity.py	/^    def targetCallback(self, msg):$/;"	m	class:PidVelocity
+targetCallback	differential_drive/src/pid_velocity.cpp	/^    void targetCallback(std_msgs::Float32 message) {$/;"	f	class:PidVelocity
+tfBuffer	primo_gazebo/nodes/sim_wheel_encoders.py	/^    tfBuffer = tf2_ros.Buffer()$/;"	v	class:EncoderSim
+then	differential_drive/src/pid_velocity.cpp	/^    ros::Time then;$/;"	m	class:PidVelocity	file:
+ticks_meter	primo_gazebo/nodes/sim_wheel_encoders.py	/^    ticks_meter = rospy.get_param('ticks_meter', 69000)$/;"	v	class:EncoderSim
+ticks_per_meter	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+ticks_per_rad	primo_gazebo/nodes/sim_wheel_encoders.py	/^    ticks_per_rad = 0$/;"	v	class:EncoderSim
+ticks_since_target	differential_drive/src/pid_velocity.cpp	/^    int  encoder_min, encoder_max, encoder_low_wrap, encoder_high_wrap, ticks_since_target;$/;"	m	class:PidVelocity	file:
+timeCb	tara_uvc_cam/src/camera.cpp	/^    void Camera::timeCb(std_msgs::Time time)$/;"	f	class:uvc_camera::Camera
+timeCb	tara_uvc_cam/src/tara_ros.cpp	/^	void taraCamera::timeCb(std_msgs::Time time)$/;"	f	class:uvc_camera::taraCamera
+time_code_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  v4l2_timecode time_code_;$/;"	m	class:uvc_cam::Cam
+time_mutex_	tara_uvc_cam/include/uvc_camera/camera.h	/^    boost::mutex time_mutex_;$/;"	m	class:uvc_camera::Camera
+time_mutex_	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			boost::mutex time_mutex_;$/;"	m	class:uvc_camera::taraCamera
+time_sub	tara_uvc_cam/include/uvc_camera/camera.h	/^    ros::Subscriber time_sub;$/;"	m	class:uvc_camera::Camera
+time_sub	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			ros::Subscriber time_sub;$/;"	m	class:uvc_camera::taraCamera
+timeout_ticks	differential_drive/src/pid_velocity.cpp	/^    int out_min, out_max, rate, ticks_per_meter, timeout_ticks, rolling_pts;$/;"	m	class:PidVelocity	file:
+timerEvent	differential_drive/scripts/virtual_joystick.py	/^    def timerEvent(self, event):$/;"	m	class:MainWindow
+twistCallback	differential_drive/scripts/twist_to_motors.py	/^    def twistCallback(self,msg):$/;"	m	class:TwistToMotors
+twistToMotors	differential_drive/scripts/twist_to_motors.py	/^    twistToMotors = TwistToMotors()$/;"	v
+uimu	memsense_uimu/src/uimu_node.cpp	/^UimuClass uimu;$/;"	v
+uimuSerPort	memsense_uimu/include/uimu.h	/^        serial::Serial uimuSerPort;$/;"	m	class:UimuClass
+uimuTempPacket	memsense_uimu/include/uimu.h	/^        UimuPacket uimuTempPacket;$/;"	m	class:UimuClass
+update	primo_gazebo/nodes/sim_wheel_encoders.py	/^    def update(self, cur_raw_angle, raw_roll):$/;"	m	class:EncoderSim
+updateParams	differential_drive/scripts/diff_tf.py	/^    def updateParams(self):$/;"	m	class:DiffTf
+uvc_cam	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^namespace uvc_cam$/;"	n
+uvc_camera	tara_uvc_cam/include/uvc_camera/camera.h	/^namespace uvc_camera {$/;"	n
+uvc_camera	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^namespace uvc_camera {$/;"	n
+uvc_camera	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^namespace uvc_camera {$/;"	n
+uvc_camera	tara_uvc_cam/src/camera.cpp	/^namespace uvc_camera {$/;"	n	file:
+uvc_camera	tara_uvc_cam/src/nodelets.cpp	/^namespace uvc_camera {$/;"	n	file:
+uvc_camera	tara_uvc_cam/src/stereo.cpp	/^namespace uvc_camera {$/;"	n	file:
+uvc_camera	tara_uvc_cam/src/tara_ros.cpp	/^namespace uvc_camera {$/;"	n	file:
+v4l2_uvc_exposure_auto_type	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^enum v4l2_uvc_exposure_auto_type$/;"	g	namespace:uvc_cam
+validPacket	memsense_uimu/include/uimu.h	/^        bool validPacket;$/;"	m	class:UimuClass
+vel	differential_drive/src/pid_velocity.cpp	/^    double target, motor, vel, integral, error, derivative, previous_error;$/;"	m	class:PidVelocity	file:
+vel_threshold	differential_drive/src/pid_velocity.cpp	/^    double vel_threshold;$/;"	m	class:PidVelocity	file:
+vendor	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^		char *vendor;$/;"	m	struct:uvc_cam::Cam::_VidDevice
+waypoint_pub	primo_base/src/joy_manager.cpp	/^ros::Publisher waypoint_pub;$/;"	v
+wheelCallback	differential_drive/scripts/pid_velocity.py	/^    def wheelCallback(self, msg):$/;"	m	class:PidVelocity
+wheelCallback	differential_drive/src/pid_velocity.cpp	/^    void wheelCallback(std_msgs::Int32 message) {$/;"	f	class:PidVelocity
+wheelLoopback	differential_drive/scripts/wheel_loopback.py	/^    wheelLoopback = WheelLoopback()$/;"	v
+wheel_latest	differential_drive/src/pid_velocity.cpp	/^    double wheel_prev, wheel_latest;$/;"	m	class:PidVelocity	file:
+wheel_mult	differential_drive/src/pid_velocity.cpp	/^    int prev_encoder, wheel_mult;$/;"	m	class:PidVelocity	file:
+wheel_prev	differential_drive/src/pid_velocity.cpp	/^    double wheel_prev, wheel_latest;$/;"	m	class:PidVelocity	file:
+wheel_radius	primo_gazebo/nodes/sim_wheel_encoders.py	/^    wheel_radius = rospy.get_param('wheel_radius', 0.151)$/;"	v	class:EncoderSim
+width	tara_uvc_cam/include/uvc_camera/camera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::Camera
+width	tara_uvc_cam/include/uvc_camera/stereocamera.h	/^    int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::StereoCamera
+width	tara_uvc_cam/include/uvc_camera/tara_ros.h	/^			int width, height, fps, skip_frames, frames_to_skip;$/;"	m	class:uvc_camera::taraCamera
+width_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned width_, height_, fps_;$/;"	m	class:uvc_cam::Cam
+xioctl	tara_uvc_cam/src/uvc_cam.cpp	/^int xioctl(int fd, int IOCTL_X, void *arg)$/;"	f
+y16_frame_	tara_uvc_cam/include/uvc_cam/uvc_cam.h	/^  unsigned char *y16_frame_;$/;"	m	class:uvc_cam::Cam
+~Cam	tara_uvc_cam/src/uvc_cam.cpp	/^Cam::~Cam()$/;"	f	class:Cam
+~Camera	tara_uvc_cam/src/camera.cpp	/^    Camera::~Camera() {$/;"	f	class:uvc_camera::Camera
+~CameraNodelet	tara_uvc_cam/src/nodelets.cpp	/^    ~CameraNodelet() {$/;"	f	class:uvc_camera::CameraNodelet
+~MovingAverage	differential_drive/src/pid_velocity.cpp	/^    ~MovingAverage() {$/;"	f	class:MovingAverage
+~SabertoothSimple	sabertooth_simple/src/sabertooth_simple.cpp	/^SabertoothSimple::~SabertoothSimple(void)$/;"	f	class:SabertoothSimple
+~StereoCamera	tara_uvc_cam/src/stereo.cpp	/^StereoCamera::~StereoCamera() {$/;"	f	class:uvc_camera::StereoCamera
+~StereoNodelet	tara_uvc_cam/src/nodelets.cpp	/^    ~StereoNodelet() {$/;"	f	class:uvc_camera::StereoNodelet
+~UimuClass	memsense_uimu/src/uimu.cpp	/^UimuClass::~UimuClass(void)$/;"	f	class:UimuClass
+~taraCamera	tara_uvc_cam/src/tara_ros.cpp	/^	taraCamera::~taraCamera() {$/;"	f	class:uvc_camera::taraCamera

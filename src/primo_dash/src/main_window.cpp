@@ -409,7 +409,7 @@ void primo_dash::MainWindow::on_pb_launch_base_alpha_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"sbare\" \"primo_bringup base_alpha.launch\"");
+    process.startDetached("tmux new-session -d -s \"base_alpha\" \"primo_bringup base_alpha.launch\"");
 }
 
 void primo_dash::MainWindow::on_pushButton_4_clicked()
