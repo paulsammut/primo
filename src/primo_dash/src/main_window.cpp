@@ -409,14 +409,14 @@ void primo_dash::MainWindow::on_pb_launch_base_alpha_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"base_alpha\" \"primo_bringup base_alpha.launch\"");
+    process.startDetached("tmux new-session -d -s \"base_alpha\" \"roslaunch primo_bringup base_alpha.launch\"");
 }
 
 void primo_dash::MainWindow::on_pushButton_4_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"sbare\" \"roslaunch primo_stereo stereo_bare.launch\"");
+    process.startDetached("tmux new-session -d -s \"sbare\" \"roslaunch primo_bringup stereo_bare.launch\"");
 }
 
 void primo_dash::MainWindow::on_pB_stereo_suite_clicked()
