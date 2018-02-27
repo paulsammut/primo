@@ -159,6 +159,8 @@ private Q_SLOTS:
 
     void on_pB_kill_stereo_suite_clicked();
 
+    void on_pB_cal_color0_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

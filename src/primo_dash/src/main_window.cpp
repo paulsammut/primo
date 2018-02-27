@@ -562,3 +562,15 @@ void primo_dash::MainWindow::on_pB_kill_stereo_suite_clicked()
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
 }
+
+void primo_dash::MainWindow::on_pB_cal_color0_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_base color0_calibrate.launch");
+}
+
+void primo_dash::MainWindow::on_pB_driver_color0_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_base color0.launch");
+}
