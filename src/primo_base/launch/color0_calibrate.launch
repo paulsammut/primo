@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" output="screen" 
+        args="--size 8x6 --square 0.108 image:=/color0/image_raw camera:=/color0"/>
+</launch>
