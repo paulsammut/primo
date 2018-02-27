@@ -758,32 +758,60 @@
              <property name="title">
               <string>Drivers</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <widget class="QPushButton" name="pb_launch_base_alpha">
-                <property name="text">
-                 <string>base_alpha</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_4">
-                <property name="text">
-                 <string>stereo_bare</string>
-                </property>
-               </widget>
-              </item>
-              <item>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="2" column="0">
                <widget class="QPushButton" name="pB_stereo_suite">
                 <property name="text">
                  <string>stereo_suite</string>
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="3" column="0">
                <widget class="QPushButton" name="pB_color0">
                 <property name="text">
                  <string>color0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pb_launch_base_alpha">
+                <property name="text">
+                 <string>base_alpha</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="text">
+                 <string>stereo_bare</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="pB_kill_base_alpha">
+                <property name="text">
+                 <string>kill</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="pB_kill_stereo_bare">
+                <property name="text">
+                 <string>kill</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pB_kill_stereo_suite">
+                <property name="text">
+                 <string>kill</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pB_kill_color0">
+                <property name="text">
+                 <string>kill</string>
                 </property>
                </widget>
               </item>

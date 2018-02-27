@@ -2,6 +2,7 @@
 <launch>
 
     <arg name="onlyRoboDes"     default="false"/>
+    <arg name="use_gui"         default="false"/>
 
     <param name="robot_description" 
         command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_real.xacro'"/>
@@ -16,7 +17,7 @@
 
         <node name="joint_state_publisher" pkg="joint_state_publisher"
             type="joint_state_publisher"> 
-            <param name="use_gui" value="true"/> 
+            <param name="use_gui" value="$(arg use_gui)"/> 
         </node>
     </group>
 

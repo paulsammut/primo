@@ -43,7 +43,7 @@ QNode::~QNode() {
 }
 
 bool QNode::init() {
-	ros::init(init_argc,init_argv,"primo_dash");
+    ros::init(init_argc,init_argv,"primo_dash", ros::init_options::AnonymousName);
 	if ( ! ros::master::check() ) {
 		return false;
 	}
@@ -69,7 +69,7 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 	std::map<std::string,std::string> remappings;
 	remappings["__master"] = master_url;
 	remappings["__hostname"] = host_url;
-	ros::init(remappings,"primo_dash");
+    ros::init(remappings,"primo_dash", ros::init_options::AnonymousName);
 	if ( ! ros::master::check() ) {
 		return false;
 	}

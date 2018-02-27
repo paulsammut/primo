@@ -416,14 +416,14 @@ void primo_dash::MainWindow::on_pushButton_4_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"sbare\" \"roslaunch primo_bringup stereo_bare.launch\"");
+    process.startDetached("tmux new-session -d -s \"stereo_bare\" \"roslaunch primo_bringup stereo_bare.launch\"");
 }
 
 void primo_dash::MainWindow::on_pB_stereo_suite_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"ssuite\" \"roslaunch primo_stereo stereo_suite.launch\"" );
+    process.startDetached("tmux new-session -d -s \"stereo_suite\" \"roslaunch primo_stereo stereo_suite.launch\"" );
 }
 
 void primo_dash::MainWindow::on_pB_killCostmap_clicked()
@@ -534,4 +534,31 @@ void primo_dash::MainWindow::on_pB_mapping_clicked()
         QString fullCmd = "tmux new-session -d -s \"map\" " + command;
         process.startDetached(fullCmd);
     }
+}
+
+void primo_dash::MainWindow::on_pB_kill_base_alpha_clicked()
+{
+    // Launch the process and dump its output to the log window
+    QProcess process;
+    QString commandStr = "tmux send -t base_alpha:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_kill_stereo_bare_clicked()
+{
+    // Launch the process and dump its output to the log window
+    QProcess process;
+    QString commandStr = "tmux send -t stereo_bare:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_kill_stereo_suite_clicked()
+{
+    // Launch the process and dump its output to the log window
+    QProcess process;
+    QString commandStr = "tmux send -t stereo_suite:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
 }

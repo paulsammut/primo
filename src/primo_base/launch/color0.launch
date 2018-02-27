@@ -18,8 +18,9 @@
 			<param name="video_mode" value="yuyv"/> <!-- or yuyv/nv12/mjpeg -->
 
 			<!-- We can 10, 15, 20, 24, 30 -->
-			<param name="frame_rate" value="15"/>
-            <param name="camera_info_url" value="package://primo_base/config/color0.yaml"/>        
+			<param name="frame_rate"        value="15"/>
+            <param name="camera_info_url"   value="package://primo_base/config/color0.yaml"/>        
+            <param name="frame_id"          value="color0_link"/>        
 		</node>
 	</group>
 </launch>

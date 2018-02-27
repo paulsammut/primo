@@ -153,6 +153,12 @@ private Q_SLOTS:
 
     void on_pB_mapping_clicked();
 
+    void on_pB_kill_base_alpha_clicked();
+
+    void on_pB_kill_stereo_bare_clicked();
+
+    void on_pB_kill_stereo_suite_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

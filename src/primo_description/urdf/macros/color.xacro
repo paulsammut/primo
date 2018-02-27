@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="colorcamSize" value="0.05"/>
+    <xacro:property name="colorcamMass" value="0.1"/>
+
+    <!-- color cam macro -->
+    <xacro:macro name="m_color" params="num x y z roll pitch yaw">
+
+        <!-- this name is required for the point cloud -->
+        <link name="color${num}_link">
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${colorcamSize} ${colorcamSize} ${colorcamSize}"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${colorcamSize} ${colorcamSize} ${colorcamSize}"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+            <inertial>
+                <mass value="${colorcamMass}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia 
+                    ixx="1e-6" ixy="0" ixz="0" 
+                    iyy="1e-6" iyz="0" 
+                    izz="1e-6"/>
+            </inertial>
+        </link>
+
+        <!-- The color joint -->
+        <joint name="color${num}_joint" type="fixed">
+            <origin xyz="${x} ${y} ${z}" rpy="${roll} ${pitch} ${yaw}"/>
+            <parent link="chassis_link"/>
+            <child link="color${num}_link"/>
+        </joint>
+
+        <!-- The corrected link for gazebo -->
+        <link name="color${num}_corrected_link">
+            <inertial>
+                <mass value="0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia 
+                    ixx="1e-6" ixy="0" ixz="0" 
+                    iyy="1e-6" iyz="0" 
+                    izz="1e-6"/>
+            </inertial>
+        </link>
+
+        <joint name="color${num}_corrected_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.57079632679 -1.5707963267 0"/>
+            <parent link="color${num}_link"/>
+            <child link="color${num}_corrected_link"/>
+        </joint>
+
+    </xacro:macro>
+</robot>
