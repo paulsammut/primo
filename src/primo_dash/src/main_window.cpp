@@ -593,3 +593,23 @@ void primo_dash::MainWindow::on_pB_kill_yolo2_clicked()
     QProcess process;
     process.startDetached("pkill -f yolo");
 }
+
+void primo_dash::MainWindow::on_pB_launch_nav_clicked()
+{
+    QProcess process;
+    QString cmd = "tmux new-session -d -s \"nav\" \"roslaunch primo_nav primo_nav.launch";
+    if(ui.rB_lanes->isChecked())
+            cmd = cmd + " lanes:=true\"";
+    else
+        cmd = cmd + "\"";
+
+    process.startDetached(cmd);
+}
+
+void primo_dash::MainWindow::on_pB_kill_nav_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux send -t nav:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}

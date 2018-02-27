@@ -167,6 +167,10 @@ private Q_SLOTS:
 
     void on_pB_kill_yolo2_clicked();
 
+    void on_pB_launch_nav_clicked();
+
+    void on_pB_kill_nav_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;
