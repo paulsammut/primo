@@ -2,7 +2,7 @@
 <launch>
 
     <!-- Connect to the webcam which is color0 -->
-    <remap from="/camera/rgb/image_raw" to="/color0/image_raw"/>
+    <remap from="/camera/rgb/image_raw" to="/color0/image_rect_color"/>
 
     <arg name="launch_prefix" default=""/>
 
@@ -15,6 +15,8 @@
     <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
         <param name="weights_path"          value="$(arg yolo_weights_path)" />
         <param name="config_path"           value="$(arg yolo_config_path)" />
+
+        <remap from="/darknet_ros/detection_image" to="/color0/darknet"/>
     </node>
 
 </launch>

@@ -161,6 +161,12 @@ private Q_SLOTS:
 
     void on_pB_cal_color0_clicked();
 
+    void on_pB_driver_color0_clicked();
+
+    void on_pB_yolo2_clicked();
+
+    void on_pB_kill_yolo2_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

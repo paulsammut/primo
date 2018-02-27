@@ -409,7 +409,13 @@ void primo_dash::MainWindow::on_pb_launch_base_alpha_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"base_alpha\" \"roslaunch primo_bringup base_alpha.launch\"");
+    QString cmd = "tmux new-session -d -s \"base_alpha\" \"roslaunch primo_bringup base_alpha.launch";
+    if(ui.rB_jsp_gui->isChecked())
+            cmd = cmd + " use_gui:=true\"";
+    else
+        cmd = cmd + "\"";
+
+    process.startDetached(cmd);
 }
 
 void primo_dash::MainWindow::on_pushButton_4_clicked()
@@ -573,4 +579,17 @@ void primo_dash::MainWindow::on_pB_driver_color0_clicked()
 {
     QProcess process;
     process.startDetached("roslaunch primo_base color0.launch");
+}
+
+void primo_dash::MainWindow::on_pB_yolo2_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_base yolo2_proc.launch");
+}
+
+void primo_dash::MainWindow::on_pB_kill_yolo2_clicked()
+{
+    // Match with pgrep also the arguments
+    QProcess process;
+    process.startDetached("pkill -f yolo");
 }
