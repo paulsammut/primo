@@ -17,5 +17,12 @@
         <param name="channel1"          value="/stereo2/vxl/output"/>
         <param name="channel1_frame"    value="stereo2_link"/>
     </node>
+
+    <node ns="merge2" pkg="primo_stereo" type="pcl_merge" name="merge1" output="screen">
+        <param name="channel0"          value="/merge1/output"/>
+        <param name="channel0_frame"    value="stereo2_link"/>
+        <param name="channel1"          value="/stereo3/vxl/output"/>
+        <param name="channel1_frame"    value="zed_left_camera"/>
+    </node>
 </launch>
 
