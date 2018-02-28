@@ -25,20 +25,30 @@
         <param name="channel1_frame"    value="zed_left_camera"/>
     </node>
 
-    <!-- Run a CropBox filter -->
+    <!-- Filters -->
     <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
-    <node pkg="nodelet" type="nodelet" name="merg_cbx" 
+    <!-- Run a CropBox filter -->
+    <node pkg="nodelet" type="nodelet" name="merge_cbx" 
         args="load pcl/CropBox pcl_manager" output="screen">
         <remap from="~input" to="/merge2/output" />
         <rosparam>
             input_frame: base_link
             min_x:  -6.0
-            max_x:   9.0
+            max_x:   8.0
             min_y:  -8.0
             max_y:   8.0
             min_z:  -0.3
             max_z:   8.0
             negative: false
+        </rosparam>
+    </node> 
+    <!-- get rid of pesky noise using radius outlier filter -->
+    <node pkg="nodelet" type="nodelet" name="radius_outlier_removal" args="load pcl/RadiusOutlierRemoval pcl_manager" output="screen">
+        <remap from="~input" to="/merge_cbx/output" />
+        <remap from="~output" to="/merge_rad/output" />
+        <rosparam>
+          radius_search: 0.10 # must have min_neighbors w/in this radius to survive
+          min_neighbors: 8 # any lower than this, and phantom points might start popping up at Jackal's rear driver's side corner 
         </rosparam>
     </node>
 
