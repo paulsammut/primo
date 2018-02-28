@@ -24,5 +24,23 @@
         <param name="channel1"          value="/stereo3/vxl/output"/>
         <param name="channel1_frame"    value="zed_left_camera"/>
     </node>
+
+    <!-- Run a CropBox filter -->
+    <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+    <node pkg="nodelet" type="nodelet" name="merg_cbx" 
+        args="load pcl/CropBox pcl_manager" output="screen">
+        <remap from="~input" to="/merge2/output" />
+        <rosparam>
+            input_frame: base_link
+            min_x:  -6.0
+            max_x:   9.0
+            min_y:  -8.0
+            max_y:   8.0
+            min_z:  -0.3
+            max_z:   8.0
+            negative: false
+        </rosparam>
+    </node>
+
 </launch>
 
