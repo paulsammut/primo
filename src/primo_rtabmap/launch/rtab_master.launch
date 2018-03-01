@@ -31,7 +31,7 @@
         <!-- LOCALIZATION MODE -->
         <group if="$(arg localize)">
             <param name="Mem/IncrementalMemory" type="string"   value="false"/>
-            <param name="Rtabmap/DetectionRate" type="string"   value="1"/>
+            <param name="Rtabmap/DetectionRate" type="string"   value="5"/>
             <param name="Grid/RangeMin"         type="double"   value="0.1"/>
             <param name="Grid/RangeMax"         type="double"   value="0.2"/>
         </group>
