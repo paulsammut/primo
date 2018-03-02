@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="primo">
 
+    <!-- This script requires the alignment arguments to be sent in. They are
+         used by the cameras xacro file -->
+
     <!-- File includes -->
     <xacro:include filename="$(find primo_description)/urdf/macros/chassis.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/imu.xacro"/>
