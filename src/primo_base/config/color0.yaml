@@ -1,6 +1,6 @@
 image_width: 864
 image_height: 480
-camera_name: color0.yaml
+camera_name: color0_link
 camera_matrix:
   rows: 3
   cols: 3

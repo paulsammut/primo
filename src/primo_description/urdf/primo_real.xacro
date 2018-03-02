@@ -3,7 +3,6 @@
 
     <!-- File includes -->
     <xacro:include filename="$(find primo_description)/urdf/macros/chassis.xacro"/>
-    <xacro:include filename="$(find primo_description)/urdf/macros/color.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/imu.xacro"/>
 
     <!-- Bot description -->
@@ -16,7 +15,9 @@
 
 
     <!-- Cameras -->
-    <xacro:include filename="$(find primo_description)/urdf/stereo_suite.xacro"/>
+    <xacro:if value="$(arg align_s0)">
+        <xacro:include filename="$(find primo_description)/urdf/cameras.xacro"/>
+    </xacro:if>
 
 
 </robot>

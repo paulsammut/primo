@@ -4,8 +4,10 @@
     <arg name="onlyRoboDes"     default="false"/>
     <arg name="use_gui"         default="false"/>
 
+    <arg name="align_s0"        default="false"/>
+
     <param name="robot_description" 
-        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_real.xacro' prefix:=$(arg align_s0)"/>
+        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_real.xacro' align_s0:=$(arg align_s0)"/>
 
     <group unless="$(arg onlyRoboDes)">
         <!-- Combine joint values -->
