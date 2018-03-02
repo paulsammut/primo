@@ -1,34 +1,31 @@
-a_s0_x:       0.053 
-a_s0_y:      -0.210 
-a_s0_z:       1.745 
-a_s0_roll:   -2.913 
-a_s0_pitch:   0.025 
-a_s0_yaw:    -2.466
-
-a_s1_x:       0.059 
-a_s1_y:       0.334 
-a_s1_z:       1.680
-a_s1_roll:   -2.881 
-a_s1_pitch:  -0.032 
-a_s1_yaw:    -0.739
-
-a_s2_x:      -0.079 
-a_s2_y:       0.140 
-a_s2_z:       1.122 
-a_s2_roll:   -1.874 
-a_s2_pitch:  -0.003
-a_s2_yaw:    -1.507
-
-a_s3_x:      -0.270 
-a_s3_y:       0.000 
-a_s3_z:       1.870 
-a_s3_roll:    0.000 
-a_s3_pitch:   0.718
-a_s3_yaw:    -3.142
-
-a_c0_x:       0.000 
-a_c0_y:       0.000 
-a_c0_z:       1.710 
-a_c0_roll:   -1.768 
-a_c0_pitch:   0.019
-a_c0_yaw:    -1.577
+# alignment file
+a_s0_roll:	-2.913
+a_s2_roll:	-1.874
+a_s1_pitch:	-0.032
+a_s3_roll:	-0.000
+a_s3_yaw:	3.141
+a_s3_pitch:	0.718
+a_s2_yaw:	-1.507
+a_s1_z:	1.680
+a_s1_y:	0.334
+a_s1_x:	0.059
+a_s0_z:	1.745
+a_s0_x:	0.053
+a_s0_y:	-0.210
+a_s3_y:	0.000
+a_s3_x:	-0.270
+a_s3_z:	1.870
+a_s1_yaw:	-0.739
+a_c0_x:	0.000
+a_c0_y:	0.000
+a_s2_x:	-0.079
+a_s2_y:	0.140
+a_s2_z:	1.122
+a_s1_roll:	-2.881
+a_c0_pitch:	0.019
+a_s2_pitch:	-0.003
+a_c0_yaw:	-1.577
+a_s0_pitch:	0.025
+a_c0_z:	1.710
+a_c0_roll:	-1.768
+a_s0_yaw:	-2.466
