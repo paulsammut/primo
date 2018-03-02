@@ -15,9 +15,7 @@
 
 
     <!-- Cameras -->
-    <xacro:if value="$(arg align_s0)">
-        <xacro:include filename="$(find primo_description)/urdf/cameras.xacro"/>
-    </xacro:if>
+    <xacro:include filename="$(find primo_description)/urdf/cameras.xacro"/>
 
 
 </robot>
