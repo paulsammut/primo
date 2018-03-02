@@ -4,6 +4,7 @@
     <xacro:include filename="$(find primo_description)/urdf/macros/camera.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/camera_align.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/zed_addon.xacro"/>
+    <xacro:include filename="$(find primo_description)/urdf/macros/yolo_addon.xacro"/>
 
     <xacro:property name="a" value="${load_yaml('align.yaml')}" />
 
