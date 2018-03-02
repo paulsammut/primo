@@ -12,15 +12,15 @@ if __name__ == '__main__':
     # create out alignment dictionary
     alignment = {}
 
+    rate = rospy.Rate(10.0)
+
     while not rospy.is_shutdown():
         # Go through each of our cameras and save the current transform to our
         # alignment yaml
-
         try:
             (trans,rot) = listener.lookupTransform( '/chassis_link','/stereo0_link', rospy.Time(0))
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-            rospy.logerr("TF Exception. Not saving shit.")
-            exit()
+            continue
 
         rot = tf.transformations.euler_from_quaternion(rot)
 
@@ -33,5 +33,5 @@ if __name__ == '__main__':
 
         rospy.loginfo(alignment)
 
+        rate.sleep()
 
-        exit()
