@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- color cam macro -->
-    <xacro:macro name="m_color_yolo" params="num">
+    <xacro:macro name="m_yolo_addon" params="num">
 
         <!-- The link for darknet renamed with the right frame id -->
         <link name="detection_image">
