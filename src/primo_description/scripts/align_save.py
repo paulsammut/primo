@@ -16,7 +16,10 @@ if __name__ == '__main__':
     # create out alignment dictionary
     alignment = {}
 
-    # We gotta give our transform listener some time to collect transforms
+    # banner greetings
+    rospy.loginfo("starting up Paul's awesome alignment save script!")
+
+    # we gotta give our transform listener some time to collect transforms
     time.sleep(2)
 
     while not rospy.is_shutdown():
@@ -114,6 +117,7 @@ if __name__ == '__main__':
         rospy.loginfo("color0_link acquired...")
 
         # Done building our alignment dictionary
+        #===========================================
 
         # Backup current alignment file
         rospy.loginfo("backing up current alignment file...")
