@@ -3,53 +3,64 @@
 
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/zed_addon.xacro"/>
+    <xacro:property name="a" value="${load_yaml('align.yaml')}" />
+    <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
 
+
+    <!-- Cameras -->
     <!-- Tara 0 -->
     <xacro:m_stereo num="0" 
-        x=      " 0.053" 
-        y=      "-0.210" 
-        z=      " 1.745" 
-        roll=   "-2.913" 
-        pitch=  " 0.025" 
-        yaw=    "-2.466"
+        x=      "${a['a_s0_x']}"         
+        y=      "${a['a_s0_y']}" 
+        z=      "${a['a_s0_z']}" 
+        roll=   "${a['a_s0_roll']}" 
+        pitch=  "${a['a_s0_pitch']}" 
+        yaw=    "${a['a_s0_yaw']}"
     />
 
     <!-- Tara 1 -->
     <xacro:m_stereo num="1" 
-        x=      " 0.059" 
-        y=      " 0.334" 
-        z=      " 1.680"
-        roll=   "-2.881" 
-        pitch=  "-0.032" 
-        yaw=    "-0.739"
+        x=      "${a['a_s1_x']}" 
+        y=      "${a['a_s1_y']}" 
+        z=      "${a['a_s1_z']}" 
+        roll=   "${a['a_s1_roll']}" 
+        pitch=  "${a['a_s1_pitch']}" 
+        yaw=    "${a['a_s1_yaw']}"
     />
 
     <!-- See3cam stereo rig -->
     <xacro:m_stereo num="2" 
-        x=      "-0.079" 
-        y=      " 0.140" 
-        z=      " 1.122" 
-        roll=   "-1.874" 
-        pitch=  "-0.003"
-        yaw=    "-1.507"
+        x=      "${a['a_s2_x']}" 
+        y=      "${a['a_s2_y']}" 
+        z=      "${a['a_s2_z']}" 
+        roll=   "${a['a_s2_roll']}" 
+        pitch=  "${a['a_s2_pitch']}" 
+        yaw=    "${a['a_s2_yaw']}"
     />
 
 
     <!-- Zed -->
     <xacro:m_stereo num="3" 
-        x=      "-0.270" 
-        y=      " 0.000" 
-        z=      " 1.870" 
-        roll=   " 0.000" 
-        pitch=  " 0.718"
-        yaw=    "-3.142"
+        x=      "${a['a_s3_x']}" 
+        y=      "${a['a_s3_y']}" 
+        z=      "${a['a_s3_z']}" 
+        roll=   "${a['a_s3_roll']}" 
+        pitch=  "${a['a_s3_pitch']}" 
+        yaw=    "${a['a_s3_yaw']}"
     />
-    <xacro:m_zed_addon num="3"/>
 
-    <!-- Calibration Joints. Enable these if you want 6DOF gui adj. of the
-         stereo cam. To use this, you have to disable the m_stereo macro and just
-         have this one running. -->
-    <xacro:include filename="$(find primo_description)/urdf/macros/stereo_cal.xacro"/>
-    <!-- <xacro:m_stereo_cal num="2"/> -->
+    <!-- color0 cam -->
+    <xacro:m_color num="0" 
+        x=      "${a['a_c0_x']}" 
+        y=      "${a['a_c0_y']}" 
+        z=      "${a['a_c0_z']}" 
+        roll=   "${a['a_c0_roll']}" 
+        pitch=  "${a['a_c0_pitch']}" 
+        yaw=    "${a['a_c0_yaw']}"
+    />
+
+
+    <!-- This adds some dummy connections -->
+    <xacro:m_zed_addon num="3"/>
 
 </robot>
