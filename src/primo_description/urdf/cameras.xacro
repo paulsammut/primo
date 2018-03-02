@@ -3,14 +3,16 @@
 
     <xacro:include filename="$(find primo_description)/urdf/macros/stereo.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/zed_addon.xacro"/>
-    <xacro:include filename="$(find primo_description)/urdf/macros/stereo_align.xacro"/>
+    <xacro:include filename="$(find primo_description)/urdf/macros/camera_align.xacro"/>
     <xacro:include filename="$(find primo_description)/urdf/macros/color.xacro"/>
 
     <xacro:property name="a" value="${load_yaml('align.yaml')}" />
 
     <!-- Cameras -->
     <!-- Tara 0 -->
-    <xacro:m_stereo num="0" 
+    <xacro:m_camera_align 
+        type=   "stereo"
+        num=    "0" 
         x=      "${a['a_s0_x']}"         
         y=      "${a['a_s0_y']}" 
         z=      "${a['a_s0_z']}" 
@@ -19,49 +21,9 @@
         yaw=    "${a['a_s0_yaw']}"
     />
 
-    <!-- Tara 1 -->
-    <xacro:m_stereo num="1" 
-        x=      "${a['a_s1_x']}" 
-        y=      "${a['a_s1_y']}" 
-        z=      "${a['a_s1_z']}" 
-        roll=   "${a['a_s1_roll']}" 
-        pitch=  "${a['a_s1_pitch']}" 
-        yaw=    "${a['a_s1_yaw']}"
-    />
-
-    <!-- See3cam stereo rig -->
-    <xacro:m_stereo num="2" 
-        x=      "${a['a_s2_x']}" 
-        y=      "${a['a_s2_y']}" 
-        z=      "${a['a_s2_z']}" 
-        roll=   "${a['a_s2_roll']}" 
-        pitch=  "${a['a_s2_pitch']}" 
-        yaw=    "${a['a_s2_yaw']}"
-    />
-
-
-    <!-- Zed -->
-    <xacro:m_stereo num="3" 
-        x=      "${a['a_s3_x']}" 
-        y=      "${a['a_s3_y']}" 
-        z=      "${a['a_s3_z']}" 
-        roll=   "${a['a_s3_roll']}" 
-        pitch=  "${a['a_s3_pitch']}" 
-        yaw=    "${a['a_s3_yaw']}"
-    />
-
-    <!-- color0 cam -->
-    <xacro:m_color num="0" 
-        x=      "${a['a_c0_x']}" 
-        y=      "${a['a_c0_y']}" 
-        z=      "${a['a_c0_z']}" 
-        roll=   "${a['a_c0_roll']}" 
-        pitch=  "${a['a_c0_pitch']}" 
-        yaw=    "${a['a_c0_yaw']}"
-    />
 
 
     <!-- This adds some dummy connections -->
-    <xacro:m_zed_addon num="3"/>
+    <!-- <xacro:m_zed_addon num="3"/> -->
 
 </robot>

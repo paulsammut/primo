@@ -2,8 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- parameters -->
-    <xacro:property name="seecamSize" value="0.05"/>
-    <xacro:property name="seecamMass" value="0.1"/>
     <xacro:property name="camSize" value="0.05"/>
     <xacro:property name="camMass" value="0.1"/>
 
@@ -141,7 +139,7 @@
         <joint name="${type}${num}_align_x_joint" type="prismatic">
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <parent link="chassis_link"/>
+            <parent link="${type}${num}_trans_link"/>
             <child link="${type}${num}_x_link"/>
             <limit effort="1000" lower="-2.5" upper="2.5" velocity="1000"/>
         </joint>
@@ -163,7 +161,7 @@
         </joint>
 
         <!-- Rotary base joint -->
-        <joint name="${type}${num}_trans_base_joint" type="fixed">
+        <joint name="${type}${num}_rotary_base_joint" type="fixed">
             <origin xyz="0 0 0" rpy="${roll} ${pitch} ${yaw}"/>            
             <axis xyz="0 0 0"/>
             <parent link="${type}${num}_z_link"/>
