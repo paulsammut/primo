@@ -3,17 +3,28 @@
 
     <arg name="jsp" value="false"/>
 
+    <arg name="align_s0"        default="false"/>
+    <arg name="align_s1"        default="false"/>
+    <arg name="align_s2"        default="false"/>
+    <arg name="align_s3"        default="false"/>
+    <arg name="align_c0"        default="false"/>
+
     <node if="$(arg jsp)" name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher"> 
         <param name="use_gui" value="false"/> 
     </node>
 
     <param name="robot_description" 
-        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
+        command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'
+        align_s0:=$(arg align_s0)
+        align_s1:=$(arg align_s1)
+        align_s2:=$(arg align_s2)
+        align_s3:=$(arg align_s3)
+        align_c0:=$(arg align_c0)
+        "/>
 
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find primo_description)/urdf/primo_sim.xacro'"/>
         <param name="use_tf_static" value="false"/> 
     </node>
 
