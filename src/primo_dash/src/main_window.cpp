@@ -39,7 +39,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
     QObject::connect(&qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
 
-    ui.frameMain->setEnabled(false);
+    //ui.frameMain->setEnabled(false);
 
 	/*********************
 	** Logging
@@ -678,4 +678,40 @@ void primo_dash::MainWindow::on_pB_align_save_clicked()
     QMessageBox msgBox;
     msgBox.setText(output);
     msgBox.exec();
+}
+
+void primo_dash::MainWindow::on_pB_cal_s0_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_stereo calibrate_stereo0.launch");
+}
+
+void primo_dash::MainWindow::on_pB_cal_s1_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_stereo calibrate_stereo1.launch");
+}
+
+void primo_dash::MainWindow::on_pB_cal_s2_clicked()
+{
+    QProcess process;
+    process.startDetached("roslaunch primo_stereo calibrate_stereo2.launch");
+}
+
+void primo_dash::MainWindow::on_pB_cal_copy_s0_clicked()
+{
+    QString filedate = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+    QFile::copy("/tmp/calibrationdata.tar.gz", QDir::homePath()+"/primo_ws/src/primo_stereo/config/stereo0/"+filedate+".tar.gz");
+}
+
+void primo_dash::MainWindow::on_pB_cal_copy_s1_clicked()
+{
+    QString filedate = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+    QFile::copy("/tmp/calibrationdata.tar.gz", QDir::homePath()+"/primo_ws/src/primo_stereo/config/stereo1/"+filedate+".tar.gz");
+}
+
+void primo_dash::MainWindow::on_pB_cal_copy_s2_clicked()
+{
+    QString filedate = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+    QFile::copy("/tmp/calibrationdata.tar.gz", QDir::homePath()+"/primo_ws/src/primo_stereo/config/stereo2/"+filedate+".tar.gz");
 }

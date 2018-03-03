@@ -177,6 +177,18 @@ private Q_SLOTS:
 
     void on_pB_align_save_clicked();
 
+    void on_pB_cal_s0_clicked();
+
+    void on_pB_cal_s1_clicked();
+
+    void on_pB_cal_s2_clicked();
+
+    void on_pB_cal_copy_s0_clicked();
+
+    void on_pB_cal_copy_s1_clicked();
+
+    void on_pB_cal_copy_s2_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;
