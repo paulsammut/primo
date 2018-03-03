@@ -7,13 +7,10 @@ Panels:
         - /Global Options1
         - /Stereo1
         - /Stereo1/Cameras1
-        - /Stereo1/PCL1
-        - /Stereo1/Images1
-        - /Stereo31
-        - /yolo21
-        - /Post1
+        - /Planning1
+        - /Yolo1/Yolo1
       Splitter Ratio: 0.701086938
-    Tree Height: 428
+    Tree Height: 272
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Time
@@ -160,7 +157,7 @@ Visualization Manager:
         - Class: rviz/Group
           Displays:
             - Class: rviz/Camera
-              Enabled: true
+              Enabled: false
               Image Rendering: background and overlay
               Image Topic: /stereo0/left/image_rect
               Name: Stereo0_Image
@@ -168,7 +165,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: true
+              Value: false
               Visibility:
                 Grid: true
                 Planning:
@@ -199,6 +196,7 @@ Visualization Manager:
                     Stereo0: true
                     Stereo1: true
                     Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     Stereo0: true
@@ -208,9 +206,11 @@ Visualization Manager:
                     Value: true
                     merge: true
                   Value: true
-                Stereo3: true
                 Value: true
-                yolo2: true
+                Yolo:
+                  Value: true
+                  Yolo: true
+                  yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
               Enabled: false
@@ -224,9 +224,9 @@ Visualization Manager:
               Value: false
               Visibility:
                 "":
-                  Mapping Cloud: true
-                  Octomap: true
                   Value: true
+                  Yolo: true
+                  yolo2: true
                 Grid: true
                 Planning:
                   "": true
@@ -242,6 +242,7 @@ Visualization Manager:
                     Stereo0: true
                     Stereo1: true
                     Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     Stereo0: true
@@ -251,12 +252,10 @@ Visualization Manager:
                     Value: true
                     merge: true
                   Value: true
-                Stereo3: true
                 Value: true
-                yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
-              Enabled: false
+              Enabled: true
               Image Rendering: background and overlay
               Image Topic: /stereo2/left/image_rect
               Name: Stereo2_Image
@@ -264,15 +263,25 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: false
+              Value: true
               Visibility:
-                "":
-                  Mapping Cloud: true
-                  Octomap: true
-                  Value: true
                 Grid: true
                 Planning:
-                  "": true
+                  Base: true
+                  Current Goal: true
+                  Global Cost Map: true
+                  Global Path: true
+                  GridMap: true
+                  Lanes: true
+                  Local Cost Map: true
+                  Local Path: true
+                  Marker: true
+                  PoseArray: true
+                  Value: true
+                  Waypoints: true
+                Post:
+                  Mapping Cloud: true
+                  Octomap: true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -285,6 +294,7 @@ Visualization Manager:
                     Stereo0: true
                     Stereo1: true
                     Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     Stereo0: true
@@ -294,9 +304,11 @@ Visualization Manager:
                     Value: true
                     merge: true
                   Value: true
-                Stereo3: true
                 Value: true
-                yolo2: true
+                Yolo:
+                  Value: true
+                  Yolo: true
+                  yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
               Enabled: false
@@ -310,9 +322,9 @@ Visualization Manager:
               Value: false
               Visibility:
                 "":
-                  Mapping Cloud: true
-                  Octomap: true
                   Value: true
+                  Yolo: true
+                  yolo2: true
                 Grid: true
                 Planning:
                   "": true
@@ -328,6 +340,7 @@ Visualization Manager:
                     Stereo0: true
                     Stereo1: true
                     Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     Stereo0: true
@@ -337,9 +350,7 @@ Visualization Manager:
                     Value: true
                     merge: true
                   Value: true
-                Stereo3: true
                 Value: true
-                yolo2: true
               Zoom Factor: 1
           Enabled: true
           Name: Cameras
@@ -348,8 +359,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.926069736
-                Min Value: 0.0152767897
+                Max Value: 0.0630534887
+                Min Value: -0.0376696587
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -357,7 +368,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: true
+              Enabled: false
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -374,12 +385,12 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: true
+              Value: false
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.145217299
-                Min Value: -0.0551787615
+                Max Value: 0.380966187
+                Min Value: -0.0904793739
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -387,7 +398,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: true
+              Enabled: false
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -404,12 +415,12 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: true
+              Value: false
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.64228666
-                Min Value: -0.0209023952
+                Max Value: 1.96234155
+                Min Value: -0.12027657
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -500,7 +511,7 @@ Visualization Manager:
         - Class: rviz/Group
           Displays:
             - Class: rviz/Image
-              Enabled: true
+              Enabled: false
               Image Topic: /stereo0/left/image_raw
               Max Value: 1
               Median window: 5
@@ -510,7 +521,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: true
+              Value: false
             - Class: rviz/Image
               Enabled: false
               Image Topic: /stereo1/left/image_raw
@@ -535,34 +546,22 @@ Visualization Manager:
               Transport Hint: raw
               Unreliable: false
               Value: false
+            - Class: rviz/Image
+              Enabled: false
+              Image Topic: /stereo3/left/image_raw_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Stereo3
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Unreliable: false
+              Value: false
           Enabled: false
           Name: Images
       Enabled: true
       Name: Stereo
-    - Class: rviz/Image
-      Enabled: false
-      Image Topic: /stereo3/left/image_raw_color
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Stereo3
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: false
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /color0/darknet
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: yolo2
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
     - Class: rviz/Group
       Displays:
         - Alpha: 1
@@ -594,12 +593,12 @@ Visualization Manager:
           Class: rviz/Map
           Color Scheme: costmap
           Draw Behind: false
-          Enabled: true
+          Enabled: false
           Name: Local Cost Map
           Topic: /move_base/local_costmap/costmap
           Unreliable: false
           Use Timestamp: false
-          Value: true
+          Value: false
         - Alpha: 0.699999988
           Class: rviz/Map
           Color Scheme: costmap
@@ -613,11 +612,11 @@ Visualization Manager:
         - Alpha: 1
           Class: rviz/Polygon
           Color: 25; 255; 0
-          Enabled: true
+          Enabled: false
           Name: Base
           Topic: /move_base/global_costmap/footprint
           Unreliable: false
-          Value: true
+          Value: false
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
@@ -760,7 +759,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: RGB8
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 4096
@@ -777,9 +776,82 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
-      Enabled: true
+          Value: true
+      Enabled: false
       Name: Post
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /color0/image_rect_color
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: yolo2
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: false
+        - Class: rviz/Camera
+          Enabled: true
+          Image Rendering: background and overlay
+          Image Topic: /color0/image_rect_color
+          Name: Yolo
+          Overlay Alpha: 0.75
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+          Visibility:
+            Grid: true
+            Planning:
+              Base: true
+              Current Goal: true
+              Global Cost Map: true
+              Global Path: true
+              GridMap: true
+              Lanes: true
+              Local Cost Map: true
+              Local Path: true
+              Marker: true
+              PoseArray: true
+              Value: true
+              Waypoints: true
+            Post:
+              Mapping Cloud: true
+              Octomap: true
+              Value: true
+            RobotModel: true
+            Stereo:
+              Cameras:
+                Stereo0_Image: true
+                Stereo1_Image: true
+                Stereo2_Image: true
+                Stereo3_Image: true
+                Value: true
+              Images:
+                Stereo0: true
+                Stereo1: true
+                Stereo2: true
+                Stereo3: true
+                Value: true
+              PCL:
+                Stereo0: true
+                Stereo1: true
+                Stereo2: true
+                Stereo3: true
+                Value: true
+                merge: true
+              Value: true
+            Value: true
+            Yolo:
+              Value: true
+              Yolo: true
+              yolo2: true
+          Zoom Factor: 1
+      Enabled: true
+      Name: Yolo
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -804,25 +876,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 6.43059063
+      Distance: 10.9531784
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.447740555
-        Y: 0.172466278
-        Z: 4.76837158e-07
+        X: 0.803354502
+        Y: -2.20348072
+        Z: -2.86102295e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.169796765
+      Pitch: 1.03479648
       Target Frame: base_link
       Value: ThirdPersonFollower (rviz)
-      Yaw: 2.87539673
+      Yaw: 4.41856146
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:
@@ -933,7 +1005,7 @@ Window Geometry:
   Height: 1019
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001f20000023ffc020000000cfb000000100044006900730070006c006100790073010000019c0000023f000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff00000001000002190000023ffc0200000006fb0000000a00560069006500770073010000019c0000023f000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f003300000003ba0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000069000000151fc010000000afb0000001a00530074006500720065006f0032005f0049006d006100670065000000000000000690000000ab00fffffffb0000000a0079006f006c006f00320100000000000006900000005e00fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065030000051e0000026c000001720000018cfb0000000e00530074006500720065006f00320000000312000001ed0000007100fffffffb0000000e00530074006500720065006f00310000000000000001730000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f00300000000000000006900000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000002790000023f00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f2000001a3fc020000000cfb000000100044006900730070006c0061007900730100000238000001a3000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff0000000100000219000001a3fc0200000006fb0000000a005600690065007700730100000238000001a3000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f0033000000037d0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000690000001edfc010000000bfb0000001a00530074006500720065006f0032005f0049006d006100670065010000000000000345000000ab00fffffffb0000000a0079006f006c006f00320000000000000003450000005e00fffffffb000000080059006f006c006f010000034b000003450000005400fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065020000051e0000026c000001720000018cfb0000000e00530074006500720065006f003200000004a3000001ed0000007100fffffffb0000000e00530074006500720065006f0031000000042f000002610000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f00300000000408000002880000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d0065010000000000000450000000000000000000000279000001a300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Stereo0:
@@ -959,5 +1031,7 @@ Window Geometry:
   Width: 1680
   X: 0
   Y: 31
+  Yolo:
+    collapsed: false
   yolo2:
     collapsed: false
