@@ -633,12 +633,12 @@ void primo_dash::MainWindow::on_pB_align_clicked()
         cmd+= " align_s1:=true";
     }
 
-    if(ui.rB_as1->isChecked()) {
+    if(ui.rB_as2->isChecked()) {
         use_gui = true;
         cmd+= " align_s2:=true";
     }
 
-    if(ui.rB_as1->isChecked()) {
+    if(ui.rB_as3->isChecked()) {
         use_gui = true;
         cmd+= " align_s3:=true";
     }
