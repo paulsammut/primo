@@ -7,18 +7,18 @@ Panels:
         - /Global Options1
         - /Stereo1
         - /Stereo1/Cameras1
-        - /Stereo1/Cameras1/Stereo2_Image1
-        - /Stereo1/PCL1/Stereo31
+        - /Stereo1/PCL1
+        - /Stereo1/Images1
         - /Stereo31
       Splitter Ratio: 0.701086938
-    Tree Height: 489
+    Tree Height: 771
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Time
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Stereo0
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -31,7 +31,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: false
+      Enabled: true
       Line Style:
         Line Width: 0.0299999993
         Value: Lines
@@ -44,29 +44,121 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 20
       Reference Frame: map
-      Value: false
+      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: false
+      Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chassis_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        color0_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        color0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        detection_image:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo0_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo1_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo2_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stereo3_corrected_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        stereo3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        zed_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        zed_depth_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        zed_left_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        zed_right_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Class: rviz/Group
       Displays:
         - Class: rviz/Group
           Displays:
             - Class: rviz/Camera
-              Enabled: false
+              Enabled: true
               Image Rendering: background and overlay
               Image Topic: /stereo0/left/image_rect
               Name: Stereo0_Image
@@ -74,7 +166,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: false
+              Value: true
               Visibility:
                 Grid: true
                 Octomap: true
@@ -130,18 +222,8 @@ Visualization Manager:
                 Grid: true
                 Octomap: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 PointCloud2: true
                 RobotModel: true
                 Stereo:
@@ -248,8 +330,12 @@ Visualization Manager:
                     Stereo2: true
                     Value: true
                   PCL:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
+                    merge: true
                   Value: true
                 Stereo3: true
                 Value: true
@@ -262,16 +348,16 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: -0.00544464588
-                Min Value: -0.135228992
+                Max Value: 0.974543989
+                Min Value: 0.00489139557
                 Value: true
               Axis: Z
               Channel Name: intensity
               Class: rviz/PointCloud2
               Color: 85; 255; 127
-              Color Transformer: FlatColor
+              Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: false
+              Enabled: true
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -288,20 +374,20 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: false
+              Value: true
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: -0.00151383877
-                Min Value: -0.17926085
+                Max Value: 0.330466866
+                Min Value: 0.0338984728
                 Value: true
               Axis: Z
               Channel Name: intensity
               Class: rviz/PointCloud2
               Color: 85; 255; 127
-              Color Transformer: FlatColor
+              Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: false
+              Enabled: true
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -318,12 +404,12 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: false
+              Value: true
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.93381238
-                Min Value: -0.00249576569
+                Max Value: 1.09347546
+                Min Value: -0.0583161116
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -331,7 +417,7 @@ Visualization Manager:
               Color: 85; 255; 127
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: false
+              Enabled: true
               Invert Rainbow: false
               Max Color: 85; 0; 127
               Max Intensity: 4096
@@ -348,7 +434,7 @@ Visualization Manager:
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: false
-              Value: false
+              Value: true
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
@@ -414,7 +500,7 @@ Visualization Manager:
         - Class: rviz/Group
           Displays:
             - Class: rviz/Image
-              Enabled: false
+              Enabled: true
               Image Topic: /stereo0/left/image_raw
               Max Value: 1
               Median window: 5
@@ -424,7 +510,7 @@ Visualization Manager:
               Queue Size: 2
               Transport Hint: raw
               Unreliable: false
-              Value: false
+              Value: true
             - Class: rviz/Image
               Enabled: false
               Image Topic: /stereo1/left/image_raw
@@ -449,7 +535,7 @@ Visualization Manager:
               Transport Hint: raw
               Unreliable: false
               Value: false
-          Enabled: true
+          Enabled: false
           Name: Images
       Enabled: true
       Name: Stereo
@@ -466,7 +552,7 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/Image
-      Enabled: true
+      Enabled: false
       Image Topic: /darknet_ros/detection_image
       Max Value: 1
       Median window: 5
@@ -476,7 +562,7 @@ Visualization Manager:
       Queue Size: 2
       Transport Hint: raw
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -659,12 +745,7 @@ Visualization Manager:
           Marker Topic: /move_base/TebLocalPlannerROS/teb_markers
           Name: Marker
           Namespaces:
-            LineObstacles: true
-            PointObstacles: true
-            PolyObstacles: true
-            RobotFootprintModel: true
-            TebContainer: true
-            ViaPoints: true
+            {}
           Queue Size: 100
           Value: true
         - Alpha: 1
@@ -698,7 +779,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -718,54 +799,114 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/ThirdPersonFollower
-      Distance: 12.038599
+      Class: rviz/FPS
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Focal Point:
-        X: -0.664103508
-        Y: -10.9114285
-        Z: 1.86493417e-05
-      Focal Shape Fixed Size: true
-      Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.399798572
-      Target Frame: map
-      Value: ThirdPersonFollower (rviz)
-      Yaw: 2.4062624
+      Pitch: 0.799999595
+      Position:
+        X: 12.1608162
+        Y: 6.63023043
+        Z: 14.8353872
+      Target Frame: base_link
+      Value: FPS (rviz)
+      Yaw: 3.85738015
     Saved:
-      - Class: rviz/ThirdPersonFollower
-        Distance: 10
+      - Class: rviz/FPS
         Enable Stereo Rendering:
           Stereo Eye Separation: 0.0599999987
           Stereo Focal Distance: 1
           Swap Stereo Eyes: false
           Value: false
-        Focal Point:
-          X: 0
+        Invert Z Axis: false
+        Name: front
+        Near Clip Distance: 0.00999999978
+        Pitch: 0
+        Position:
+          X: 3.70830011
           Y: 0
           Z: 0
-        Focal Shape Fixed Size: false
-        Focal Shape Size: 0.0500000007
-        Invert Z Axis: false
-        Name: ThirdPersonFollower
-        Near Clip Distance: 0.00999999978
-        Pitch: 0.785398185
         Target Frame: base_link
-        Value: ThirdPersonFollower (rviz)
-        Yaw: 0.785398185
+        Value: FPS (rviz)
+        Yaw: 3.14159012
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: left
+        Near Clip Distance: 0.00999999978
+        Pitch: 0
+        Position:
+          X: 0
+          Y: 8
+          Z: 0
+        Target Frame: base_link
+        Value: FPS (rviz)
+        Yaw: 4.71238899
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: right
+        Near Clip Distance: 0.00999999978
+        Pitch: 0
+        Position:
+          X: 0
+          Y: -5.19999981
+          Z: 0
+        Target Frame: base_link
+        Value: FPS (rviz)
+        Yaw: 1.57070005
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: back
+        Near Clip Distance: 0.00100000005
+        Pitch: 0
+        Position:
+          X: 4
+          Y: 0
+          Z: 0
+        Target Frame: base_link
+        Value: FPS (rviz)
+        Yaw: 3.14159012
+      - Angle: 0
+        Class: rviz/TopDownOrtho
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: top
+        Near Clip Distance: 0.00999999978
+        Scale: 235.399414
+        Target Frame: base_link
+        Value: TopDownOrtho (rviz)
+        X: -0.294565976
+        Y: -0.044596944
 Window Geometry:
   Displays:
-    collapsed: false
-  Height: 1080
-  Hide Left Dock: false
+    collapsed: true
+  Height: 1019
+  Hide Left Dock: true
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001f20000027cfc020000000cfb000000100044006900730070006c006100790073010000019c0000027c000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff00000001000002190000027cfc0200000006fb0000000a00560069006500770073010000019c0000027c000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f003300000003ba0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000078000000151fc010000000afb0000001a00530074006500720065006f0032005f0049006d0061006700650000000000000003b8000000ab00fffffffb0000000a0079006f006c006f00320100000000000007800000005e00fffffffb0000001a00530074006500720065006f0030005f0049006d0061006700650200000cbf0000026c000001720000018cfb0000000e00530074006500720065006f00320000000312000001ed0000007100fffffffb0000000e00530074006500720065006f00310000000000000001730000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f0030000000086a000001960000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000003690000027c00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f200000396fc020000000cfb000000100044006900730070006c006100790073000000004500000396000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff000000010000021900000396fc0200000006fb0000000a00560069006500770073010000004500000396000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f003300000003ba0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000069000000151fc010000000afb0000001a00530074006500720065006f0032005f0049006d006100670065000000000000000690000000ab00fffffffb0000000a0079006f006c006f00320000000000000006900000005e00fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065030000051e0000026c000001720000018cfb0000000e00530074006500720065006f00320000000312000001ed0000007100fffffffb0000000e00530074006500720065006f00310000000000000001730000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f00300000000000000006900000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004710000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Stereo0:
@@ -788,8 +929,8 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1920
-  X: 3840
-  Y: 0
+  Width: 1680
+  X: 0
+  Y: 31
   yolo2:
     collapsed: false
