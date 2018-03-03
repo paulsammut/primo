@@ -14,22 +14,6 @@ footprint: [
 
 footprint_padding: 0.005
 
-static_layer:
-    enabled:                true
-    # map_topic:              "/map_mod"
-    map_topic:              "/grid_map"
-    track_unknown_space:    false 
-    trinary_costmap:        false
-    use_maximum:            true
-
-lanes_layer:
-    enabled:                true
-    # map_topic:              "/map_mod"
-    map_topic:              "/lanes"
-    track_unknown_space:    false 
-    trinary_costmap:        false
-    use_maximum:            true
-
 obstacle_layer:
 
     obstacle_range: 3.6

@@ -6,7 +6,7 @@
     <remap from="map" to="/grid_map"/>
 
     <!-- <arg name="lanes_file" default="$(find primo_nav)/lanes/shop_lanes.yaml"/> -->
-    <arg name="lanes_file" default="$(find primo_nav)/lanes/autorun1.yaml"/>
+    <arg name="lanes_file" default="$(find primo_nav)/lanes/shop_map.yaml"/>
 
     <!-- <remap from="move_base_simple/goal" to="/planner_goal"/> -->
     <!-- <remap from="move_base_simple/goal" to="/goal_out"/> -->

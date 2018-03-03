@@ -1,8 +1,0 @@
-image: outside2.pgm
-resolution: 0.050000
-origin: [-20.525000, -21.879259, 0.000000]
-negate: 0
-occupied_thresh: 0.80
-free_thresh: 0.2
-mode: scale
-
