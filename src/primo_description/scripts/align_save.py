@@ -7,6 +7,8 @@ import time
 import cPickle as pickle
 from shutil import copyfile
 import datetime
+import os
+import rospkg
 
 if __name__ == '__main__':
     rospy.init_node('align_save')
@@ -118,10 +120,17 @@ if __name__ == '__main__':
 
         # Done building our alignment dictionary
         #===========================================
+        
+        # get an instance of RosPack with the default search paths
+        rospack = rospkg.RosPack()
+
+        # get the file path for rospy_tutorials
+        pack_dir = rospack.get_path('primo_description')
+        rospy.loginfo(pack_dir)
 
         # Backup current alignment file
         rospy.loginfo("backing up current alignment file...")
-        copyfile('../config/align.yaml', '../config/align_orig.yaml')
+        copyfile(pack_dir+'/config/align.yaml', pack_dir+'/config/align_orig.yaml')
 
         # Write our new alignment file
         align_file = open('../config/align.yaml', 'w')
@@ -129,8 +138,9 @@ if __name__ == '__main__':
                 datetime.datetime.now().strftime("# %I:%M%p on %B %d, %Y")+
                 "\n# ========================================================\n")
 
+
         for key, value in alignment.items():
-            align_file.write(key+":\t"+('%0.3f' % round(value,3))+"\n")
+            align_file.write(key+":  "+('%0.3f' % round(value,3))+"\n")
 
         rospy.loginfo("saved alignment yaml file. All done!")
 

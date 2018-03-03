@@ -171,6 +171,12 @@ private Q_SLOTS:
 
     void on_pB_kill_nav_clicked();
 
+    void on_pB_align_clicked();
+
+    void on_pB_align_normal_clicked();
+
+    void on_pB_align_save_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;

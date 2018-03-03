@@ -613,3 +613,69 @@ void primo_dash::MainWindow::on_pB_kill_nav_clicked()
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
 }
+
+void primo_dash::MainWindow::on_pB_align_clicked()
+{
+    QProcess process;
+
+    // Launch roscore in the run window of tmux.
+    QString cmd = "roslaunch primo_description primo_urdf_real.launch ";
+    // Start a boolean for using the gui. If we are aligning anything use it.
+    bool use_gui = false;
+
+    if(ui.rB_as0->isChecked()) {
+        use_gui = true;
+        cmd+= " align_s0:=true";
+    }
+
+    if(ui.rB_as1->isChecked()) {
+        use_gui = true;
+        cmd+= " align_s1:=true";
+    }
+
+    if(ui.rB_as1->isChecked()) {
+        use_gui = true;
+        cmd+= " align_s2:=true";
+    }
+
+    if(ui.rB_as1->isChecked()) {
+        use_gui = true;
+        cmd+= " align_s3:=true";
+    }
+
+    if(ui.rB_ac0->isChecked()){
+        use_gui = true;
+        cmd+= " align_c0:=true";
+    }
+
+    if(use_gui)
+        cmd+= " use_gui:=true";
+
+    process.startDetached(cmd);
+}
+
+void primo_dash::MainWindow::on_pB_align_normal_clicked()
+{
+    QProcess process;
+    QString cmd = "roslaunch primo_description primo_urdf_real.launch";
+    process.startDetached(cmd);
+}
+
+void primo_dash::MainWindow::on_pB_align_save_clicked()
+{
+    // Run the save script
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QProcess process;
+    QString cmd = "rosrun primo_description align_save.py";
+    process.start(cmd,QIODevice::ReadOnly);
+    process.waitForFinished();
+
+    // Output the results
+    QApplication::restoreOverrideCursor();
+
+    QString output = process.readAllStandardOutput();
+    output = output + process.readAllStandardError();
+    QMessageBox msgBox;
+    msgBox.setText(output);
+    msgBox.exec();
+}
