@@ -715,3 +715,10 @@ void primo_dash::MainWindow::on_pB_cal_copy_s2_clicked()
     QString filedate = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
     QFile::copy("/tmp/calibrationdata.tar.gz", QDir::homePath()+"/primo_ws/src/primo_stereo/config/stereo2/"+filedate+".tar.gz");
 }
+
+void primo_dash::MainWindow::on_pB_cal_kill_clicked()
+{
+    // Match with pgrep also the arguments
+    QProcess process;
+    process.startDetached("pkill cameracalibrato");
+}

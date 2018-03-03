@@ -1331,7 +1331,7 @@
            <string>Calibrate</string>
           </attribute>
           <layout class="QGridLayout" name="gridLayout_12">
-           <item row="2" column="0">
+           <item row="3" column="0">
             <widget class="QGroupBox" name="groupBox_20">
              <property name="title">
               <string>stereo1</string>
@@ -1354,7 +1354,7 @@
              </layout>
             </widget>
            </item>
-           <item row="0" column="1">
+           <item row="1" column="1">
             <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1367,7 +1367,7 @@
              </property>
             </spacer>
            </item>
-           <item row="0" column="0">
+           <item row="1" column="0">
             <widget class="QGroupBox" name="groupBox_4">
              <property name="title">
               <string>color0</string>
@@ -1390,7 +1390,7 @@
              </layout>
             </widget>
            </item>
-           <item row="4" column="0">
+           <item row="6" column="0">
             <spacer name="verticalSpacer_7">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1403,7 +1403,7 @@
              </property>
             </spacer>
            </item>
-           <item row="1" column="0">
+           <item row="2" column="0">
             <widget class="QGroupBox" name="groupBox_19">
              <property name="title">
               <string>stereo0</string>
@@ -1426,7 +1426,7 @@
              </layout>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="4" column="0">
             <widget class="QGroupBox" name="groupBox_21">
              <property name="title">
               <string>stereo2</string>
@@ -1447,6 +1447,13 @@
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPushButton" name="pB_cal_kill">
+             <property name="text">
+              <string>kill cal</string>
+             </property>
             </widget>
            </item>
           </layout>

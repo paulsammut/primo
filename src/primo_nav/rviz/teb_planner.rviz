@@ -10,8 +10,10 @@ Panels:
         - /Stereo1/PCL1
         - /Stereo1/Images1
         - /Stereo31
+        - /yolo21
+        - /Post1
       Splitter Ratio: 0.701086938
-    Tree Height: 771
+    Tree Height: 428
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Time
@@ -169,7 +171,6 @@ Visualization Manager:
               Value: true
               Visibility:
                 Grid: true
-                Octomap: true
                 Planning:
                   Base: true
                   Current Goal: true
@@ -183,7 +184,10 @@ Visualization Manager:
                   PoseArray: true
                   Value: true
                   Waypoints: true
-                PointCloud2: true
+                Post:
+                  Mapping Cloud: true
+                  Octomap: true
+                  Value: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -219,12 +223,14 @@ Visualization Manager:
               Unreliable: false
               Value: false
               Visibility:
+                "":
+                  Mapping Cloud: true
+                  Octomap: true
+                  Value: true
                 Grid: true
-                Octomap: true
                 Planning:
                   "": true
                   Value: true
-                PointCloud2: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -260,22 +266,14 @@ Visualization Manager:
               Unreliable: false
               Value: false
               Visibility:
-                Grid: true
-                Octomap: true
-                Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                "":
+                  Mapping Cloud: true
+                  Octomap: true
                   Value: true
-                  Waypoints: true
-                PointCloud2: true
+                Grid: true
+                Planning:
+                  "": true
+                  Value: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -311,12 +309,14 @@ Visualization Manager:
               Unreliable: false
               Value: false
               Visibility:
+                "":
+                  Mapping Cloud: true
+                  Octomap: true
+                  Value: true
                 Grid: true
-                Octomap: true
                 Planning:
                   "": true
                   Value: true
-                PointCloud2: true
                 RobotModel: true
                 Stereo:
                   Cameras:
@@ -348,8 +348,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.974543989
-                Min Value: 0.00489139557
+                Max Value: 0.926069736
+                Min Value: 0.0152767897
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -378,8 +378,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 0.330466866
-                Min Value: 0.0338984728
+                Max Value: 0.145217299
+                Min Value: -0.0551787615
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -408,8 +408,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.09347546
-                Min Value: -0.0583161116
+                Max Value: 1.64228666
+                Min Value: -0.0209023952
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -552,8 +552,8 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/Image
-      Enabled: false
-      Image Topic: /darknet_ros/detection_image
+      Enabled: true
+      Image Topic: /color0/darknet
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -562,67 +562,7 @@ Visualization Manager:
       Queue Size: 2
       Transport Hint: raw
       Unreliable: false
-      Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 1.6767453
-        Min Value: 0.0250000004
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 170; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: Octomap
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.0500000007
-      Style: Spheres
-      Topic: /octomap_occupied_space
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: RGB8
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: PointCloud2
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.0500000007
-      Style: Flat Squares
-      Topic: /cloud_map
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
+      Value: true
     - Class: rviz/Group
       Displays:
         - Alpha: 1
@@ -776,6 +716,70 @@ Visualization Manager:
           Value: false
       Enabled: true
       Name: Planning
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 1.6767453
+            Min Value: 0.0250000004
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 170; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: Octomap
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.0500000007
+          Style: Spheres
+          Topic: /octomap_occupied_space
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: Mapping Cloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.0500000007
+          Style: Flat Squares
+          Topic: /cloud_map
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+      Enabled: true
+      Name: Post
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -799,23 +803,26 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/FPS
+      Class: rviz/ThirdPersonFollower
+      Distance: 6.43059063
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Focal Point:
+        X: 0.447740555
+        Y: 0.172466278
+        Z: 4.76837158e-07
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.799999595
-      Position:
-        X: 12.1608162
-        Y: 6.63023043
-        Z: 14.8353872
+      Pitch: 0.169796765
       Target Frame: base_link
-      Value: FPS (rviz)
-      Yaw: 3.85738015
+      Value: ThirdPersonFollower (rviz)
+      Yaw: 2.87539673
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:
@@ -900,13 +907,33 @@ Visualization Manager:
         Value: TopDownOrtho (rviz)
         X: -0.294565976
         Y: -0.044596944
+      - Class: rviz/ThirdPersonFollower
+        Distance: 10
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.0500000007
+        Invert Z Axis: false
+        Name: ThirdPersonFollower
+        Near Clip Distance: 0.00999999978
+        Pitch: 0.155398533
+        Target Frame: base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 0.46539849
 Window Geometry:
   Displays:
-    collapsed: true
+    collapsed: false
   Height: 1019
-  Hide Left Dock: true
+  Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001f200000396fc020000000cfb000000100044006900730070006c006100790073000000004500000396000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff000000010000021900000396fc0200000006fb0000000a00560069006500770073010000004500000396000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f003300000003ba0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000069000000151fc010000000afb0000001a00530074006500720065006f0032005f0049006d006100670065000000000000000690000000ab00fffffffb0000000a0079006f006c006f00320000000000000006900000005e00fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065030000051e0000026c000001720000018cfb0000000e00530074006500720065006f00320000000312000001ed0000007100fffffffb0000000e00530074006500720065006f00310000000000000001730000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f00300000000000000006900000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000004710000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f20000023ffc020000000cfb000000100044006900730070006c006100790073010000019c0000023f000000e400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000045000002a30000000000000000fb0000001200530065006c0065006300740069006f006e00000000450000009b0000006800fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000390000000380000000000000000fb0000000a0049006d00610067006500000003780000005c0000000000000000fb0000001a00530074006500720065006f0031005f0049006d0061006700650000000400000000180000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000003fc0000001c0000001700ffffff00000001000002190000023ffc0200000006fb0000000a00560069006500770073010000019c0000023f000000b600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000c00430061006d0065007200610000000045000003960000000000000000fb0000000e00530074006500720065006f003300000003ba0000005e0000001700fffffffb0000001a00530074006500720065006f0033005f0049006d00610067006500000002c3000001180000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000069000000151fc010000000afb0000001a00530074006500720065006f0032005f0049006d006100670065000000000000000690000000ab00fffffffb0000000a0079006f006c006f00320100000000000006900000005e00fffffffb0000001a00530074006500720065006f0030005f0049006d006100670065030000051e0000026c000001720000018cfb0000000e00530074006500720065006f00320000000312000001ed0000007100fffffffb0000000e00530074006500720065006f00310000000000000001730000007100fffffffb0000001a00530074006500720065006f0032005f0049006d0061006700650000000179000006eb0000000000000000fb0000000e00530074006500720065006f00300000000000000006900000007100fffffffb0000001a00530074006500720065006f0031005f0049006d006100670065000000045b000001280000000000000000fb0000001a00530074006500720065006f0030005f0049006d00610067006500000004520000023e0000000000000000fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000069000000148fc0100000003fc00000000000003700000000000fffffffa000000000200000002fb0000000c00430061006d0065007200610100000000ffffffff0000000000000000fb0000000800540069006d006500000003980000004c0000003e00fffffffb0000000c00430061006d0065007200610100000376000002d90000000000000000fb0000000800540069006d00650100000000000004500000000000000000000002790000023f00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Stereo0:
