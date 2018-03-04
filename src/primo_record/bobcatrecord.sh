@@ -44,3 +44,4 @@ rosbag record   \
                 /color0/image_raw \
                 /raw_cmd_vel \
                 /cmd_vel \
+                /cloud_obstacles \
