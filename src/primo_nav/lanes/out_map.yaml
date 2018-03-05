@@ -5,4 +5,3 @@ negate: 0
 occupied_thresh: 0.8
 free_thresh: 0.2
 mode: scale
-

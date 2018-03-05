@@ -86,8 +86,8 @@ TebLocalPlannerROS:
    
     # Optimization
        
-    no_inner_iterations: 4
-    no_outer_iterations: 3
+    no_inner_iterations: 5
+    no_outer_iterations: 4
     optimization_activate: True
     optimization_verbose: False
    #  penalty_epsilon: 0.04
