@@ -70,19 +70,12 @@
 
         <!-- RTAB-Map's parameters -->
         <param name="Rtabmap/TimeThr"                   type="string"   value="1200"/>
-        <param name="Kp/MaxFeatures"                    type="string"   value="400"/>
-        <param name="Kp/RoiRatios"                      type="string"   value="0.03 0.03 0.04 0.04"/>
-        <param name="Kp/DetectorStrategy"               type="string"   value="0"/>
-        <!-- use SURF -->
-        <param name="Kp/NNStrategy"                     type="string"   value="1"/>
-        <!-- kdTree -->
-        <param name="SURF/HessianThreshold"             type="string"   value="1000"/>
 
         <!-- 3D->2D (PnP) -->
         <param name="RGBD/OptimizeMaxError"             type="double"   value="$(arg maxError)"  />
 
         <param name="RGBD/OptimizeFromGraphEnd"         type="string"   value="false"/>
-        <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="true"/>
+        <param name="RGBD/LoopClosureReextractFeatures" type="string"   value="false"/>
         <param name="Grid/MaxGroundHeight"              type="double"   value="0.18"/>
 
         <param name="Vis/MinInliers"                    type="string"   value="10"/>
