@@ -6,49 +6,30 @@
 
 import rospy
 import rosbag
-import fileinput
-import os
+import sys
 
-new_link    = "color0_link"
-new_height  = 480
-new_width   = 864
+topicName  = "/color0/camera_info"
+newLink    = "color0_link"
+newHeight  = 480
+newWidth   = 864
 
-def fix(inbags):
-  for b in inbags:
-    print "Trying to migrate file: %s"%b
-    rebag = rosbag.Bag(outbag,'w')
-    inbag = rosbag.Bag(b)
-    try:
-        for (topic, msg, t) in bag.read_messages():
-            if msg._type == 'sensor_msgs/CameraInfo' or msg._type == 'sensor_msgs/Image':
-              msg.header.frame_id = new_link
-              msg.height = 480
-              msg.width = 864
-              rebag.write(topic, msg, t, raw=False)
-            else:
-              rebag.add(topic, msg, t, raw=False)
-      rebag.close()
-    except rosrecord.ROSRecordException, e:
-      print " Migration failed: %s"%(e.message)
-      os.remove(outbag)
-      continue
-
-    oldnamebase = b+'.old'
-    oldname = oldnamebase
-    i = 1
-    while os.path.isfile(oldname):
-      i=i+1
-      oldname = oldnamebase + str(i)
-    os.rename(b, oldname)
-    os.rename(outbag, b)
-    print " Migration successful.  Original stored as: %s"%oldname
 
 if __name__ == '__main__':
-  import sys
-  if len(sys.argv) >= 2:
-    fix(sys.argv[1:])
-  else:
-    print "usage: %s bag1 [bag2 bag3 ...]" % sys.argv[0]
+    if len(sys.argv) == 3:
+      with rosbag.Bag(sys.argv[2],'w') as outbag:
+          for topic, msg, t in rosbag.Bag(sys.argv[1]).read_messages():
+              # If it is the color0
+              if topic == topicName:
+                  print(msg)
+                  # Lets rewrite the camere_info message
+                  msg.header.frame_id = newLink
+                  msg.height = newHeight
+                  msg.width = newWidth
+                  outbag.write(topic,msg,t)
+              else:
+                  outbag.write(topic, msg, msg.header.stamp if msg._has_header else t)
+    else:
+        print "usage: %s input output" % sys.argv[0]
 
 
 # header:
