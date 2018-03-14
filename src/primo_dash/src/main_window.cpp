@@ -14,7 +14,6 @@
 #include <iostream>
 #include "../include/primo_dash/main_window.hpp"
 #include <QProcess>
-#include <unistd.h>
 
 /*****************************************************************************
 ** Namespaces
@@ -760,14 +759,14 @@ void primo_dash::MainWindow::on_pB_save_map_clicked()
         output += process.readAllStandardError();
 
 
-        // Set the thresholds
+        // Set the thresholds and add the mode: scale
         cmd = R"(sed -i "/occupied_thresh:/c\occupied_thresh: 0.80" )" + file + ".yaml";
         process.start(cmd,QIODevice::ReadOnly);
         process.waitForFinished();
         output += process.readAllStandardOutput();
         output += process.readAllStandardError();
 
-        cmd = R"(sed -i "/free_thresh:/c\free_thresh: 0.20" )" + file + ".yaml";
+        cmd = R"(sed -i "/free_thresh:/c\free_thresh: 0.20\nmode: scale" )" + file + ".yaml";
         process.start(cmd,QIODevice::ReadOnly);
         process.waitForFinished();
         output += process.readAllStandardOutput();
