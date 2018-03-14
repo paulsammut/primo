@@ -14,6 +14,7 @@
 #include <iostream>
 #include "../include/primo_dash/main_window.hpp"
 #include <QProcess>
+#include <unistd.h>
 
 /*****************************************************************************
 ** Namespaces
@@ -721,4 +722,63 @@ void primo_dash::MainWindow::on_pB_cal_kill_clicked()
     // Match with pgrep also the arguments
     QProcess process;
     process.startDetached("pkill cameracalibrato");
+}
+
+/**
+ * @brief Download the current /grid_map and save it in the lanes folder with
+ * the given name. Then edit the .yaml and replace the last 3 lines with the new
+ * scale and type
+ */
+void primo_dash::MainWindow::on_pB_save_map_clicked()
+{
+    // Get the path and name to save
+    bool ok;      
+
+    QString mapName = QInputDialog::getText(  this,  tr("Map name"),  
+            tr("Enter name of map we will save as. Will be saved in the lanes folder."),   
+            QLineEdit::Normal, "", &ok );  
+
+    if( ok && !mapName.isEmpty() )  
+    {
+        // Create the filepath without extension
+        QString file = QDir::homePath() + "/primo_ws/src/primo_nav/lanes/" + mapName;
+
+        QString cmd = "rosrun map_server map_saver -f " + file + " map:=/grid_map";
+
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+
+        // QProcess process;
+        // process.startDetached("tmux new-session -d -s \"mapsaver\" \"" + cmd + "\"");
+
+        // Run the map save script
+        QProcess process;
+        process.start(cmd,QIODevice::ReadOnly);
+        process.waitForFinished();
+        QApplication::restoreOverrideCursor();
+
+        QString output = process.readAllStandardOutput();
+        output += process.readAllStandardError();
+
+
+        // Set the thresholds
+        cmd = R"(sed -i "/occupied_thresh:/c\occupied_thresh: 0.80" )" + file + ".yaml";
+        process.start(cmd,QIODevice::ReadOnly);
+        process.waitForFinished();
+        output += process.readAllStandardOutput();
+        output += process.readAllStandardError();
+
+        cmd = R"(sed -i "/free_thresh:/c\free_thresh: 0.20" )" + file + ".yaml";
+        process.start(cmd,QIODevice::ReadOnly);
+        process.waitForFinished();
+        output += process.readAllStandardOutput();
+        output += process.readAllStandardError();
+
+        // Restore the cursor
+        QApplication::restoreOverrideCursor();
+
+        // Show us a box of what just happened
+        QMessageBox msgBox;
+        msgBox.setText(output);
+        msgBox.exec();
+    }
 }

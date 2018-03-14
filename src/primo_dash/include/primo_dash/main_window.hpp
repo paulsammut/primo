@@ -191,6 +191,8 @@ private Q_SLOTS:
 
     void on_pB_cal_kill_clicked();
 
+    void on_pB_save_map_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
 	QNode qnode;
