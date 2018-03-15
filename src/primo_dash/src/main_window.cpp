@@ -742,8 +742,10 @@ void primo_dash::MainWindow::on_pB_save_map_clicked()
         // Create the filepath without extension
         QString file = QDir::homePath() + "/primo_ws/src/primo_nav/lanes/" + mapName;
 
+        // Build the command
         QString cmd = "rosrun map_server map_saver -f " + file + " map:=/grid_map";
 
+        // Set the cursor to loading
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
         // QProcess process;
@@ -757,7 +759,6 @@ void primo_dash::MainWindow::on_pB_save_map_clicked()
 
         QString output = process.readAllStandardOutput();
         output += process.readAllStandardError();
-
 
         // Set the thresholds and add the mode: scale
         cmd = R"(sed -i "/occupied_thresh:/c\occupied_thresh: 0.80" )" + file + ".yaml";
@@ -780,4 +781,19 @@ void primo_dash::MainWindow::on_pB_save_map_clicked()
         msgBox.setText(output);
         msgBox.exec();
     }
+}
+
+/**
+ * @brief Opens a file dialog and allows the user to select a pgm to edit in
+ * gimp
+ */
+void primo_dash::MainWindow::on_pB_edit_map_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, ("Open File"), 
+            QDir::homePath() + "/primo_ws/src/primo_nav/lanes/", 
+            ("Maps (*.pgm )"));
+
+    // Launch gimp and edit the map
+    QProcess process;
+    process.startDetached( "gimp " + fileName);
 }

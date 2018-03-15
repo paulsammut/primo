@@ -42,15 +42,9 @@ QNode::~QNode() {
 	wait();
 }
 
-bool QNode::init() {
-    ros::init(init_argc,init_argv,"primo_dash", ros::init_options::AnonymousName);
-	if ( ! ros::master::check() ) {
-		return false;
-	}
-	ros::start(); // explicitly needed since our nodehandle is going out of scope.
+void QNode::ros_comms_init() {
 	ros::NodeHandle n;
-	// Add your ros communications here.
-    
+
     // Here are the exposure and brightness settings
 	pub_s0_expo             = n.advertise<std_msgs::Float64>("/stereo0/set_exposure", 1000);
     pub_s0_bright           = n.advertise<std_msgs::Float64>("/stereo0/set_brightness", 1000);
@@ -61,7 +55,19 @@ bool QNode::init() {
     pub_s2_right_expo       = n.advertise<std_msgs::Float64>("/stereo2/set_exposure_right", 1000);
     pub_s2_right_bright     = n.advertise<std_msgs::Float64>("/stereo2/set_brightness_right", 1000);
     pub_s2_trig     		= n.advertise<std_msgs::Float32>("/stereo_trigger/rate", 1000);
+
+}
+
+bool QNode::init() {
+    ros::init(init_argc,init_argv,"primo_dash", ros::init_options::AnonymousName);
+	if ( ! ros::master::check() ) {
+		return false;
+	}
+
+	ros::start(); // explicitly needed since our nodehandle is going out of scope.
+    ros_comms_init();
     start();
+
 	return true;
 }
 
@@ -73,11 +79,11 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 	if ( ! ros::master::check() ) {
 		return false;
 	}
+
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
-	ros::NodeHandle n;
-	// Add your ros communications here.
-    // chatter_publisher = n.advertise<std_msgs::String>("chatter", 1000);
+    ros_comms_init();
     start();
+
 	return true;
 }
 

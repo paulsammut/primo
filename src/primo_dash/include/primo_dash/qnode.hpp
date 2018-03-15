@@ -80,10 +80,17 @@ public:
 Q_SIGNALS:
 	void loggingUpdated();
     void rosShutdown();
+    void battUpdate(double bVoltage, double bCurrent);
 
 private:
 	int init_argc;
 	char** init_argv;
+
+    /**
+     * @brief Initializes all the pubs and subs. Have it in one function to make
+     * the two types of ros inits generic
+     */
+    void ros_comms_init();
 
     /**
      * @brief Here we have all our publishers for the camera settings
