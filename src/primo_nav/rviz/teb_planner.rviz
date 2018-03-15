@@ -170,22 +170,10 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 Post:
-                  Mapping Cloud: true
-                  Octomap: true
-                  PointCloud2: true
+                  "": true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -195,7 +183,10 @@ Visualization Manager:
                     Stereo3_Image: true
                     Value: true
                   Images:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     "": true
@@ -203,9 +194,8 @@ Visualization Manager:
                   Value: true
                 Value: true
                 Yolo:
+                  "": true
                   Value: true
-                  Yolo: true
-                  yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
               Enabled: false
@@ -220,22 +210,10 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 Post:
-                  Mapping Cloud: true
-                  Octomap: true
-                  PointCloud2: true
+                  "": true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -245,7 +223,10 @@ Visualization Manager:
                     Stereo3_Image: true
                     Value: true
                   Images:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     "": true
@@ -253,9 +234,8 @@ Visualization Manager:
                   Value: true
                 Value: true
                 Yolo:
+                  "": true
                   Value: true
-                  Yolo: true
-                  yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
               Enabled: false
@@ -270,22 +250,10 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 Post:
-                  Mapping Cloud: true
-                  Octomap: true
-                  PointCloud2: true
+                  "": true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -295,7 +263,10 @@ Visualization Manager:
                     Stereo3_Image: true
                     Value: true
                   Images:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     "": true
@@ -303,9 +274,8 @@ Visualization Manager:
                   Value: true
                 Value: true
                 Yolo:
+                  "": true
                   Value: true
-                  Yolo: true
-                  yolo2: true
               Zoom Factor: 1
             - Class: rviz/Camera
               Enabled: false
@@ -320,22 +290,10 @@ Visualization Manager:
               Visibility:
                 Grid: true
                 Planning:
-                  Base: true
-                  Current Goal: true
-                  Global Cost Map: true
-                  Global Path: true
-                  GridMap: true
-                  Lanes: true
-                  Local Cost Map: true
-                  Local Path: true
-                  Marker: true
-                  PoseArray: true
+                  "": true
                   Value: true
-                  Waypoints: true
                 Post:
-                  Mapping Cloud: true
-                  Octomap: true
-                  PointCloud2: true
+                  "": true
                   Value: true
                 RobotModel: true
                 Stereo:
@@ -345,7 +303,10 @@ Visualization Manager:
                     Stereo2_Image: true
                     Value: true
                   Images:
-                    "": true
+                    Stereo0: true
+                    Stereo1: true
+                    Stereo2: true
+                    Stereo3: true
                     Value: true
                   PCL:
                     "": true
@@ -353,9 +314,8 @@ Visualization Manager:
                   Value: true
                 Value: true
                 Yolo:
+                  "": true
                   Value: true
-                  Yolo: true
-                  yolo2: true
               Zoom Factor: 1
           Enabled: true
           Name: Cameras
@@ -855,14 +815,30 @@ Visualization Manager:
               Waypoints: true
             Post:
               Mapping Cloud: true
+              Merge: true
               Octomap: true
-              PointCloud2: true
               Value: true
             RobotModel: true
             Stereo:
-              "":
-                "": true
+              Cameras:
+                Stereo0_Image: true
+                Stereo1_Image: true
+                Stereo2_Image: true
+                Stereo3_Image: true
                 Value: true
+              Images:
+                Stereo0: true
+                Stereo1: true
+                Stereo2: true
+                Stereo3: true
+                Value: true
+              PCL:
+                Stereo0: true
+                Stereo1: true
+                Stereo2: true
+                Stereo3: true
+                Value: true
+                merge: true
               Value: true
             Value: true
             Yolo:
@@ -874,6 +850,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
+    Default Light: true
     Fixed Frame: base_link
     Frame Rate: 30
   Name: root
@@ -910,10 +887,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.779796958
+      Pitch: 0.319797188
       Target Frame: base_link
       Value: ThirdPersonFollower (rviz)
-      Yaw: 1.89856994
+      Yaw: 3.33857536
     Saved:
       - Class: rviz/FPS
         Enable Stereo Rendering:
@@ -1048,8 +1025,8 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1680
-  X: 0
-  Y: 31
+  X: 764
+  Y: 148
   Yolo:
     collapsed: false
   yolo2:

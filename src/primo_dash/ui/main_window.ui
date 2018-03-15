@@ -1667,7 +1667,7 @@
      <x>0</x>
      <y>0</y>
      <width>1456</width>
-     <height>29</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -1738,8 +1738,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>859</x>
-     <y>552</y>
+     <x>1099</x>
+     <y>647</y>
     </hint>
     <hint type="destinationlabel">
      <x>469</x>

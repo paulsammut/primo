@@ -13,10 +13,18 @@ add_compile_options(-std=c++11)
 
 # qt_build provides the qt cmake glue, roscpp the comms for a default talker
 find_package(catkin REQUIRED COMPONENTS qt_build roscpp)
+
+set(QWT_INCLUDE_DIR "/usr/local/qwt-6.1.3/include")
+set(QWT_LIBRARY "/usr/local/qwt-6.1.3/lib/libqwt.so")
+
 include_directories(
         ${catkin_INCLUDE_DIRS}
         include
+        ${QWT_INCLUDE_DIR}
 )
+
+message("${catkin_LIBRARIES}")
+message("${QWT_LIBRARY}")
 # Use this to define what the package will export (e.g. libs, headers).
 # Since the default here is to produce only a binary, we don't worry about
 # exporting anything. 
@@ -54,6 +62,7 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 ##############################################################################
 
 add_executable(primo_dash ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP} ${HEADERS})
-target_link_libraries(primo_dash ${QT_LIBRARIES} ${catkin_LIBRARIES})
+# target_link_libraries(primo_dash ${QT_LIBRARIES} ${catkin_LIBRARIES} ${QWT_LIBRARY})
+target_link_libraries(primo_dash ${QT_LIBRARIES} ${catkin_LIBRARIES} ${QWT_LIBRARY})
 install(TARGETS primo_dash RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
