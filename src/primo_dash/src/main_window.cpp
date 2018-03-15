@@ -53,6 +53,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     if ( ui.checkbox_remember_settings->isChecked() ) {
         on_button_connect_clicked(true);
     }
+    
+    QObject::connect(&qnode, SIGNAL(battUpdate(double, double)), this, SLOT(updateBattView(double, double)));
 }
 
 MainWindow::~MainWindow() {}
@@ -119,6 +121,28 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
  */
 void MainWindow::updateLoggingView() {
         ui.view_logging->scrollToBottom();
+}
+
+
+void MainWindow::updateBattView(double bVoltage, double bCurrent)
+{
+    ui.batt_indVoltage->setValue(bVoltage);
+    ui.batt_indCurrent->setValue(bCurrent);
+    
+    // Convert values from 0 to 100
+    double rangeMaxVoltage = 25.5;
+    double rangeMinVoltage = 18.0;
+    double rangeMaxCurrent = 25.0;
+    double rangeMinCurrent = 0;
+    double rangeVoltage = rangeMaxVoltage-rangeMinVoltage;
+    double rangeCurrent = rangeMaxCurrent-rangeMinCurrent;
+    
+    // Values mapped to 0-100 in the new range
+    int progVoltage = static_cast<int> ( (bVoltage - rangeMinVoltage)/ rangeVoltage * 100 );
+    int progCurrent = static_cast<int> ( (bCurrent - rangeMinCurrent)/ rangeCurrent * 100 );
+
+    ui.batt_barVoltage->setValue(progVoltage);
+    ui.batt_barCurrent->setValue(progCurrent);
 }
 
 /*****************************************************************************

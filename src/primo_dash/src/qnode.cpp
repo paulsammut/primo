@@ -161,7 +161,8 @@ void QNode::pubCamSetting(CamSetting camSetting, double num2Send)
 
 void QNode::batteryCb(const sensor_msgs::BatteryState::ConstPtr& msg)
 {
-    double test = msg->current;
+    // Emit a signal that will be sent to the UI.
+    Q_EMIT battUpdate(msg->voltage, msg->current);
 }
 
 

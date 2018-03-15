@@ -43,7 +43,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="tab_6">
           <attribute name="title">
@@ -1095,35 +1095,12 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_2">
+         <widget class="QWidget" name="Cal">
           <attribute name="title">
            <string>Calibrate</string>
           </attribute>
           <layout class="QGridLayout" name="gridLayout_12">
-           <item row="3" column="0">
-            <widget class="QGroupBox" name="groupBox_20">
-             <property name="title">
-              <string>stereo1</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_25">
-              <item>
-               <widget class="QPushButton" name="pB_cal_s1">
-                <property name="text">
-                 <string>cal</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pB_cal_copy_s1">
-                <property name="text">
-                 <string>copy</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="1">
+           <item row="1" column="2">
             <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1135,29 +1112,6 @@
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="1" column="0">
-            <widget class="QGroupBox" name="groupBox_4">
-             <property name="title">
-              <string>color0</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <widget class="QPushButton" name="pB_cal_color0">
-                <property name="text">
-                 <string>cal</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pB_driver_color0">
-                <property name="text">
-                 <string>driver </string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
            </item>
            <item row="6" column="0">
             <spacer name="verticalSpacer_7">
@@ -1172,68 +1126,8 @@
              </property>
             </spacer>
            </item>
-           <item row="2" column="0">
-            <widget class="QGroupBox" name="groupBox_19">
-             <property name="title">
-              <string>stereo0</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_24">
-              <item>
-               <widget class="QPushButton" name="pB_cal_s0">
-                <property name="text">
-                 <string>cal</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pB_cal_copy_s0">
-                <property name="text">
-                 <string>copy</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QGroupBox" name="groupBox_21">
-             <property name="title">
-              <string>stereo2</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_26">
-              <item>
-               <widget class="QPushButton" name="pB_cal_s2">
-                <property name="text">
-                 <string>cal</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pB_cal_copy_s2">
-                <property name="text">
-                 <string>copy</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QPushButton" name="pB_cal_kill">
-             <property name="text">
-              <string>kill cal</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_4">
-          <attribute name="title">
-           <string>Align</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QGroupBox" name="groupBox_5">
+           <item row="1" column="1">
+            <widget class="QGroupBox" name="groupBox_Align">
              <property name="title">
               <string>Alignment</string>
              </property>
@@ -1352,18 +1246,116 @@
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="2" column="1">
+            <widget class="QFrame" name="frame_11">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
-            </spacer>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QGroupBox" name="groupBox_4">
+                <property name="title">
+                 <string>color0</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_color0">
+                   <property name="text">
+                    <string>cal</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pB_driver_color0">
+                   <property name="text">
+                    <string>driver </string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_19">
+                <property name="title">
+                 <string>stereo0</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_24">
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_s0">
+                   <property name="text">
+                    <string>cal</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_copy_s0">
+                   <property name="text">
+                    <string>copy</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_20">
+                <property name="title">
+                 <string>stereo1</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_25">
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_s1">
+                   <property name="text">
+                    <string>cal</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_copy_s1">
+                   <property name="text">
+                    <string>copy</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_21">
+                <property name="title">
+                 <string>stereo2</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_26">
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_s2">
+                   <property name="text">
+                    <string>cal</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pB_cal_copy_s2">
+                   <property name="text">
+                    <string>copy</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pB_cal_kill">
+                <property name="text">
+                 <string>kill cal</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -1548,7 +1540,7 @@
                </property>
                <layout class="QGridLayout" name="gridLayout_7">
                 <item row="2" column="0">
-                 <widget class="QDoubleSpinBox" name="batt_spinBox">
+                 <widget class="QDoubleSpinBox" name="batt_indVoltage">
                   <property name="readOnly">
                    <bool>true</bool>
                   </property>
@@ -1558,13 +1550,22 @@
                   <property name="suffix">
                    <string> V</string>
                   </property>
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QProgressBar" name="batt_ProgressBar_2">
+                 <widget class="QProgressBar" name="batt_barCurrent">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>50</width>
                     <height>103</height>
                    </size>
                   </property>
@@ -1586,7 +1587,7 @@
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QDoubleSpinBox" name="batt_spinBox_2">
+                 <widget class="QDoubleSpinBox" name="batt_indCurrent">
                   <property name="readOnly">
                    <bool>true</bool>
                   </property>
@@ -1594,7 +1595,10 @@
                    <enum>QAbstractSpinBox::NoButtons</enum>
                   </property>
                   <property name="suffix">
-                   <string>A</string>
+                   <string> A</string>
+                  </property>
+                  <property name="decimals">
+                   <number>1</number>
                   </property>
                  </widget>
                 </item>
@@ -1613,11 +1617,17 @@
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QProgressBar" name="batt_ProgressBar">
+                 <widget class="QProgressBar" name="batt_barVoltage">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
-                    <height>103</height>
+                    <width>60</width>
+                    <height>0</height>
                    </size>
                   </property>
                   <property name="minimum">

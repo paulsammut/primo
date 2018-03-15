@@ -53,6 +53,7 @@ public Q_SLOTS:
     ** Manual connections
     *******************************************/
     void updateLoggingView(); // no idea why this can't connect automatically
+    void updateBattView(double bVoltage, double bCurrent);
 
 private Q_SLOTS:
     void on_pB_s2_disableXinput_clicked();
