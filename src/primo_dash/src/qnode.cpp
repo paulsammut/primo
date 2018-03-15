@@ -16,6 +16,7 @@
 #include <std_msgs/String.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Float32.h>
+#include <sensor_msgs/BatteryState.h>
 #include <sstream>
 #include "../include/primo_dash/qnode.hpp"
 
@@ -44,6 +45,9 @@ QNode::~QNode() {
 
 void QNode::ros_comms_init() {
 	ros::NodeHandle n;
+
+    // Add the subscribers
+    sub_batt                = n.subscribe<sensor_msgs::BatteryState>("/battery", 1000, &QNode::batteryCb, this);
 
     // Here are the exposure and brightness settings
 	pub_s0_expo             = n.advertise<std_msgs::Float64>("/stereo0/set_exposure", 1000);
@@ -154,5 +158,11 @@ void QNode::pubCamSetting(CamSetting camSetting, double num2Send)
         case s2_trig:   		pub_s2_trig.publish(msg32); break;
     }
 }
+
+void QNode::batteryCb(const sensor_msgs::BatteryState::ConstPtr& msg)
+{
+    double test = msg->current;
+}
+
 
 }  // namespace primo_dash

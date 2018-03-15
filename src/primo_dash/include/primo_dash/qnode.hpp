@@ -21,6 +21,10 @@
 #include <string>
 #include <QThread>
 #include <QStringListModel>
+#include <std_msgs/String.h>
+#include <std_msgs/Float64.h>
+#include <std_msgs/Float32.h>
+#include <sensor_msgs/BatteryState.h>
 #endif
 
 
@@ -91,6 +95,10 @@ private:
      * the two types of ros inits generic
      */
     void ros_comms_init();
+
+    void batteryCb(const sensor_msgs::BatteryState::ConstPtr& msg);
+
+    ros::Subscriber sub_batt;
 
     /**
      * @brief Here we have all our publishers for the camera settings
