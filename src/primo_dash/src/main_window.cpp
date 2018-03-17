@@ -55,6 +55,15 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     }
     
     QObject::connect(&qnode, SIGNAL(battUpdate(double, double)), this, SLOT(updateBattView(double, double)));
+
+    // Timer
+    startTimer(1000);
+
+    curvBattV = new QwtPlotCurve("Battery voltage");
+
+
+    battVsamples = new QVector<QPointF>;
+    curvBattV->attach(ui.plot_batt);
 }
 
 MainWindow::~MainWindow() {}
@@ -128,21 +137,12 @@ void MainWindow::updateBattView(double bVoltage, double bCurrent)
 {
     ui.batt_indVoltage->setValue(bVoltage);
     ui.batt_indCurrent->setValue(bCurrent);
-    
-    // Convert values from 0 to 100
-    double rangeMaxVoltage = 25.5;
-    double rangeMinVoltage = 18.0;
-    double rangeMaxCurrent = 25.0;
-    double rangeMinCurrent = 0;
-    double rangeVoltage = rangeMaxVoltage-rangeMinVoltage;
-    double rangeCurrent = rangeMaxCurrent-rangeMinCurrent;
-    
-    // Values mapped to 0-100 in the new range
-    int progVoltage = static_cast<int> ( (bVoltage - rangeMinVoltage)/ rangeVoltage * 100 );
-    int progCurrent = static_cast<int> ( (bCurrent - rangeMinCurrent)/ rangeCurrent * 100 );
 
-    ui.batt_barVoltage->setValue(progVoltage);
-    ui.batt_barCurrent->setValue(progCurrent);
+    QwtPointSeriesData* myData = new QwtPointSeriesData;
+    battVsamples->push_back(QPointF(battVsamples->size(),bVoltage));
+    myData->setSamples(*battVsamples);
+    curvBattV->setData(myData);
+
 }
 
 /*****************************************************************************
@@ -361,18 +361,8 @@ void primo_dash::MainWindow::on_s2rb_spinBox_editingFinished() {
     ui.s2rb_slider->setValue(ui.s2rb_spinBox->value());
 }
 
-// ======= Trig ====================================
-void primo_dash::MainWindow::on_s2_trig_slider_sliderMoved(int position)
-{
-    qnode.pubCamSetting(QNode::s2_trig, ui.s2_trig_spinBox->value());
-    ui.s2_trig_spinBox->setValue(position);
-}
 
-void primo_dash::MainWindow::on_s2_trig_spinBox_editingFinished()
-{
-    qnode.pubCamSetting(QNode::s2_trig, ui.s2_trig_spinBox->value());
-    ui.s2_trig_slider->setValue(ui.s2_trig_spinBox->value());
-}
+
 
 // =================================================
 void primo_dash::MainWindow::on_s0e_slider_sliderMoved(int position)
@@ -820,4 +810,57 @@ void primo_dash::MainWindow::on_pB_edit_map_clicked()
     // Launch gimp and edit the map
     QProcess process;
     process.startDetached( "gimp " + fileName);
+}
+
+// ======= Trig ====================================
+void primo_dash::MainWindow::on_slider_trig_valueChanged(double value)
+{
+    qnode.pubCamSetting(QNode::s2_trig, value);
+    ui.s2_trig_spinBox->setValue(value);
+}
+
+void primo_dash::MainWindow::on_pB_s2_expoRang_clicked()
+{
+    bool ok;
+    int range = QInputDialog::getInt(this, tr("S2 max expo range"),
+                                     tr("Enter exposure range. 200 is maximum for outside, 1000 max overall"),1000,1,1000,1,&ok);
+    if (ok)
+    {
+        ui.s2le_slider->setRange(1,range);
+        ui.s2re_slider->setRange(1,range);
+    }
+}
+
+void primo_dash::MainWindow::timerEvent(QTimerEvent *event)
+{
+    ui.label_time->setText(QTime::currentTime().toString("hh:mm:ss"));
+}
+
+void primo_dash::MainWindow::on_pB_s2_expoRang_2_clicked()
+{
+    bool ok;
+    int range = QInputDialog::getInt(this, tr("Tara expo range"),
+                                     tr("Enter exposure range. Range is from 10 to 1000,000 micro seconds"),100000,1,1000000,1,&ok);
+    if (ok)
+    {
+        ui.s0e_slider->setRange(10,range);
+        ui.s1e_slider->setRange(10,range);
+    }
+}
+
+void primo_dash::MainWindow::on_pB_powerSensor_clicked()
+{
+    QString command = "roslaunch primo_base power_sensor.launch";
+
+    // Make a confirm dialog
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Power sensor confirm", "Launch will restart power.\n "
+                                                           "CONFIRM GREEN BUTTON IS BEING PRESSED BEFORE HITTING OK!\n" ,
+                                    QMessageBox::Yes|QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        QProcess process;
+        QString fullCmd = "tmux new-session -d -s \"power\" " + command;
+        process.startDetached(fullCmd);
+    }
 }

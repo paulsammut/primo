@@ -15,6 +15,9 @@
 #include <QtGui/QMainWindow>
 #include "ui_main_window.h"
 #include "qnode.hpp"
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
+#include <qwt_series_data.h>
 
 /*****************************************************************************
 ** Namespace
@@ -101,10 +104,6 @@ private Q_SLOTS:
     void on_s2rb_slider_sliderMoved(int position);
 
     void on_s2rb_spinBox_editingFinished();
-
-    void on_s2_trig_slider_sliderMoved(int position);
-
-    void on_s2_trig_spinBox_editingFinished();
 
     void on_s0e_slider_sliderMoved(int position);
 
@@ -196,12 +195,24 @@ private Q_SLOTS:
 
     void on_pB_edit_map_clicked();
 
+    void on_slider_trig_valueChanged(double value);
+
+    void on_pB_s2_expoRang_clicked();
+
+    void on_pB_s2_expoRang_2_clicked();
+
+    void on_pB_powerSensor_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
-	QNode qnode;
+    QNode qnode;
+
+    QVector<QPointF>* battVsamples;
+    QwtPlotCurve *curvBattV;
+
 
     /**
-     * @brief Helper function that laungers robonet with the given arguments.
+     * @brief Helper function that launches robonet with the given arguments.
      * Robonet must be placed in the sudoers files for it to work.
      *
      * @param robonetArgs The robonet args that must be in the form "-n NETWORK
@@ -209,6 +220,11 @@ private:
      * 
      */
     void launchRobonet(QString robonetArgs);
+
+    /**
+      * @brief Timer for showing the time on the gui
+      */
+    void timerEvent(QTimerEvent *event);
 };
 
 }  // namespace primo_dash

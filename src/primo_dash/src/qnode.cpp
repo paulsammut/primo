@@ -40,7 +40,7 @@ QNode::~QNode() {
       ros::shutdown(); // explicitly needed since we use ros::start();
       ros::waitForShutdown();
     }
-	wait();
+    wait();
 }
 
 void QNode::ros_comms_init() {
