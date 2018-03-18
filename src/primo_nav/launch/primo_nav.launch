@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="lanes" default="false"/>
+    <arg name="lanes"       default="false"/>
+    <arg name="lanes_file"  default="$(find primo_nav)/lanes/out_map.yaml"/>
 
     <remap from="map" to="/grid_map"/>
-
-    <arg name="lanes_file" default="$(find primo_nav)/lanes/out_map.yaml"/>
 
     <node if="$(arg lanes)" pkg="map_server" type="map_server" name="map_server" args="$(arg lanes_file)">
         <remap from="map" to="lanes"/>
@@ -27,6 +26,7 @@
 		<param name="controller_frequency" value="10.0" />
 		<param name="controller_patience" value="15.0" />
 
+        <!-- Lanes switching -->
         <rosparam if="$(arg lanes)">
             global_costmap:
                 plugins:

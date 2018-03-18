@@ -57,7 +57,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     QObject::connect(&qnode, SIGNAL(battUpdate(double, double)), this, SLOT(updateBattView(double, double)));
 
     // Timer
-    startTimer(1000);
+    startTimer(100);
 
     curvBattV = new QwtPlotCurve("Battery voltage");
 
@@ -610,14 +610,32 @@ void primo_dash::MainWindow::on_pB_kill_yolo2_clicked()
 
 void primo_dash::MainWindow::on_pB_launch_nav_clicked()
 {
+    // Here we launch the primo_nav file. If lanes is checked, prompt the user to select a lanes file.
     QProcess process;
     QString cmd = "tmux new-session -d -s \"nav\" \"roslaunch primo_nav primo_nav.launch";
-    if(ui.rB_lanes->isChecked())
-            cmd = cmd + " lanes:=true\"";
-    else
-        cmd = cmd + "\"";
 
-    process.startDetached(cmd);
+    // Check if lanes is clicked. If it is ask for a path
+    if(ui.rB_lanes->isChecked())
+    {
+        QString fileName = QFileDialog::getOpenFileName(this, ("Open File"),
+                                                        QDir::homePath() + "/primo_ws/src/primo_nav/lanes/",
+                                                        ("Maps (*.yaml )"));
+        cmd = cmd + " lanes:=true lanes_file:=" + fileName +"\"";
+
+        // Check for the user pressing cancel
+        if(fileName.isNull())
+            return;
+
+        // Everything looks good, so start the nav file
+        process.startDetached(cmd);
+    }
+    // User did not select lanes, which is the default nav launch mode
+    else
+    {
+        cmd = cmd + "\"";
+        process.startDetached(cmd);
+    }
+
 }
 
 void primo_dash::MainWindow::on_pB_kill_nav_clicked()

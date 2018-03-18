@@ -44,6 +44,7 @@ obstacle_layer:
         observation_persistence: 0.0
     }
 
+    # fwd looking stereo
     point_cloud_sensor2: {
         sensor_frame: base_link, 
         data_type: PointCloud2, 
@@ -55,6 +56,7 @@ obstacle_layer:
         observation_persistence: 0.0
     }
 
+    # zed cam
     point_cloud_sensor3: {
         sensor_frame: base_link, 
         data_type: PointCloud2, 
