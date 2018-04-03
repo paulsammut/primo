@@ -1401,7 +1401,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pB_save_map_2">
+                  <widget class="QPushButton" name="pB_save_map">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                      <horstretch>0</horstretch>

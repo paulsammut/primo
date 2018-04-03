@@ -825,6 +825,10 @@ void primo_dash::MainWindow::on_pB_edit_map_clicked()
             QDir::homePath() + "/primo_ws/src/primo_nav/lanes/", 
             ("Maps (*.pgm )"));
 
+    // Break out if canceled
+    if(fileName.isNull())
+        return;
+
     // Launch gimp and edit the map
     QProcess process;
     process.startDetached( "gimp " + fileName);
