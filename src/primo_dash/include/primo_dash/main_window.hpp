@@ -203,6 +203,10 @@ private Q_SLOTS:
 
     void on_pB_powerSensor_clicked();
 
+    void on_pb_noUseSimTime_clicked();
+
+    void on_pb_useSimTime_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
     QNode qnode;

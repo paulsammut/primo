@@ -328,7 +328,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="tab_6">
           <attribute name="title">
@@ -727,77 +727,65 @@
             </widget>
            </item>
            <item>
-            <widget class="QFrame" name="frame_7">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+            <widget class="QGroupBox" name="groupBox_22">
+             <property name="title">
+              <string>Stereo0 Stereo1</string>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_15">
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
               <item>
-               <widget class="QGroupBox" name="groupBox_22">
-                <property name="title">
-                 <string>Stereo0 Stereo1</string>
+               <widget class="QPushButton" name="pB_view_s0_left">
+                <property name="text">
+                 <string>S0 Left</string>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_12">
-                 <item>
-                  <widget class="QPushButton" name="pB_view_s0_left">
-                   <property name="text">
-                    <string>S0 Left</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pB_view_s0_right">
-                   <property name="text">
-                    <string>S0 Right</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pB_view_s1_left">
-                   <property name="text">
-                    <string>S1 Left</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pB_view_s1_right">
-                   <property name="text">
-                    <string>S1 Right</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pb_kill_rqt_view">
-                   <property name="text">
-                    <string>kill rqt_image_view</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pB_s2_expoRang_2">
-                   <property name="text">
-                    <string>Set Expo Range</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_7">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
                </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pB_view_s0_right">
+                <property name="text">
+                 <string>S0 Right</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pB_view_s1_left">
+                <property name="text">
+                 <string>S1 Left</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pB_view_s1_right">
+                <property name="text">
+                 <string>S1 Right</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pb_kill_rqt_view">
+                <property name="text">
+                 <string>kill rqt_image_view</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pB_s2_expoRang_2">
+                <property name="text">
+                 <string>Set Expo Range</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </widget>
@@ -1726,6 +1714,37 @@
             </widget>
            </item>
           </layout>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>Record</string>
+          </attribute>
+          <widget class="QPushButton" name="pb_useSimTime">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>20</y>
+             <width>85</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>SimTime</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_noUseSimTime">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>85</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>No SimTime</string>
+           </property>
+          </widget>
          </widget>
         </widget>
        </item>

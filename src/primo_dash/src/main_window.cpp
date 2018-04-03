@@ -14,6 +14,7 @@
 #include <iostream>
 #include "../include/primo_dash/main_window.hpp"
 #include <QProcess>
+#include <unistd.h>
 
 /*****************************************************************************
 ** Namespaces
@@ -853,6 +854,7 @@ void primo_dash::MainWindow::on_pB_s2_expoRang_clicked()
     }
 }
 
+// Timer event!
 void primo_dash::MainWindow::timerEvent(QTimerEvent *event)
 {
     ui.label_time->setText(QTime::currentTime().toString("hh:mm:ss"));
@@ -885,4 +887,16 @@ void primo_dash::MainWindow::on_pB_powerSensor_clicked()
         QString fullCmd = "tmux new-session -d -s \"power\" " + command;
         process.startDetached(fullCmd);
     }
+}
+
+void primo_dash::MainWindow::on_pb_noUseSimTime_clicked()
+{
+        QProcess process;
+        process.start("rosparam set /use_sim_time false",QIODevice::ReadOnly);
+}
+
+void primo_dash::MainWindow::on_pb_useSimTime_clicked()
+{
+        QProcess process;
+        process.start("rosparam set /use_sim_time true",QIODevice::ReadOnly);
 }
