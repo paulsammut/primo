@@ -207,6 +207,8 @@ private Q_SLOTS:
 
     void on_pb_useSimTime_clicked();
 
+    void on_pB_kill_map_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
     QNode qnode;

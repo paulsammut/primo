@@ -900,3 +900,11 @@ void primo_dash::MainWindow::on_pb_useSimTime_clicked()
         QProcess process;
         process.start("rosparam set /use_sim_time true",QIODevice::ReadOnly);
 }
+
+void primo_dash::MainWindow::on_pB_kill_map_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux send -t map:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
