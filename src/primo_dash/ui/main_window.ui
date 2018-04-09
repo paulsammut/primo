@@ -361,7 +361,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="tab_6">
           <attribute name="title">
@@ -624,7 +624,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -666,7 +666,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -701,7 +701,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -750,7 +750,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -929,7 +929,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -971,7 +971,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -1020,7 +1020,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -1084,7 +1084,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="upperBound">
@@ -1109,7 +1109,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>200</width>
-                  <height>45</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="minimum">
