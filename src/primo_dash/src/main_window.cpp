@@ -90,8 +90,7 @@ void MainWindow::on_button_connect_clicked(bool check ) {
 		if ( !qnode.init() ) {
 			showNoMasterMessage();
 		} else {
-			ui.button_connect->setEnabled(false);
-            ui.frameMain->setEnabled(true);
+            ui.button_connect->setEnabled(false);
         }
 	} else {
 		if ( ! qnode.init(ui.line_edit_master->text().toStdString(),
@@ -102,7 +101,6 @@ void MainWindow::on_button_connect_clicked(bool check ) {
 			ui.line_edit_master->setReadOnly(true);
 			ui.line_edit_host->setReadOnly(true);
 			ui.line_edit_topic->setReadOnly(true);
-            ui.frameMain->setEnabled(true);
         }
 	}
 }
@@ -472,11 +470,13 @@ void primo_dash::MainWindow::on_pB_killRos_clicked()
     process.startDetached("pkill ros");
 }
 
+/*
 void primo_dash::MainWindow::on_pB_color0_clicked()
 {
     QProcess process;
     process.startDetached("tmux new-session -d -s \"color0\" \"roslaunch primo_base color0.launch\"" );
 }
+*/
 
 void primo_dash::MainWindow::on_pB_view_s1_right_clicked()
 {
@@ -593,7 +593,7 @@ void primo_dash::MainWindow::on_pB_cal_color0_clicked()
 void primo_dash::MainWindow::on_pB_driver_color0_clicked()
 {
     QProcess process;
-    process.startDetached("roslaunch primo_base color0.launch");
+    process.startDetached("tmux new-session -d -s \"color0\" \"roslaunch primo_base color0.launch\"" );
 }
 
 void primo_dash::MainWindow::on_pB_yolo2_clicked()
@@ -907,4 +907,19 @@ void primo_dash::MainWindow::on_pB_kill_map_clicked()
     QString commandStr = "tmux send -t map:0.0 C-c ENTER";
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_baseAlpha_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux send -t map:0.0 C-c ENTER";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+
+    // Get the output
+    QString output = process.readAllStandardOutput();
+
+    if(output.contains("can't find session"))
+    {
+    }
 }

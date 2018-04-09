@@ -20,23 +20,14 @@
   <property name="locale">
    <locale language="English" country="Australia"/>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout">
+  <widget class="QWidget" name="frameMain">
+   <layout class="QVBoxLayout" name="verticalLayout_12">
     <item>
-     <widget class="QFrame" name="frameMain">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+     <widget class="QWidget" name="top" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <property name="margin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QFrame" name="frame_10">
          <property name="frameShape">
@@ -88,6 +79,12 @@
                   <layout class="QVBoxLayout" name="verticalLayout_4">
                    <item>
                     <widget class="QPushButton" name="pB_roscore">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>roscore</string>
                      </property>
@@ -95,6 +92,12 @@
                    </item>
                    <item>
                     <widget class="QPushButton" name="pB_qtcam">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>qtcam</string>
                      </property>
@@ -102,6 +105,12 @@
                    </item>
                    <item>
                     <widget class="QPushButton" name="pB_killQtcam">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>kill qtcam</string>
                      </property>
@@ -109,6 +118,12 @@
                    </item>
                    <item>
                     <widget class="QPushButton" name="pB_qtcam_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>guvcview</string>
                      </property>
@@ -116,6 +131,12 @@
                    </item>
                    <item>
                     <widget class="QPushButton" name="pB_qtcam_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>kill guvcview</string>
                      </property>
@@ -123,6 +144,12 @@
                    </item>
                    <item>
                     <widget class="QPushButton" name="pB_killRos">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string>kill ros</string>
                      </property>
@@ -135,6 +162,12 @@
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>50</height>
+                      </size>
                      </property>
                      <property name="text">
                       <string>Quit</string>
@@ -328,7 +361,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="tab_6">
           <attribute name="title">
@@ -588,6 +621,12 @@
               </item>
               <item row="1" column="1">
                <widget class="QSlider" name="s0b_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -624,6 +663,12 @@
               </item>
               <item row="3" column="1">
                <widget class="QSlider" name="s1b_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -653,6 +698,12 @@
               </item>
               <item row="2" column="1">
                <widget class="QSlider" name="s1e_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -696,6 +747,12 @@
               </item>
               <item row="0" column="1">
                <widget class="QSlider" name="s0e_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -869,6 +926,12 @@
               </item>
               <item row="1" column="1">
                <widget class="QSlider" name="s2lb_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -905,6 +968,12 @@
               </item>
               <item row="2" column="1">
                <widget class="QSlider" name="s2re_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -948,6 +1017,12 @@
               </item>
               <item row="3" column="1">
                <widget class="QSlider" name="s2rb_slider">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -984,6 +1059,12 @@
               </item>
               <item row="0" column="2">
                <widget class="QSpinBox" name="s2le_spinBox">
+                <property name="wrapping">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::UpDownArrows</enum>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -994,11 +1075,32 @@
               </item>
               <item row="4" column="1">
                <widget class="QwtSlider" name="slider_trig">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="upperBound">
                  <double>20.000000000000000</double>
                 </property>
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="groove">
+                 <bool>false</bool>
+                </property>
+                <property name="handleSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -1007,7 +1109,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>200</width>
-                  <height>0</height>
+                  <height>50</height>
                  </size>
                 </property>
                 <property name="minimum">
@@ -1154,7 +1256,7 @@
               <item row="2" column="0">
                <widget class="QPushButton" name="pB_stereo_suite">
                 <property name="text">
-                 <string>stereo_suite</string>
+                 <string>stereo proc</string>
                 </property>
                </widget>
               </item>
@@ -1168,7 +1270,7 @@
               <item row="1" column="0">
                <widget class="QPushButton" name="pushButton_4">
                 <property name="text">
-                 <string>stereo_bare</string>
+                 <string>stereo drivers</string>
                 </property>
                </widget>
               </item>
@@ -1758,17 +1860,96 @@
       </layout>
      </widget>
     </item>
+    <item>
+     <widget class="QFrame" name="bottom">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pB_switch_baseAlpha">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Base Alpha</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pB_switch_stereoBare">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Stereo Drivers</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pB_switch_stereoProc">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Stereo Proc</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pB_switch_map">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Map</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pB_switch_nav">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Nav</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1916</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <action name="action_Quit">
    <property name="text">
@@ -1841,8 +2022,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>137</x>
-     <y>478</y>
+     <x>129</x>
+     <y>523</y>
     </hint>
     <hint type="destinationlabel">
      <x>469</x>
@@ -1857,12 +2038,12 @@
    <slot>setValue(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>240</x>
-     <y>834</y>
+     <x>232</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
-     <x>226</x>
-     <y>800</y>
+     <x>218</x>
+     <y>710</y>
     </hint>
    </hints>
   </connection>
@@ -1873,12 +2054,12 @@
    <slot>setValue(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>321</x>
-     <y>834</y>
+     <x>313</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
-     <x>307</x>
-     <y>800</y>
+     <x>299</x>
+     <y>710</y>
     </hint>
    </hints>
   </connection>
@@ -1889,12 +2070,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1883</x>
-     <y>450</y>
+     <x>1891</x>
+     <y>499</y>
     </hint>
     <hint type="destinationlabel">
-     <x>908</x>
-     <y>449</y>
+     <x>1378</x>
+     <y>510</y>
     </hint>
    </hints>
   </connection>
@@ -1905,12 +2086,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1883</x>
-     <y>484</y>
+     <x>1891</x>
+     <y>555</y>
     </hint>
     <hint type="destinationlabel">
-     <x>982</x>
-     <y>483</y>
+     <x>1452</x>
+     <y>566</y>
     </hint>
    </hints>
   </connection>
@@ -1921,12 +2102,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1883</x>
-     <y>518</y>
+     <x>1891</x>
+     <y>611</y>
     </hint>
     <hint type="destinationlabel">
-     <x>974</x>
-     <y>517</y>
+     <x>1444</x>
+     <y>622</y>
     </hint>
    </hints>
   </connection>
@@ -1937,12 +2118,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1883</x>
-     <y>552</y>
+     <x>1891</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
-     <x>976</x>
-     <y>551</y>
+     <x>1446</x>
+     <y>678</y>
     </hint>
    </hints>
   </connection>
@@ -1953,12 +2134,12 @@
    <slot>setValue(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1883</x>
-     <y>596</y>
+     <x>1891</x>
+     <y>723</y>
     </hint>
     <hint type="destinationlabel">
-     <x>961</x>
-     <y>606</y>
+     <x>1431</x>
+     <y>734</y>
     </hint>
    </hints>
   </connection>
@@ -1969,12 +2150,156 @@
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>721</x>
-     <y>368</y>
+     <x>805</x>
+     <y>416</y>
     </hint>
     <hint type="destinationlabel">
-     <x>801</x>
-     <y>284</y>
+     <x>852</x>
+     <y>342</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>slider_trig</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>s2_trig_spinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1680</x>
+     <y>719</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1855</x>
+     <y>709</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s2rb_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s2rb_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1427</x>
+     <y>646</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1857</x>
+     <y>652</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s2re_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s2re_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1720</x>
+     <y>606</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1824</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s2lb_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s2lb_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1669</x>
+     <y>544</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1821</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s2le_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s2le_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1710</x>
+     <y>496</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1855</x>
+     <y>493</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s1b_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s1b_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1703</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1859</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s1e_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s1e_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1538</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1867</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s0b_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s0b_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1694</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1827</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>s0e_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>s0e_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1711</x>
+     <y>64</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1842</x>
+     <y>74</y>
     </hint>
    </hints>
   </connection>

@@ -135,8 +135,6 @@ private Q_SLOTS:
 
     void on_pB_killRos_clicked();
 
-    void on_pB_color0_clicked();
-
     void on_pB_view_s1_right_clicked();
 
     void on_pB_view_s1_left_clicked();
@@ -208,6 +206,8 @@ private Q_SLOTS:
     void on_pb_useSimTime_clicked();
 
     void on_pB_kill_map_clicked();
+
+    void on_pB_switch_baseAlpha_clicked();
 
 private:
 	Ui::MainWindowDesign ui;
