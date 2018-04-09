@@ -442,7 +442,7 @@ void primo_dash::MainWindow::on_pB_stereo_suite_clicked()
 {
     // Launch roscore in the run window of tmux.
     QProcess process;
-    process.startDetached("tmux new-session -d -s \"stereo_suite\" \"roslaunch primo_stereo stereo_suite.launch\"" );
+    process.startDetached("tmux new-session -d -s \"stereo_proc\" \"roslaunch primo_stereo stereo_suite.launch\"" );
 }
 
 void primo_dash::MainWindow::on_pB_killCostmap_clicked()
@@ -579,7 +579,7 @@ void primo_dash::MainWindow::on_pB_kill_stereo_suite_clicked()
 {
     // Launch the process and dump its output to the log window
     QProcess process;
-    QString commandStr = "tmux send -t stereo_suite:0.0 C-c ENTER";
+    QString commandStr = "tmux send -t stereo_proc:0.0 C-c ENTER";
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
 }
@@ -944,7 +944,7 @@ void primo_dash::MainWindow::checkStatus(void)
 {
     // Here we look at all the sessions that are active and then set the status lights accordingly
     // sessions:
-    // base_alpha roscore stereo_bare stereo_suite color0 map nav costmap power
+    // base_alpha roscore stereo_bare stereo_proc color0 map nav costmap power
     QProcess process;
     QString commandStr = "tmux list-sessions";
     process.start(commandStr,QIODevice::ReadOnly);
@@ -953,5 +953,176 @@ void primo_dash::MainWindow::checkStatus(void)
     // qDebug() << output;
 
     // Now we have the list of running sessions, so we can set lights accordingly.
+    
+    // Setup the colors
+    QPalette palRed   = ui.pB_switch_baseAlpha->palette();
+    QPalette palGreen = ui.pB_switch_baseAlpha->palette();
+    palRed.setColor(QPalette::Button, QColor(Qt::red));
+    palGreen.setColor(QPalette::Button, QColor(Qt::green));
+
+    // pB_switch_ref
+    // pB_switch_code
+    // pB_switch_roscore
+    // pB_switch_baseAlpha
+    // pB_switch_stereoBare
+    // pB_switch_stereoProc
+    // pB_switch_map
+    // pB_switch_nav
+    // pB_switch_record
+
+    if(output.contains("roscore"))
+    {
+        ui.pB_switch_roscore->setAutoFillBackground(true);
+        ui.pB_switch_roscore->setPalette(palGreen);
+        ui.pB_switch_roscore->update();
+    } 
+    else
+    {
+        ui.pB_switch_roscore->setAutoFillBackground(true);
+        ui.pB_switch_roscore->setPalette(palRed);
+        ui.pB_switch_roscore->update();
+    }
+
+    if(output.contains("base_alpha"))
+    {
+        ui.pB_switch_baseAlpha->setAutoFillBackground(true);
+        ui.pB_switch_baseAlpha->setPalette(palGreen);
+        ui.pB_switch_baseAlpha->update();
+    } 
+    else
+    {
+        ui.pB_switch_baseAlpha->setAutoFillBackground(true);
+        ui.pB_switch_baseAlpha->setPalette(palRed);
+        ui.pB_switch_baseAlpha->update();
+    }
+
+    if(output.contains("stereo_bare"))
+    {
+        ui.pB_switch_stereoBare->setAutoFillBackground(true);
+        ui.pB_switch_stereoBare->setPalette(palGreen);
+        ui.pB_switch_stereoBare->update();
+    } 
+    else
+    {
+        ui.pB_switch_stereoBare->setAutoFillBackground(true);
+        ui.pB_switch_stereoBare->setPalette(palRed);
+        ui.pB_switch_stereoBare->update();
+    }
+    
+    if(output.contains("stereo_proc"))
+    {
+        ui.pB_switch_stereoProc->setAutoFillBackground(true);
+        ui.pB_switch_stereoProc->setPalette(palGreen);
+        ui.pB_switch_stereoProc->update();
+    } 
+    else
+    {
+        ui.pB_switch_stereoProc->setAutoFillBackground(true);
+        ui.pB_switch_stereoProc->setPalette(palRed);
+        ui.pB_switch_stereoProc->update();
+    }
+
+    if(output.contains("map"))
+    {
+        ui.pB_switch_map->setAutoFillBackground(true);
+        ui.pB_switch_map->setPalette(palGreen);
+        ui.pB_switch_map->update();
+    } 
+    else
+    {
+        ui.pB_switch_map->setAutoFillBackground(true);
+        ui.pB_switch_map->setPalette(palRed);
+        ui.pB_switch_map->update();
+    }
+
+    if(output.contains("nav"))
+    {
+        ui.pB_switch_nav->setAutoFillBackground(true);
+        ui.pB_switch_nav->setPalette(palGreen);
+        ui.pB_switch_nav->update();
+    } 
+    else
+    {
+        ui.pB_switch_nav->setAutoFillBackground(true);
+        ui.pB_switch_nav->setPalette(palRed);
+        ui.pB_switch_nav->update();
+    }
+
+    if(output.contains("record"))
+    {
+        ui.pB_switch_record->setAutoFillBackground(true);
+        ui.pB_switch_record->setPalette(palGreen);
+        ui.pB_switch_record->update();
+    }
+    else
+    {
+        ui.pB_switch_record->setAutoFillBackground(true);
+        ui.pB_switch_record->setPalette(palRed);
+        ui.pB_switch_record->update();
+    }
 }
 
+
+void primo_dash::MainWindow::on_pB_switch_ref_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t ref";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_code_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t code";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_roscore_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t roscore";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_stereoBare_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t stereo_bare";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_stereoProc_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t stereo_proc";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_map_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t map";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_nav_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t nav";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}
+
+void primo_dash::MainWindow::on_pB_switch_record_clicked()
+{
+    QProcess process;
+    QString commandStr = "tmux switch -t record";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+}

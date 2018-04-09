@@ -209,6 +209,22 @@ private Q_SLOTS:
 
     void on_pB_switch_baseAlpha_clicked();
 
+    void on_pB_switch_ref_clicked();
+
+    void on_pB_switch_code_clicked();
+
+    void on_pB_switch_roscore_clicked();
+
+    void on_pB_switch_stereoBare_clicked();
+
+    void on_pB_switch_stereoProc_clicked();
+
+    void on_pB_switch_map_clicked();
+
+    void on_pB_switch_nav_clicked();
+
+    void on_pB_switch_record_clicked();
+
 private:
 	Ui::MainWindowDesign ui;
     QNode qnode;
