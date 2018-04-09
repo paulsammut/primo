@@ -58,7 +58,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     QObject::connect(&qnode, SIGNAL(battUpdate(double, double)), this, SLOT(updateBattView(double, double)));
 
     // Timer
-    startTimer(100);
+    startTimer(250);
 
     curvBattV = new QwtPlotCurve("Battery voltage");
 
@@ -858,6 +858,8 @@ void primo_dash::MainWindow::on_pB_s2_expoRang_clicked()
 void primo_dash::MainWindow::timerEvent(QTimerEvent *event)
 {
     ui.label_time->setText(QTime::currentTime().toString("hh:mm:ss"));
+
+    checkStatus();
 }
 
 void primo_dash::MainWindow::on_pB_s2_expoRang_2_clicked()
@@ -912,14 +914,44 @@ void primo_dash::MainWindow::on_pB_kill_map_clicked()
 void primo_dash::MainWindow::on_pB_switch_baseAlpha_clicked()
 {
     QProcess process;
-    QString commandStr = "tmux send -t map:0.0 C-c ENTER";
+    QString commandStr = "tmux switch -t base_alpha";
     process.start(commandStr,QIODevice::ReadOnly);
     process.waitForFinished();
 
     // Get the output
-    QString output = process.readAllStandardOutput();
+    QString output = process.readAllStandardError();
+    // qDebug() << output;
 
     if(output.contains("can't find session"))
     {
+        QPalette pal = ui.pB_switch_baseAlpha->palette();
+        pal.setColor(QPalette::Button, QColor(Qt::red));
+        ui.pB_switch_baseAlpha->setAutoFillBackground(true);
+        ui.pB_switch_baseAlpha->setPalette(pal);
+        ui.pB_switch_baseAlpha->update();
+    } else
+    {
+        QPalette pal = ui.pB_switch_baseAlpha->palette();
+        pal.setColor(QPalette::Button, QColor(Qt::green));
+        ui.pB_switch_baseAlpha->setAutoFillBackground(true);
+        ui.pB_switch_baseAlpha->setPalette(pal);
+        ui.pB_switch_baseAlpha->update();
     }
+
 }
+
+void primo_dash::MainWindow::checkStatus(void)
+{
+    // Here we look at all the sessions that are active and then set the status lights accordingly
+    // sessions:
+    // base_alpha roscore stereo_bare stereo_suite color0 map nav costmap power
+    QProcess process;
+    QString commandStr = "tmux list-sessions";
+    process.start(commandStr,QIODevice::ReadOnly);
+    process.waitForFinished();
+    QString output = process.readAllStandardOutput();
+    // qDebug() << output;
+
+    // Now we have the list of running sessions, so we can set lights accordingly.
+}
+

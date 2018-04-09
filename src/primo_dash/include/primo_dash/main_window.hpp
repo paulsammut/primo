@@ -231,6 +231,11 @@ private:
       * @brief Timer for showing the time on the gui
       */
     void timerEvent(QTimerEvent *event);
+
+    /**
+      * @brief Checks the status of running sessions which is how i tell stuff is on/off
+      */
+    void checkStatus(void);
 };
 
 }  // namespace primo_dash
