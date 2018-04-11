@@ -14,7 +14,6 @@ newLink         = "color0_link"
 newHeight       = 480
 newWidth        = 864
 
-
 if __name__ == '__main__':
 
     # Make sure we have the right number of arguments
@@ -25,7 +24,6 @@ if __name__ == '__main__':
             print("Iterating through messages..")
             # Iterate through the messages
             for topic, msg, t in rosbag.Bag(sys.argv[1]).read_messages():
-
 
                 # camera_info
                 if topic == topicCamInfo:
