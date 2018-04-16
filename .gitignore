@@ -1,5 +1,7 @@
-src/primo_nav/lanes/shop.pgm
-src/primo_nav/lanes/shop.yaml
-src/primo_nav/lanes/shop2.pgm
-src/primo_nav/lanes/shop2.yaml
-*.tar.gz
+src/primo_base/CMakeLists.txt.user
+src/primo_dash/CMakeLists.txt.user
+src/primo_doc/.~lock.Figures.odg#
+src/primo_nav/lanes/autodrive.pgm
+src/primo_nav/lanes/autodrive.xcf
+src/primo_nav/lanes/autodrive.yaml
+src/primo_rtabmap/launch/params
