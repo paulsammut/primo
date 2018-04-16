@@ -1,3 +1,5 @@
-*.txt.user
+src/primo_nav/lanes/shop.pgm
+src/primo_nav/lanes/shop.yaml
+src/primo_nav/lanes/shop2.pgm
+src/primo_nav/lanes/shop2.yaml
 *.tar.gz
-autorun1.*
