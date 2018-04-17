@@ -12,13 +12,10 @@
     <xacro:m_chassis type="real"/>
     <xacro:m_wheel lr="left" reflect="1"/>
     <xacro:m_wheel lr="right" reflect="-1"/>
-
     
+    <!-- Sensor Suite -->
+
     <xacro:m_imu/>
-
-
-    <!-- Cameras -->
     <xacro:include filename="$(find primo_description)/urdf/cameras.xacro"/>
-
 
 </robot>
