@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--XML-->
 <launch>
-    <arg name="dev" default="/dev/input/js1"/>
+    <arg name="dev" default="/dev/input/js0"/>
 
     <!-- joy node that loads the driver that interfaces ROS to the joystick -->
     <node pkg="joy" type="joy_node" name="joy_node">

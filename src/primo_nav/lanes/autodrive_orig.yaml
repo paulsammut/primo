@@ -1,0 +1,8 @@
+image: /home/paul/primo_ws/src/primo_nav/lanes/autodrive_orig.pgm
+resolution: 0.050000
+origin: [-20.525000, -20.525000, 0.000000]
+negate: 0
+occupied_thresh: 0.80
+free_thresh: 0.20
+mode: scale
+
